@@ -5,6 +5,28 @@
           http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
     version="2.1">
     <persistence-unit name="spring_app_datasource">
+    <class>fr.isika.cda.entities.users.UserAccount</class>
+    <class>fr.isika.cda.entities.users.UserContact</class>
+    <class>fr.isika.cda.entities.users.UserProfile</class>
+    <class>fr.isika.cda.entities.common.Phone</class>
+    <class>fr.isika.cda.entities.common.Address</class>
+    <class>fr.isika.cda.entities.assoService.Activity</class>
+    <class>fr.isika.cda.entities.assoService.Comment</class>
+    <class>fr.isika.cda.entities.assoService.Event</class>
+    <class>fr.isika.cda.entities.assoService.Publication</class>
+    <class>fr.isika.cda.entities.assoService.StuffToRent</class>
+    <class>fr.isika.cda.entities.association.functionnality.AssociationFunctionnality</class>
+    <class>fr.isika.cda.entities.association.functionnality.AssociationSubscriberControl</class>
+    <class>fr.isika.cda.entities.association.functionnality.AssociationSubscriberPayment</class>
+    <class>fr.isika.cda.entities.association.functionnality.ConfigType</class>
+    <class>fr.isika.cda.entities.association.graphic.AssociationSpace</class>
+    <class>fr.isika.cda.entities.association.graphic.GraphicChart</class>
+    <class>fr.isika.cda.entities.association.graphic.TemplatePath</class>
+    <class>fr.isika.cda.entities.association.AlbumImage</class>
+    <class>fr.isika.cda.entities.association.Association</class>
+    <class>fr.isika.cda.entities.association.AssociationDepiction</class>
+    <class>fr.isika.cda.entities.association.AssociationIdentity</class>
+    <class>fr.isika.cda.entities.association.AssociationPlanning</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/spacea_db?serverTimezone=Europe/Paris" />
             <property name="javax.persistence.jdbc.user" value="root" />

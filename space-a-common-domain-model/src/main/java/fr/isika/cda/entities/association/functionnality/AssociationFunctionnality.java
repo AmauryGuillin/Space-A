@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Association_Fonctionnality")
-public class AssociationFonctionnality {
+public class AssociationFunctionnality {
 	
 	@Id
 	@GeneratedValue
