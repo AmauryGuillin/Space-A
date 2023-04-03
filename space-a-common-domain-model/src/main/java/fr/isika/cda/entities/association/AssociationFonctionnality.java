@@ -15,11 +15,11 @@ public class AssociationFonctionnality {
 	@GeneratedValue
 	private Long id;
 	
-	@OneToOne
-	private AssociationSubscriberControl associationSubscriberControl;
-	
-	@OneToOne
-	private AssociationSubscriberPayment associationSubscriberPayment;
+//	@OneToOne
+//	private AssociationSubscriberControl associationSubscriberControl;
+//	
+//	@OneToOne
+//	private AssociationSubscriberPayment associationSubscriberPayment;
 	
 	@OneToOne
 	private ConfigType configType;
