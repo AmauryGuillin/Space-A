@@ -3,6 +3,7 @@ package fr.isika.cda.entities.assoService;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -13,7 +14,7 @@ public class Comment {
 
 	
 		@Id
-		@GeneratedValue	
+		@GeneratedValue(strategy = GenerationType.IDENTITY)	
 		private long id;
 		
 		private String title;

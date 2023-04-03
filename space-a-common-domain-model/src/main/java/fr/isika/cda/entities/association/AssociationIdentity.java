@@ -3,6 +3,7 @@ package fr.isika.cda.entities.association;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -10,29 +11,34 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "association_identity")
 public class AssociationIdentity {
-	
+
 	@Id
-	@GeneratedValue 
-	private Long id; 
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
 	private String headOffice;
-	
-	private String rscNumber; 
-	
+
+	private String rscNumber;
+
 	private String kbisExtract;
-	
-	private String director; 
-	
+
+	private String director;
+
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationDepiction associationDepiction;
-	
+
 	public Long getId() {
 		return id;
 	}
 
-	
-	
-	
+	public AssociationDepiction getAssociationDepiction() {
+		return associationDepiction;
+	}
+
+	public void setAssociationDepiction(AssociationDepiction associationDepiction) {
+		this.associationDepiction = associationDepiction;
+	}
+
 	public String getHeadOffice() {
 		return headOffice;
 	}
@@ -64,10 +70,5 @@ public class AssociationIdentity {
 	public void setDirector(String director) {
 		this.director = director;
 	}
-
-	
-
-	
-	
 
 }

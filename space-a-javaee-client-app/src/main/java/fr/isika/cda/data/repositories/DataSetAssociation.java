@@ -32,45 +32,50 @@ public class DataSetAssociation {
 		
 		// Jeu de test
 		// 1 assoc : test
-		Association assoc = new Association();
-		assoc.setLegalName("Legal name");
-		assoc.setRegistrationNumber("72367826387");
-		
-		AssociationIdentity assocId = new AssociationIdentity();
-		assocId.setHeadOffice("M. HeadOffice");
-		assocId.setDirector("Ms. Director");
-		assocId.setRscNumber("2132");
 		
 		AssociationDepiction assocDepic = new AssociationDepiction();
 		assocDepic.setName("Foot Team");
 		assocDepic.setMainImage("url");
 		assocDepic.setLogo("url");
 		assocDepic.setDescription("the best assoc");
+		
+		AssociationIdentity assocId = new AssociationIdentity();
+		assocId.setHeadOffice("M. HeadOffice");
+		assocId.setDirector("Ms. Director");
+		assocId.setRscNumber("2132");
+		assocId.setAssociationDepiction(assocDepic);
+		
+		Association assoc = new Association();
+		assoc.setLegalName("Legal name");
+		assoc.setRegistrationNumber("72367826387");
+		assoc.setAssociationIdentity(assocId);
+		assoc.setAssociationDepiction(assocDepic);
+		
 		manager.persist(assoc);
-		manager.persist(assocId);
-		manager.persist(assocDepic);
 
 
 		// 2e assoc
-		Association assoc2 = new Association();
-		assoc2.setLegalName("Legal name");
-		assoc2.setRegistrationNumber("3773737826387");
-		
-		AssociationIdentity assoc2Id = new AssociationIdentity();
-		assoc2Id.setHeadOffice("M. Office");
-		assoc2Id.setDirector("Ms. Louise");
-		assoc2Id.setRscNumber("3322");
-		
 		AssociationDepiction assoc2Depic = new AssociationDepiction();
 		assoc2Depic.setName("Golf Team");
 		assoc2Depic.setMainImage("url");
 		assoc2Depic.setLogo("url");
 		assoc2Depic.setDescription("Ze best assoc");
 		
+		AssociationIdentity assoc2Id = new AssociationIdentity();
+		assoc2Id.setHeadOffice("M. Office");
+		assoc2Id.setDirector("Ms. Louise");
+		assoc2Id.setRscNumber("3322");
+		assoc2Id.setAssociationDepiction(assoc2Depic);
+		
+		Association assoc2 = new Association();
+		assoc2.setLegalName("Legal name");
+		assoc2.setRegistrationNumber("3773737826387");
+		assoc2.setAssociationIdentity(assoc2Id);
+		assoc2.setAssociationDepiction(assoc2Depic);
 
 		manager.persist(assoc2);
-		manager.persist(assoc2Id);
-		manager.persist(assoc2Depic);	
+		
+		
 		LOGGER.info("Fin du DataSetAssoc");
 		
 		
