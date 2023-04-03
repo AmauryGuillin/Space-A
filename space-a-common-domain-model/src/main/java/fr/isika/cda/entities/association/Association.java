@@ -1,6 +1,6 @@
 package fr.isika.cda.entities.association;
 
-import javax.persistence.CascadeType;
+import javax.persistence.CascadeType; 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +23,9 @@ public class Association {
 	
 	//A RACCORDER A STUFFTORENT
 	//A RACCORDER A ASSOCIAITON SUBSCRIBER
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private AssociationSpace associationSpace;
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationIdentity AssociationIdentity;
