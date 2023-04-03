@@ -1,4 +1,4 @@
-package fr.isika.cda.entities.association;
+package fr.isika.cda.entities.association.functionnality;
 
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;

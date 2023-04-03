@@ -1,11 +1,13 @@
 package fr.isika.cda.entities.association;
 
-import javax.persistence.CascadeType; 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
+import fr.isika.cda.entities.association.graphic.AssociationSpace;
 
 @Entity
 public class Association {
@@ -29,6 +31,9 @@ public class Association {
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationIdentity AssociationIdentity;
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private AssociationPlanning associationPlanning;
 	
 	public String getLegalName() {
 		return legalName;

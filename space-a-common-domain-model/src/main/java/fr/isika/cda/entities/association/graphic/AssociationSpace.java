@@ -1,8 +1,11 @@
-package fr.isika.cda.entities.association;
+package fr.isika.cda.entities.association.graphic;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,10 +16,11 @@ public class AssociationSpace {
 	@GeneratedValue
 	private Long id;
 	
+	@Enumerated(EnumType.STRING)
 	private Template template;
 	
-	
-	//private GraphicChart graphicChart;
+	@OneToOne
+	private GraphicChart graphicChart;
 
 	public Template getTemplate() {
 		return template;

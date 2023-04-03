@@ -1,6 +1,6 @@
-package fr.isika.cda.entities.association;
+package fr.isika.cda.entities.association.graphic;
 
-public enum Template {
+public enum Template implements templatePath{
 
 	CLASSIC("Template classique"), OLD("Skyblog 2002"), MODERN("Futurama");
 

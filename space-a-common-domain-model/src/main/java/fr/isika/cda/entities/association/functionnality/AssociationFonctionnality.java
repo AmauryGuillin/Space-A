@@ -1,5 +1,6 @@
-package fr.isika.cda.entities.association;
+package fr.isika.cda.entities.association.functionnality;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -15,13 +16,13 @@ public class AssociationFonctionnality {
 	@GeneratedValue
 	private Long id;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationSubscriberControl associationSubscriberControl;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationSubscriberPayment associationSubscriberPayment;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private ConfigType configType;
 	
 }

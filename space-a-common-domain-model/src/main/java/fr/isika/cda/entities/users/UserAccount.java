@@ -36,6 +36,9 @@ public class UserAccount implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private UserProfile userProfile;
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private AccountPlanning accountPlanning;
 
 	public Long getUserId() {
 		return userId;
