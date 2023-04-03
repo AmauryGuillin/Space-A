@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<title>::Users Management::</title>
+<style>
+hr {
+	border: none;
+	border-top: 3px double #333;
+	color: #333;
+	overflow: visible;
+	text-align: center;
+	height: 5px;
+}
+
+hr:after {
+	background: #fff;
+	content: '§';
+	padding: 0 4px;
+	position: relative;
+	top: -13px;
+}
+</style>
+</head>
+
+<body>
+	
+	<nav>
+		<ul>
+			<li><a th:href="@{/index}">Home</a></li>
+			<li><a th:href="@{/users}">Users Management</a></li>
+		</ul>
+	</nav>
+	
+		<h1>Users List</h1>
+		<hr/>
+		<table id="usersTab">
+			<caption>Users list</caption>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Username</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Action(s)</th>
+				</tr>
+			</thead>
+			<tr th:each="user : ${users}">
+				<td hidden="hidden"><span th:text=${user.id} ></span></td>
+				<td><span th:text=${user.username}></span></td>
+				<td><span th:text=${user.userProfile.firstName}></span></td>
+				<td><span th:text=${user.userProfile.lastName}></span></td>
+				<td><a th:href="@{/users/(id=${user.id})/delete}">Supprimer</a></td>
+			</tr>
+		</table>
+
+</body>
+</html>
