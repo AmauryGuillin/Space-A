@@ -15,7 +15,7 @@ public class Association {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	private Long id;
 	
 	private String legalName;
@@ -30,7 +30,11 @@ public class Association {
 	private AssociationSpace associationSpace;
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	private AssociationIdentity AssociationIdentity;
+	private AssociationIdentity associationIdentity;
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private AssociationDepiction associationDepiction;
+	
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationPlanning associationPlanning;
