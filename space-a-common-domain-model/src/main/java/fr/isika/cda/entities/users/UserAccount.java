@@ -1,6 +1,6 @@
 package fr.isika.cda.entities.users;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -36,6 +36,9 @@ public class UserAccount implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private UserProfile userProfile;
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private AccountPlanning accountPlanning;
 
 	public Long getUserId() {
 		return userId;
