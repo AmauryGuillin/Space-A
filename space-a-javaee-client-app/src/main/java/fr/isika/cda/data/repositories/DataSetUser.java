@@ -15,17 +15,17 @@ import fr.isika.cda.entities.users.UserRole;
 
 @Singleton
 @Startup
-public class DataSet {
+public class DataSetUser {
 
 	
-	private static final Logger LOGGER = Logger.getLogger(DataSet.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(DataSetUser.class.getName());
 	
 	@PersistenceContext
 	private EntityManager manager;
 
 	@PostConstruct
 	private void init() {
-		LOGGER.info("Début du DataSet");
+		LOGGER.info("Début du DataSetUser");
 		
 		// Jeu de test
 		// 1 user : test
@@ -42,11 +42,16 @@ public class DataSet {
 
 		acc.setUserProfile(userProfile);
 
+		// ajouter les cascades
 		manager.persist(contact);
 		manager.persist(userProfile);
 		manager.persist(acc);
 		
-		LOGGER.info("Fin du DataSet");
+		LOGGER.info("Fin du DataSetUser");
+		
+		
+		
+		
 	}
 
 }
