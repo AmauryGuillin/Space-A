@@ -46,14 +46,32 @@ public class DataSetAssociation {
 		assocDepic.setMainImage("url");
 		assocDepic.setLogo("url");
 		assocDepic.setDescription("the best assoc");
-		
-		
 		manager.persist(assoc);
 		manager.persist(assocId);
 		manager.persist(assocDepic);
 
+
+		// 2e assoc
+		Association assoc2 = new Association();
+		assoc2.setLegalName("Legal name");
+		assoc2.setRegistrationNumber("3773737826387");
 		
-		LOGGER.info("Fin du DataSet");
+		AssociationIdentity assoc2Id = new AssociationIdentity();
+		assoc2Id.setHeadOffice("M. Office");
+		assoc2Id.setDirector("Ms. Louise");
+		assoc2Id.setRscNumber("3322");
+		
+		AssociationDepiction assoc2Depic = new AssociationDepiction();
+		assoc2Depic.setName("Golf Team");
+		assoc2Depic.setMainImage("url");
+		assoc2Depic.setLogo("url");
+		assoc2Depic.setDescription("Ze best assoc");
+		
+
+		manager.persist(assoc2);
+		manager.persist(assoc2Id);
+		manager.persist(assoc2Depic);	
+		LOGGER.info("Fin du DataSetAssoc");
 		
 		
 		
