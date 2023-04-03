@@ -1,6 +1,6 @@
 package fr.isika.cda.entities.users;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

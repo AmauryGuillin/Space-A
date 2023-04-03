@@ -1,6 +1,7 @@
 package fr.isika.cda.entities.users;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -25,6 +26,7 @@ public class UserProfile implements Serializable {
 	private String firstName = "";
 	private String lastName = "";
 	private String avatar = "";
+	private Date birthday = new Date();
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private UserContact contact;
@@ -44,6 +46,12 @@ public class UserProfile implements Serializable {
 	public String avatar() {
 		return avatar;
 	}
+	
+	public Date birthday() {
+		return birthday;
+	}
+	
+	
 
 	public UserContact contact() {
 		return contact;
