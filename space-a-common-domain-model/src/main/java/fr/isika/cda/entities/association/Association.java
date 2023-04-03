@@ -15,7 +15,7 @@ public class Association {
 	
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String legalName;
@@ -54,8 +54,32 @@ public class Association {
 	public Long getId() {
 		return id;
 	}
+	public AssociationSpace getAssociationSpace() {
+		return associationSpace;
+	}
+	public void setAssociationSpace(AssociationSpace associationSpace) {
+		this.associationSpace = associationSpace;
+	}
+	public AssociationIdentity getAssociationIdentity() {
+		return associationIdentity;
+	}
+	public void setAssociationIdentity(AssociationIdentity associationIdentity) {
+		this.associationIdentity = associationIdentity;
+	}
+	public AssociationDepiction getAssociationDepiction() {
+		return associationDepiction;
+	}
+	public void setAssociationDepiction(AssociationDepiction associationDepiction) {
+		this.associationDepiction = associationDepiction;
+	}
+	public AssociationPlanning getAssociationPlanning() {
+		return associationPlanning;
+	}
+	public void setAssociationPlanning(AssociationPlanning associationPlanning) {
+		this.associationPlanning = associationPlanning;
+	}
 	
-
+	
 
 	
 	
