@@ -1,5 +1,7 @@
 package fr.isika.cda.data.repositories.association;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,6 +17,10 @@ public class AssociationRepository {
 	public Long createAsso(Association association) {
 		entityManager.persist(association);
 		return association.getId();
+	}
+	
+	public List<Association> findAll(){
+		return entityManager.createQuery("SELECT a FROM Association a").getResultList();
 	}
 
 	@Override
