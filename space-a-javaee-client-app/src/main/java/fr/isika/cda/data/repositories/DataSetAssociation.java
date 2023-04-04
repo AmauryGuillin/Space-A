@@ -49,7 +49,6 @@ public class DataSetAssociation {
 		assoc.setLegalName("Legal name");
 		assoc.setRegistrationNumber("72367826387");
 		assoc.setAssociationIdentity(assocId);
-		assoc.setAssociationDepiction(assocDepic);
 		
 		manager.persist(assoc);
 
@@ -71,7 +70,6 @@ public class DataSetAssociation {
 		assoc2.setLegalName("Legal name");
 		assoc2.setRegistrationNumber("3773737826387");
 		assoc2.setAssociationIdentity(assoc2Id);
-		assoc2.setAssociationDepiction(assoc2Depic);
 
 		manager.persist(assoc2);
 		

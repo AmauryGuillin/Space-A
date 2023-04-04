@@ -35,9 +35,6 @@ public class Association {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationIdentity associationIdentity;
 	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	private AssociationDepiction associationDepiction;
-	
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationPlanning associationPlanning;
@@ -69,12 +66,7 @@ public class Association {
 	public void setAssociationIdentity(AssociationIdentity associationIdentity) {
 		this.associationIdentity = associationIdentity;
 	}
-	public AssociationDepiction getAssociationDepiction() {
-		return associationDepiction;
-	}
-	public void setAssociationDepiction(AssociationDepiction associationDepiction) {
-		this.associationDepiction = associationDepiction;
-	}
+
 	public AssociationPlanning getAssociationPlanning() {
 		return associationPlanning;
 	}
