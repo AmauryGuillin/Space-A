@@ -1,13 +1,18 @@
 package fr.isika.cda.entities.association;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import fr.isika.cda.entities.association.graphic.AssociationSpace;
+import fr.isika.cda.entities.users.AssociationSubscriber;
 
 @Entity
 public class Association {
@@ -21,10 +26,8 @@ public class Association {
 	private String legalName;
 	private String registrationNumber;
 	
-//A RACCORDER A MANAGER !!!!!!! AMAURY
-	
-	//A RACCORDER A STUFFTORENT
-	//A RACCORDER A ASSOCIAITON SUBSCRIBER
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<AssociationSubscriber> listAssoSubscribers = new ArrayList<>();
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationSpace associationSpace;
@@ -78,6 +81,14 @@ public class Association {
 	public void setAssociationPlanning(AssociationPlanning associationPlanning) {
 		this.associationPlanning = associationPlanning;
 	}
+	public List<AssociationSubscriber> getListAssoSubscribers() {
+		return listAssoSubscribers;
+	}
+	public void setListAssoSubscribers(List<AssociationSubscriber> listAssoSubscribers) {
+		this.listAssoSubscribers = listAssoSubscribers;
+	}
+
+
 	
 	
 

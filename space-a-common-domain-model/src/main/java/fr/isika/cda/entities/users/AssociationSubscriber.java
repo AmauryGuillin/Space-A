@@ -1,11 +1,16 @@
 package fr.isika.cda.entities.users;
 
 import java.util.Date;
+import java.util.LinkedList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import fr.isika.cda.entities.association.Association;
 
 @Entity
 public class AssociationSubscriber {
@@ -19,9 +24,6 @@ public class AssociationSubscriber {
 	private Date dateOfMembership;
 	
 	private String justification;
-	
-	
-	
 
 	public boolean isMembershipStatus() {
 		return membershipStatus;
