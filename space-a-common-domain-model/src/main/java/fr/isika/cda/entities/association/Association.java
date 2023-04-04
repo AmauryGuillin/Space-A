@@ -35,7 +35,6 @@ public class Association {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationIdentity associationIdentity;
 	
-	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationPlanning associationPlanning;
 	
