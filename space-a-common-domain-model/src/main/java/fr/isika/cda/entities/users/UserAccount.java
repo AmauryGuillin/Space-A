@@ -40,9 +40,34 @@ public class UserAccount implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AccountPlanning accountPlanning;
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private Manager manager;
+	
+	
+	
+	
+	
+	
 
 	public Long getUserId() {
 		return userId;
+	}
+
+	public AccountPlanning getAccountPlanning() {
+		return accountPlanning;
+	}
+
+	public void setAccountPlanning(AccountPlanning accountPlanning) {
+		this.accountPlanning = accountPlanning;
+	}
+
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
 	}
 
 	public String getUsername() {
