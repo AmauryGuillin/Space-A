@@ -21,6 +21,14 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 				.getSingleResult();
 		return Optional.ofNullable(userAccount);
 	}
+	
+	public UserAccount findByOneId(Long id) {
+		UserAccount userAccount = entityManager
+				.createNamedQuery(UserAccount.Queries.FINDBY_USERID_NAMED_QUERY, UserAccount.class)
+				.setParameter(UserAccount.Queries.USERID_QUERY_PARAM, id)
+				.getSingleResult();
+		return userAccount;
+	}
 
 	@Override
 	public List<UserAccount> findAll() {
