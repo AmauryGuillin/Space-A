@@ -31,9 +31,9 @@
 	<section>
 
 		<h:form>
-			<h:inputText value="#{showUserController.userId}" />
+			<h:inputText value="#{showUserController.userName}" />
 			<h:commandButton value="Find User"
-				action="#{showUserController.getOneUser()}" />
+				action="#{showUserController.getOneUserByName()}" />
 			<h:outputText value="#{showUserController.userAccount.username}" />
 		</h:form>
 

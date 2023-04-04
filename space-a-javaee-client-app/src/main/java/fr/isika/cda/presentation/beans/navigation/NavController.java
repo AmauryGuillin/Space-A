@@ -23,6 +23,7 @@ public class NavController {
 	
 	public void oneUser() {
 		WebUiTools.redirectToView("/usersManagement/oneUser.xhtml");
+	}
 
 	public void index() {
 		WebUiTools.redirectToView("/index.xhtml");

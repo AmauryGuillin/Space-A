@@ -50,4 +50,11 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 		}
 	}
 
+	public UserAccount findByOneName(String userName) {
+		UserAccount userAccount = entityManager
+				.createNamedQuery(UserAccount.Queries.FINDBY_USERNAME_NAMED_QUERY, UserAccount.class)
+				.setParameter(UserAccount.Queries.USERNAME_QUERY_PARAM, userName)
+				.getSingleResult();
+		return userAccount;	}
+
 }

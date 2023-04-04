@@ -14,11 +14,17 @@ public class ShowUserController {
 	private UserAccountRepository userAccountRepo;
 
 	private Long userId;
+	private String userName;
 	private UserAccount userAccount;
 	
 	public void getOneUser() {
 		userAccount = userAccountRepo.findByOneId(userId);
 	}
+	
+	public void getOneUserByName() {
+		userAccount = userAccountRepo.findByOneName(userName);
+	}
+
 
 	public UserAccountRepository getUserAccountRepo() {
 		return userAccountRepo;
@@ -44,6 +50,14 @@ public class ShowUserController {
 		this.userId = userId;
 	}
 		
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	
 	
 	
