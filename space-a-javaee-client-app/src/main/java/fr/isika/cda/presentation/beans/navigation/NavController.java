@@ -22,5 +22,9 @@ public class NavController {
 	public void users() throws IOException {
 		WebUiTools.redirectToView("/usersManagement/users.xhtml");
 	}
+	
+	public void oneUser() {
+		WebUiTools.redirectToView("/usersManagement/oneUser.xhtml");
+	}
 
 }

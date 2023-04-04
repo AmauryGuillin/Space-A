@@ -31,11 +31,10 @@
 	<section>
 
 		<h:form>
-			<h:inputText value="#{}" />
+			<h:inputText value="#{showUserController.userId}" />
 			<h:commandButton value="Find User"
-				action="#{}" />
-			<h:outputText value="#{}" />
-			<h:outputText value="#{}" />
+				action="#{showUserController.getOneUser()}" />
+			<h:outputText value="#{showUserController.userAccount.username}" />
 		</h:form>
 
 

@@ -1,6 +1,7 @@
 package fr.isika.cda.presentation.beans.users;
 
-import javax.annotation.ManagedBean;
+
+import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
@@ -37,6 +38,10 @@ public class ShowUserController {
 
 	public Long getUserId() {
 		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 		
 	
