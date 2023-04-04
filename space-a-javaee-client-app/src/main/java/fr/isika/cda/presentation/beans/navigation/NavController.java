@@ -1,7 +1,5 @@
 package fr.isika.cda.presentation.beans.navigation;
 
-import java.io.IOException;
-
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
@@ -19,8 +17,12 @@ public class NavController {
 		WebUiTools.redirectToView("/assoManagement/listAllAsso.xhtml");
 	}
 
-	public void users() throws IOException {
+	public void users() {
 		WebUiTools.redirectToView("/usersManagement/users.xhtml");
+	}
+	
+	public void index() {
+		WebUiTools.redirectToView("/index.xhtml");
 	}
 
 }
