@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets" lang="en">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" lang="en">
 
 <h:head>
-    <title>Nom de l'application</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Space'A</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </h:head>
 
 <h:body>
-	
-    <div id="container">
-		    <p> ****** Le header de la page ****** </p>
-		    <nav>
-			<h:form>
-				<ul>
-					<li><h:link outcome="usersManagement/users.xhtml"
-							value="Users Management" /></li>
-					<li><h:link outcome="assoManagement/assoForm.xhtml"
-							value="Créer une association" /></li>
-					<li><h:link outcome="assoManagement/listAllAsso.xhtml"
-							value="Liste des Associations" /></li>
-				</ul>
-			</h:form>
-		</nav>
-        <div id="header">
-           	
-        </div>
-    
-        <div id="content">
-            <ui:insert name="content">
+
+	<div id="container">
+
+		<div id="header">
+			<nav>
+				<h:form id="navForm">
+					<span>
+						<h:commandLink 
+							action="#{navController.users()}"
+							value="Users Management" />
+					</span>
+					<span>
+						<h:commandLink 
+							action="#{navController.assoForm()}"
+							value="Créer une association" />
+					</span>		
+					<span>
+						<h:commandLink 
+							action="#{navController.listAllAsso()}"
+							value="Liste des Associations" />
+					</span>
+				</h:form>
+			</nav>
+		</div>
+
+		<div id="content">
+			<ui:insert name="content">
                 [ici le futur contenu de nos pages]
          	</ui:insert>
-        </div>
-    
-        <div id="footer">
-        	<div>
-	            <p> ****** Le footer de la page ici ****** </p>
-	        </div>
-        </div>
-    </div>
+		</div>
+
+		<div id="footer">
+			<div>
+				<p>Space'A© - Space'A l'espace des associations - 2023 tout
+					droits réservés</p>
+			</div>
+		</div>
+	</div>
 </h:body>
 </html>
