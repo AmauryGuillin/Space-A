@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" lang="en">
+
+<h:head>
+    <title>Nom de l'application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</h:head>
+
+<h:body>
+	
+    <div id="container">
+		    <p> ****** Le header de la page ****** </p>
+		    <nav>
+			<h:form>
+				<ul>
+					<li><h:link outcome="usersManagement/users.xhtml"
+							value="Users Management" /></li>
+					<li><h:link outcome="assoManagement/assoForm.xhtml"
+							value="Créer une association" /></li>
+					<li><h:link outcome="assoManagement/listAllAsso.xhtml"
+							value="Liste des Associations" /></li>
+				</ul>
+			</h:form>
+		</nav>
+        <div id="header">
+           	
+        </div>
+    
+        <div id="content">
+            <ui:insert name="content">
+                [ici le futur contenu de nos pages]
+         	</ui:insert>
+        </div>
+    
+        <div id="footer">
+        	<div>
+	            <p> ****** Le footer de la page ici ****** </p>
+	        </div>
+        </div>
+    </div>
+</h:body>
+</html>

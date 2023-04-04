@@ -1,25 +1,21 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html" lang="en">
+	xmlns:h="http://java.sun.com/jsf/html" lang="en"
+	template="/WEB-INF/template/template.xhtml">
 
-<h:head>
-	<title>::Index::</title>
-</h:head>
-<body>
-	<nav>
-		<h:form>
-			<ul>
-				<li><h:link outcome="usersManagement/users.xhtml"
-						value="Users Management" /></li>
-				<li><h:link outcome="assoManagement/assoForm.xhtml"
-						value="Créer une association" /></li>
-			<li><h:link outcome="assoManagement/listAllAsso.xhtml"
-						value="Liste des Associations" /></li>
-			</ul>
-		</h:form>
-	</nav>
+	<h:head>
+		<title>::Index::</title>
+	</h:head>
+	
+	<ui:define name="content">
+	
+	<body>
+		
+		<H1>ICI LA PAGE INDEX</H1>
 
-</body>
-</html>
+	</body>
+	
+	</ui:define>
+	
+</ui:composition>
