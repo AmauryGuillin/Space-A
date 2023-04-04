@@ -30,19 +30,13 @@
 
 	<section>
 
-		<h:dataTable value="#{showAssociationController.allAssociations}"
-			var="asso">
-			<h:column>
-				<f:facet name="header">Nom legal</f:facet>
-			#{asso.legalName}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Directeur</f:facet>
-			#{asso.associationIdentity.director}
-			</h:column>
-
-
-		</h:dataTable>
+		<h:form>
+			<h:inputText value="#{showAssociationController.assoId}" />
+			<h:commandButton value="Find Asso"
+				action="#{showAssociationController.getOneAssociation()}" />
+			<h:outputText value="#{showAssociationController.asso.legalName}" />
+			<h:outputText value="#{showAssociationController.asso.associationIdentity.director}" />
+		</h:form>
 
 
 

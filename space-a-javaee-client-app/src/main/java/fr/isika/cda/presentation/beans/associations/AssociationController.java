@@ -45,6 +45,8 @@ public class AssociationController {
 		
 		return asso;
 	}
+	
+
 
 	public AssociationViewModel getAssoVM() {
 		return assoVM;
