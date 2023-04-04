@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:head>
+	<title>::AssoForm::</title>
+	<style>
+.ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell
+	{
+	text-align: center;
+}
+
+.customPanelGrid .ui-panelgrid-content {
+	align-items: center;
+}
+</style>
+</h:head>
+<body>
+	<nav>
+		<h:form id="usersManagementMenuForm">
+			<ul>
+				<li><h:link outcome="/index.xhtml" value="Home" /></li>
+			</ul>
+		</h:form>
+	</nav>
+
+	<section>
+
+		<h:form>
+			<h:inputText value="#{showAssociationController.assoId}" />
+			<h:commandButton value="Find Asso"
+				action="#{showAssociationController.getOneAssociation()}" />
+			<h:outputText value="#{showAssociationController.asso.legalName}" />
+			<h:outputText value="#{showAssociationController.asso.associationIdentity.director}" />
+		</h:form>
+
+
+
+	</section>
+
+</body>
+</html>
