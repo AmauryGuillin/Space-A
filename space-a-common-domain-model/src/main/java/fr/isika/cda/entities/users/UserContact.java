@@ -4,12 +4,14 @@ import java.io.Serializable;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import fr.isika.cda.entities.common.Address;
@@ -43,6 +45,8 @@ public class UserContact implements Serializable {
 		@AttributeOverride(name = "state", column = @Column(name = "uc_address_state")),
 		@AttributeOverride(name = "country", column = @Column(name = "uc_address_country"))
 	})
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Address address;
 	
 	@Embedded
@@ -50,6 +54,8 @@ public class UserContact implements Serializable {
 		@AttributeOverride(name = "countryCode", column = @Column(name = "uc_phone_countryCode")),
 		@AttributeOverride(name = "phoneNumber", column = @Column(name = "uc_phone_phoneNumber")),
 	})
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Phone phone;
 	
 	public Long getId() {
