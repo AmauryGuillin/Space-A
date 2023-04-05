@@ -27,7 +27,14 @@ public class NavController {
 
 	public void index() {
 		WebUiTools.redirectToView("/index.xhtml");
-
+	}
+	
+	public void registrationUser() {
+		WebUiTools.redirectToView("/usersManagement/registrationUser.xhtml");
+	}
+	
+	public void userProfile() {
+		WebUiTools.redirectToView("/usersManagement/userProfile.xhtml");
 	}
 	
 	public void modifProfile() {

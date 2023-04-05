@@ -16,36 +16,22 @@
 		<div id="header">
 			<nav>
 				<h:form id="navForm">
-					<span>
-						<h:commandLink 
-							action="#{navController.index()}"
-							value="Accueil / " />
-					</span>
-					<span>
-						<h:commandLink 
-							action="#{navController.users()}"
-							value="Users Management / " />
-					</span>
-					<span>
-						<h:commandLink 
-							action="#{navController.assoForm()}"
-							value="Créer une association / " />
-					</span>		
-					<span>
-						<h:commandLink 
-							action="#{navController.listAllAsso()}"
-							value="Liste des Associations / " />
-					</span>
-					<span>
-						<h:commandLink 
-							action="#{navController.oneUser()}"
-							value="Info d'un user / " />
-					</span>
-					<span>
-						<h:commandLink 
-							action="#{navController.modifProfile()}"
-							value="Modif Profile " />
-					</span>
+					<ul>
+						<li><h:commandLink action="#{navController.index()}"
+								value="Accueil" /></li>
+						<li><h:commandLink action="#{navController.assoForm()}"
+								value="Créer une association" /></li>
+						<li><h:commandLink action="#{navController.users()}"
+								value="Users Management" /></li>
+						<li><h:commandLink action="#{navController.listAllAsso()}"
+								value="Liste des Associations" /></li>
+						<li><h:commandLink action="#{navController.oneUser()}"
+								value="Info d'un user" /></li>
+						<li><h:commandLink action="#{navController.registrationUser()}"
+								value="S'inscrire" /></li>
+						<li><h:commandLink action="#{navController.userProfile()}"
+								value="Profile" /></li>
+					</ul>
 				</h:form>
 			</nav>
 			<HR />
