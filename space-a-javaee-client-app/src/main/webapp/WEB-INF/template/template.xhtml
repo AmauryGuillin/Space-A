@@ -1,15 +1,31 @@
-<!DOCTYPE html>
+<!DOCTYPE html [
+<!ENTITY nbsp "&#160;">  
+<!ENTITY copy "&#169;"> 
+<!ENTITY bull "&#8226;"> ]>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets" lang="en">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	lang="en">
 
 <h:head>
 	<title>Space'A</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<h:outputStylesheet library="css" name="style.css"/>
+	
+	<!-- html template style css -->
+	<h:outputStylesheet library="css" name="style.css" />
+	
+	<!-- bootstrap core css -->
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	
+	<!-- font awesome style -->
+	<h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/all.min-jsf.css" />
+	<h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+	
 </h:head>
 
 <h:body>
@@ -49,10 +65,19 @@
 		<div id="footer">
 			<div>
 			<HR />
-				<p>Space'A© - Space'A l'espace des associations - 2023 tout
+				<p>Space'A - &copy; <span id="displayYear"></span> - Space'A l'espace des associations - 2023 tout
 					droits réservés</p>
 			</div>
 		</div>
 	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" />
+		
+	<!-- common scripts for templates -->
+	<h:outputScript library="js" name="jquery-3.4.1.min.js" />
+	<h:outputScript library="js" name="bootstrap.js" />
+	<h:outputScript library="js" name="copyright_year.js" />
+	
 </h:body>
 </html>
