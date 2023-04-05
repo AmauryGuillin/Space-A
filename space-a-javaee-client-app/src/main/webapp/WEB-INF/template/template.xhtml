@@ -17,7 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	
 	<!-- html template style css -->
-	<h:outputStylesheet library="css" name="style.css" />
+	
 	
 	<!-- bootstrap core css -->
 	<h:outputStylesheet library="css" name="bootstrap.css" />
@@ -36,25 +36,25 @@
 			<nav>
 				<h:form id="navForm">
 					<ul>
-					<ui:fragment rendered="#{userLoginController.userLoggedIn}">
-						<li><h:commandLink action="#{navController.index()}"
-								value="Accueil" /></li>
-						<li><h:commandLink action="#{navController.assoForm()}"
-								value="Créer une association" /></li>
-						<li><h:commandLink action="#{navController.users()}"
-								value="Users Management" /></li>
-						<li><h:commandLink action="#{navController.listAllAsso()}"
-								value="Liste des Associations" /></li>
-						<li><h:commandLink action="#{navController.oneUser()}"
-								value="Info d'un user" /></li>
-						<li><h:commandLink
-								action="#{navController.registrationUser()}" value="S'inscrire" /></li>
-						<li><h:commandLink action="#{navController.userProfile()}"
-								value="Profile" /></li>
-			</ui:fragment>
-
-						<li><h:commandLink action="#{navController.login()}"
-								value="Login" /></li>
+						<ui:fragment rendered="#{userLoginController.userLoggedIn}">
+							<li><h:commandLink action="#{userLoginController.Logout()}" value="Se déconnecter" /> </li>
+							<li><h:commandLink action="#{navController.index()}"
+									value="Accueil" /></li>
+							<li><h:commandLink action="#{navController.assoForm()}"
+									value="Créer une association" /></li>
+							<li><h:commandLink action="#{navController.users()}"
+									value="Users Management" /></li>
+							<li><h:commandLink action="#{navController.listAllAsso()}"
+									value="Liste des Associations" /></li>
+							<li><h:commandLink action="#{navController.oneUser()}"
+									value="Info d'un user" /></li>
+							<li><h:commandLink action="#{navController.userProfile()}"
+									value="Profile" /></li>
+						</ui:fragment>
+							<li><h:commandLink
+									action="#{navController.registrationUser()}" value="S'inscrire" /></li>
+							<li><h:commandLink action="#{navController.login()}"
+									value="Se connecter" /></li>
 					</ul>
 				</h:form>
 			</nav>
