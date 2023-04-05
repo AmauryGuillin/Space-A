@@ -1,9 +1,10 @@
 package fr.isika.cda.entities.association;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,8 +24,11 @@ public class Association {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(length = 50, nullable = false, unique = true)
 	private String legalName;
-	private String registrationNumber;
+	
+	@Column(name="registration_number_siret", nullable = false, length = 14, unique = true)
+	private int registrationNumber;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	private List<AssociationSubscriber> listAssoSubscribers = new ArrayList<>();
@@ -44,10 +48,10 @@ public class Association {
 	public void setLegalName(String legalName) {
 		this.legalName = legalName;
 	}
-	public String getRegistrationNumber() {
+	public int getRegistrationNumber() {
 		return registrationNumber;
 	}
-	public void setRegistrationNumber(String registrationNumber) {
+	public void setRegistrationNumber(int registrationNumber) {
 		this.registrationNumber = registrationNumber;
 	}
 	public Long getId() {
