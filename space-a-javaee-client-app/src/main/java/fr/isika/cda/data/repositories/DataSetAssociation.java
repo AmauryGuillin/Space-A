@@ -11,6 +11,7 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationDepiction;
 import fr.isika.cda.entities.association.AssociationIdentity;
+import fr.isika.cda.entities.common.Address;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserContact;
 import fr.isika.cda.entities.users.UserProfile;
@@ -46,8 +47,8 @@ public class DataSetAssociation {
 		assocId.setAssociationDepiction(assocDepic);
 		
 		Association assoc = new Association();
-		assoc.setLegalName("Legal name");
-		assoc.setRegistrationNumber("72367826387");
+		assoc.setLegalName("Legal name1");
+		assoc.setRegistrationNumber(72367826);
 		assoc.setAssociationIdentity(assocId);
 		
 		manager.persist(assoc);
@@ -67,8 +68,8 @@ public class DataSetAssociation {
 		assoc2Id.setAssociationDepiction(assoc2Depic);
 		
 		Association assoc2 = new Association();
-		assoc2.setLegalName("Legal name");
-		assoc2.setRegistrationNumber("3773737826387");
+		assoc2.setLegalName("Legal name2");
+		assoc2.setRegistrationNumber(3773737);
 		assoc2.setAssociationIdentity(assoc2Id);
 
 		manager.persist(assoc2);

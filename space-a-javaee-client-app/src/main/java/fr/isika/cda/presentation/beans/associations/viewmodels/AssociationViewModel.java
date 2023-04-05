@@ -2,6 +2,8 @@ package fr.isika.cda.presentation.beans.associations.viewmodels;
 
 import java.io.Serializable;
 
+import fr.isika.cda.entities.common.Address;
+
 public class AssociationViewModel implements Serializable {
 
 	/**
@@ -14,7 +16,7 @@ public class AssociationViewModel implements Serializable {
 	 */
 //Association	
 	private String legalName;
-	private String registrationNumber;
+	private int registrationNumber;
 	
 //Depiction
 	private String name;
@@ -36,12 +38,7 @@ public class AssociationViewModel implements Serializable {
 	public void setLegalName(String legalName) {
 		this.legalName = legalName;
 	}
-	public String getRegistrationNumber() {
-		return registrationNumber;
-	}
-	public void setRegistrationNumber(String registrationNumber) {
-		this.registrationNumber = registrationNumber;
-	}
+	
 	public String getName() {
 		return name;
 	}
@@ -66,6 +63,14 @@ public class AssociationViewModel implements Serializable {
 	public void setMainImage(String mainImage) {
 		this.mainImage = mainImage;
 	}
+
+	public int getRegistrationNumber() {
+		return registrationNumber;
+	}
+	public void setRegistrationNumber(int registrationNumber) {
+		this.registrationNumber = registrationNumber;
+	}
+	
 	public String getHeadOffice() {
 		return headOffice;
 	}
