@@ -21,7 +21,7 @@ public class AssociationController {
 		Association asso = createAssoFromVM();
 		assoRepo.createAsso(asso);
 		assoVM = new AssociationViewModel(); //Reset VM
-		return "/index.xhtml?faces-redirect=true"; //TODO Demander à Mo car fullcon
+		return "/index.xhtml?faces-redirect=true";
 	}
 
 	private Association createAssoFromVM() {

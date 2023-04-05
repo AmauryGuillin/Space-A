@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<body>
+			<section>
+				<h:form>
+				<div>
+					<h:outputLabel value="Nom d'utilisateur* : " />
+					<h:inputText/>
+				</div>
+				<div>
+					<h:outputLabel value="Mot de passe* : " />
+					<h:inputSecret/>
+				</div>
+				<div>
+					<h:outputLabel value="Confirmation du mot de passe* : " />
+					<h:inputSecret/>
+				</div>
+				<div>
+					<h:outputLabel value="Adresse email* : " />
+					<h:inputText/>
+				</div>
+				<div>
+					<h:commandButton value="modifier" />
+				</div>
+			</h:form>
+	
+			</section>
+		</body>
+		</ui:define>
+</ui:composition>
+
+
