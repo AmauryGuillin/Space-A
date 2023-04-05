@@ -7,59 +7,40 @@
 
 <ui:composition template="/WEB-INF/template/template.xhtml">
 
-	<h:head>
-		<meta charset="UTF-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>contact</title>
-<!-- 		<link rel="stylesheet" -->
-<!-- 			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/> -->
-<!-- 		<link rel="stylesheet" -->
-<!-- 			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" /> -->
-			
-		<h:outputStylesheet library="css" name="style.css"/>
-	</h:head>
 	<ui:define name="content">
-	<body>
-		
-		<h:graphicImage library="images" name="background.png"/>
-		<div class="container">
-			<div class="row">
-				<h1 align="center">CONTACT</h1>
-				<div class="col-md-6">
-					<h:graphicImage library="images" name="A.png" alt="Photo" />
-				</div>
-				<div class="col-md-6">
+		<body>
 
-					<h:form id="contactForm">
-						<h1 align="center">Contactez-nous</h1>
-						<div class="form-group">
-							<h:outputLabel for="name" value="Name :"/> 
-							<h:inputText 
-								class="form-control" id="name" a:placeholder="Entrez votre nom" />
-						</div>
-						<div class="form-group">
-							<label for="email">Email :</label> 
-							<h:inputText
-								class="form-control" id="email" a:placeholder="Entrez votre email" />
-						</div>
-						<div class="form-group">
-							<label for="message">Message :</label>
-							<h:inputTextarea class="form-control" id="message" rows="5"></h:inputTextarea>
-						</div>
-						<h:commandButton class="btn btn-primary" value="Envoyer"/>
-					</h:form>
+			<h:graphicImage library="images" name="background.png" />
+			<div class="container">
+				<div class="row">
+					<h1 align="center">CONTACT</h1>
+					<div class="col-md-6">
+						<h:graphicImage library="images" name="A.png" alt="Photo" />
+					</div>
+					<div class="col-md-6">
+
+						<h:form id="contactForm">
+							<h1 align="center">Contactez-nous</h1>
+							<div class="form-group">
+								<h:outputLabel for="name" value="Name :" />
+								<h:inputText class="form-control" id="name"
+									a:placeholder="Entrez votre nom" />
+							</div>
+							<div class="form-group">
+								<label for="email">Email :</label>
+								<h:inputText class="form-control" id="email"
+									a:placeholder="Entrez votre email" />
+							</div>
+							<div class="form-group">
+								<label for="message">Message :</label>
+								<h:inputTextarea class="form-control" id="message" rows="5"></h:inputTextarea>
+							</div>
+							<h:commandButton class="btn btn-primary" value="Envoyer" />
+						</h:form>
+					</div>
 				</div>
 			</div>
-		</div>
-		<footer>
-			<p>A PROPOS</p>
-		</footer>
-<!-- 		<script -->
-<!-- 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<!-- 		<script -->
-<!-- 			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-	</body>
+		</body>
 	</ui:define>
 </ui:composition>
 </html>
