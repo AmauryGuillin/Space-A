@@ -25,6 +25,9 @@ public class ShowUserController {
 		userAccount = userAccountRepo.findByOneName(userName);
 	}
 
+	public void modifProfile() {
+		userAccount = userAccountRepo.createUserAccount(userAccount);
+	}
 
 	public UserAccountRepository getUserAccountRepo() {
 		return userAccountRepo;

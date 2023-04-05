@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.LinkedList;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class AssociationSubscriber {
 	
 	private boolean membershipStatus;
 	
+	@Column(nullable = false)
 	private Date dateOfMembership;
 	
 	private String justification;
