@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+
+	<ui:define name="content">
+
+		<body>
+
+			<H1>ON EST LOGIN</H1>
+			<h:form id="loginForm">
+
+				<div>
+					<h:outputLabel value="username" />
+					<h:inputText
+						value="#{userLoginController.userLoginViewModel.username}" />
+				</div>
+				
+				<div>
+					<h:outputLabel value="password" />
+					<h:inputSecret
+						value="#{userLoginController.userLoginViewModel.password}" />
+				</div>
+				
+				<div>
+				<h:commandButton action="#{userLoginController.login()}" value="Login" />
+				</div>
+
+
+			</h:form>
+
+		</body>
+
+	</ui:define>
+
+</ui:composition>

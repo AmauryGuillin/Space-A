@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import javax.ejb.Stateless;
 import javax.persistence.NoResultException;
+import javax.persistence.TypedQuery;
 
 import fr.isika.cda.business.exceptions.users.UserNotFoundException;
 import fr.isika.cda.data.repositories.GenericRepository;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda.entities.users.UserContact;
 import fr.isika.cda.entities.users.UserRole;
 
 @Stateless
@@ -59,6 +61,7 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 				.getSingleResult();
 		return userAccount;	
 		}
+	
 
 	//Up User to Admin in BDD
 	public void upToAdmin(UserAccount user) {
@@ -70,4 +73,6 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 		entityManager.persist(userAccount);
 		return userAccount;
 	}
+
+
 }
