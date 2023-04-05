@@ -14,6 +14,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import fr.isika.cda.entities.association.Association;
+
 @Entity
 @Table(name = "user_account")
 @NamedQuery(name = UserAccount.Queries.FINDALL_NAMED_QUERY, query = "FROM UserAccount acc")
@@ -46,7 +48,7 @@ public class UserAccount implements Serializable {
 	private AccountPlanning accountPlanning;
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	private Manager manager;
+	private Association association;
 	
 	
 	
@@ -66,12 +68,12 @@ public class UserAccount implements Serializable {
 		this.accountPlanning = accountPlanning;
 	}
 
-	public Manager getManager() {
-		return manager;
+	public Association getAssociation() {
+		return association;
 	}
 
-	public void setManager(Manager manager) {
-		this.manager = manager;
+	public void setAssociation(Association association) {
+		this.association = association;
 	}
 
 	public String getUsername() {

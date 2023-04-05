@@ -4,27 +4,54 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
+import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationDepiction;
 import fr.isika.cda.entities.association.AssociationIdentity;
+import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.associations.viewmodels.AssociationViewModel;
+import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 
 @ManagedBean
 public class AssociationController {
 
 	private AssociationViewModel assoVM = new AssociationViewModel();
 	
+	private UserViewModel userVM = new UserViewModel();
+	
 	@Inject
 	private AssociationRepository assoRepo;
 	
+	@Inject 
+	private UserAccountRepository userRepo;
+	
 	public String CreateAsso() {
+		
+		//Up User to Admin
+		UserAccount user = upUserToAdmin();
+		userRepo.upToAdmin(user);
+		
+		//Creation Asso
 		Association asso = createAssoFromVM();
 		assoRepo.createAsso(asso);
 		assoVM = new AssociationViewModel(); //Reset VM
-		return "/index.xhtml?faces-redirect=true";
+		return "/index.xhtml?faces-redirect=true"; //TODO 00 Demander à Mo car fullcon
+	}
+
+	private UserAccount upUserToAdmin() {
+		// TODO ABI faire la méthode upUser dans controller asso
+		//Recupérer l'id dans les cookies pour modifier l'user en question
+		
+		return null;
+
 	}
 
 	private Association createAssoFromVM() {
+		
+		//Creation Manager
+		
+		
+		//Creation Asso
 		AssociationDepiction assoD = new AssociationDepiction();
 		assoD.setDescription(assoVM.getDescription());
 		assoD.setLogo(assoVM.getLogo());
@@ -42,6 +69,7 @@ public class AssociationController {
 		asso.setRegistrationNumber(assoVM.getRegistrationNumber());
 		asso.setLegalName(assoVM.getLegalName());
 		asso.setAssociationIdentity(assoI);
+		
 		
 		return asso;
 	}
