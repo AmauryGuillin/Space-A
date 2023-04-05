@@ -19,8 +19,7 @@ public class AssociationIdentity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	private Address headOffice;
+	private String headOffice;
 
 	@Column(name="rcs_number", length = 18, unique = true, nullable = true)
 	private String rscNumber;//String car ex : "RCS Lyon 123456789"
@@ -28,7 +27,7 @@ public class AssociationIdentity {
 	@Column(name="kbis_extract")
 	private String kbisExtract;
 
-	@Column(length = 18, nullable = true)
+	@Column(length = 50, nullable = true)
 	private String director;
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -46,11 +45,11 @@ public class AssociationIdentity {
 		this.associationDepiction = associationDepiction;
 	}
 
-	public Address getHeadOffice() {
+	public String getHeadOffice() {
 		return headOffice;
 	}
 
-	public void setHeadOffice(Address headOffice) {
+	public void setHeadOffice(String headOffice) {
 		this.headOffice = headOffice;
 	}
 

@@ -46,7 +46,7 @@ public class UserContact implements Serializable {
 		@AttributeOverride(name = "country", column = @Column(name = "uc_address_country"))
 	})
 	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	//@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true) //TODO demander POURQUOI
 	private Address address;
 	
 	@Embedded
@@ -55,7 +55,7 @@ public class UserContact implements Serializable {
 		@AttributeOverride(name = "phoneNumber", column = @Column(name = "uc_phone_phoneNumber")),
 	})
 	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	//@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Phone phone;
 	
 	public Long getId() {
