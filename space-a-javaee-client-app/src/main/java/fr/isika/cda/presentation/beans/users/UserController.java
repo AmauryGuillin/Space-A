@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
+import fr.isika.cda.entities.users.UserProfile;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 
 @ManagedBean
@@ -15,6 +16,10 @@ public class UserController {
 	private UserAccountRepository userAccountRepo;
 
 	
+	public UserProfile modifProfile() {
+		return null;
+		
+	}
 	
 	public UserViewModel getUserVM() {
 		return userVM;
