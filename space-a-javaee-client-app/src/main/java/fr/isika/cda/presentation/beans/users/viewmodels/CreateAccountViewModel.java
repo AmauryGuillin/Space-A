@@ -1,4 +1,4 @@
-package fr.isika.cda.presentation.beans.associations.viewmodels;
+package fr.isika.cda.presentation.beans.users.viewmodels;
 
 public class CreateAccountViewModel {
 	

@@ -4,9 +4,12 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import fr.isika.cda.data.repositories.users.AccountRepository;
+import fr.isika.cda.entities.common.Address;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserContact;
-import fr.isika.cda.presentation.beans.associations.viewmodels.CreateAccountViewModel;
+import fr.isika.cda.entities.users.UserProfile;
+import fr.isika.cda.entities.users.UserRole;
+import fr.isika.cda.presentation.beans.users.viewmodels.CreateAccountViewModel;
 
 @ManagedBean
 public class CreateAccountController {
@@ -24,23 +27,25 @@ public class CreateAccountController {
 	}
 
 	private UserAccount createAccountFromViewModel() {
-		
-		if (createAccountViewModel.getPassword().equals(createAccountViewModel.getPasswordControl())) {
-			
-			UserContact userContact = new UserContact();
-			userContact.setPrimaryEmail(createAccountViewModel.getPrimaryEmail());
-			
-			UserAccount userAccount = new UserAccount();
-			userAccount.setUsername(createAccountViewModel.getUsername());
-			userAccount.setPassword(createAccountViewModel.getPassword());
-			
-			return userAccount;
-		} else {
-			System.err.println("mot de passe incorrect");
-			return null;
-		}
-		
-		
+
+		// Phone userPhone = new Phone();
+		Address userAddress = new Address();
+
+		UserContact userContact = new UserContact();
+		userContact.setPrimaryEmail(createAccountViewModel.getPrimaryEmail());
+		userContact.setAddress(userAddress);
+
+		UserProfile userProfile = new UserProfile();
+		userProfile.setContact(userContact);
+
+		UserAccount userAccount = new UserAccount();
+		userAccount.setUsername(createAccountViewModel.getUsername());
+		userAccount.setPassword(createAccountViewModel.getPassword());
+		userAccount.setPrimaryRole(UserRole.USER);
+		userAccount.setUserProfile(userProfile);
+
+		return userAccount;
+
 	}
 	
 	

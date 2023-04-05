@@ -16,6 +16,12 @@ public class AccountRepository {
 		entityManager.persist(account);
 		return account.getUserId();
 	}
+	
+	public Long loggin(UserAccount account) {
+		
+		
+		return null;
+	}
 
 	
 	
