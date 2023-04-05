@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import fr.isika.cda.business.exceptions.users.UserNotFoundException;
@@ -16,6 +18,16 @@ import fr.isika.cda.entities.users.UserRole;
 
 @Stateless
 public class UserAccountRepository extends GenericRepository<Long, UserAccount> {
+
+	@PersistenceContext
+	private EntityManager entityManager;
+	
+	
+	public Long createAccount(UserAccount account) {
+		entityManager.persist(account);
+		return account.getUserId();
+	}
+	
 
 	@Override
 	public Optional<UserAccount> findById(Long id) {
@@ -62,12 +74,6 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 		return userAccount;	
 		}
 	
-
-	//Up User to Admin in BDD
-	public void upToAdmin(UserAccount user) {
-		user.setPrimaryRole(UserRole.ADMIN);
-		entityManager.persist(user);
-	}
 
 	public UserAccount createUserAccount(UserAccount userAccount) {
 		entityManager.persist(userAccount);
