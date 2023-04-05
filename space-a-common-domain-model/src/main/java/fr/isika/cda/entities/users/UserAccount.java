@@ -3,6 +3,7 @@ package fr.isika.cda.entities.users;
 import java.io.Serializable; 
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -28,8 +29,11 @@ public class UserAccount implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
-
+	
+	@Column(length = 20, nullable = false, unique = true)
 	private String username;
+	
+	@Column(nullable = false)
 	private String password;
 
 	@Enumerated(EnumType.STRING)

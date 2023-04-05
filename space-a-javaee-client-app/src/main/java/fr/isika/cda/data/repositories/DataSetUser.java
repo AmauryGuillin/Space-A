@@ -35,6 +35,7 @@ public class DataSetUser {
 		acc.setPrimaryRole(UserRole.VISITOR);
 
 		UserContact contact = new UserContact();
+		contact.setPrimaryEmail("email1-email@email.fr");
 		UserProfile userProfile = new UserProfile()
 				.withFirstName("Julie")
 				.withLastName("Trappeur")
@@ -55,6 +56,7 @@ public class DataSetUser {
 		acc2.setPrimaryRole(UserRole.ADMIN);
 
 		UserContact contact2 = new UserContact();
+		contact2.setPrimaryEmail("email2-email@email.fr");
 		UserProfile userProfile2 = new UserProfile()
 				.withFirstName("Alain")
 				.withLastName("Taweld")
@@ -74,6 +76,7 @@ public class DataSetUser {
 		acc3.setPrimaryRole(UserRole.MEMBER);
 
 		UserContact contact3 = new UserContact();
+		contact3.setPrimaryEmail("email3-email@email.fr");
 		UserProfile userProfile3 = new UserProfile()
 				.withFirstName("Elsa")
 				.withLastName("Asson")
@@ -93,6 +96,7 @@ public class DataSetUser {
 		acc4.setPrimaryRole(UserRole.USER);
 
 		UserContact contact4 = new UserContact();
+		contact4.setPrimaryEmail("email4-email@email.fr");
 		UserProfile userProfile4 = new UserProfile()
 				.withFirstName("Jean-Claude")
 				.withLastName("Paloin")
