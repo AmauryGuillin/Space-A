@@ -2,6 +2,7 @@ package fr.isika.cda.entities.common;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
@@ -12,14 +13,22 @@ public class Address implements Serializable {
 	 */
 	private static final long serialVersionUID = -6200773657260155980L;
 
+	@Column(length = 255, nullable = true, unique = false)
 	private String lineOne;
+	
+	@Column(length = 255,nullable = true, unique = false)
 	private String lineTwo;
-
+	
+	@Column(length = 10,nullable = true, unique = false)
 	private String zipCode;
-
+	
+	@Column(length = 50, nullable = true, unique = false)
 	private String city;
-
+	
+	@Column(length = 50, nullable = true, unique = false)
 	private String state;
+	
+	@Column(length = 50, nullable = true, unique = false)
 	private String country;
 
 	/**

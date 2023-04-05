@@ -1,12 +1,15 @@
 package fr.isika.cda.entities.association;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import fr.isika.cda.entities.common.Address;
 
 @Entity
 @Table(name = "association_identity")
@@ -16,12 +19,16 @@ public class AssociationIdentity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String headOffice;
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private Address headOffice;
 
-	private String rscNumber;
+	@Column(name="rcs_number", length = 18, unique = true, nullable = true)
+	private String rscNumber;//String car ex : "RCS Lyon 123456789"
 
+	@Column(name="kbis_extract")
 	private String kbisExtract;
 
+	@Column(length = 18, nullable = true)
 	private String director;
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -39,11 +46,11 @@ public class AssociationIdentity {
 		this.associationDepiction = associationDepiction;
 	}
 
-	public String getHeadOffice() {
+	public Address getHeadOffice() {
 		return headOffice;
 	}
 
-	public void setHeadOffice(String headOffice) {
+	public void setHeadOffice(Address headOffice) {
 		this.headOffice = headOffice;
 	}
 
