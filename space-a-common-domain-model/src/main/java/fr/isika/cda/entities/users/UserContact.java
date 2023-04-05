@@ -94,6 +94,13 @@ public class UserContact implements Serializable {
 		this.phone = phone;
 	}
 	
+	public class Queries {
+		public static final String FINDALL_CONTACT_QUERY = "UserContact.findAll";
+
+		public static final String FINDBY_CONTACT_PRIMARYEMAIL_QUERY = "UserContact.findByPrimaryEmail";
+		
+		private Queries() {
+		}
 	
-	
+	}
 }
