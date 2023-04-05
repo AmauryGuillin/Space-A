@@ -36,6 +36,7 @@
 			<nav>
 				<h:form id="navForm">
 					<ul>
+					<ui:fragment rendered="#{userLoginController.userLoggedIn}">
 						<li><h:commandLink action="#{navController.index()}"
 								value="Accueil" /></li>
 						<li><h:commandLink action="#{navController.assoForm()}"
@@ -46,15 +47,20 @@
 								value="Liste des Associations" /></li>
 						<li><h:commandLink action="#{navController.oneUser()}"
 								value="Info d'un user" /></li>
-						<li><h:commandLink action="#{navController.registrationUser()}"
-								value="S'inscrire" /></li>
+						<li><h:commandLink
+								action="#{navController.registrationUser()}" value="S'inscrire" /></li>
 						<li><h:commandLink action="#{navController.userProfile()}"
 								value="Profile" /></li>
+			</ui:fragment>
+
+						<li><h:commandLink action="#{navController.login()}"
+								value="Login" /></li>
 					</ul>
 				</h:form>
 			</nav>
 			<HR />
 		</div>
+		
 
 		<div id="content">
 			<ui:insert name="content">
@@ -65,8 +71,7 @@
 		<div id="footer">
 			<div>
 			<HR />
-				<p>Space'A - &copy; <span id="displayYear"></span> - Space'A l'espace des associations - 2023 tout
-					droits réservés</p>
+				<p>Space'A - &copy; <span id="displayYear"></span> - Space'A l'espace des associations</p>
 			</div>
 		</div>
 	</div>
