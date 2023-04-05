@@ -43,6 +43,7 @@ public class AssociationController {
 		//Recupérer l'id dans les cookies pour modifier l'user en question
 		
 		return null;
+
 	}
 
 	private Association createAssoFromVM() {
