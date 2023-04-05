@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,8 +27,13 @@ public class UserProfile implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(length = 50, nullable = true, unique = false)
 	private String firstName = "";
+	
+	@Column(length = 50, nullable = true, unique = false)
 	private String lastName = "";
+	
+	@Column(nullable = true)
 	private String avatar = "";
 	
 	@Temporal (TemporalType.DATE)

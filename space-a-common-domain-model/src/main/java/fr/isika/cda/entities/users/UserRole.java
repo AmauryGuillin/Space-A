@@ -2,7 +2,7 @@ package fr.isika.cda.entities.users;
 
 public enum UserRole {
 
-	VISITOR ("Unregistred user"), USER("Regitered User"), MEMBER("Member"), ADMIN("Administrator");
+	VISITOR ("visiteur"), USER("utilisateur"), MEMBER("Membre"), ADMIN("Administrateur");
 
 	private final String label;
 

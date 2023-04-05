@@ -28,7 +28,10 @@ public class UserContact implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(length = 50, nullable = false, unique = true)
 	private String primaryEmail;
+	
+	@Column(length = 50, nullable = true, unique = true)
 	private String secondaryEmail;
 	
 	@Embedded
@@ -68,5 +71,23 @@ public class UserContact implements Serializable {
 	public Phone getPhone() {
 		return phone;
 	}
+
+	public void setPrimaryEmail(String primaryEmail) {
+		this.primaryEmail = primaryEmail;
+	}
+
+	public void setSecondaryEmail(String secondaryEmail) {
+		this.secondaryEmail = secondaryEmail;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public void setPhone(Phone phone) {
+		this.phone = phone;
+	}
+	
+	
 	
 }
