@@ -4,20 +4,20 @@
 	xmlns:h="http://java.sun.com/jsf/html" lang="en"
 	template="/WEB-INF/template/template.xhtml">
 
-	
-	<ui:define name="content">
-	
-	<body>
-		
-		<H1>ICI LA PAGE INDEX</H1>
-		
-		USERNAME :
-		<b><h:outputLabel value="#{userLoginController.getUserUsername()}" /></b>
-		ID :
-		<b><h:outputLabel value="#{userLoginController.getUserId()}" /></b>
 
-	</body>
-	
+	<ui:define name="content">
+
+		<body>
+
+			<H1>TEST PASSAGE DE PARAMETRE SORTIE</H1>
+
+			<h2>Result</h2>
+			<hr />
+			<p>#{userProfileController.data1}</p>
+			<p>#{userProfileController.data2}</p>
+
+		</body>
+
 	</ui:define>
-	
+
 </ui:composition>
