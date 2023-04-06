@@ -59,7 +59,7 @@ public class ShowUserController {
 	}
 	
 	public String updateEntity() {
-		userAccountRepo.majProfile(userAccount);
+		userAccountRepo.majProfile(getOneUser());
 		return "/index.xhtml?faces-redirect=true";
 	}
 	

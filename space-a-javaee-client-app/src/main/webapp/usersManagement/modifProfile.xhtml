@@ -26,6 +26,14 @@
 				<h:inputText value="#{showUserController.oneUser.userProfile.lastName}"/>
 			</div>
 			<div>
+				<h:outputLabel value="Prenom : " />
+				<h:inputText value="#{showUserController.oneUser.userProfile.firstName}" />
+			</div>
+			<div>
+				<h:outputLabel value="Avatar : " />
+				<h:inputText value="#{showUserController.oneUser.userProfile.avatar}" />
+			</div>
+			<div>
 				<h:commandButton action="#{showUserController.updateEntity()}" value="Modifier" />
 			</div>
 		</h:form>
