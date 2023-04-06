@@ -37,12 +37,17 @@ public class UserProfile implements Serializable {
 	private String avatar = "";
 	
 	@Temporal (TemporalType.DATE)
-	private Date birthday = new Date();
-	
+	private Date birthday;
+
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private UserContact userContact;
 
 
+	@Override
+	public String toString() {
+		return "UserProfile [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", avatar=" + avatar
+				+ ", birthday=" + birthday + ", userContact=" + userContact + "]";
+	}
 	
 
 	public Long getId() {

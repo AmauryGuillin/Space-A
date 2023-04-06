@@ -21,38 +21,24 @@
 		<h1>Modification de votre profil utilisateur</h1>
 
 		<h:form>
-			<!-- 		<h:commandButton value="récup infos" -->
-			<!-- 			action="#{showUserController.getOneUserById(userLoginController.displayUserId())}" /> -->
-<!-- 			<div> -->
-<!-- 				<h:outputLabel value="username " /> -->
-<!-- 				<h:inputText value="#{showUserController.userAccount.username}" -->
-<!-- 					id="username"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 			<div> -->
-<!-- 				<h:outputLabel value="id " /> -->
-<!-- 				<h:inputText value="#{showUserController.userAccount.userId}" -->
-<!-- 					id="userId" /> -->
-<!-- 			</div> -->
-
-<!-- 			<div> -->
-<!-- 				<h:outputLabel value="mot de passe " /> -->
-<!-- 				<h:inputText value="#{showUserController.userAccount.password}" -->
-<!-- 					id="password" /> -->
-<!-- 			</div> -->
-
-
 			<div>
-				<h:outputLabel value="ville " />
-				<h:inputText
-					value="#{showUserController.userVM.primaryEmail}" id="city" />
+				<h:outputLabel value="Nom : " />
+				<h:inputText value="#{showUserController.oneUser.userProfile.lastName}"/>
 			</div>
 			<div>
-				<h:commandButton action="#{showUserController.majProfile(userLoginController.displayUserId(), city, city)}"
+				<h:outputLabel value="Prenom : " />
+				<h:inputText value="#{showUserController.oneUser.userProfile.firstName}" />
+			</div>
+			<div>
+				<h:outputLabel value="Avatar : " />
+				<h:inputText value="#{showUserController.oneUser.userProfile.avatar}" />
+			</div>
+			<div>
+				<h:commandButton action="#{showUserController.updateEntity()}" value="Modifier" />
+			</div>
+      <h:commandButton action="#{showUserController.majProfile(userLoginController.displayUserId(), city, city)}"
 					value="Enregistrer" />
 				<h:outputText value="#{city}" />
-					
-			</div>
-
 		</h:form>
 
 

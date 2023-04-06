@@ -81,8 +81,9 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 	}
 	
 	public Long majProfile(UserAccount account) {
-		entityManager.persist(account);
-		return account.getUserId();
+	    UserAccount mergedAccount = entityManager.merge(account);
+	    entityManager.flush();
+	    return mergedAccount.getUserId();
 	}
 
 

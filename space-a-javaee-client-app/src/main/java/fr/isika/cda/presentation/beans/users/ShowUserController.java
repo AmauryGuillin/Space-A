@@ -13,7 +13,11 @@ public class ShowUserController {
 	
 	@Inject
 	private UserAccountRepository userAccountRepo;
+	
+	@Inject
+	private UserLoginController userLoginController;
 
+	
 	private UserViewModel userVM = new UserViewModel();
 
 	
@@ -21,8 +25,11 @@ public class ShowUserController {
 	private String userName;
 	private UserAccount userAccount;
 	
-	public void getOneUser() {
+	
+	public UserAccount getOneUser() {
+		userId = userLoginController.displayUserId();
 		userAccount = userAccountRepo.findByOneId(userId);
+		return userAccount;
 	}
 	
 	public void getOneUserById(Long id) {
@@ -34,27 +41,32 @@ public class ShowUserController {
 	}
 
 
-	public String majProfile(Long id, String city, String email) {
-		UserAccount account = majProfileFromVM(id, city, email);
-		userAccountRepo.majProfile(account);
-		userVM = new UserViewModel(); // Reset VM
+//	public String majProfile(Long id, String email) {
+//		UserAccount account = majProfileFromVM(id, email);
+//		userAccountRepo.majProfile(account);
+//		userVM = new UserViewModel(); // Reset VM
+//		return "/index.xhtml?faces-redirect=true";
+//	}
+
+	//Get
+	public String updateProfile(String lastname) {
+		userId = userLoginController.displayUserId();
+		userAccount = userAccountRepo.findByOneId(userId);
+		System.out.println("********************************************************le lastname = " + lastname);
+		userAccount.getUserProfile().setLastName(lastname);
+		userAccountRepo.majProfile(userAccount);
 		return "/index.xhtml?faces-redirect=true";
 	}
-
-
-
-	private UserAccount majProfileFromVM(Long id, String city, String email) {
-		userAccount = userAccountRepo.findByOneId(id);
-		userAccount.getUserProfile().getUserContact().getAddress().setCity(city);
-		userAccount.getUserProfile().getUserContact().setPrimaryEmail(email);
-
-		return userAccount;
+	
+	public String updateEntity() {
+		userAccountRepo.majProfile(getOneUser());
+		return "/index.xhtml?faces-redirect=true";
 	}
 	
-	public void updateUser(Long id, String city, String email) {
+	//Post
+	public void updateUser(Long id, String city) {
 		userAccount = userAccountRepo.findByOneId(id);
 		userAccount.getUserProfile().getUserContact().getAddress().setCity(city);
-		userAccount.getUserProfile().getUserContact().setPrimaryEmail(email);
 		userAccountRepo.majProfile(userAccount);
 		
 	}
