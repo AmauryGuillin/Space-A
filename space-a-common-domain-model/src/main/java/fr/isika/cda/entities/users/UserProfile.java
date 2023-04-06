@@ -40,29 +40,18 @@ public class UserProfile implements Serializable {
 	private Date birthday = new Date();
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	private UserContact contact;
+	private UserContact userContact;
+
+
+	
 
 	public Long getId() {
 		return id;
 	}
-	
-	public String firstname() {
-		return firstName;
-	}
 
-	public String lastname() {
-		return lastName;
+	public void setId(Long id) {
+		this.id = id;
 	}
-
-	public String avatar() {
-		return avatar;
-	}
-	
-	public Date birthday() {
-		return birthday;
-	}
-	
-	
 
 	public String getFirstName() {
 		return firstName;
@@ -96,16 +85,16 @@ public class UserProfile implements Serializable {
 		this.birthday = birthday;
 	}
 
-	public UserContact getContact() {
-		return contact;
+	public UserContact getUserContact() {
+		return userContact;
 	}
 
-	public void setContact(UserContact contact) {
-		this.contact = contact;
+	public void setUserContact(UserContact userContact) {
+		this.userContact = userContact;
 	}
 
-	public UserContact contact() {
-		return contact;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public UserProfile withFirstName(final String firstName) {
@@ -124,7 +113,7 @@ public class UserProfile implements Serializable {
 	}
 
 	public UserProfile withContact(final UserContact contact) {
-		this.contact = contact;
+		this.userContact = contact;
 		return this;
 	}
 }

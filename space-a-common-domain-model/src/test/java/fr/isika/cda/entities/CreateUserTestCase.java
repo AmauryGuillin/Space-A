@@ -25,11 +25,11 @@ class CreateUserTestCase {
 		UserProfile profile = defaultUser.getUserProfile();
 		assertNotNull(profile, "User created by default should have a non-null profile object");
 		
-		assertTrue(profile.firstname().isEmpty());
-		assertTrue(profile.lastname().isEmpty());
-		assertTrue(profile.avatar().isEmpty());
+		assertTrue(profile.getFirstName().isEmpty());
+		assertTrue(profile.getLastName().isEmpty());
+		assertTrue(profile.getAvatar().isEmpty());
 		
-		assertNull(profile.contact(), "User created by default does not have a contact object by default");
+		assertNull(profile.getUserContact(), "User created by default does not have a contact object by default");
 	}
 	
 	@Test
@@ -50,11 +50,11 @@ class CreateUserTestCase {
 		UserProfile profile = actual.getUserProfile();
 		assertNotNull(profile, "User created by default should have a non-null profile object");
 		
-		assertEquals("myFirstName", profile.firstname());
-		assertEquals("myLastName", profile.lastname());
-		assertEquals("myAvatar.png", profile.avatar());
+		assertEquals("myFirstName", profile.getFirstName());
+		assertEquals("myLastName", profile.getLastName());
+		assertEquals("myAvatar.png", profile.getAvatar());
 		
-		assertNull(profile.contact(), "User created by default does not have a contact object by default");
+		assertNull(profile.getUserContact(), "User created by default does not have a contact object by default");
 	}
 
 }

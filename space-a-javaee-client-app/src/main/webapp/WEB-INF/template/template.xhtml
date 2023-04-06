@@ -37,7 +37,6 @@
 				<h:form id="navForm">
 					<ul>
 
-						<ui:fragment rendered="#{userLoginController.userLoggedIn}">
 							<li><h:commandLink action="#{userLoginController.Logout()}" value="Se déconnecter" /> </li>
 							<li><h:commandLink action="#{navController.index()}"
 									value="Accueil" /></li>
@@ -51,7 +50,8 @@
 									value="Info d'un user" /></li>
 							<li><h:commandLink action="#{navController.userProfile()}"
 									value="Profile" /></li>
-						</ui:fragment>
+							<li><h:commandLink action="#{navController.modifProfile()}"
+									value="modif Profile" /></li>
 							<li><h:commandLink
 									action="#{navController.registrationUser()}" value="S'inscrire" /></li>
 							<li><h:commandLink action="#{navController.login()}"

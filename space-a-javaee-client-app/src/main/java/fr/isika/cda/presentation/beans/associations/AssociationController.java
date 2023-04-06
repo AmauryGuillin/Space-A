@@ -24,9 +24,6 @@ public class AssociationController {
 	
 	
 	public String CreateAsso() {
-		
-
-		
 		//Creation Asso
 		Association asso = createAssoFromVM();
 		assoRepo.createAsso(asso);
