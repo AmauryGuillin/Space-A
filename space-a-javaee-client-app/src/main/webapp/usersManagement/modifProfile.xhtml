@@ -47,8 +47,10 @@
 					value="#{showUserController.userVM.primaryEmail}" id="city" />
 			</div>
 			<div>
-				<h:commandButton action="#{showUserController.updateUser(userLoginController.displayUserId(), city, city)}"
+				<h:commandButton action="#{showUserController.majProfile(userLoginController.displayUserId(), city, city)}"
 					value="Enregistrer" />
+				<h:outputText value="#{city}" />
+					
 			</div>
 
 		</h:form>

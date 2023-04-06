@@ -10,24 +10,31 @@
 		<body>
 			<section>
 				<h:form>
+<!-- 				<div> -->
+<!-- 					<h:outputLabel value="Nom d'utilisateur* :" /> -->
+<!-- 					<h:inputText value="#{userProfileController.showResult()}"/> -->
+<!-- 				</div> -->
+<!-- 				<div> -->
+<!-- 					<h:outputLabel value="Mot de passe* : " /> -->
+<!-- 					<h:inputSecret/> -->
+<!-- 				</div> -->
+<!-- 				<div> -->
+<!-- 					<h:outputLabel value="Confirmation du mot de passe* : " /> -->
+<!-- 					<h:inputSecret/> -->
+<!-- 				</div> -->
+<!-- 				<div> -->
+<!-- 					<h:outputLabel value="Adresse email* : " /> -->
+<!-- 					<h:inputText/> -->
+<!-- 				</div> -->
+<!-- 				<div> -->
+<!-- 					<h:commandButton value="modifier" /> -->
+<!-- 				</div> -->
 				<div>
-					<h:outputLabel value="Nom d'utilisateur* :" />
-					<h:inputText value="#{userProfileController.showResult()}"/>
-				</div>
-				<div>
-					<h:outputLabel value="Mot de passe* : " />
-					<h:inputSecret/>
-				</div>
-				<div>
-					<h:outputLabel value="Confirmation du mot de passe* : " />
-					<h:inputSecret/>
-				</div>
-				<div>
-					<h:outputLabel value="Adresse email* : " />
-					<h:inputText/>
-				</div>
-				<div>
-					<h:commandButton value="modifier" />
+				
+					<h:commandButton action="#{userProfileController.deleteProfile()}" value="supprimer" />
+					
+					<h:outputText value="Profil supprimé" />
+					
 				</div>
 			</h:form>
 	

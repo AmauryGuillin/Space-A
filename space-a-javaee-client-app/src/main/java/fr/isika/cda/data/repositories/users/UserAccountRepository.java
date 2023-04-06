@@ -85,4 +85,12 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 		return account.getUserId();
 	}
 
+
+	public void remove(Long idToDelete) {
+		UserAccount userAccount = entityManager.createNamedQuery(UserAccount.Queries.FINDBY_USERID_NAMED_QUERY, UserAccount.class)
+				.setParameter(UserAccount.Queries.USERID_QUERY_PARAM, idToDelete)
+				.getSingleResult();
+		entityManager.remove(userAccount);
+	}
+
 }
