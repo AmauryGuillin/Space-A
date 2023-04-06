@@ -6,6 +6,8 @@ import javax.inject.Inject;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda.presentation.beans.users.viewmodels.CreateAccountViewModel;
+import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 
 @ManagedBean
 public class ShowUserController {
@@ -13,6 +15,9 @@ public class ShowUserController {
 	@Inject
 	private UserAccountRepository userAccountRepo;
 
+	private UserViewModel userVM = new UserViewModel();
+
+	
 	private Long userId;
 	private String userName;
 	private UserAccount userAccount;
@@ -25,8 +30,20 @@ public class ShowUserController {
 		userAccount = userAccountRepo.findByOneName(userName);
 	}
 
-	public void modifProfile() {
-		userAccount = userAccountRepo.createUserAccount(userAccount);
+
+	public String majProfile(Long id) {
+		UserAccount account = majProfileFromVM(id);
+		userAccountRepo.majProfile(account);
+		userVM = new UserViewModel(); // Reset VM
+		return "/index.xhtml?faces-redirect=true";
+	}
+
+
+
+	private UserAccount majProfileFromVM(Long id) {
+		userAccount = userAccountRepo.findByOneId(id);
+		userAccount.getUserProfile().getContact().getAddress().setCity(userVM.getCity());
+		return userAccount;
 	}
 
 	public UserAccountRepository getUserAccountRepo() {
@@ -61,6 +78,13 @@ public class ShowUserController {
 		this.userName = userName;
 	}
 
+	public UserViewModel getUserVM() {
+		return userVM;
+	}
+
+	public void setUserVM(UserViewModel userVM) {
+		this.userVM = userVM;
+	}
 	
 	
 	

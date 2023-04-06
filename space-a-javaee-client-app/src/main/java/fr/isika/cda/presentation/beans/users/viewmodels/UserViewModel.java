@@ -6,6 +6,16 @@ import fr.isika.cda.entities.common.Address;
 
 public class UserViewModel {
 	
+	private Long Id;
+	
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
 	// user account
 	private String username;
 	private String password;

@@ -19,9 +19,23 @@
 	<section>
 	<h1>Modification de votre profil utilisateur</h1>
 		<h:form id="associationManagementTableForm">
+		
+				<h:form>
+			<h:inputText value="#{showUserController.userId}" />
+			<h:commandButton value="Find User by ID"
+				action="#{showUserController.getOneUser()}" />
+			<h:outputText value="#{showUserController.userAccount.username}" />
+		</h:form>
+		
+		
+<!-- 			<div> -->
+<!-- 				<h:outputLabel value="id" /> -->
+<!-- 				<h:inputText value="#{showUserController.userId}" id="id"></h:inputText> -->
+<!-- 			</div> -->
+			
 			<div>
-				<h:outputLabel value="Pseudo" />
-				<h:inputText value="#{showUserController.userName}" id="username"></h:inputText>
+				<h:outputLabel value="city" />
+				<h:inputText value="#{showUserController.userVM.city}" id="city"></h:inputText>
 			</div>
 <!-- 			<div> -->
 <!-- 				<h:outputLabel value="Mot de passe" /> -->
@@ -77,7 +91,7 @@
 <!-- 				<h:inputText value="#{showUserController.userName}"></h:inputText> -->
 <!-- 			</div> -->
 			<div>
-			<h:commandButton action="#{showUserController.modifProfile()}" value="Valider" /> </div>
+			<h:commandButton action="#{showUserController.majProfile(showUserController.userId)}" value="Valider" /> </div>
 		</h:form>
 
 	</section>

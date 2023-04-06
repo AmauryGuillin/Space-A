@@ -36,6 +36,7 @@
 			<nav>
 				<h:form id="navForm">
 					<ul>
+
 						<ui:fragment rendered="#{userLoginController.userLoggedIn}">
 							<li><h:commandLink action="#{userLoginController.Logout()}" value="Se déconnecter" /> </li>
 							<li><h:commandLink action="#{navController.index()}"
