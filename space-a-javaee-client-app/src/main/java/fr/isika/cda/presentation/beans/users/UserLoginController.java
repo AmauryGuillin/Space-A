@@ -191,20 +191,5 @@ public class UserLoginController implements Serializable{
 		this.userAccount = userAccount;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
 
 }

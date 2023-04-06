@@ -36,6 +36,9 @@
 			<div>
 				<h:commandButton action="#{showUserController.updateEntity()}" value="Modifier" />
 			</div>
+      <h:commandButton action="#{showUserController.majProfile(userLoginController.displayUserId(), city, city)}"
+					value="Enregistrer" />
+				<h:outputText value="#{city}" />
 		</h:form>
 
 
