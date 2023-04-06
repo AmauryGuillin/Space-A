@@ -9,32 +9,54 @@ import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationDepiction;
 import fr.isika.cda.entities.association.AssociationIdentity;
 import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda.presentation.beans.associations.viewmodels.AssociationViewModel;
+import fr.isika.cda.presentation.beans.users.UserLoginController;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 
 @ManagedBean
 public class AssociationController {
 
 	private AssociationViewModel assoVM = new AssociationViewModel();
+	private Long userId;
 	
 	//private UserViewModel userVM = new UserViewModel();
+	@Inject
+	private UserLoginController userLoginController;
 	
 	@Inject
 	private AssociationRepository assoRepo;
 	
+	@Inject 
+	private UserAccountRepository userRepo;
 	
 	public String CreateAsso() {
+		
 		//Creation Asso
 		Association asso = createAssoFromVM();
+		
+		//asso créé en bdd
 		assoRepo.createAsso(asso);
-		assoVM = new AssociationViewModel(); //Reset VM
+		
+		//rattaché le userAccount à l'asso créé
+		userId = userLoginController.displayUserId();
+		UserAccount userConnecte = userRepo.findByOneId(userId);//je récup mon user connecté
+		
+		userConnecte.setAssociation(asso);
+		userConnecte.setPrimaryRole(UserRole.ADMIN);
+			
+		userRepo.updateUserFromAsso(userConnecte);
+		
+		
+		
+		//Reset VM
+		assoVM = new AssociationViewModel(); 
 		return "/index.xhtml?faces-redirect=true"; //TODO 00 Demander à Mo car fullcon
 	}
 
 
 	private Association createAssoFromVM() {
 		
-		//Creation Asso
 		AssociationDepiction assoD = new AssociationDepiction();
 		assoD.setDescription(assoVM.getDescription());
 		assoD.setLogo(assoVM.getLogo());

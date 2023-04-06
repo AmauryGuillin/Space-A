@@ -94,4 +94,10 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 		entityManager.remove(userAccount);
 	}
 
+
+	public UserAccount updateUserFromAsso(UserAccount userConnecte) {
+		UserAccount mergedUser = entityManager.merge(userConnecte);
+	    return mergedUser;
+	}
+
 }
