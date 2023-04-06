@@ -3,12 +3,13 @@ package fr.isika.cda.presentation.beans.users;
 import java.io.Serializable;
 import java.util.Map;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 @ManagedBean
-@SessionScoped
+@ApplicationScoped
 public class UserProfileController implements Serializable {
 
 	/**
@@ -16,8 +17,8 @@ public class UserProfileController implements Serializable {
 	 */
 	private static final long serialVersionUID = 536657576401406471L;
 
-	public String data1 = "1";
-	public String data2 = "1";
+	public String data1;
+	public String data2;
 
 
 	public String showResult() {
