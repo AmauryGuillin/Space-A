@@ -100,4 +100,31 @@ public class Address implements Serializable {
 		return country;
 	}
 
+
+
+	public void setLineOne(String lineOne) {
+		this.lineOne = lineOne;
+	}
+
+	public void setLineTwo(String lineTwo) {
+		this.lineTwo = lineTwo;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	
 }

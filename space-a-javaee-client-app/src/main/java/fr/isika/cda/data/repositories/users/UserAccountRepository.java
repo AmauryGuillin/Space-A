@@ -70,4 +70,9 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 		entityManager.persist(userAccount);
 		return userAccount;
 	}
+	
+	public Long majProfile(UserAccount account) {
+		entityManager.persist(account);
+		return account.getUserId();
+	}
 }
