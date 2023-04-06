@@ -49,10 +49,16 @@ public class ShowUserController {
 //	}
 
 	//Get
-	public String updateProfile(Long id, String email) {
-		userAccount = userAccountRepo.findByOneId(id);
-		userVM.setPrimaryEmail(email);
-		userAccount.getUserProfile().getUserContact().setPrimaryEmail(userVM.getPrimaryEmail());
+	public String updateProfile(String lastname) {
+		userId = userLoginController.displayUserId();
+		userAccount = userAccountRepo.findByOneId(userId);
+		System.out.println("********************************************************le lastname = " + lastname);
+		userAccount.getUserProfile().setLastName(lastname);
+		userAccountRepo.majProfile(userAccount);
+		return "/index.xhtml?faces-redirect=true";
+	}
+	
+	public String updateEntity() {
 		userAccountRepo.majProfile(userAccount);
 		return "/index.xhtml?faces-redirect=true";
 	}

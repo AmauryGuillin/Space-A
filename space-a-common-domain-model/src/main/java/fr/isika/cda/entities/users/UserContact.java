@@ -21,6 +21,12 @@ import fr.isika.cda.entities.common.Phone;
 @Table(name = "user_contact")
 public class UserContact implements Serializable {
 
+	@Override
+	public String toString() {
+		return "UserContact [id=" + id + ", primaryEmail=" + primaryEmail + ", secondaryEmail=" + secondaryEmail
+				+ ", address=" + address + ", phone=" + phone + "]";
+	}
+
 	/**
 	 * 
 	 */
