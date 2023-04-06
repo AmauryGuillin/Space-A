@@ -9,6 +9,7 @@ import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationDepiction;
 import fr.isika.cda.entities.association.AssociationIdentity;
 import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda.presentation.beans.associations.viewmodels.AssociationViewModel;
 import fr.isika.cda.presentation.beans.users.UserLoginController;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
@@ -42,9 +43,8 @@ public class AssociationController {
 		UserAccount userConnecte = userRepo.findByOneId(userId);//je récup mon user connecté
 		
 		userConnecte.setAssociation(asso);
-		
-		System.out.println("----------------JE SUIS DANS CREATE ASSO POUR RATACHE MON USER--------------");
-		
+		userConnecte.setPrimaryRole(UserRole.ADMIN);
+			
 		userRepo.updateUserFromAsso(userConnecte);
 		
 		
