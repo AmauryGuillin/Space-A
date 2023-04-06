@@ -1,7 +1,6 @@
 package fr.isika.cda.presentation.beans.users;
 
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
@@ -14,7 +13,11 @@ public class ShowUserController {
 	
 	@Inject
 	private UserAccountRepository userAccountRepo;
+	
+	@Inject
+	private UserLoginController userLoginController;
 
+	
 	private UserViewModel userVM = new UserViewModel();
 
 	
@@ -23,8 +26,10 @@ public class ShowUserController {
 	private UserAccount userAccount;
 	
 	
-	public void getOneUser() {
+	public UserAccount getOneUser() {
+		userId = userLoginController.displayUserId();
 		userAccount = userAccountRepo.findByOneId(userId);
+		return userAccount;
 	}
 	
 	public void getOneUserById(Long id) {
