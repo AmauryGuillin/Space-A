@@ -85,4 +85,10 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 		return account.getUserId();
 	}
 
+
+	public UserAccount updateUserFromAsso(UserAccount userConnecte) {
+		UserAccount mergedUser = entityManager.merge(userConnecte);
+	    return mergedUser;
+	}
+
 }
