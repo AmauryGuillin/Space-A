@@ -8,10 +8,8 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import fr.isika.cda.data.repositories.users.AccountRepository;
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.users.UserAccount;
-import fr.isika.cda.entities.users.UserContact;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda.presentation.beans.navigation.NavController;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserLoginViewModel;
@@ -101,6 +99,19 @@ public class UserLoginController implements Serializable{
 			e.printStackTrace();
 		}
 	}
+	
+	public String getUserUsername() {
+		String username = "";
+		username = getLoggedUsernameFromSession();
+		return username;
+	}
+	
+	public Long getUserId() {
+		Long id = 0L;
+		id = getLoggedUserIdFromSession();
+		return id;
+	}
+	
 	
 	private String resolveViewNamedByUserRole() {
 		UserRole roleFromSession = getLoggedUserRoleFromSession();

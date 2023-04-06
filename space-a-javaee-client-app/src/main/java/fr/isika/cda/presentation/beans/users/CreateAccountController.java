@@ -3,7 +3,7 @@ package fr.isika.cda.presentation.beans.users;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
-import fr.isika.cda.data.repositories.users.AccountRepository;
+import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.common.Address;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserContact;
@@ -17,7 +17,7 @@ public class CreateAccountController {
 	private CreateAccountViewModel createAccountViewModel = new CreateAccountViewModel();
 	
 	@Inject
-	private AccountRepository accountRepository;
+	private UserAccountRepository accountRepository;
 	
 	public String createAccount() {
 		UserAccount account = createAccountFromViewModel();
@@ -61,13 +61,16 @@ public class CreateAccountController {
 		this.createAccountViewModel = createAccountViewModel;
 	}
 
-	public AccountRepository getAccountRepository() {
+	public UserAccountRepository getAccountRepository() {
 		return accountRepository;
 	}
 
-	public void setAccountRepository(AccountRepository accountRepository) {
+	public void setAccountRepository(UserAccountRepository accountRepository) {
 		this.accountRepository = accountRepository;
 	}
+	
+	
+
 	
 	
 

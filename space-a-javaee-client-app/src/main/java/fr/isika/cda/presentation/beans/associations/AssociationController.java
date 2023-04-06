@@ -17,19 +17,15 @@ public class AssociationController {
 
 	private AssociationViewModel assoVM = new AssociationViewModel();
 	
-	private UserViewModel userVM = new UserViewModel();
+	//private UserViewModel userVM = new UserViewModel();
 	
 	@Inject
 	private AssociationRepository assoRepo;
 	
-	@Inject 
-	private UserAccountRepository userRepo;
 	
 	public String CreateAsso() {
 		
-		//Up User to Admin
-		UserAccount user = upUserToAdmin();
-		userRepo.upToAdmin(user);
+
 		
 		//Creation Asso
 		Association asso = createAssoFromVM();
@@ -38,18 +34,8 @@ public class AssociationController {
 		return "/index.xhtml?faces-redirect=true"; //TODO 00 Demander à Mo car fullcon
 	}
 
-	private UserAccount upUserToAdmin() {
-		// TODO ABI faire la méthode upUser dans controller asso
-		//Recupérer l'id dans les cookies pour modifier l'user en question
-		
-		return null;
-
-	}
 
 	private Association createAssoFromVM() {
-		
-		//Creation Manager
-		
 		
 		//Creation Asso
 		AssociationDepiction assoD = new AssociationDepiction();
