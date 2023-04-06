@@ -1,6 +1,7 @@
 package fr.isika.cda.presentation.beans.users;
 
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
@@ -21,6 +22,7 @@ public class ShowUserController {
 	private String userName;
 	private UserAccount userAccount;
 	
+	
 	public void getOneUser() {
 		userAccount = userAccountRepo.findByOneId(userId);
 	}
@@ -34,27 +36,26 @@ public class ShowUserController {
 	}
 
 
-	public String majProfile(Long id, String city, String email) {
-		UserAccount account = majProfileFromVM(id, city, email);
-		userAccountRepo.majProfile(account);
-		userVM = new UserViewModel(); // Reset VM
+//	public String majProfile(Long id, String email) {
+//		UserAccount account = majProfileFromVM(id, email);
+//		userAccountRepo.majProfile(account);
+//		userVM = new UserViewModel(); // Reset VM
+//		return "/index.xhtml?faces-redirect=true";
+//	}
+
+	//Get
+	public String updateProfile(Long id, String email) {
+		userAccount = userAccountRepo.findByOneId(id);
+		userVM.setPrimaryEmail(email);
+		userAccount.getUserProfile().getUserContact().setPrimaryEmail(userVM.getPrimaryEmail());
+		userAccountRepo.majProfile(userAccount);
 		return "/index.xhtml?faces-redirect=true";
 	}
-
-
-
-	private UserAccount majProfileFromVM(Long id, String city, String email) {
-		userAccount = userAccountRepo.findByOneId(id);
-		userAccount.getUserProfile().getUserContact().getAddress().setCity(city);
-		userAccount.getUserProfile().getUserContact().setPrimaryEmail(email);
-
-		return userAccount;
-	}
 	
-	public void updateUser(Long id, String city, String email) {
+	//Post
+	public void updateUser(Long id, String city) {
 		userAccount = userAccountRepo.findByOneId(id);
 		userAccount.getUserProfile().getUserContact().getAddress().setCity(city);
-		userAccount.getUserProfile().getUserContact().setPrimaryEmail(email);
 		userAccountRepo.majProfile(userAccount);
 		
 	}

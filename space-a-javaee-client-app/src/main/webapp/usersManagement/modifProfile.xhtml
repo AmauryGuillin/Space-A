@@ -40,14 +40,14 @@
 <!-- 					id="password" /> -->
 <!-- 			</div> -->
 
-
+			
 			<div>
-				<h:outputLabel value="ville " />
+				<h:outputLabel value="email : " />
 				<h:inputText
-					value="#{showUserController.userVM.primaryEmail}" id="city" />
+					var="email" value="#{showUserController.userAccount.userProfile.userContact.primaryEmail}" id="email"/>
 			</div>
 			<div>
-				<h:commandButton action="#{showUserController.updateUser(userLoginController.displayUserId(), city, city)}"
+				<h:commandButton action="#{showUserController.updateProfile(userLoginController.displayUserId(), showUserController.userAccount.userProfile.userContact.primaryEmail)}"
 					value="Enregistrer" />
 			</div>
 

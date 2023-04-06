@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
+import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.users.ShowUserController;
 
 public class UserViewModel {
@@ -12,6 +13,8 @@ public class UserViewModel {
 	private ShowUserController showUserController;
 	
 	private Long Id;
+	
+	private UserAccount userAccount;
 
 	// user account
 	private String username;
@@ -39,8 +42,8 @@ public class UserViewModel {
 	
 	
 	
-	public void updateUser(Long id, String city, String email) {
-		showUserController.updateUser(id, city, email);
+	public void updateUser(Long id, String city) {
+		showUserController.updateUser(id, city);
 	}
 	
 	// getters and setters
@@ -155,6 +158,22 @@ public class UserViewModel {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+	public void setUserAccount(UserAccount userAccount) {
+		this.userAccount = userAccount;
+	}
+
+	public ShowUserController getShowUserController() {
+		return showUserController;
+	}
+
+	public void setShowUserController(ShowUserController showUserController) {
+		this.showUserController = showUserController;
 	}
 	
 	
