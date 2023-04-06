@@ -56,6 +56,13 @@ public class UserAccount implements Serializable {
 	
 	
 
+	@Override
+	public String toString() {
+		return "UserAccount [userId=" + userId + ", username=" + username + ", password=" + password + ", primaryRole="
+				+ primaryRole + ", userProfile=" + userProfile + ", accountPlanning=" + accountPlanning
+				+ ", association=" + association + "]";
+	}
+
 	public Long getUserId() {
 		return userId;
 	}
