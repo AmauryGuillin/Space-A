@@ -2,19 +2,16 @@ package fr.isika.cda.presentation.beans.users.viewmodels;
 
 import java.util.Date;
 
-import fr.isika.cda.entities.common.Address;
+import javax.inject.Inject;
+
+import fr.isika.cda.presentation.beans.users.ShowUserController;
 
 public class UserViewModel {
 	
-	private Long Id;
+	@Inject
+	private ShowUserController showUserController;
 	
-	public Long getId() {
-		return Id;
-	}
-
-	public void setId(Long id) {
-		Id = id;
-	}
+	private Long Id;
 
 	// user account
 	private String username;
@@ -41,7 +38,20 @@ public class UserViewModel {
 
 	
 	
+	
+	public void updateUser(Long id, String city, String email) {
+		showUserController.updateUser(id, city, email);
+	}
+	
 	// getters and setters
+	
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
 	
 	public String getUsername() {
 		return username;

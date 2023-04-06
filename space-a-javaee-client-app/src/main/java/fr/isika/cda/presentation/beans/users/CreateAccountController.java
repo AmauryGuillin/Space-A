@@ -36,7 +36,7 @@ public class CreateAccountController {
 		userContact.setAddress(userAddress);
 
 		UserProfile userProfile = new UserProfile();
-		userProfile.setContact(userContact);
+		userProfile.setUserContact(userContact);
 
 		UserAccount userAccount = new UserAccount();
 		userAccount.setUsername(createAccountViewModel.getUsername());

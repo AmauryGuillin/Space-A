@@ -100,13 +100,13 @@ public class UserLoginController implements Serializable{
 		}
 	}
 	
-	public String getUserUsername() {
+	public String displayUserUsername() {
 		String username = "";
 		username = getLoggedUsernameFromSession();
 		return username;
 	}
 	
-	public Long getUserId() {
+	public Long displayUserId() {
 		Long id = 0L;
 		id = getLoggedUserIdFromSession();
 		return id;

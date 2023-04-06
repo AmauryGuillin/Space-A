@@ -8,91 +8,51 @@
 
 
 <body>
-<!-- 	<nav> -->
-<!-- 		<h:form id="usersManagementMenuForm"> -->
-<!-- 			<ul> -->
-<!-- 				<li><h:link outcome="/index.xhtml" value="Home" /></li> -->
-<!-- 			</ul> -->
-<!-- 		</h:form> -->
-<!-- 	</nav> -->
+	<nav>
+		<h:form id="usersManagementMenuForm">
+			<ul>
+				<li><h:link outcome="/index.xhtml" value="Home" /></li>
+			</ul>
+		</h:form>
+	</nav>
 
 	<section>
-	<h1>Modification de votre profil utilisateur</h1>
-		<h:form id="associationManagementTableForm">
-		
-				<h:form>
-			<h:inputText value="#{showUserController.userId}" />
-			<h:commandButton value="Find User by ID"
-				action="#{showUserController.getOneUser()}" />
-			<h:outputText value="#{showUserController.userAccount.username}" />
-		</h:form>
-		
-		
+
+		<h1>Modification de votre profil utilisateur</h1>
+
+		<h:form>
+			<!-- 		<h:commandButton value="récup infos" -->
+			<!-- 			action="#{showUserController.getOneUserById(userLoginController.displayUserId())}" /> -->
 <!-- 			<div> -->
-<!-- 				<h:outputLabel value="id" /> -->
-<!-- 				<h:inputText value="#{showUserController.userId}" id="id"></h:inputText> -->
+<!-- 				<h:outputLabel value="username " /> -->
+<!-- 				<h:inputText value="#{showUserController.userAccount.username}" -->
+<!-- 					id="username"></h:inputText> -->
 <!-- 			</div> -->
-			
+<!-- 			<div> -->
+<!-- 				<h:outputLabel value="id " /> -->
+<!-- 				<h:inputText value="#{showUserController.userAccount.userId}" -->
+<!-- 					id="userId" /> -->
+<!-- 			</div> -->
+
+<!-- 			<div> -->
+<!-- 				<h:outputLabel value="mot de passe " /> -->
+<!-- 				<h:inputText value="#{showUserController.userAccount.password}" -->
+<!-- 					id="password" /> -->
+<!-- 			</div> -->
+
+
 			<div>
-				<h:outputLabel value="city" />
-				<h:inputText value="#{showUserController.userVM.city}" id="city"></h:inputText>
+				<h:outputLabel value="ville " />
+				<h:inputText
+					value="#{showUserController.userVM.primaryEmail}" id="city" />
 			</div>
-<!-- 			<div> -->
-<!-- 				<h:outputLabel value="Mot de passe" /> -->
-<!-- 				<h:inputText -->
-<!-- 					action="#{showUserController.userAccount.password}"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 			<div> -->
-<!-- 				<h:outputLabel value="Rôle" /> -->
-<!-- 				<h:inputText value="#{showUserController.userName}"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 			<div> -->
-<!-- 				<h:outputLabel value="email" /> -->
-<!-- 				<h:inputText action="#{showUserController.userAccount}"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 			<div> -->
-<!-- 				<h:outputLabel value="2e email" /> -->
-<!-- 				<h:inputText value="#{showUserController.userName}"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 			<div> -->
-<!-- 				<h:outputLabel value="Téléphone" /> -->
-<!-- 				<h:inputText value="#{showUserController.userName}"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 			<div> -->
-<!-- 				<h:outputLabel value="Nom" /> -->
-<!-- 				<h:inputText value="#{showUserController.userName}"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 			<div> -->
-<!-- 				<h:outputLabel value="Prénom" /> -->
-<!-- 				<h:inputText value="#{showUserController.userName}"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 			<div> -->
-<!-- 				<h:outputLabel value="Avatar" /> -->
-<!-- 				<h:inputText value="#{showUserController.userName}"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 			<div> -->
-<!-- 				<h:outputLabel value="Date de naissance" /> -->
-<!-- 				<h:inputText action="#{showUserController.userAccount.userProfile.birthday()}"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 						<div> -->
-<!-- 				<h:outputLabel value="Ville" /> -->
-<!-- 				<h:inputText value="#{showUserController.userAccount.userProfile}"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 						<div> -->
-<!-- 				<h:outputLabel value="Rue" /> -->
-<!-- 				<h:inputText value="#{showUserController.userName}"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 						<div> -->
-<!-- 				<h:outputLabel value="Code postal" /> -->
-<!-- 				<h:inputText value="#{showUserController.userName}"></h:inputText> -->
-<!-- 			</div> -->
-<!-- 						<div> -->
-<!-- 				<h:outputLabel value="Date de naissance" /> -->
-<!-- 				<h:inputText value="#{showUserController.userName}"></h:inputText> -->
-<!-- 			</div> -->
 			<div>
-			<h:commandButton action="#{showUserController.majProfile(showUserController.userId)}" value="Valider" /> </div>
+				<h:commandButton action="#{showUserController.updateUser(userLoginController.displayUserId(), city, city)}"
+					value="Enregistrer" />
+			</div>
+
 		</h:form>
+
 
 	</section>
 
