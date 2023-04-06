@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" lang="en">
+
+<h:outputStylesheet library="css" name="style.css" />
+
+<ui:composition template="/WEB-INF/template/template.xhtml">
+	
+	<h:head>
+		<title>Contact</title>
+	</h:head>
+	
+	<ui:define name="content">
+		<body>
+
+			<h:graphicImage library="images" name="background.png" width="50px" height="50px" />
+			<div class="container" style="background-color: lightgray;">
+				<div class="row">
+					<h1>CONTACT</h1>
+					<div class="col-md-6">
+						<h:graphicImage library="images" name="A.png" width="50px" height="50px" alt="Photo" />
+					</div>
+					<div class="col-md-6">
+
+						<h:form id="contactForm">
+							<h1>Contactez-nous</h1>
+							<div class="form-group">
+								<i class="fa fa-fw fa-user" aria-hidden="true"></i>
+								<label for="name">Name :</label>
+								<p:inputText class="form-control" id="name"
+									a:placeholder="Entrez votre nom" />
+							</div>
+							<div class="form-group">
+								<i class="fa fa-fw fa-envelope" aria-hidden="true"></i>
+								<label for="email">Email :</label>
+								<p:inputText class="form-control" id="email"
+									a:placeholder="Entrez votre email" />
+							</div>
+							<div class="form-group">
+								<label for="message">Message :</label>
+								<p:inputTextarea class="form-control" id="message" rows="5"></p:inputTextarea>
+							</div>
+							<p:commandButton class="btn btn-primary" value="Envoyer" />
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</body>
+	</ui:define>
+</ui:composition>
+</html>

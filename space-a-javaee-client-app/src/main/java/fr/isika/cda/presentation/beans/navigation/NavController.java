@@ -40,6 +40,11 @@ public class NavController {
 	public void modifProfile() {
 		WebUiTools.redirectToView("/usersManagement/modifProfile.xhtml");
 	}
+
+	public void login() {
+		WebUiTools.redirectToView("/login.xhtml");
+	}
+	
 	
 
 }

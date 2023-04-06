@@ -1,0 +1,102 @@
+/* Style pour le header */
+nav.navbar {
+    background-color: #ffffff;
+    border: none;
+    }
+    .navbar-brand img {
+    height: 30px;
+    }
+    .navbar-nav > li > button {
+    margin-top: 10px;
+    }
+    .btn-acceuil {
+        background-color: none;
+        color: #1A3EB8;
+        border: none;
+        }
+    .btn-association {
+    background-color: none;
+    color: #1A3EB8;
+    border: none;
+    }
+    .btn-contact {
+    background-color: none;
+    color: #1A3EB8;
+    border: none;
+    }
+    .btn-profil {
+        background-color: none;
+    color: #1A3EB8;
+    border: none;
+    }
+    .btn-Login {
+        background-color: none;
+    color: #1A3EB8;
+    border: 1px solid #4a4a4a;
+    }
+    .btn-Login:hover {
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border: 1px solid #4a4a4a;
+    }
+    
+    /* Style pour le contenu */
+    h1 {
+    margin-top: 40px;
+    font-size: 48px;
+    color: #1A3EB8;
+    }
+    .container {
+    background-color: #ebebeb57;
+    color: #ffffff;
+    border: 1px solid #4a4a4a;  
+    margin-top: 60px;
+    }
+    .col-md-6 img {
+    margin-top: 60px;
+    }
+    form {
+    margin-top: 60px;
+    }
+    .form-group {
+    margin-bottom: 20px;
+    }
+    label {
+    font-size: 18px;
+    color: #1A3EB8;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+    background-color: #ebebeb;
+    color: #4a4a4a;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+    background-color: #ffffff;
+    color: #4a4a4a;
+    box-shadow: none;
+    }
+    .btn-primary {
+    background-color: #44c7f4;
+    border: none;
+    }
+    .btn-primary:hover {
+    background-color: #1f9abd;
+    border: none;
+    }
+    footer {
+    margin-top: 60px;
+    background-color: #f2f2f2;
+    padding: 20px 0;
+    text-align: center;
+    }
+    footer p {
+    font-size: 16px;
+    color: #4a4a4a;
+    margin-bottom: 0;
+    }
