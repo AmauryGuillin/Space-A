@@ -17,56 +17,81 @@
 					<h:form>
 
 						<div>
-							<h:outputLabel value="Nom d'utilisateur : " />
+							<b><h:outputLabel value="Nom d'utilisateur : " /></b>
 							<h:outputLabel value="#{showUserController.oneUser.username}" />
 						</div>
 						<div>
-							<h:outputLabel value="Nom : " />
+							<b><h:outputLabel value="Nom : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.lastName}" />
 						</div>
 						<div>
-							<h:outputLabel value="Prenom : " />
+							<b><h:outputLabel value="Prenom : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.firstName}" />
 						</div>
 						<div>
-							<h:outputLabel value="Avatar : " />
+							<b><h:outputLabel value="Avatar : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.avatar}" />
 						</div>
 						<div>
-							<h:outputLabel value="Date de naissance : " />
+							<b><h:outputLabel value="Date de naissance : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.birthday}" />
 						</div>
 						<div>
-							<h:outputLabel value="Email n°1 : " />
+							<b><h:outputLabel value="Email n°1 : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.userContact.primaryEmail}" />
 						</div>
 						<div>
-							<h:outputLabel value="Email n°2 : " />
+							<b><h:outputLabel value="Email n°2 : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.userContact.secondaryEmail}" />
 						</div>
 						<div>
-							<h:outputLabel value="Adresse : " />
+							<b><h:outputLabel value="Adresse : " /></b>
+							<h:outputLabel value="Adresse ligne 1 : " />
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.userContact.address.lineOne}" />
+						</div>
+						<div>
+							<b><h:outputLabel value="Adresse ligne 2 : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.userContact.address.lineTwo}" />
+						</div>
+						<div>
+							<b><h:outputLabel value="Code postal : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.userContact.address.zipCode}" />
+						</div>		
+						<div>
+							<b><h:outputLabel value="Ville : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.userContact.address.city}" />
+						</div>
+						<div>
+							<b><h:outputLabel value="Region : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.userContact.address.state}" />
+						</div>
+						<div>
+							<b><h:outputLabel value="Pays : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.userContact.address.country}" />
+						</div>						
+						<div>
+							<b><h:outputLabel value="Code pays : " /></b>
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.userContact.phone.counrtyCode}" />
+						</div>
+						<div>
+							<b><h:outputLabel value="Numero de telephone : " /></b>
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.userContact.phone.phoneNumber}" />
 						</div>
 					</h:form>
-
 				</div>
 			</section>
 		</body>

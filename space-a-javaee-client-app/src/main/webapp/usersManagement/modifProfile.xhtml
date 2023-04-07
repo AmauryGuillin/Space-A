@@ -13,7 +13,7 @@
 				<div class="pourtravail">
 					<h1>Modification de votre profil utilisateur</h1>
 
-					<h:form>
+					<h:form enctype="multipart/form-data">
 						<div>
 							<h:outputLabel value="Nom : " />
 							<h:inputText
@@ -26,8 +26,7 @@
 						</div>
 						<div>
 							<h:outputLabel value="Avatar : " />
-							<h:inputText
-								value="#{showUserController.oneUser.userProfile.avatar}" />
+							<h:inputFile id="logo" value="#{showUserController.oneUser.userProfile.avatar}"/>
 						</div>
 						<div>
 							<h:outputLabel value="Email : " />
