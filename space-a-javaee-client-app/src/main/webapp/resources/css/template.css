@@ -46,6 +46,12 @@ body{
 	width: 600px;
 
 }
+
+.window {
+	background: #ffffff8c;
+}
+
+
 /*.index_section {
   display: -webkit-box;
   display: -ms-flexbox;
