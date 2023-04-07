@@ -44,6 +44,10 @@ public class NavController {
 	public void login() {
 		WebUiTools.redirectToView("/login.xhtml");
 	}
+
+	public void error() {
+		WebUiTools.redirectToView("/error.xhtml");		
+	}
 	
 	
 
