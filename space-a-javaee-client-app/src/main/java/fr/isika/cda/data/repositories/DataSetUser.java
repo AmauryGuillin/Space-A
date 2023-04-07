@@ -8,6 +8,7 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda.entities.common.Address;
 import fr.isika.cda.entities.common.Phone;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserContact;
@@ -37,6 +38,11 @@ public class DataSetUser {
 
 		UserContact contact = new UserContact();
 		contact.setPrimaryEmail("email1-email@email.fr");
+		Address firstAdr = new Address();
+		firstAdr.setCity("city1");
+		
+		contact.setAddress(firstAdr);
+		
 		UserProfile userProfile = new UserProfile()
 				.withFirstName("Julie")
 				.withLastName("Trappeur")
@@ -58,6 +64,8 @@ public class DataSetUser {
 
 		UserContact contact2 = new UserContact();
 		contact2.setPrimaryEmail("email2-email@email.fr");
+		contact2.setAddress(new Address());
+		
 		UserProfile userProfile2 = new UserProfile()
 				.withFirstName("Alain")
 				.withLastName("Taweld")
@@ -78,6 +86,7 @@ public class DataSetUser {
 
 		UserContact contact3 = new UserContact();
 		contact3.setPrimaryEmail("email3-email@email.fr");
+		contact3.setAddress(new Address());
 		UserProfile userProfile3 = new UserProfile()
 				.withFirstName("Elsa")
 				.withLastName("Asson")
@@ -96,17 +105,18 @@ public class DataSetUser {
 		acc4.setPassword("123");
 		acc4.setPrimaryRole(UserRole.USER);
 
-		UserContact contact4 = new UserContact();
-		contact4.setPrimaryEmail("email4-email@email.fr");
+		UserContact fourth = new UserContact();
+		fourth.setPrimaryEmail("email4-email@email.fr");
+		fourth.setAddress(new Address());
 		UserProfile userProfile4 = new UserProfile()
 				.withFirstName("Jean-Claude")
 				.withLastName("Paloin")
-				.withContact(contact4);
+				.withContact(fourth);
 
 		acc4.setUserProfile(userProfile4);
 
 		// ajouter les cascades
-		manager.persist(contact4);
+		manager.persist(fourth);
 		manager.persist(acc4);
 		
 		LOGGER.info("Fin du DataSetUser");

@@ -40,15 +40,7 @@ public class UserProfile implements Serializable {
 	private Date birthday;
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	private UserContact userContact;
-
-
-	@Override
-	public String toString() {
-		return "UserProfile [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", avatar=" + avatar
-				+ ", birthday=" + birthday + ", userContact=" + userContact + "]";
-	}
-	
+	private UserContact userContact = new UserContact();
 
 	public Long getId() {
 		return id;
@@ -121,4 +113,24 @@ public class UserProfile implements Serializable {
 		this.userContact = contact;
 		return this;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("UserProfile [id=");
+		builder.append(id);
+		builder.append(", firstName=");
+		builder.append(firstName);
+		builder.append(", lastName=");
+		builder.append(lastName);
+		builder.append(", avatar=");
+		builder.append(avatar);
+		builder.append(", birthday=");
+		builder.append(birthday);
+		builder.append(", userContact=");
+		builder.append(userContact);
+		builder.append("]");
+		return builder.toString();
+	}
+	
 }

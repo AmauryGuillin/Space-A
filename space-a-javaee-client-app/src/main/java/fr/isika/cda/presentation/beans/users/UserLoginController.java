@@ -49,9 +49,7 @@ public class UserLoginController implements Serializable{
 			registerLoggedUserSessionAttributes(userAccount);
 			processLogin();
 		}
-		else {
-			navController.error();
-		}
+		
 		resetViewModel();
 	}
 	
