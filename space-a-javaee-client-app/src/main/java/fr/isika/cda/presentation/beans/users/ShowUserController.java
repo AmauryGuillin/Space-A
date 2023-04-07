@@ -28,22 +28,21 @@ public class ShowUserController {
 	private String userName;
 	private UserAccount userAccount;
 	
-//ABI	
-	private UserAccount oneUser;
+
 	
-//ABI
+
 	@PostConstruct
     public void init() {
-        oneUser = getOneUser();
+		userAccount = getOneUser();
     }
 	
-//ABI	
+
 	public UserAccount getOneUser() {
-	    if (oneUser == null) {
+	    if (userAccount == null) {
 	        userId = userLoginController.displayUserId();
-	        oneUser = userAccountRepo.findByOneId(userId);
+	        userAccount = userAccountRepo.findByOneId(userId);
 	    }
-	    return oneUser;
+	    return userAccount;
 	}
 	
 	public void getOneUserById(Long id) {
@@ -55,41 +54,16 @@ public class ShowUserController {
 	}
 
 
-//	public String majProfile(Long id, String email) {
-//		UserAccount account = majProfileFromVM(id, email);
-//		userAccountRepo.majProfile(account);
-//		userVM = new UserViewModel(); // Reset VM
-//		return "/index.xhtml?faces-redirect=true";
-//	}
-
-	//Get
-	public String updateProfile(String lastname) {
-		userId = userLoginController.displayUserId();
-		userAccount = userAccountRepo.findByOneId(userId);
-		System.out.println("********************************************************le lastname = " + lastname);
-		userAccount.getUserProfile().setLastName(lastname);
-		userAccountRepo.majProfile(userAccount);
-		return "/index.xhtml?faces-redirect=true";
-	}
 	
-//ABI
+	
+
 	public String updateEntity() {
-	    UserProfile profile = oneUser.getUserProfile();
-//	    profile.setLastName(oneUser.getUserProfile().getLastName());
-//	    profile.setFirstName(oneUser.getUserProfile().getFirstName());
-//	    profile.setAvatar(oneUser.getUserProfile().getAvatar());
-//	    oneUser.setUserProfile(profile);
-	    userAccountRepo.majProfile(oneUser);
+	    UserProfile profile = userAccount.getUserProfile();
+	    userAccountRepo.majProfile(userAccount);
 	    return "/index.xhtml?faces-redirect=true";
 	}
 	
-	//Post
-	public void updateUser(Long id, String city) {
-		userAccount = userAccountRepo.findByOneId(id);
-		userAccount.getUserProfile().getUserContact().getAddress().setCity(city);
-		userAccountRepo.majProfile(userAccount);
-		
-	}
+	
 
 	public UserAccountRepository getUserAccountRepo() {
 		return userAccountRepo;
