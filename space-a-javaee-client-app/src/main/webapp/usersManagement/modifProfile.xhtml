@@ -23,22 +23,28 @@
 		<h:form>
 			<div>
 				<h:outputLabel value="Nom : " />
-				<h:inputText value="#{showUserController.oneUser.userProfile.lastName}"/>
+				<h:inputText
+					value="#{showUserController.oneUser.userProfile.lastName}" />
 			</div>
 			<div>
 				<h:outputLabel value="Prenom : " />
-				<h:inputText value="#{showUserController.oneUser.userProfile.firstName}" />
+				<h:inputText
+					value="#{showUserController.oneUser.userProfile.firstName}" />
 			</div>
 			<div>
 				<h:outputLabel value="Avatar : " />
-				<h:inputText value="#{showUserController.oneUser.userProfile.avatar}" />
+				<h:inputText
+					value="#{showUserController.oneUser.userProfile.avatar}" />
 			</div>
 			<div>
-				<h:commandButton action="#{showUserController.updateEntity()}" value="Modifier" />
+				<h:outputLabel value="Email : " />
+				<h:inputText
+					value="#{showUserController.oneUser.userProfile.userContact.primaryEmail}" />
 			</div>
-      <h:commandButton action="#{showUserController.majProfile(userLoginController.displayUserId(), city, city)}"
-					value="Enregistrer" />
-				<h:outputText value="#{city}" />
+			<div>
+				<h:commandButton action="#{showUserController.updateEntity}"
+					value="Modifier" />
+			</div>
 		</h:form>
 
 
