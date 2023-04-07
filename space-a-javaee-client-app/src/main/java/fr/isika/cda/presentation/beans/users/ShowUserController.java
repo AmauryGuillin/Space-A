@@ -1,69 +1,65 @@
 package fr.isika.cda.presentation.beans.users;
 
+import java.io.File;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
+import javax.servlet.http.Part;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.users.UserAccount;
-import fr.isika.cda.entities.users.UserProfile;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 
 @ManagedBean
 public class ShowUserController {
-	
+
 	@Inject
 	private UserAccountRepository userAccountRepo;
-	
+
 	@Inject
 	private UserLoginController userLoginController;
 
-	
 	private UserViewModel userVM = new UserViewModel();
 
-	
 	private Long userId;
 	private String userName;
 	private UserAccount userAccount;
-	
 
-	
 
 	@PostConstruct
-    public void init() {
+	public void init() {
 		userAccount = getOneUser();
-    }
-	
+	}
 
 	public UserAccount getOneUser() {
-	    if (userAccount == null) {
-	        userId = userLoginController.displayUserId();
-	        userAccount = userAccountRepo.findByOneId(userId);
-	    }
-	    return userAccount;
+		if (userAccount == null) {
+			userId = userLoginController.displayUserId();
+			userAccount = userAccountRepo.findByOneId(userId);
+		}
+		return userAccount;
 	}
-	
+
 	public void getOneUserById(Long id) {
 		userAccount = userAccountRepo.findByOneId(id);
 	}
-	
+
 	public void getOneUserByName() {
 		userAccount = userAccountRepo.findByOneName(userName);
 	}
 
-
-	
-	
-
 	public String updateEntity() {
-	    UserProfile profile = userAccount.getUserProfile();
-	    userAccountRepo.majProfile(userAccount);
-	    return "/index.xhtml?faces-redirect=true";
+		userAccountRepo.majProfile(userAccount);
+		return "/index.xhtml?faces-redirect=true";
+
 	}
 	
-	
+	public void uploadFile() {
+		
+	}
 
 	public UserAccountRepository getUserAccountRepo() {
 		return userAccountRepo;
@@ -88,7 +84,7 @@ public class ShowUserController {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-		
+
 	public String getUserName() {
 		return userName;
 	}
@@ -104,7 +100,7 @@ public class ShowUserController {
 	public void setUserVM(UserViewModel userVM) {
 		this.userVM = userVM;
 	}
-	
-	
-	
+
+
+
 }

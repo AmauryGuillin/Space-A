@@ -35,11 +35,24 @@ public class DataSetUser {
 		acc.setUsername("Visiteur");
 		acc.setPassword("123");
 		acc.setPrimaryRole(UserRole.VISITOR);
+		
+		Address firstAdr = new Address();
+		firstAdr.setCity("city1");
+		firstAdr.setCountry("France");
+		firstAdr.setLineOne("Ligne 1 de l'adresse");
+		firstAdr.setLineTwo("Ligne 2 de l'adresse");
+		firstAdr.setState("Region1");
+		firstAdr.setZipCode("00001");
+		
+		Phone firstPhone = new Phone();
+		firstPhone.setCounrtyCode("+33");
+		firstPhone.setPhoneNumber("00 00 00 00 01");
 
 		UserContact contact = new UserContact();
 		contact.setPrimaryEmail("email1-email@email.fr");
-		Address firstAdr = new Address();
-		firstAdr.setCity("city1");
+		contact.setAddress(firstAdr);
+		contact.setPhone(firstPhone);
+		
 		
 		contact.setAddress(firstAdr);
 		
@@ -61,10 +74,24 @@ public class DataSetUser {
 		acc2.setUsername("Admin");
 		acc2.setPassword("123");
 		acc2.setPrimaryRole(UserRole.ADMIN);
+		
+		Address secondAdr = new Address();
+		secondAdr.setCity("city2");
+		secondAdr.setCountry("France");
+		secondAdr.setLineOne("Ligne 1 de l'adresse");
+		secondAdr.setLineTwo("Ligne 2 de l'adresse");
+		secondAdr.setState("Region2");
+		secondAdr.setZipCode("00002");
+		
+		Phone secondPhone = new Phone();
+		secondPhone.setCounrtyCode("+33");
+		secondPhone.setPhoneNumber("00 00 00 00 02");
 
 		UserContact contact2 = new UserContact();
 		contact2.setPrimaryEmail("email2-email@email.fr");
-		contact2.setAddress(new Address());
+		contact2.setAddress(secondAdr);
+		contact2.setPhone(secondPhone);
+		
 		
 		UserProfile userProfile2 = new UserProfile()
 				.withFirstName("Alain")
@@ -83,10 +110,24 @@ public class DataSetUser {
 		acc3.setUsername("Member");
 		acc3.setPassword("123");
 		acc3.setPrimaryRole(UserRole.MEMBER);
+		
+		Address thirdAdr = new Address();
+		thirdAdr.setCity("city3");
+		thirdAdr.setCountry("France");
+		thirdAdr.setLineOne("Ligne 1 de l'adresse");
+		thirdAdr.setLineTwo("Ligne 2 de l'adresse");
+		thirdAdr.setState("Region3");
+		thirdAdr.setZipCode("00003");
+		
+		Phone thirdPhone = new Phone();
+		thirdPhone.setCounrtyCode("+33");
+		thirdPhone.setPhoneNumber("00 00 00 00 03");
 
 		UserContact contact3 = new UserContact();
 		contact3.setPrimaryEmail("email3-email@email.fr");
-		contact3.setAddress(new Address());
+		contact3.setAddress(thirdAdr);
+		contact3.setPhone(thirdPhone);
+		
 		UserProfile userProfile3 = new UserProfile()
 				.withFirstName("Elsa")
 				.withLastName("Asson")
@@ -104,10 +145,25 @@ public class DataSetUser {
 		acc4.setUsername("User");
 		acc4.setPassword("123");
 		acc4.setPrimaryRole(UserRole.USER);
+		
+		Address fourthAdr = new Address();
+		fourthAdr.setCity("city4");
+		fourthAdr.setCountry("France");
+		fourthAdr.setLineOne("Ligne 1 de l'adresse");
+		fourthAdr.setLineTwo("Ligne 2 de l'adresse");
+		fourthAdr.setState("Region4");
+		fourthAdr.setZipCode("00004");
+		
+		Phone fourthPhone = new Phone();
+		fourthPhone.setCounrtyCode("+33");
+		fourthPhone.setPhoneNumber("00 00 00 00 04");
 
 		UserContact fourth = new UserContact();
 		fourth.setPrimaryEmail("email4-email@email.fr");
-		fourth.setAddress(new Address());
+		fourth.setAddress(fourthAdr);
+		fourth.setPhone(fourthPhone);
+		
+		
 		UserProfile userProfile4 = new UserProfile()
 				.withFirstName("Jean-Claude")
 				.withLastName("Paloin")

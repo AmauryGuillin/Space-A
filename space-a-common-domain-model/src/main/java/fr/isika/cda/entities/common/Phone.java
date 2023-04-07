@@ -38,5 +38,15 @@ public class Phone implements Serializable {
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+
+	public void setCounrtyCode(String counrtyCode) {
+		this.counrtyCode = counrtyCode;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	
+	
 	
 }
