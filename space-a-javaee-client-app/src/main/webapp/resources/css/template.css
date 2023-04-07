@@ -4,7 +4,6 @@ body{
 	background: url("#{resource['images/bg-ciel.png']}");
 	background-repeat: no-repeat;
 	background-size: cover;
-
 }
 
 /* .picture-bg {
