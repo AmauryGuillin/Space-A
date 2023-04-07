@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" lang="en">
+
+<h:outputStylesheet library="css" name="style.css" />
+
+<ui:composition template="/WEB-INF/template/template.xhtml">
+	
+	<h:head>
+		<title>Créer activité</title>
+	</h:head>
+	<ui:define name="content"> 
+	<body>
+		<h:form enctype="multipart/form-data">
+  <h:outputLabel for="titre" value="Titre :" />
+  <br />
+  <h:inputText id="titre"  required="true" />
+  <br />
+  
+  <h:outputLabel for="date_debut" value="Date de début :" />
+  <br />
+  <h:inputText id="date_debut"  required="true" >
+    <f:convertDateTime pattern="yyyy-MM-dd" />
+  </h:inputText>
+  <br />
+  
+  <h:outputLabel for="date_fin" value="Date de fin :" />
+  <br />
+  <h:inputText id="date_fin"  required="true" >
+    <f:convertDateTime pattern="yyyy-MM-dd" />
+  </h:inputText>
+  <br />
+  <h:outputLabel for="capacity" value="capacité d'accueil :" />
+  <br />
+  <h:inputTextarea id="capacity"  rows="5" required="true" />
+  <br />
+  <h:outputLabel for="photo" value="Photo :" />
+  <br />
+  <h:inputFile id="photo"  required="true" accept="image/*" />
+  <br />
+  
+  <h:outputLabel for="descriptif" value="Descriptif :" />
+  <br />
+  <h:inputTextarea id="descriptif"  rows="5" required="true" />
+  <br />
+  
+  <h:commandButton value="Envoyer"  />
+   <h:commandButton value="Annuler"  />
+</h:form>
+		
+		</body>
+	</ui:define>
+</ui:composition>
+</html>
