@@ -30,6 +30,13 @@ public class AssociationViewModel implements Serializable {
 	private String kbisExtract;
 	private String director;
 	
+//GraphicChart
+	private String mainColor;
+	private String secondaryColor;
+	private String tertaryColor;	
+	private String font;
+	private String banner;
+	
 //getters and setters
 	
 	
@@ -38,6 +45,46 @@ public class AssociationViewModel implements Serializable {
 	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getMainColor() {
+		return mainColor;
+	}
+
+	public void setMainColor(String mainColor) {
+		this.mainColor = mainColor;
+	}
+
+	public String getSecondaryColor() {
+		return secondaryColor;
+	}
+
+	public void setSecondaryColor(String secondaryColor) {
+		this.secondaryColor = secondaryColor;
+	}
+
+	public String getTertaryColor() {
+		return tertaryColor;
+	}
+
+	public void setTertaryColor(String tertaryColor) {
+		this.tertaryColor = tertaryColor;
+	}
+
+	public String getFont() {
+		return font;
+	}
+
+	public void setFont(String font) {
+		this.font = font;
+	}
+
+	public String getBanner() {
+		return banner;
+	}
+
+	public void setBanner(String banner) {
+		this.banner = banner;
 	}
 
 	public String getLegalName() {

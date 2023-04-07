@@ -1,5 +1,6 @@
 package fr.isika.cda.entities.association.graphic;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -20,7 +21,7 @@ public class AssociationSpace {
 	@Enumerated(EnumType.STRING)
 	private Template template;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private GraphicChart graphicChart;
 
 	public Template getTemplate() {
@@ -33,6 +34,14 @@ public class AssociationSpace {
 
 	public Long getId() {
 		return id;
+	}
+
+	public GraphicChart getGraphicChart() {
+		return graphicChart;
+	}
+
+	public void setGraphicChart(GraphicChart graphicChart) {
+		this.graphicChart = graphicChart;
 	} 
 
 	

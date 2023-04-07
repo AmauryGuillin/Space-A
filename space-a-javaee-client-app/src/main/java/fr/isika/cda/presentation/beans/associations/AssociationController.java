@@ -8,6 +8,8 @@ import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationDepiction;
 import fr.isika.cda.entities.association.AssociationIdentity;
+import fr.isika.cda.entities.association.graphic.AssociationSpace;
+import fr.isika.cda.entities.association.graphic.GraphicChart;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda.presentation.beans.associations.viewmodels.AssociationViewModel;
@@ -46,9 +48,7 @@ public class AssociationController {
 		userConnecte.setPrimaryRole(UserRole.ADMIN);
 			
 		userRepo.updateUserFromAsso(userConnecte);
-		
-		
-		
+
 		//Reset VM
 		assoVM = new AssociationViewModel(); 
 		return "/index.xhtml?faces-redirect=true"; //TODO 00 Demander à Mo car fullcon
@@ -56,6 +56,11 @@ public class AssociationController {
 
 
 	private Association createAssoFromVM() {
+	
+		GraphicChart assoGraphic = new GraphicChart();
+		
+		AssociationSpace assoSpace = new AssociationSpace();
+		assoSpace.setGraphicChart(assoGraphic);
 		
 		AssociationDepiction assoD = new AssociationDepiction();
 		assoD.setDescription(assoVM.getDescription());
@@ -74,6 +79,7 @@ public class AssociationController {
 		asso.setRegistrationNumber(assoVM.getRegistrationNumber());
 		asso.setLegalName(assoVM.getLegalName());
 		asso.setAssociationIdentity(assoI);
+		asso.setAssociationSpace(assoSpace);
 		
 		
 		return asso;
