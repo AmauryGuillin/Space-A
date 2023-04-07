@@ -75,10 +75,10 @@ public class ShowUserController {
 //ABI
 	public String updateEntity() {
 	    UserProfile profile = oneUser.getUserProfile();
-	    profile.setLastName(oneUser.getUserProfile().getLastName());
-	    profile.setFirstName(oneUser.getUserProfile().getFirstName());
-	    profile.setAvatar(oneUser.getUserProfile().getAvatar());
-	    oneUser.setUserProfile(profile);
+//	    profile.setLastName(oneUser.getUserProfile().getLastName());
+//	    profile.setFirstName(oneUser.getUserProfile().getFirstName());
+//	    profile.setAvatar(oneUser.getUserProfile().getAvatar());
+//	    oneUser.setUserProfile(profile);
 	    userAccountRepo.majProfile(oneUser);
 	    return "/index.xhtml?faces-redirect=true";
 	}
