@@ -49,6 +49,7 @@ public class UserLoginController implements Serializable{
 			registerLoggedUserSessionAttributes(userAccount);
 			processLogin();
 		}
+		
 		resetViewModel();
 	}
 	

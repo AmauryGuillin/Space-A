@@ -1,48 +1,54 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:p="http://primefaces.org/ui" lang="en">
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
 
 
-<body>
-	<nav>
-		<h:form id="usersManagementMenuForm">
-			<ul>
-				<li><h:link outcome="/index.xhtml" value="Home" /></li>
-			</ul>
-		</h:form>
-	</nav>
+	<ui:define name="content">
+		<body>
+			<section>
+				<div class="pourtravail">
+					<h1>Modification de votre profil utilisateur</h1>
 
-	<section>
-
-		<h1>Modification de votre profil utilisateur</h1>
-
-		<h:form>
-			<div>
-				<h:outputLabel value="Nom : " />
-				<h:inputText value="#{showUserController.oneUser.userProfile.lastName}"/>
-			</div>
-			<div>
-				<h:outputLabel value="Prenom : " />
-				<h:inputText value="#{showUserController.oneUser.userProfile.firstName}" />
-			</div>
-			<div>
-				<h:outputLabel value="Avatar : " />
-				<h:inputText value="#{showUserController.oneUser.userProfile.avatar}" />
-			</div>
-			<div>
-				<h:commandButton action="#{showUserController.updateEntity()}" value="Modifier" />
-			</div>
-      <h:commandButton action="#{showUserController.majProfile(userLoginController.displayUserId(), city, city)}"
-					value="Enregistrer" />
-				<h:outputText value="#{city}" />
-		</h:form>
-
-
-	</section>
-
-</body>
-</html>
+					<h:form>
+						<div>
+							<h:outputLabel value="Nom : " />
+							<h:inputText
+								value="#{showUserController.oneUser.userProfile.lastName}" />
+						</div>
+						<div>
+							<h:outputLabel value="Prenom : " />
+							<h:inputText
+								value="#{showUserController.oneUser.userProfile.firstName}" />
+						</div>
+						<div>
+							<h:outputLabel value="Avatar : " />
+							<h:inputText
+								value="#{showUserController.oneUser.userProfile.avatar}" />
+						</div>
+						<div>
+							<h:outputLabel value="Email : " />
+							<h:inputText
+								value="#{showUserController.oneUser.userProfile.userContact.primaryEmail}" />
+						</div>
+						<div>
+							<h:outputLabel value="Email : " />
+							<h:inputText
+								value="#{showUserController.oneUser.userProfile.userContact.address.city}" />
+						</div>
+						<div>
+							<h:commandButton action="#{showUserController.updateEntity}"
+								value="Modifier" />
+							<h:commandButton
+								action="#{userProfileController.deleteProfile()}"
+								value="Supprimer mon compte" />
+						</div>
+					</h:form>
+					</div>
+			</section>
+		</body>
+	</ui:define>
+</ui:composition>

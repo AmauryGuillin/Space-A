@@ -7,14 +7,11 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
 import fr.isika.cda.business.exceptions.users.UserNotFoundException;
 import fr.isika.cda.data.repositories.GenericRepository;
-import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.users.UserAccount;
-import fr.isika.cda.entities.users.UserContact;
-import fr.isika.cda.entities.users.UserRole;
 
 @Stateless
 public class UserAccountRepository extends GenericRepository<Long, UserAccount> {

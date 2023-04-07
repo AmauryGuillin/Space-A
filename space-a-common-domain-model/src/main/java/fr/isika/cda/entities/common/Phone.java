@@ -14,16 +14,22 @@ public class Phone implements Serializable {
 	private static final long serialVersionUID = -2144622742198772175L;
 
 	@Column(length = 5, nullable = true, unique = false)
-	private final String counrtyCode;
+	private String counrtyCode = "";
 	
 	@Column(length = 25, nullable = true, unique = false)
-	private final String phoneNumber;
+	private String phoneNumber = "";
 
 	public Phone(final String counrtyCode, final String phoneNumber) {
 		this.counrtyCode = counrtyCode;
 		this.phoneNumber = phoneNumber;
 	}
-	
+
+
+	public Phone() {
+		this.counrtyCode = "";
+		this.phoneNumber = "";
+	}
+
 
 	public String getCounrtyCode() {
 		return counrtyCode;

@@ -42,7 +42,7 @@ public class UserAccount implements Serializable {
 	private UserRole primaryRole;
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	private UserProfile userProfile;
+	private UserProfile userProfile = new UserProfile();
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AccountPlanning accountPlanning;

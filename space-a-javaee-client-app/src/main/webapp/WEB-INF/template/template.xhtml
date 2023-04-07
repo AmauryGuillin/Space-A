@@ -7,25 +7,28 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:p="http://primefaces.org/ui"
-	lang="en">
+	xmlns:p="http://primefaces.org/ui" lang="en">
 
 <h:head>
 	<title>Space'A</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	
-	<!-- html template style css -->
-	
-	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
 	<!-- bootstrap core css -->
-	<h:outputStylesheet library="css" name="bootstrap.css" />
-	
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+
+	<!-- html template style css -->
+	<h:outputStylesheet library="css" name="template.css" />
+
 	<!-- font awesome style -->
-	<h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/all.min-jsf.css" />
-	<h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
-	
+	<h:outputStylesheet library="webjars"
+		name="font-awesome/5.12.0/css/all.min-jsf.css" />
+	<h:outputStylesheet library="webjars"
+		name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+
 </h:head>
 
 <h:body>
@@ -33,37 +36,71 @@
 	<div id="container">
 
 		<div id="header">
-			<nav>
-				<h:form id="navForm">
-					<ul>
 
-							<li><h:commandLink action="#{userLoginController.Logout()}" value="Se déconnecter" /> </li>
-							<li><h:commandLink action="#{navController.index()}"
-									value="Accueil" /></li>
-							<li><h:commandLink action="#{navController.assoForm()}"
-									value="Créer une association" /></li>
-							<li><h:commandLink action="#{navController.users()}"
-									value="Users Management" /></li>
-							<li><h:commandLink action="#{navController.listAllAsso()}"
-									value="Liste des Associations" /></li>
-							<li><h:commandLink action="#{navController.oneUser()}"
-									value="Info d'un user" /></li>
-							<li><h:commandLink action="#{navController.userProfile()}"
-									value="Profile" /></li>
-							<li><h:commandLink action="#{navController.modifProfile()}"
-									value="modif Profile" /></li>
-							<li><h:commandLink
-									action="#{navController.registrationUser()}" value="S'inscrire" /></li>
-							<li><h:commandLink action="#{navController.login()}"
-									value="Se connecter" /></li>
-					</ul>
-				</h:form>
+			<nav class="navbar navbar-expand-lg fixed-top">
+				<div class="container">
+					<div class="logo">
+					<h:graphicImage library="images" name="logoSpacA.png"></h:graphicImage>
+					</div>
+					<div class="navbar-spaca">
+
+						<div class="collapse navbar-collapse justify-content-start"
+							id="navbarNav">
+							<h:form>
+								<ul class="navbar-nav">
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{navController.index()}" value="Accueil" /></li>
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{navController.listAllAsso()}"
+											value="Liste Asso" /></li>
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{navController.assoForm()}"
+											value="Créer Asso" /></li>
+								</ul>
+							</h:form>
+						</div>
+					</div>
+
+					<div class="logo">
+						<h:graphicImage library="images" name="logoAutreAsso.jpg"></h:graphicImage>
+					</div>
+
+					<div class="navbar-asso">
+						<div class="collapse navbar-collapse justify-content-end"
+							id="navbarNav">
+							<h:form>
+								<ul class="navbar-nav">
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{navController.registrationUser()}"
+											value="sign in" /></li>
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{navController.users()}" value="Users Management" />
+									</li>
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{navController.oneUser()}" value="sdk" />
+									</li>
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{navController.modifProfile()}"
+											value="modif Profile" /></li>
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{navController.userProfile()}" value="Profile" /></li>
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{userLoginController.Logout()}"
+											value="logout" /></li>
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{navController.login()}" value="login" /></li>
+								</ul>
+							</h:form>
+						</div>
+
+					</div>
+				</div>
 			</nav>
-			<HR />
-		</div>
-		
 
-		<div id="content">
+		</div>
+
+
+		<div class="main-content" id="content">
 			<ui:insert name="content">
                 [ici le futur contenu de nos pages]
          	</ui:insert>
@@ -71,19 +108,19 @@
 
 		<div id="footer">
 			<div>
-			<HR />
-				<p>Space'A&copy; <span id="displayYear"></span> - Space'A l'espace des associations</p>
+				<HR />
+				<p>
+					Space'A&copy; <span id="displayYear"></span> - Space'A l'espace des
+					associations
+				</p>
 			</div>
 		</div>
 	</div>
-	
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" />
-		
+
+
+
 	<!-- common scripts for templates -->
-	<h:outputScript library="js" name="jquery-3.4.1.min.js" />
-	<h:outputScript library="js" name="bootstrap.js" />
-	<h:outputScript library="js" name="copyright_year.js" />
-	
+
+
 </h:body>
 </html>
