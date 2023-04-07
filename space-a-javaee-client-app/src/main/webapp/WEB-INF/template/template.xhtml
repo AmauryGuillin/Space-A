@@ -43,7 +43,6 @@
 						<h:graphicImage library="images" name="logoSpacA.png"></h:graphicImage>
 					</div>
 					<div class="navbar-spaca">
-
 						<div class="collapse navbar-collapse justify-content-start"
 							id="navbarNav">
 							<h:form>
@@ -94,7 +93,6 @@
 
 		</div>
 
-
 		<div class="main-content" id="content">
 			<ui:insert name="content">
                 [ici le futur contenu de nos pages]
@@ -102,127 +100,9 @@
 		</div>
 
 		<div id="footer">
-			<footer class="text-center text-lg-start text-white"
-				style="background-color: #929fba">
-				<!-- Grid container -->
-				<div class="container p-4 pb-0">
-					<!-- Section: Links -->
-					<section>
-						<!--Grid row-->
-						<div class="row">
-							<!-- Grid column -->
-							<div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-								<h6 class="text-uppercase mb-4 font-weight-bold">Spac'A</h6>
-								<h:outputText
-									value="ici on peut mettre une autre colonne pour ajouter des raccourcis vers le site, du texte ou autre chose." />
-							</div>
-							<!-- Grid column -->
-
-							<hr class="w-100 clearfix d-md-none" />
-
-							<!-- Grid column -->
-							<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-								<h6 class="text-uppercase mb-4 font-weight-bold">Liens</h6>
-								<p>
-									<a class="text-white" href="#">Accueil</a>
-								</p>
-								<p>
-									<a class="text-white" href="#">Mon compte</a>
-								</p>
-								<p>
-									<a class="text-white" href="#">Mon association</a>
-								</p>
-								<p>
-									<a class="text-white" href="#">Mention légales</a>
-								</p>
-							</div>
-							<!-- Grid column -->
-
-							<hr class="w-100 clearfix d-md-none" />
-
-							<!-- Grid column -->
-							<hr class="w-100 clearfix d-md-none" />
-
-							<!-- Grid column -->
-							<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-								<h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-								<p>
-									<i class="fas fa-home mr-3"></i> 1 Rue de Paris, 75 000
-								</p>
-								<p>
-									<i class="fas fa-envelope mr-3"></i> info@SpaceA.com
-								</p>
-								<p>
-									<i class="fas fa-phone mr-3"></i> + 01 23 45 67 88
-								</p>
-								<p>
-									<i class="fas fa-print mr-3"></i> + 01 23 45 67 89
-								</p>
-							</div>
-							<!-- Grid column -->
-
-							<!-- Grid column -->
-							<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-								<h6 class="text-uppercase mb-4 font-weight-bold">Rejoignez
-									nous</h6>
-								<h:form>
-									<!-- Facebook -->
-									<h:commandLink class="btn btn-primary btn-floating m-1"
-										style="background-color: #3b5998" value="">
-										<i class="fab fa-facebook-f"></i>
-									</h:commandLink>
-
-									<!-- Twitter -->
-									<h:commandLink class="btn btn-primary btn-floating m-1"
-										style="background-color: #55acee" value="">
-										<i class="fab fa-twitter"></i>
-									</h:commandLink>
-
-									<!-- Google -->
-									<h:commandLink class="btn btn-primary btn-floating m-1"
-										style="background-color: #dd4b39" value="">
-										<i class="fab fa-google"></i>
-									</h:commandLink>
-								</h:form>
-								<!-- Instagram -->
-								<a class="btn btn-primary btn-floating m-1"
-									style="background-color: #ac2bac" href="#!" role="button">
-									<i class="fab fa-instagram"></i>
-								</a>
-							</div>
-							<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-								<!-- Linkedin -->
-								<a class="btn btn-primary btn-floating m-1"
-									style="background-color: #0082ca" href="#!" role="button">
-									<i class="fab fa-linkedin-in"></i>
-								</a>
-							</div>
-							<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-								<!-- Github -->
-								<a class="btn btn-primary btn-floating m-1"
-									style="background-color: #333333" href="#!" role="button">
-									<i class="fab fa-github"></i>
-								</a>
-							</div>
-						</div>
-						<!--Grid row-->
-					</section>
-					<!-- Section: Links -->
-				</div>
-				<!-- Grid container -->
-
-				<!-- Copyright -->
-				<div class="text-center p-3"
-					style="background-color: rgba(0, 0, 0, 0.2)">
-					<p class="text-white">
-						Space'A&copy; <span id="displayYear"></span> - Space'A l'espace des associations
-					</p>
-				</div>
-				<!-- Copyright -->
-			</footer>
+			<ui:include src="./footer.xhtml">
+			</ui:include>
 		</div>
-
-
 
 		<!-- common scripts for templates -->
 		<h:outputScript library="js" name="jquery-3.4.1.min.js" />

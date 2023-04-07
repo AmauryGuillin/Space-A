@@ -1,7 +1,9 @@
 
 
 body{
- background: url("#{resource['images/bg-ciel.png']}");
+ 
+ /* TODO : réactiver plus tard */
+ /*background: url("#{resource['images/bg-ciel.png']}");*/
  background-size: cover;
 }
 
@@ -41,3 +43,21 @@ body{
 	width: 600px;
 
 }
+/*.index_section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 45px 0;
+  text-align: center;
+  background-color: #3b4a6b;
+  color: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+}*/
