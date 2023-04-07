@@ -33,12 +33,13 @@
 				<h:outputLabel value="Avatar : " />
 				<h:inputText value="#{showUserController.oneUser.userProfile.avatar}" />
 			</div>
-			<div>
-				<h:commandButton action="#{showUserController.updateEntity()}" value="Modifier" />
+						<div>
+				<h:outputLabel value="Avatar : " />
+				<h:inputText value="#{showUserController.oneUser.userProfile.avatar}" />
 			</div>
-      <h:commandButton action="#{showUserController.majProfile(userLoginController.displayUserId(), city, city)}"
-					value="Enregistrer" />
-				<h:outputText value="#{city}" />
+			<div>
+				<h:commandButton action="#{showUserController.updateEntity}" value="Modifier" />
+			</div>
 		</h:form>
 
 

@@ -1,11 +1,14 @@
 package fr.isika.cda.presentation.beans.users;
 
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda.entities.users.UserProfile;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 
 @ManagedBean
@@ -25,11 +28,22 @@ public class ShowUserController {
 	private String userName;
 	private UserAccount userAccount;
 	
+//ABI	
+	private UserAccount oneUser;
 	
+//ABI
+	@PostConstruct
+    public void init() {
+        oneUser = getOneUser();
+    }
+	
+//ABI	
 	public UserAccount getOneUser() {
-		userId = userLoginController.displayUserId();
-		userAccount = userAccountRepo.findByOneId(userId);
-		return userAccount;
+	    if (oneUser == null) {
+	        userId = userLoginController.displayUserId();
+	        oneUser = userAccountRepo.findByOneId(userId);
+	    }
+	    return oneUser;
 	}
 	
 	public void getOneUserById(Long id) {
@@ -58,9 +72,15 @@ public class ShowUserController {
 		return "/index.xhtml?faces-redirect=true";
 	}
 	
+//ABI
 	public String updateEntity() {
-		userAccountRepo.majProfile(getOneUser());
-		return "/index.xhtml?faces-redirect=true";
+	    UserProfile profile = oneUser.getUserProfile();
+	    profile.setLastName(oneUser.getUserProfile().getLastName());
+	    profile.setFirstName(oneUser.getUserProfile().getFirstName());
+	    profile.setAvatar(oneUser.getUserProfile().getAvatar());
+	    oneUser.setUserProfile(profile);
+	    userAccountRepo.majProfile(oneUser);
+	    return "/index.xhtml?faces-redirect=true";
 	}
 	
 	//Post
