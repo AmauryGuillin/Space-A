@@ -14,22 +14,22 @@ public class Address implements Serializable {
 	private static final long serialVersionUID = -6200773657260155980L;
 
 	@Column(length = 255, nullable = true, unique = false)
-	private String lineOne;
+	private String lineOne = "";
 	
 	@Column(length = 255,nullable = true, unique = false)
-	private String lineTwo;
+	private String lineTwo = "";
 	
 	@Column(length = 10,nullable = true, unique = false)
-	private String zipCode;
+	private String zipCode = "";
 	
 	@Column(length = 50, nullable = true, unique = false)
-	private String city;
+	private String city = "";
 	
 	@Column(length = 50, nullable = true, unique = false)
-	private String state;
+	private String state = "";
 	
 	@Column(length = 50, nullable = true, unique = false)
-	private String country;
+	private String country = "";
 
 	/**
 	 * Creates a default instance of {@link Address} with null properties.

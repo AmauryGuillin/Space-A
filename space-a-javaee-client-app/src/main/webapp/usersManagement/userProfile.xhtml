@@ -1,69 +1,74 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:p="http://primefaces.org/ui" lang="en">
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<body>
+			<section>
+				<div class="pourtravail">
 
 
+					<h1>Profil utilisateur</h1>
 
-<body>
-	<nav>
-		<h:form id="usersManagementMenuForm">
-			<ul>
-				<li><h:link outcome="/index.xhtml" value="Home" /></li>
-			</ul>
-		</h:form>
-	</nav>
+					<h:form>
 
-	<section>
+						<div>
+							<h:outputLabel value="Nom d'utilisateur : " />
+							<h:outputLabel value="#{showUserController.oneUser.username}" />
+						</div>
+						<div>
+							<h:outputLabel value="Nom : " />
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.lastName}" />
+						</div>
+						<div>
+							<h:outputLabel value="Prenom : " />
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.firstName}" />
+						</div>
+						<div>
+							<h:outputLabel value="Avatar : " />
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.avatar}" />
+						</div>
+						<div>
+							<h:outputLabel value="Date de naissance : " />
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.birthday}" />
+						</div>
+						<div>
+							<h:outputLabel value="Email n°1 : " />
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.userContact.primaryEmail}" />
+						</div>
+						<div>
+							<h:outputLabel value="Email n°2 : " />
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.userContact.secondaryEmail}" />
+						</div>
+						<div>
+							<h:outputLabel value="Adresse : " />
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.userContact.address.lineOne}" />
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.userContact.address.lineTwo}" />
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.userContact.address.zipCode}" />
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.userContact.address.city}" />
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.userContact.address.state}" />
+							<h:outputLabel
+								value="#{showUserController.oneUser.userProfile.userContact.address.country}" />
+						</div>
+					</h:form>
 
-		<h1>Profil utilisateur</h1>
-
-		<h:form>
-			
-			<div>
-				<h:outputLabel value="Nom d'utilisateur : " />
-				<h:outputLabel value="#{showUserController.oneUser.username}" />
-			</div>
-			<div>
-				<h:outputLabel value="Nom : " />
-				<h:outputLabel value="#{showUserController.oneUser.userProfile.lastName}"/>
-			</div>
-			<div>
-				<h:outputLabel value="Prenom : " />
-				<h:outputLabel value="#{showUserController.oneUser.userProfile.firstName}" />
-			</div>
-			<div>
-				<h:outputLabel value="Avatar : " />
-				<h:outputLabel value="#{showUserController.oneUser.userProfile.avatar}" />
-			</div>
-			<div>
-				<h:outputLabel value="Date de naissance : " />
-				<h:outputLabel value="#{showUserController.oneUser.userProfile.birthday}" />
-			</div>
-			<div>
-				<h:outputLabel value="Email n°1 : " />
-				<h:outputLabel value="#{showUserController.oneUser.userProfile.userContact.primaryEmail}" />
-			</div>
-			<div>
-				<h:outputLabel value="Email n°2 : " />
-				<h:outputLabel value="#{showUserController.oneUser.userProfile.userContact.secondaryEmail}" />
-			</div>
-			<div>
-				<h:outputLabel value="Adresse : " />
-				<h:outputLabel value="#{showUserController.oneUser.userProfile.userContact.address.lineOne}" />
-				<h:outputLabel value="#{showUserController.oneUser.userProfile.userContact.address.lineTwo}" />
-				<h:outputLabel value="#{showUserController.oneUser.userProfile.userContact.address.zipCode}" />
-				<h:outputLabel value="#{showUserController.oneUser.userProfile.userContact.address.city}" />
-				<h:outputLabel value="#{showUserController.oneUser.userProfile.userContact.address.state}" />
-				<h:outputLabel value="#{showUserController.oneUser.userProfile.userContact.address.country}" />
-			</div>		
-		</h:form>
-
-
-	</section>
-
-</body>
-</html>
+				</div>
+			</section>
+		</body>
+	</ui:define>
+</ui:composition>

@@ -4,18 +4,16 @@
 	xmlns:h="http://java.sun.com/jsf/html" lang="en"
 	template="/WEB-INF/template/template.xhtml">
 
-	
-	<ui:define name="content">
-	
-	<body>
-		
-		<H1>ICI LA PAGE INDEX</H1>
-		
-		USERNAME :
-		<b><h:outputLabel value="#{userLoginController.displayUserUsername()}" /></b>
-		ID :
-		<b><h:outputLabel value="#{userLoginController.displayUserId()}" /></b>
 
+	<ui:define name="content">
+  
+  	<div class="pourtravail">
+				<H1>ICI LA PAGE INDEX</H1>
+
+				USERNAME : <b><h:outputLabel
+						value="#{userLoginController.displayUserUsername()}" /></b> ID : <b><h:outputLabel
+						value="#{userLoginController.displayUserId()}" /></b>
+			</div>
 <!-- Ici commence la page index -->
 
 	<h:form id="asso-index">
@@ -68,6 +66,8 @@
 		</h:form>
 	</body>
 	
+
+
 	</ui:define>
-	
+
 </ui:composition>

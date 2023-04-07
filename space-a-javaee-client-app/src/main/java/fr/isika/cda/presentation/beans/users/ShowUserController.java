@@ -1,11 +1,14 @@
 package fr.isika.cda.presentation.beans.users;
 
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda.entities.users.UserProfile;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 
 @ManagedBean
@@ -25,11 +28,21 @@ public class ShowUserController {
 	private String userName;
 	private UserAccount userAccount;
 	
+
 	
+
+	@PostConstruct
+    public void init() {
+		userAccount = getOneUser();
+    }
+	
+
 	public UserAccount getOneUser() {
-		userId = userLoginController.displayUserId();
-		userAccount = userAccountRepo.findByOneId(userId);
-		return userAccount;
+	    if (userAccount == null) {
+	        userId = userLoginController.displayUserId();
+	        userAccount = userAccountRepo.findByOneId(userId);
+	    }
+	    return userAccount;
 	}
 	
 	public void getOneUserById(Long id) {
@@ -41,35 +54,16 @@ public class ShowUserController {
 	}
 
 
-//	public String majProfile(Long id, String email) {
-//		UserAccount account = majProfileFromVM(id, email);
-//		userAccountRepo.majProfile(account);
-//		userVM = new UserViewModel(); // Reset VM
-//		return "/index.xhtml?faces-redirect=true";
-//	}
+	
+	
 
-	//Get
-	public String updateProfile(String lastname) {
-		userId = userLoginController.displayUserId();
-		userAccount = userAccountRepo.findByOneId(userId);
-		System.out.println("********************************************************le lastname = " + lastname);
-		userAccount.getUserProfile().setLastName(lastname);
-		userAccountRepo.majProfile(userAccount);
-		return "/index.xhtml?faces-redirect=true";
-	}
-	
 	public String updateEntity() {
-		userAccountRepo.majProfile(getOneUser());
-		return "/index.xhtml?faces-redirect=true";
+	    UserProfile profile = userAccount.getUserProfile();
+	    userAccountRepo.majProfile(userAccount);
+	    return "/index.xhtml?faces-redirect=true";
 	}
 	
-	//Post
-	public void updateUser(Long id, String city) {
-		userAccount = userAccountRepo.findByOneId(id);
-		userAccount.getUserProfile().getUserContact().getAddress().setCity(city);
-		userAccountRepo.majProfile(userAccount);
-		
-	}
+	
 
 	public UserAccountRepository getUserAccountRepo() {
 		return userAccountRepo;
