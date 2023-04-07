@@ -19,23 +19,23 @@
   <h:outputLabel for="creer" value="Créer un matériel" />
   <br/><br/>
   <h:outputLabel for="titre" value="Titre :" />
-  <h:inputText id="titre" value="#{bean.titre}" />
+  <h:inputText id="titre"  />
   <br/><br/>
   <h:outputLabel for="type" value="Type :" />
-  <h:selectOneMenu id="type" value="#{bean.type}">
+  <h:selectOneMenu id="type" >
     <f:selectItem itemValue="type1" itemLabel="Type 1" />
     <f:selectItem itemValue="type2" itemLabel="Type 2" />
     <f:selectItem itemValue="type3" itemLabel="Type 3" />
   </h:selectOneMenu>
   <br/><br/>
   <h:outputLabel for="photo" value="Photo :" />
-  <h:inputFile id="photo" value="#{bean.photo}" />
+  <h:inputFile id="photo"  />
   <br/><br/>
   <h:outputLabel for="descriptif" value="Descriptif :" />
-  <h:inputTextarea id="descriptif" value="#{bean.descriptif}" />
+  <h:inputTextarea id="descriptif"  />
   <br/><br/>
-  <h:commandButton value="Valider" action="#{bean.valider}" />
-  <h:commandButton value="Supprimer" action="#{bean.supprimer}" />
+  <h:commandButton value="Valider"  />
+  <h:commandButton value="Supprimer"  />
 </h:form>
 		
 		</body>

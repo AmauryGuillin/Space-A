@@ -18,38 +18,38 @@
 		<h:form enctype="multipart/form-data">
   <h:outputLabel for="titre" value="Titre :" />
   <br />
-  <h:inputText id="titre" value="#{bean.titre}" required="true" />
+  <h:inputText id="titre"  required="true" />
   <br />
   
   <h:outputLabel for="date_debut" value="Date de début :" />
   <br />
-  <h:inputText id="date_debut" value="#{bean.dateDebut}" required="true" >
+  <h:inputText id="date_debut"  required="true" >
     <f:convertDateTime pattern="yyyy-MM-dd" />
   </h:inputText>
   <br />
   
   <h:outputLabel for="date_fin" value="Date de fin :" />
   <br />
-  <h:inputText id="date_fin" value="#{bean.dateFin}" required="true" >
+  <h:inputText id="date_fin"  required="true" >
     <f:convertDateTime pattern="yyyy-MM-dd" />
   </h:inputText>
   <br />
   <h:outputLabel for="capacity" value="capacité d'accueil :" />
   <br />
-  <h:inputTextarea id="capacity" value="#{bean.capacity}" rows="5" required="true" />
+  <h:inputTextarea id="capacity"  rows="5" required="true" />
   <br />
   <h:outputLabel for="photo" value="Photo :" />
   <br />
-  <h:inputFile id="photo" value="#{bean.photo}" required="true" accept="image/*" />
+  <h:inputFile id="photo"  required="true" accept="image/*" />
   <br />
   
   <h:outputLabel for="descriptif" value="Descriptif :" />
   <br />
-  <h:inputTextarea id="descriptif" value="#{bean.descriptif}" rows="5" required="true" />
+  <h:inputTextarea id="descriptif"  rows="5" required="true" />
   <br />
   
-  <h:commandButton value="Envoyer" action="#{bean.submit}" />
-   <h:commandButton value="Annuler" action="#{bean.submit}" />
+  <h:commandButton value="Envoyer"  />
+   <h:commandButton value="Annuler"  />
 </h:form>
 		
 		</body>
