@@ -37,11 +37,14 @@
 					value="#{showUserController.oneUser.userProfile.avatar}" />
 			</div>
 			<div>
-				<h:commandButton action="#{showUserController.updateEntity()}"
-					value="Modifier" />
+				<h:outputLabel value="Email : " />
+				<h:inputText
+					value="#{showUserController.oneUser.userProfile.userContact.primaryEmail}" />
 			</div>
 			<div>
-				<h:commandButton action="#{userProfileController.deleteProfile()}"
+				<h:commandButton action="#{showUserController.updateEntity}"
+					value="Modifier" />
+        <h:commandButton action="#{userProfileController.deleteProfile()}"
 					value="Supprimer mon compte" />
 			</div>
 		</h:form>

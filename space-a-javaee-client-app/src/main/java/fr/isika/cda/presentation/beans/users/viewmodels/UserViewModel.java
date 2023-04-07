@@ -38,13 +38,6 @@ public class UserViewModel {
 	
 	// phone
 	private String phoneNumber;
-
-	
-	
-	
-	public void updateUser(Long id, String city) {
-		showUserController.updateUser(id, city);
-	}
 	
 	// getters and setters
 	
