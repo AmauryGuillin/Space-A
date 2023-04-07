@@ -9,6 +9,7 @@
 	<ui:define name="content">
 		<body>
 			<section>
+							<div class="pourtravail">
 			<h:dataTable value="#{showAssociationController.allAssociations}"
 				var="asso">
 			<h:column>
@@ -20,6 +21,7 @@
 				#{asso.associationIdentity.director}
 			</h:column>
 			</h:dataTable>
+			</div>
 			</section>
 		</body>
 		</ui:define>

@@ -1,34 +1,15 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:p="http://primefaces.org/ui" lang="en">
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
 
-<h:head>
-	<title>::Users Management::</title>
-	<style>
-		.ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell
-			{
-			text-align: center;
-		}
-		
-		.customPanelGrid .ui-panelgrid-content {
-			align-items: center;
-		}
-	</style>
-</h:head>
-<body>
-	<nav>
-		<h:form id="usersManagementMenuForm">
-			<ul>
-				<li><h:link outcome="/index.xhtml" value="Home" /></li>
-			</ul>
-		</h:form>		
-	</nav>
-	
-	<section>
+	<ui:define name="content">
+		<body>
+			<section>
+				<div class="pourtravail">
 		<h:form id="usersManagementTableForm">
 			<p:growl id="msgs" showDetail="true"/>
 			
@@ -190,8 +171,8 @@
 	            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary" icon="pi pi-times" />
 	        </p:confirmDialog>
     </h:form>
-		
-	</section>
-	
-</body>
-</html>
+				</div>
+			</section>
+		</body>
+	</ui:define>
+</ui:composition>

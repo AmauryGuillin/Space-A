@@ -1,0 +1,43 @@
+
+
+body{
+ background: url("#{resource['images/bg-ciel.png']}");
+ background-size: cover;
+}
+
+/*NavBar*/
+
+.navbar{
+    background-color: #FFFFFF;
+    font-size: 0.8rem;
+}
+
+.navbar-spaca .nav-link{
+    font-family: 'Open Sans', sans-serif;
+    color: #1A3EB8;
+}
+
+.logo img{
+    height: 80px;
+}
+
+.navbar-asso .nav-link{
+    font-family: 'Courier New', Courier, monospace;
+    color: green;
+}
+
+/*Contain*/
+.main-content{
+	min-height: 100vh;
+	margin-top: 100px;
+	display:flex;
+		justify-content: center;
+}
+
+
+.pourtravail{
+	background-color: white;
+	height: fit-content; 
+	width: 600px;
+
+}
