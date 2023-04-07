@@ -40,10 +40,9 @@
 			<nav class="navbar navbar-expand-lg fixed-top">
 				<div class="container">
 					<div class="logo">
-					<h:graphicImage library="images" name="logoSpacA.png"></h:graphicImage>
+						<h:graphicImage library="images" name="logoSpacA.png"></h:graphicImage>
 					</div>
 					<div class="navbar-spaca">
-
 						<div class="collapse navbar-collapse justify-content-start"
 							id="navbarNav">
 							<h:form>
@@ -51,11 +50,9 @@
 									<li class="nav-item"><h:commandLink class="nav-link"
 											action="#{navController.index()}" value="Accueil" /></li>
 									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.listAllAsso()}"
-											value="Liste Asso" /></li>
+											action="#{navController.listAllAsso()}" value="Liste Asso" /></li>
 									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.assoForm()}"
-											value="Créer Asso" /></li>
+											action="#{navController.assoForm()}" value="Créer Asso" /></li>
 								</ul>
 							</h:form>
 						</div>
@@ -71,22 +68,19 @@
 							<h:form>
 								<ul class="navbar-nav">
 									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.registrationUser()}"
-											value="sign in" /></li>
+											action="#{navController.registrationUser()}" value="sign in" /></li>
 									<li class="nav-item"><h:commandLink class="nav-link"
 											action="#{navController.users()}" value="Users Management" />
 									</li>
 									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.oneUser()}" value="sdk" />
-									</li>
+											action="#{navController.oneUser()}" value="sdk" /></li>
 									<li class="nav-item"><h:commandLink class="nav-link"
 											action="#{navController.modifProfile()}"
 											value="modif Profile" /></li>
 									<li class="nav-item"><h:commandLink class="nav-link"
 											action="#{navController.userProfile()}" value="Profile" /></li>
 									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{userLoginController.Logout()}"
-											value="logout" /></li>
+											action="#{userLoginController.Logout()}" value="logout" /></li>
 									<li class="nav-item"><h:commandLink class="nav-link"
 											action="#{navController.login()}" value="login" /></li>
 								</ul>
@@ -99,7 +93,6 @@
 
 		</div>
 
-
 		<div class="main-content" id="content">
 			<ui:insert name="content">
                 [ici le futur contenu de nos pages]
@@ -107,20 +100,14 @@
 		</div>
 
 		<div id="footer">
-			<div>
-				<HR />
-				<p>
-					Space'A&copy; <span id="displayYear"></span> - Space'A l'espace des
-					associations
-				</p>
-			</div>
+			<ui:include src="./footer.xhtml">
+			</ui:include>
 		</div>
+
+		<!-- common scripts for templates -->
+		<h:outputScript library="js" name="jquery-3.4.1.min.js" />
+		<h:outputScript library="js" name="bootstrap.js" />
+		<h:outputScript library="js" name="copyright_year.js" />
 	</div>
-
-
-
-	<!-- common scripts for templates -->
-
-
 </h:body>
 </html>
