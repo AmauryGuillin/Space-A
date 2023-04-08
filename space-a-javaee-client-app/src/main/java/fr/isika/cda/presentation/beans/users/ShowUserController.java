@@ -1,18 +1,19 @@
 package fr.isika.cda.presentation.beans.users;
 
-import java.io.File;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
-import javax.servlet.http.Part;
+
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.file.UploadedFile;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
+import fr.isika.cda.presentation.utils.FileUpload;
 
 @ManagedBean
 public class ShowUserController {
@@ -28,6 +29,7 @@ public class ShowUserController {
 	private Long userId;
 	private String userName;
 	private UserAccount userAccount;
+	private String avatarFileName;
 
 
 	@PostConstruct
@@ -54,10 +56,14 @@ public class ShowUserController {
 	public String updateEntity() {
 		userAccountRepo.majProfile(userAccount);
 		return "/index.xhtml?faces-redirect=true";
-
 	}
 	
-	public void uploadFile() {
+	
+	public void uploadFile(FileUploadEvent event) {
+		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMYYYY_hhmmss"));
+		UploadedFile file = event.getFile();
+		avatarFileName = timestamp + "_" + file.getFileName();
+		FileUpload.doUpload(file, avatarFileName);
 		
 	}
 

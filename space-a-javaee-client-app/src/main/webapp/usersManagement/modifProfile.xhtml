@@ -26,7 +26,15 @@
 						</div>
 						<div>
 							<h:outputLabel value="Avatar : " />
-							<h:inputFile id="logo" value="#{showUserController.oneUser.userProfile.avatar}"/>
+							<p:fileUpload skinSimple="true" id="avatar"
+							  uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
+							  chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
+							  cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
+							  label="Choisissez une image" mode="advanced" sizeLimit="5000000"
+							  fileLimit="1" accept=".gif,.jpg,.jpeg,.png"
+							  invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
+							  listener="#{showUserController.uploadFile()}" 
+							  class="imgInput"/>
 						</div>
 						<div>
 							<h:outputLabel value="Email : " />
