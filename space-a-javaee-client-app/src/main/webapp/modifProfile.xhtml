@@ -31,9 +31,9 @@
 							  chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
 							  cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
 							  label="Choisissez une image" mode="advanced" sizeLimit="5000000"
-							  fileLimit="1" accept=".gif,.jpg,.jpeg,.png"
+							  fileLimit="1" accept=".gif,.jpg,.jpeg,.png" auto="true"
 							  invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
-							  listener="#{showUserController.uploadFile()}" 
+							  fileUploadListener="#{showUserController.uploadFile()}" 
 							  class="imgInput"/>
 						</div>
 						<div>

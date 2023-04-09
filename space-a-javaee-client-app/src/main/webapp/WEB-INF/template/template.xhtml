@@ -52,12 +52,14 @@
 							id="navbarNav">
 							<h:form>
 								<ul class="navbar-nav">
-									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.index()}" value="Accueil" /></li>
-									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.listAllAsso()}" value="Liste Asso" /></li>
-									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.assoForm()}" value="Créer Asso" /></li>
+									<ui:fragment rendered="#{userLoginController.userLoggedIn == true}">
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.index()}" value="Accueil" /></li>
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.listAllAsso()}" value="Liste Asso" /></li>
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.assoForm()}" value="Créer Asso" /></li>
+									</ui:fragment>
 								</ul>
 							</h:form>
 						</div>
@@ -72,20 +74,27 @@
 							id="navbarNav">
 							<h:form>
 								<ul class="navbar-nav">
+									<ui:fragment rendered="#{userLoginController.userLoggedIn == false}">
 									<li class="nav-item"><h:commandLink class="nav-link"
 											action="#{navController.registrationUser()}" value="sign in" /></li>
+									</ui:fragment>
+
 									<li class="nav-item"><h:commandLink class="nav-link"
 											action="#{navController.users()}" value="Users Management" />
 									</li>
-									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.oneUser()}" value="sdk" /></li>
-									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.modifProfile()}"
-											value="modif Profile" /></li>
-									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.userProfile()}" value="Profile" /></li>
-									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{userLoginController.Logout()}" value="logout" /></li>
+
+									<ui:fragment rendered="#{userLoginController.userLoggedIn == true}">
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.oneUser()}" value="sdk" /></li>
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.modifProfile()}"
+												value="modif Profile" /></li>
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.userProfile()}" value="Profile" /></li>
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{userLoginController.Logout()}" value="logout" /></li>
+									</ui:fragment>
+
 									<li class="nav-item"><h:commandLink class="nav-link"
 											action="#{navController.login()}" value="login" /></li>
 								</ul>

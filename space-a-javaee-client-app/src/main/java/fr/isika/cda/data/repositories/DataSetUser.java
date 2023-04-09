@@ -67,7 +67,6 @@ public class DataSetUser {
 		manager.persist(contact); // persisted manually because of the @Embedded
 		manager.persist(acc);
 		
-		
 	
 		// User 2
 		UserAccount acc2 = new UserAccount();

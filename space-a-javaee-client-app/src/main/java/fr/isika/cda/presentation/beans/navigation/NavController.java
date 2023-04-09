@@ -10,19 +10,19 @@ import fr.isika.cda.presentation.utils.WebUiTools;
 public class NavController {
 
 	public void assoForm() {
-		WebUiTools.redirectToView("/assoManagement/assoForm.xhtml");
+		WebUiTools.redirectToView("/assoForm.xhtml");
 	}
 
 	public void listAllAsso() {
-		WebUiTools.redirectToView("/assoManagement/listAllAsso.xhtml");
+		WebUiTools.redirectToView("/listAllAsso.xhtml");
 	}
 
 	public void users() {
-		WebUiTools.redirectToView("/usersManagement/users.xhtml");
+		WebUiTools.redirectToView("/users.xhtml");
 	}
 	
 	public void oneUser() {
-		WebUiTools.redirectToView("/usersManagement/oneUser.xhtml");
+		WebUiTools.redirectToView("/oneUser.xhtml");
 	}
 
 	public void index() {
@@ -30,15 +30,15 @@ public class NavController {
 	}
 	
 	public void registrationUser() {
-		WebUiTools.redirectToView("/usersManagement/registrationUser.xhtml");
+		WebUiTools.redirectToView("/registrationUser.xhtml");
 	}
 	
 	public void userProfile() {
-		WebUiTools.redirectToView("/usersManagement/userProfile.xhtml");
+		WebUiTools.redirectToView("/userProfile.xhtml");
 	}
 	
 	public void modifProfile() {
-		WebUiTools.redirectToView("/usersManagement/modifProfile.xhtml");
+		WebUiTools.redirectToView("/modifProfile.xhtml");
 	}
 
 	public void login() {
