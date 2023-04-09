@@ -13,9 +13,29 @@ import fr.isika.cda.presentation.beans.users.UserLoginController;
 @ManagedBean
 public class EditAssoComplete {
 
-//DE QUOI J'AI BESOIN ???
+	private Association asso;
+	private UserAccount userAccount;
+	private Long userId;
 	
+	@Inject 
+	private AssociationRepository assoRepo;
+	
+	@Inject 
+	private UserAccountRepository userRepo;
+	
+	@Inject
+	private UserLoginController userLoginController;
+	
+	public Association getOneAsso() {
+		if (userAccount == null) {
+			userId = userLoginController.displayUserId();
+			userAccount = userRepo.findByOneId(userId);
+			asso = assoRepo.findOneById(userAccount.getAssociation().getId());
+		}
+		return asso;
+	}
 
+	
 	
 	
 }
