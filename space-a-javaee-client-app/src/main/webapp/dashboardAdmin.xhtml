@@ -10,39 +10,44 @@
 
 <ui:composition template="/WEB-INF/template/template.xhtml">
 
-	<h:head>
-		<title>Contact</title>
-	</h:head>
-
 	<ui:define name="content">
 		<body>
-			<h:form id="dashboardAdminForm">
-				<h:outputLabel for="nomAdmin" value="BienvenueNomAdmin" />
-				<h:commandButton id="configFonctionnalite"
-					value="configFonctionnalite" />
-				<h:commandButton id="configEspace" value="configEspace" />
-				<br />
-				<br />
-				<h:commandButton id="adherents" value="Adhérents" />
-				<h:commandButton id="activites" value="Activités" />
-				<h:commandButton id="evenements" value="Événements" />
-				<h:commandButton id="materiels" value="Matériels" />
-				<h:commandButton id="parametres" value="Paramètres" />
-				<br />
-				<br />
-				<ul>
-					<li><h:inputText id="titre1" name="titre1" value="" /> 
-					<h:commandButton class="modifier" value="Modifier" /> 
-							
-					<h:commandButton class="supprimer" value="Supprimer" /></li>
-					<li><h:inputText id="titre2" name="titre2" value="" /> 
-					<h:commandButton class="modifier" value="Modifier" /> 
-					<h:commandButton class="supprimer" value="Supprimer" /></li>
-				</ul>
-				<h:commandButton id="ajouter" value="Ajouter un élément" />
+			<div class="pourtravail">
+				<h:form id="dashboardAdminForm">
+					<div>
+						<h:outputLabel for="nomAdmin"
+							value="Bienvenue #{userLoginController.displayUserUsername()}" />
+						<h:commandButton id="configFonctionnalite"
+							value="configFonctionnalite" />
+					</div>
+					<div>
+						<h:commandButton id="configEspace" value="configEspace" />
+					</div>
+					<div>
+						<h:commandButton id="adherents" value="Adhérents" />
+						<h:commandButton id="activites" value="Activités" />
+						<h:commandButton id="evenements" value="Événements" />
+						<h:commandButton id="materiels" value="Matériels" />
+						<h:commandButton id="parametres" value="Paramètres" />
+					</div>
+					
+					<div class="members-list">
+						
+						<h:dataTable>
+						
+							<h:column>
+								<f:facet name="header">
+									Nom
+								</f:facet>
+							</h:column>
+						
+						</h:dataTable>
+						
+					</div>
+					
 
-			</h:form>
-
+				</h:form>
+			</div>
 		</body>
 	</ui:define>
 </ui:composition>
