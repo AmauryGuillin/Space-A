@@ -50,7 +50,7 @@ public class UserLoginController implements Serializable{
 	public void login() {	
 		try {	
 		userAccount = userAccountRepository.findByOneName(userLoginViewModel.getUsername());
-		if(userAccount!=null && isUserLoggedIn() == false) {
+		if (userAccount != null && isUserLoggedIn() == false) {
 			registerLoggedUserSessionAttributes(userAccount);
 			processLogin();
 			navController.index();
@@ -141,6 +141,11 @@ public class UserLoginController implements Serializable{
 		
 	}
 	
+	public Long displayUserAssociationId() {
+		Long id = 0L;
+		id = getLoggedUserAssociationFromSession();
+		return id;
+	}
 	
 	private void resetViewModel() {
 		this.userLoginViewModel = new UserLoginViewModel();
@@ -166,11 +171,21 @@ public class UserLoginController implements Serializable{
 		return (UserRole) session.getAttribute("loggedUserRole");
 	}
 	
+	private Long getLoggedUserAssociationFromSession() {
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		return (Long) session.getAttribute("loggedAssociationId");
+	}
+	
 	private void registerLoggedUserSessionAttributes(UserAccount userAccount) {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		session.setAttribute("loggedUserId", userAccount.getUserId());
 		session.setAttribute("loggedUsername", userAccount.getUsername());
 		session.setAttribute("loggedUserRole", userAccount.getPrimaryRole());
+		
+		if (userAccount.getAssociation().getId() != null) {
+			session.setAttribute("loggedAssociationId", userAccount.getAssociation().getId());
+		}
+		
 	}
 	
 	
