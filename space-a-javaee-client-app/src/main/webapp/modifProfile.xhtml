@@ -15,17 +15,17 @@
 
 					<h:form enctype="multipart/form-data">
 						<div>
-							<h:outputLabel value="Nom : " />
-							<h:inputText
+							<b><h:outputLabel value="Nom : " /></b>
+							<p:inputText
 								value="#{showUserController.oneUser.userProfile.lastName}" />
 						</div>
 						<div>
-							<h:outputLabel value="Prenom : " />
-							<h:inputText
+							<b><h:outputLabel value="Prenom : " /></b>
+							<p:inputText
 								value="#{showUserController.oneUser.userProfile.firstName}" />
 						</div>
 						<div>
-							<h:outputLabel value="Avatar : " />
+							<b><h:outputLabel value="Avatar : " /></b>
 							<p:fileUpload skinSimple="true" id="avatar"
 							  uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
 							  chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
@@ -37,19 +37,64 @@
 							  class="imgInput"/>
 						</div>
 						<div>
-							<h:outputLabel value="Email : " />
-							<h:inputText
+							<b><h:outputLabel value="Date de naissance : " /></b>
+							<p:datePicker id="buttonbar" value="#{showUserController.oneUser.userProfile.birthday}" showButtonBar="true"/>
+						</div>
+						<div>
+							<b><h:outputLabel value="Email n°1 : " /></b>
+							<p:inputText
 								value="#{showUserController.oneUser.userProfile.userContact.primaryEmail}" />
 						</div>
 						<div>
-							<h:outputLabel value="Email : " />
-							<h:inputText
+							<b><h:outputLabel value="Email n°2 : " /></b>
+							<p:inputText
+								value="#{showUserController.oneUser.userProfile.userContact.secondaryEmail}" />
+						</div>
+						<div>
+							<b><h:outputLabel value="Adresse : " /></b>
+							<h:outputLabel value="Adresse ligne 1 : " />
+							<p:inputText
+								value="#{showUserController.oneUser.userProfile.userContact.address.lineOne}" />
+						</div>
+						<div>
+							<b><h:outputLabel value="Adresse ligne 2 : " /></b>
+							<p:inputText
+								value="#{showUserController.oneUser.userProfile.userContact.address.lineTwo}" />
+						</div>
+						<div>
+							<b><h:outputLabel value="Code postal : " /></b>
+							<p:inputText
+								value="#{showUserController.oneUser.userProfile.userContact.address.zipCode}" />
+						</div>		
+						<div>
+							<b><h:outputLabel value="Ville : " /></b>
+							<p:inputText
 								value="#{showUserController.oneUser.userProfile.userContact.address.city}" />
 						</div>
 						<div>
-							<h:commandButton action="#{showUserController.updateEntity}"
+							<b><h:outputLabel value="Region : " /></b>
+							<p:inputText
+								value="#{showUserController.oneUser.userProfile.userContact.address.state}" />
+						</div>
+						<div>
+							<b><h:outputLabel value="Pays : " /></b>
+							<p:inputText
+								value="#{showUserController.oneUser.userProfile.userContact.address.country}" />
+						</div>						
+						<div>
+							<b><h:outputLabel value="Code pays : " /></b>
+							<p:inputText
+								value="#{showUserController.oneUser.userProfile.userContact.phone.counrtyCode}" />
+						</div>
+						<div>
+							<b><h:outputLabel value="Numero de telephone : " /></b>
+							<p:inputText
+								value="#{showUserController.oneUser.userProfile.userContact.phone.phoneNumber}" />
+						</div>
+						<div>
+							<p:commandButton action="#{showUserController.updateEntity}"
 								value="Modifier" />
-							<h:commandButton
+							<p:commandButton
 								action="#{userProfileController.deleteProfile()}"
 								value="Supprimer mon compte" />
 						</div>

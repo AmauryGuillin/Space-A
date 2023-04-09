@@ -47,12 +47,9 @@ public class UserLoginController implements Serializable{
 		}
 	}
 	
-	public void login() {
-		
-		try {
-			
+	public void login() {	
+		try {	
 		userAccount = userAccountRepository.findByOneName(userLoginViewModel.getUsername());
-		
 		if(userAccount!=null && isUserLoggedIn() == false) {
 			registerLoggedUserSessionAttributes(userAccount);
 			processLogin();
@@ -62,14 +59,11 @@ public class UserLoginController implements Serializable{
 		} else if (userAccount == null){
 			navController.error();
 		}
-		
 		resetViewModel();
-		
 		} catch (Exception e) {
 			e.printStackTrace();
 			navController.error();
 		}
-		
 	}
 	
 
