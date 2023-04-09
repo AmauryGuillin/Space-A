@@ -59,7 +59,13 @@ public class AssociationController {
 
 	private Association createAssoFromVM() {
 	
+		//Graphic Association Default
 		GraphicChart assoGraphic = new GraphicChart();
+		assoGraphic.setBanner("Je suis une belle banière");
+		assoGraphic.setFont("Police par defaut");
+		assoGraphic.setMainColor("ROUGE");
+		assoGraphic.setSecondaryColor("VERT");
+		assoGraphic.setTertiaryColor("BLEU");
 		
 		AssociationSpace assoSpace = new AssociationSpace();
 		assoSpace.setGraphicChart(assoGraphic);
