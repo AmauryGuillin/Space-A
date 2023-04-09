@@ -1,0 +1,59 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+			<div class="pourtravail">
+				<h1>CONFIG SPACE</h1>
+				<h:form id="associationConfig">
+
+					<h3>Partie Asso Depiction</h3>
+					<div>
+						<h:outputLabel value="Name" />
+						<h:inputText value="#" id="nameAsso"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Logo" />
+						<h:inputText value="#" id="logoAsso"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Description" />
+						<h:inputText value="#" id="descriptionAsso"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Photo Principal de l'Asso" />
+						<h:inputText value="#" id="mainImage"></h:inputText>
+					</div>
+					<h3>Partie Asso Space</h3>
+					<div>
+						<h:outputLabel value="Couleur principal" />
+						<h:inputText value="#" id="mainColor"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Couleur secondaire" />
+						<h:inputText value="#" id="secondColor"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Couleur tertiaire" />
+						<h:inputText value="#" id="tertiaryColor"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Police :" />
+						<h:inputText value="#" id="font"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Bannière :" />
+						<h:inputText value="#" id="banner"></h:inputText>
+					</div>
+
+				</h:form>
+			</div>
+
+		</h:body>
+	</ui:define>
+</ui:composition>

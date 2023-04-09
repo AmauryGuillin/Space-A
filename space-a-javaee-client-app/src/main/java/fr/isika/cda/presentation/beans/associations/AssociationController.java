@@ -34,6 +34,8 @@ public class AssociationController {
 	
 	public String CreateAsso() {
 		
+//TODO ABI faire le control : si co ok sinon page login
+		
 		//Creation Asso
 		Association asso = createAssoFromVM();
 		
@@ -51,7 +53,7 @@ public class AssociationController {
 
 		//Reset VM
 		assoVM = new AssociationViewModel(); 
-		return "/index.xhtml?faces-redirect=true"; //TODO 00 Demander à Mo car fullcon
+		return "/configSpace.xhtml?faces-redirect=true"; //TODO 00 Demander à Mo car fullcon
 	}
 
 

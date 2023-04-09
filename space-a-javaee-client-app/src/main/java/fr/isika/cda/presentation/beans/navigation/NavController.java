@@ -10,7 +10,7 @@ import fr.isika.cda.presentation.utils.WebUiTools;
 public class NavController {
 
 	public void assoForm() {
-		WebUiTools.redirectToView("/assoManagement/assoForm.xhtml");
+		WebUiTools.redirectToView("/assoManagement/createAsso.xhtml");
 	}
 
 	public void listAllAsso() {

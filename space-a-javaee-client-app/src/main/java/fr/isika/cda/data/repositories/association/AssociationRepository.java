@@ -42,6 +42,13 @@ public class AssociationRepository {
 	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
+
+	public Long editSpace(Association asso) {
+		Association mergedAsso = entityManager.merge(asso);
+		entityManager.flush();
+		return mergedAsso.getId();
+		
+	}
 	
 	
 	
