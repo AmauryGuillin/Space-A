@@ -35,6 +35,10 @@ public class EditAssoComplete {
 		return asso;
 	}
 
+	public String updateAsso() {
+		assoRepo.majAsso(asso);
+		return "/index.xhtml?faces-redirect=true";
+	}
 	
 	
 	
