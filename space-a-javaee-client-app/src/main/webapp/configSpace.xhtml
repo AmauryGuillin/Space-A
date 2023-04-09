@@ -1,0 +1,81 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+			<div class="pourtravail">
+				<h1>CONFIG SPACE</h1>
+				<h:form id="associationConfig">
+
+					<h3>Partie Asso Depiction</h3>
+					<div>
+						<h:outputLabel value="Name" />
+						<h:inputText
+							value="#{editAssoComplete.oneAsso.associationIdentity.associationDepiction.name}"
+							id="nameAsso"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Logo" />
+						<h:inputText
+							value="#{editAssoComplete.oneAsso.associationIdentity.associationDepiction.logo}"
+							id="logoAsso"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Description" />
+						<h:inputText
+							value="#{editAssoComplete.oneAsso.associationIdentity.associationDepiction.description}"
+							id="descriptionAsso"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Photo Principal de l'Asso" />
+						<h:inputText
+							value="#{editAssoComplete.oneAsso.associationIdentity.associationDepiction.mainImage}"
+							id="mainImage"></h:inputText>
+					</div>
+					<h3>Partie Asso Space</h3>
+					<div>
+						<h:outputLabel value="Couleur principal" />
+						<h:inputText
+							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.mainColor}"
+							id="mainColor"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Couleur secondaire" />
+						<h:inputText
+							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.secondaryColor}"
+							id="secondColor"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Couleur tertiaire" />
+						<h:inputText
+							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.tertiaryColor}"
+							id="tertiaryColor"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Police :" />
+						<h:inputText
+							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.font}"
+							id="font"></h:inputText>
+					</div>
+					<div>
+						<h:outputLabel value="Bannière :" />
+						<h:inputText
+							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.banner}"
+							id="banner"></h:inputText>
+					</div>
+					<div>
+						<h:commandButton action="#{editAssoComplete.updateAsso()}"
+							value="Sauvegarder" />
+					</div>
+
+				</h:form>
+			</div>
+
+		</h:body>
+	</ui:define>
+</ui:composition>

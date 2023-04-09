@@ -34,6 +34,8 @@ public class AssociationController {
 	
 	public String CreateAsso() {
 		
+//TODO ABI faire le control : si co ok sinon page login
+		
 		//Creation Asso
 		Association asso = createAssoFromVM();
 		
@@ -51,13 +53,19 @@ public class AssociationController {
 
 		//Reset VM
 		assoVM = new AssociationViewModel(); 
-		return "/index.xhtml?faces-redirect=true"; //TODO 00 Demander à Mo car fullcon
+		return "/configSpace.xhtml?faces-redirect=true"; //TODO 00 Demander à Mo car fullcon
 	}
 
 
 	private Association createAssoFromVM() {
 	
+		//Graphic Association Default
 		GraphicChart assoGraphic = new GraphicChart();
+		assoGraphic.setBanner("Je suis une belle banière");
+		assoGraphic.setFont("Police par defaut");
+		assoGraphic.setMainColor("ROUGE");
+		assoGraphic.setSecondaryColor("VERT");
+		assoGraphic.setTertiaryColor("BLEU");
 		
 		AssociationSpace assoSpace = new AssociationSpace();
 		assoSpace.setGraphicChart(assoGraphic);
