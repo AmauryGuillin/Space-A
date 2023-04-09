@@ -50,6 +50,9 @@ public class UserAccount implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Association association;
 	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private AssociationSubscriber associationSubscriber;
+	
 	
 	
 	

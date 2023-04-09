@@ -1,9 +1,9 @@
 package fr.isika.cda.entities.users;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
+import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +26,10 @@ public class AssociationSubscriber {
 	private Date dateOfMembership;
 	
 	private String justification;
-
+	
+	@ManyToMany
+	private List<Association> listAssociations = new ArrayList<>();	
+	
 	public boolean isMembershipStatus() {
 		return membershipStatus;
 	}
