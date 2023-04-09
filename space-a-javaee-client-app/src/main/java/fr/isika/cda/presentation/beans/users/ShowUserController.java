@@ -64,6 +64,9 @@ public class ShowUserController {
 		UploadedFile file = event.getFile();
 		avatarFileName = timestamp + "_" + file.getFileName();
 		FileUpload.doUpload(file, avatarFileName);
+		userId = userLoginController.displayUserId();
+		userAccount = userAccountRepo.findByOneId(userId);
+		userAccount.getUserProfile().setAvatar(avatarFileName);
 		
 	}
 
@@ -106,6 +109,16 @@ public class ShowUserController {
 	public void setUserVM(UserViewModel userVM) {
 		this.userVM = userVM;
 	}
+
+	public String getAvatarFileName() {
+		return avatarFileName;
+	}
+
+	public void setAvatarFileName(String avatarFileName) {
+		this.avatarFileName = avatarFileName;
+	}
+	
+	
 
 
 

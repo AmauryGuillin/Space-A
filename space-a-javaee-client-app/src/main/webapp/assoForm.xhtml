@@ -1,0 +1,64 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+				<div class="pourtravail">
+					<h:form id="associationManagementTableForm">
+						<div>
+							<h:outputLabel value="LegalName" />
+							<h:inputText value="#{associationController.assoVM.legalName}"
+								id="legalName"></h:inputText>
+						</div>
+						<div>
+							<h:outputLabel value="registrationNumber" />
+							<h:inputText
+								value="#{associationController.assoVM.registrationNumber}"></h:inputText>
+						</div>
+						<div>
+							<h:outputLabel value="name" />
+							<h:inputText value="#{associationController.assoVM.name}"></h:inputText>
+						</div>
+						<div>
+							<h:outputLabel value="description" />
+							<h:inputText value="#{associationController.assoVM.description}"></h:inputText>
+						</div>
+						<div>
+							<h:outputLabel value="logo" />
+							<h:inputText value="#{associationController.assoVM.logo}"></h:inputText>
+						</div>
+						<div>
+							<h:outputLabel value="mainImage" />
+							<h:inputText value="#{associationController.assoVM.mainImage}"></h:inputText>
+						</div>
+						<div>
+							<h:outputLabel value="headOffice" />
+							<h:inputText value="#{associationController.assoVM.headOffice}"></h:inputText>
+						</div>
+						<div>
+							<h:outputLabel value="rscNumber" />
+							<h:inputText value="#{associationController.assoVM.rscNumber}"></h:inputText>
+						</div>
+						<div>
+							<h:outputLabel value="kbisExtract" />
+							<h:inputText value="#{associationController.assoVM.kbisExtract}"></h:inputText>
+						</div>
+						<div>
+							<h:outputLabel value="director" />
+							<h:inputText value="#{associationController.assoVM.director}"></h:inputText>
+						</div>
+						<div>
+							<h:commandButton action="#{associationController.CreateAsso()}"
+								value="Creer" />
+						</div>
+					</h:form>
+				</div>
+
+		</h:body>
+	</ui:define>
+</ui:composition>

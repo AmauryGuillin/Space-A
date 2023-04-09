@@ -23,6 +23,8 @@ public class UserLoginController implements Serializable{
 	 */
 	private static final long serialVersionUID = -1179088506634622925L;
 
+	// Attributes
+	
 	@Inject
 	private UserLoginViewModel userLoginViewModel = new UserLoginViewModel();
 	
@@ -32,8 +34,10 @@ public class UserLoginController implements Serializable{
 	@Inject
 	private NavController navController;
 	
-
 	private UserAccount userAccount;
+	
+	
+	// Methodes
 	
 	public void show() {
 		if(isUserLoggedIn()) {
@@ -43,14 +47,23 @@ public class UserLoginController implements Serializable{
 		}
 	}
 	
-	public void login() {
+	public void login() {	
+		try {	
 		userAccount = userAccountRepository.findByOneName(userLoginViewModel.getUsername());
-		if(userAccount!=null) {
+		if(userAccount!=null && isUserLoggedIn() == false) {
 			registerLoggedUserSessionAttributes(userAccount);
 			processLogin();
+			navController.index();
+		} else if (isUserLoggedIn() == true) {
+			navController.error();
+		} else if (userAccount == null){
+			navController.error();
 		}
-		
 		resetViewModel();
+		} catch (Exception e) {
+			e.printStackTrace();
+			navController.error();
+		}
 	}
 	
 
@@ -159,6 +172,9 @@ public class UserLoginController implements Serializable{
 		session.setAttribute("loggedUsername", userAccount.getUsername());
 		session.setAttribute("loggedUserRole", userAccount.getPrimaryRole());
 	}
+	
+	
+	//Getters and Setters
 
 	public UserLoginViewModel getUserLoginViewModel() {
 		return userLoginViewModel;
