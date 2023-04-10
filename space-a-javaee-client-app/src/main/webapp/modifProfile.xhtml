@@ -25,20 +25,17 @@
 								value="#{showUserController.oneUser.userProfile.firstName}" />
 						</div>
 						<div>
-						<h:form>
-							<b><h:outputLabel value="Avatar : " /></b>
-							<p:fileUpload skinSimple="true" id="avatar"
+						<p:fileUpload skinSimple="true" id="logoInput"
 							  uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
 							  chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
 							  cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
 							  label="Choisissez une image" mode="advanced" sizeLimit="5000000"
-							  fileLimit="1" accept=".gif,.jpg,.jpeg,.png" auto="true"
+							  fileLimit="1" accept=".gif,.jpg,.jpeg,.png"
 							  invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
-							  fileUploadListener="#{showUserController.uploadFile}"
+							  listener="#{fileUploadView.file}" 
 							  class="imgInput"/>
-							  
-							  <p:commandButton value="submit" ajax="false" action="#{showUserController.uploadFile()}"></p:commandButton>
-						</h:form>
+
+						        <p:commandButton value="Submit" ajax="false" action="#{fileUploadView.upload()}" styleClass="mt-3 ui-button-outlined block"/>
 						</div>
 						<div>
 							<b><h:outputLabel value="Date de naissance : " /></b>

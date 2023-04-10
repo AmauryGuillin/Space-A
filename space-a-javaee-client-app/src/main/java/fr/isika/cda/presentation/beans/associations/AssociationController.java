@@ -34,7 +34,7 @@ public class AssociationController {
 	
 	public String CreateAsso() {
 		
-//TODO ABI faire le control : si co ok sinon page login
+		//TODO ABI faire le control : si co ok sinon page login
 		
 		//Creation Asso
 		Association asso = createAssoFromVM();
@@ -63,9 +63,9 @@ public class AssociationController {
 		GraphicChart assoGraphic = new GraphicChart();
 		assoGraphic.setBanner("Je suis une belle banière");
 		assoGraphic.setFont("Police par defaut");
-		assoGraphic.setMainColor("ROUGE");
-		assoGraphic.setSecondaryColor("VERT");
-		assoGraphic.setTertiaryColor("BLEU");
+		assoGraphic.setMainColor(assoVM.getMainColor());
+		assoGraphic.setSecondaryColor(assoVM.getSecondaryColor());
+		assoGraphic.setTertiaryColor(assoVM.getTertaryColor());
 		
 		AssociationSpace assoSpace = new AssociationSpace();
 		assoSpace.setGraphicChart(assoGraphic);
@@ -91,6 +91,19 @@ public class AssociationController {
 		
 		
 		return asso;
+	}
+	
+	public void autoFillPageOne() {
+		assoVM.setLegalName("legal name");
+		assoVM.setRegistrationNumber(000001);
+		assoVM.setName("nom");
+		assoVM.setDescription("description");
+		assoVM.setLogo("Path du logo....");
+		assoVM.setMainImage("Path de l'image principale");
+		assoVM.setHeadOffice("Siège social");
+		assoVM.setRscNumber("000000001");
+		assoVM.setKbisExtract("000000006545");
+		assoVM.setDirector("Directeur");
 	}
 	
 

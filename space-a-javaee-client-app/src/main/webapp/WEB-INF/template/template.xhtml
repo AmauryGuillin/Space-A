@@ -74,14 +74,13 @@
 							id="navbarNav">
 							<h:form>
 								<ul class="navbar-nav">
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{navController.users()}" value="Users Management" />
+									</li>
 									<ui:fragment rendered="#{userLoginController.userLoggedIn == false}">
 									<li class="nav-item"><h:commandLink class="nav-link"
 											action="#{navController.registrationUser()}" value="sign in" /></li>
 									</ui:fragment>
-
-									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.users()}" value="Users Management" />
-									</li>
 
 									<ui:fragment rendered="#{userLoginController.userLoggedIn == true}">
 										<li class="nav-item"><h:commandLink class="nav-link"
@@ -94,9 +93,10 @@
 										<li class="nav-item"><h:commandLink class="nav-link"
 												action="#{userLoginController.Logout()}" value="logout" /></li>
 									</ui:fragment>
-
+									<ui:fragment rendered="#{userLoginController.userLoggedIn == false}">
 									<li class="nav-item"><h:commandLink class="nav-link"
 											action="#{navController.login()}" value="login" /></li>
+									</ui:fragment>
 								</ul>
 							</h:form>
 						</div>
@@ -119,7 +119,10 @@
 		</div>
 
 		<!-- common scripts for templates -->
-		<h:outputScript library="js" name="jquery-3.4.1.min.js" />
+		<h:outputScript library="primefaces" name="jquery/jquery.js"
+			target="head" />
+		<h:outputScript library="primefaces" name="jquery/jquery-plugins.js"
+			target="head" />
 		<h:outputScript library="js" name="bootstrap.js" />
 		<h:outputScript library="js" name="copyright_year.js" />
 	</div>

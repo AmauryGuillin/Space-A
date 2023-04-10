@@ -47,9 +47,7 @@ public class ShowAssociationController {
 	
 	public Association attributListner(ActionEvent event) {
 		asso = (Association) event.getComponent().getAttributes().get("asso");
-
 		return asso;
-		
 	}	
 	
 	//TODO j'arrive pas à récupérer l'asso de tout maniere
