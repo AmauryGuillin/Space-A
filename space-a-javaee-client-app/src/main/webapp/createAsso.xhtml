@@ -10,6 +10,10 @@
 		<h:body>
 				<div class="pourtravail">
 				<h1>CREATION ASSO</h1>
+					<h:form>
+						<h:commandButton action="#{associationController.autoFillPageOne()}" value="AutoFill" />
+					</h:form>
+				
 					<h:form id="associationManagementTableForm">
 						<div>
 							<h:outputLabel value="LegalName" />

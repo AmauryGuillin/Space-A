@@ -14,47 +14,42 @@
 
 					<h3>Partie Asso Depiction</h3>
 					<div>
-						<h:outputLabel value="Name" />
-						<h:inputText
+						<b><h:outputLabel value="Name : " /></b>
+						<h:outputText
 							value="#{editAssoComplete.oneAsso.associationIdentity.associationDepiction.name}"
-							id="nameAsso"></h:inputText>
+							id="nameAsso"></h:outputText>
 					</div>
 					<div>
-						<h:outputLabel value="Logo" />
-						<h:inputText
+						<b><h:outputLabel value="Logo : " /></b>
+						<h:outputText
 							value="#{editAssoComplete.oneAsso.associationIdentity.associationDepiction.logo}"
-							id="logoAsso"></h:inputText>
+							id="logoAsso"></h:outputText>
 					</div>
 					<div>
-						<h:outputLabel value="Description" />
-						<h:inputText
+						<b><h:outputLabel value="Description : " /></b>
+						<h:outputText
 							value="#{editAssoComplete.oneAsso.associationIdentity.associationDepiction.description}"
-							id="descriptionAsso"></h:inputText>
+							id="descriptionAsso"></h:outputText>
 					</div>
 					<div>
-						<h:outputLabel value="Photo Principal de l'Asso" />
-						<h:inputText
+						<b><h:outputLabel value="Photo Principal de l'Asso : " /></b>
+						<h:outputText
 							value="#{editAssoComplete.oneAsso.associationIdentity.associationDepiction.mainImage}"
-							id="mainImage"></h:inputText>
+							id="mainImage"></h:outputText>
 					</div>
 					<h3>Partie Asso Space</h3>
-					<div>
-						<h:outputLabel value="Couleur principal" />
-						<h:inputText
-							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.mainColor}"
-							id="mainColor"></h:inputText>
+
+					<div class="primary-color">
+							<h:outputLabel value="Couleur principal" />
+							<p:colorPicker value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.mainColor}" mode="inline" />
 					</div>
-					<div>
-						<h:outputLabel value="Couleur secondaire" />
-						<h:inputText
-							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.secondaryColor}"
-							id="secondColor"></h:inputText>
+					<div class="secondary-color">
+							<h:outputLabel value="Couleur secondaire" />
+							<p:colorPicker value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.secondaryColor}" mode="inline" />
 					</div>
-					<div>
-						<h:outputLabel value="Couleur tertiaire" />
-						<h:inputText
-							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.tertiaryColor}"
-							id="tertiaryColor"></h:inputText>
+					<div class="tertiary-color">
+							<h:outputLabel value="Couleur tertiaire" />
+							<p:colorPicker value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.tertiaryColor}" mode="inline" />
 					</div>
 					<div>
 						<h:outputLabel value="Police :" />

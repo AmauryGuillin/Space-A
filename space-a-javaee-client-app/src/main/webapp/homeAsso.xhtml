@@ -11,8 +11,12 @@
 					<H1>Qui est connecté ??!</H1>
 					<div>
 						USERNAME : <b><h:outputLabel
-								value="#{userLoginController.displayUserUsername()}" /></b> ID : <b><h:outputLabel
+								value="#{userLoginController.displayUserUsername()}" /></b> 
+						ID : <b><h:outputLabel
 								value="#{userLoginController.displayUserId()}" /></b>
+						<b>Color 1 : ##{showAssociationController.asso.associationSpace.graphicChart.mainColor}</b>
+						<b>Color 2 : ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}</b>
+						<b>Color 3 : ##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}</b>
 					</div>
 					
 					
@@ -62,7 +66,7 @@
 
 
 				</div>
-
+			
 			</div>
 		</h:body>
 	</ui:define>

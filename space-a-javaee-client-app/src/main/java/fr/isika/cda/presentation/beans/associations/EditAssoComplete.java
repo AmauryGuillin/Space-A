@@ -1,6 +1,5 @@
 package fr.isika.cda.presentation.beans.associations;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
