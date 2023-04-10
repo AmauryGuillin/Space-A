@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body class="picture-bg">
+			<div class="container">
+				<div class="pourtravail">
+					<H1>PAGE DE L'ASSO</H1>
+					<div>
+						USERNAME : <b><h:outputLabel
+								value="#{userLoginController.displayUserUsername()}" /></b> ID : <b><h:outputLabel
+								value="#{userLoginController.displayUserId()}" /></b>
+					</div>
+					<div>
+						<h:form>
+							<h3>info de l'asso</h3>
+							
+				
+				
+				
+				<b><h:outputLabel value="Nom asso : " /></b>
+				#{showAssociationController.asso.legalName}
+				<b><h:outputLabel value="Main Image : " /></b>
+							<h:outputLabel
+								value="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}" />
+
+							<h:commandButton
+								action="#{showAssociationController.subscribeToAsso}"
+								value="S'inscrire" >
+								<f:param name="assoIdjpp" value="#{showAssociationController.asso.id}"></f:param>
+								</h:commandButton>
+						</h:form>
+					</div>
+
+
+
+				</div>
+
+			</div>
+		</h:body>
+	</ui:define>
+</ui:composition>

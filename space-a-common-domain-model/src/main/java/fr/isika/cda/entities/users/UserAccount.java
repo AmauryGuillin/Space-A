@@ -54,16 +54,13 @@ public class UserAccount implements Serializable {
 	private AssociationSubscriber associationSubscriber;
 	
 	
-	
-	
-	
-	
+
 
 	@Override
 	public String toString() {
 		return "UserAccount [userId=" + userId + ", username=" + username + ", password=" + password + ", primaryRole="
 				+ primaryRole + ", userProfile=" + userProfile + ", accountPlanning=" + accountPlanning
-				+ ", association=" + association + "]";
+				+ ", association=" + association + ", associationSubscriber=" + associationSubscriber + "]";
 	}
 
 	public Long getUserId() {
@@ -72,6 +69,14 @@ public class UserAccount implements Serializable {
 
 	public AccountPlanning getAccountPlanning() {
 		return accountPlanning;
+	}
+
+	public AssociationSubscriber getAssociationSubscriber() {
+		return associationSubscriber;
+	}
+
+	public void setAssociationSubscriber(AssociationSubscriber associationSubscriber) {
+		this.associationSubscriber = associationSubscriber;
 	}
 
 	public void setAccountPlanning(AccountPlanning accountPlanning) {

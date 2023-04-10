@@ -30,8 +30,8 @@ public class Association {
 	@Column(name="registration_number_siret", nullable = false, length = 14, unique = true)
 	private int registrationNumber;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	private List<AssociationSubscriber> listAssoSubscribers = new ArrayList<>();
+//	@ManyToMany
+//	private List<AssociationSubscriber> listAssoSubscribers = new ArrayList<>();
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationSpace associationSpace;
@@ -76,12 +76,22 @@ public class Association {
 	public void setAssociationPlanning(AssociationPlanning associationPlanning) {
 		this.associationPlanning = associationPlanning;
 	}
-	public List<AssociationSubscriber> getListAssoSubscribers() {
-		return listAssoSubscribers;
+	
+	
+	@Override
+	public String toString() {
+		return "Association [id=" + id + ", legalName=" + legalName + ", registrationNumber=" + registrationNumber
+				+ ", associationSpace=" + associationSpace + ", associationIdentity=" + associationIdentity
+				+ ", associationPlanning=" + associationPlanning + "]";
 	}
-	public void setListAssoSubscribers(List<AssociationSubscriber> listAssoSubscribers) {
-		this.listAssoSubscribers = listAssoSubscribers;
-	}
+	
+	
+//	public List<AssociationSubscriber> getListAssoSubscribers() {
+//		return listAssoSubscribers;
+//	}
+//	public void setListAssoSubscribers(List<AssociationSubscriber> listAssoSubscribers) {
+//		this.listAssoSubscribers = listAssoSubscribers;
+//	}
 
 
 	

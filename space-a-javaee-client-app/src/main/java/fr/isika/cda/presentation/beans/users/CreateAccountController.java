@@ -5,6 +5,7 @@ import javax.inject.Inject;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.common.Address;
+import fr.isika.cda.entities.users.AssociationSubscriber;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserContact;
 import fr.isika.cda.entities.users.UserProfile;
@@ -28,6 +29,8 @@ public class CreateAccountController {
 
 	private UserAccount createAccountFromViewModel() {
 
+		AssociationSubscriber assoSub = new AssociationSubscriber(); 
+		
 		// Phone userPhone = new Phone();
 		Address userAddress = new Address();
 
@@ -43,6 +46,7 @@ public class CreateAccountController {
 		userAccount.setPassword(createAccountViewModel.getPassword());
 		userAccount.setPrimaryRole(UserRole.USER);
 		userAccount.setUserProfile(userProfile);
+		userAccount.setAssociationSubscriber(assoSub);
 
 		return userAccount;
 
