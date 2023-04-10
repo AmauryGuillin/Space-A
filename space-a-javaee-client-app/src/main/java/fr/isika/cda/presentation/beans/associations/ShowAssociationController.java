@@ -45,6 +45,7 @@ public class ShowAssociationController {
 	}
 	
 	
+	
 	public Association attributListner(ActionEvent event) {
 		asso = (Association) event.getComponent().getAttributes().get("asso");
 
@@ -52,12 +53,17 @@ public class ShowAssociationController {
 		
 	}	
 	
-	//TODO j'arrive pas à récupérer l'asso de tout maniere
+	private UserAccount recupUser() {
+		userId = userLoginController.displayUserId();
+		UserAccount user = userRepo.findByOneId(userId);
+		return user;
+	}
+	
+	
 	public String subscribeToAsso() {
 		
 		//récupérer le user 
-		userId = userLoginController.displayUserId();
-		UserAccount userConnecte = userRepo.findByOneId(userId);
+		UserAccount userConnecte = recupUser();
 
 		
 		//récupérer l'asso clické ! 
@@ -65,11 +71,12 @@ public class ShowAssociationController {
 		
 		Long cePUTAINdidAssoDeMERDE = Long.parseLong(fc.getExternalContext().getRequestParameterMap().get("assoIdjpp"));
 		Association assoRecup = assoRepo.findOneById(cePUTAINdidAssoDeMERDE);
-
+		
 		
 		//je modifie mon AssiociationSubscriber
 		userConnecte.getAssociationSubscriber().setMembershipStatus(true);
 		userConnecte.getAssociationSubscriber().addAssociationToUser(assoRecup);
+		userConnecte.setSelectedAssociation(cePUTAINdidAssoDeMERDE);
 
 				
 		//j'update mon user dans la bdd
@@ -79,6 +86,8 @@ public class ShowAssociationController {
 		
 		return "/index.xhtml?faces-redirect=true";
 	}
+
+
 
 
 

@@ -11,6 +11,8 @@ import javax.transaction.Transactional;
 
 import fr.isika.cda.business.exceptions.users.UserNotFoundException;
 import fr.isika.cda.data.repositories.GenericRepository;
+import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.users.AssociationSubscriber;
 import fr.isika.cda.entities.users.UserAccount;
 
 @Stateless
@@ -95,6 +97,20 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 	public UserAccount updateUserFromAsso(UserAccount userConnecte) {
 		UserAccount mergedUser = entityManager.merge(userConnecte);
 	    return mergedUser;
+	}
+
+
+	public List<Association> findAllAssociationSub(Long userId) {
+		// récupérer l'utilisateur par son ID
+		UserAccount user = entityManager.find(UserAccount.class, userId);
+		
+		// récupérer l'objet "AssociationSubscriber" associé à l'utilisateur
+		AssociationSubscriber sub = user.getAssociationSubscriber();
+		
+		// récupérer la liste des associations liées à l'objet "AssociationSubscriber"
+		List<Association> associations = sub.getAssociations();
+		
+		return associations;
 	}
 
 }

@@ -2,6 +2,7 @@ package fr.isika.cda.presentation.beans.users;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -11,6 +12,7 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
+import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 import fr.isika.cda.presentation.utils.FileUpload;
@@ -70,6 +72,12 @@ public class ShowUserController {
 		userId = userLoginController.displayUserId();
 		userAccount = userAccountRepo.findByOneId(userId);
 		userAccount.getUserProfile().setAvatar(avatarFileName);
+		
+	}
+	
+	public List<Association> getAllAssocitionSubscriber() {
+		userId = userLoginController.displayUserId();
+		return userAccountRepo.findAllAssociationSub(userId);
 		
 	}
 

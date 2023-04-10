@@ -15,7 +15,30 @@
 					<h1>Profil utilisateur</h1>
 
 					<h:form>
+						<div>
+							<b><h:outputLabel value="Asso selectionne : " /></b>
+							<h:outputLabel
+								value="#{showUserController.oneUser.selectedAssociation}" />
+						</div>
+						<div>
+							<b><h:outputLabel value="les asso où je suis inscrit : " /></b>
+							<h:dataTable
+								value="#{showUserController.allAssocitionSubscriber}" var="asso">
+								<h:column>
+									<f:facet name="header">Nom legal</f:facet>
+								#{asso.legalName}
+							</h:column>
+								<h:column>
+<h:commandButton id="submit"
+									actionListener="#{showAssociationController.attributListner}"
+									action="homeAsso">
+									<f:attribute name="value" value="#{asso.id}" />
+									<f:attribute name="asso" value="#{asso}" />
+								</h:commandButton>
+							</h:column>
+							</h:dataTable>
 
+						</div>
 						<div>
 							<b><h:outputLabel value="Nom d'utilisateur : " /></b>
 							<h:outputLabel value="#{showUserController.oneUser.username}" />
@@ -51,11 +74,11 @@
 								value="#{showUserController.oneUser.userProfile.userContact.secondaryEmail}" />
 						</div>
 						<div>
-							<b><h:outputLabel value="Adresse : " /></b>
-							<b><h:outputLabel value="Adresse ligne 1 : " /></b>
+							<b><h:outputLabel value="Adresse : " /></b> <b><h:outputLabel
+									value="Adresse ligne 1 : " /></b>
 							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.userContact.address.lineOne}" /><br></br>
-							<b><h:outputLabel value="Adresse ligne 2 : " /></b>
+								value="#{showUserController.oneUser.userProfile.userContact.address.lineOne}" />
+							<br></br> <b><h:outputLabel value="Adresse ligne 2 : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.userContact.address.lineTwo}" />
 						</div>
@@ -63,7 +86,7 @@
 							<b><h:outputLabel value="Code postal : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.userContact.address.zipCode}" />
-						</div>		
+						</div>
 						<div>
 							<b><h:outputLabel value="Ville : " /></b>
 							<h:outputLabel
@@ -78,7 +101,7 @@
 							<b><h:outputLabel value="Pays : " /></b>
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.userContact.address.country}" />
-						</div>						
+						</div>
 						<div>
 							<b><h:outputLabel value="Code pays : " /></b>
 							<h:outputLabel
@@ -89,6 +112,7 @@
 							<h:outputLabel
 								value="#{showUserController.oneUser.userProfile.userContact.phone.phoneNumber}" />
 						</div>
+
 					</h:form>
 				</div>
 			</section>

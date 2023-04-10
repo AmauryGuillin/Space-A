@@ -53,7 +53,7 @@ public class UserAccount implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationSubscriber associationSubscriber;
 	
-	
+	private Long selectedAssociation;
 
 
 	@Override
@@ -144,6 +144,14 @@ public class UserAccount implements Serializable {
 		return this;
 	}
 	
+	public Long getSelectedAssociation() {
+		return selectedAssociation;
+	}
+
+	public void setSelectedAssociation(Long selectedAssociation) {
+		this.selectedAssociation = selectedAssociation;
+	}
+
 	class DefaultValues {
 		public static final String DEFAULT_USERNAME = "user";
 		public static final String DEFAULT_PASSWORD = "password";
