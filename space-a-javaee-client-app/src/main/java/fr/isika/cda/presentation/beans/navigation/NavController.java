@@ -49,6 +49,10 @@ public class NavController {
 		WebUiTools.redirectToView("/error.xhtml");		
 	}
 	
+	public void homeAsso() {
+		WebUiTools.redirectToView("/homeAsso.xhtml");		
+	}
+	
 	
 
 }
