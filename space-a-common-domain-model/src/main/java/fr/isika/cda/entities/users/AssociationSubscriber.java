@@ -85,14 +85,6 @@ public class AssociationSubscriber {
 	
 	
 
-//	public List<Association> getListAssociations() {
-//		return listAssociations;
-//	}
-//
-//	public void setListAssociations(List<Association> listAssociations) {
-//		this.listAssociations = listAssociations;
-//	}
-
 
 
 

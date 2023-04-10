@@ -29,13 +29,13 @@
 								#{asso.legalName}
 							</h:column>
 								<h:column>
-<h:commandButton id="submit"
-									actionListener="#{showAssociationController.attributListner}"
-									action="homeAsso">
-									<f:attribute name="value" value="#{asso.id}" />
-									<f:attribute name="asso" value="#{asso}" />
-								</h:commandButton>
-							</h:column>
+									<h:commandButton id="submit"
+										actionListener="#{showUserController.editSelectAssociation}"
+										action="homeAsso">
+										<f:attribute name="value" value="#{asso.id}" />
+										<f:attribute name="asso" value="#{asso}" />
+									</h:commandButton>
+								</h:column>
 							</h:dataTable>
 
 						</div>

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 
 import org.primefaces.event.FileUploadEvent;
@@ -63,6 +64,7 @@ public class ShowUserController {
 	}
 	
 	
+	
 	public void uploadFile(FileUploadEvent event) {
 		System.out.println("********************************* METHODE FILEUPLOAD");
 		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMYYYY_hhmmss"));
@@ -78,8 +80,23 @@ public class ShowUserController {
 	public List<Association> getAllAssocitionSubscriber() {
 		userId = userLoginController.displayUserId();
 		return userAccountRepo.findAllAssociationSub(userId);
-		
 	}
+	
+	public Association editSelectAssociation(ActionEvent event) {
+		//je récupère l'asso clické
+		Association asso = (Association) event.getComponent().getAttributes().get("asso");
+		//je récupère mon user
+		userAccount = getOneUser();
+		
+		//je modifie mon user avec l'asso
+		userAccount.setSelectedAssociation(asso.getId());
+		
+		//je sauv en db
+		userAccountRepo.majProfile(userAccount);
+		return asso;		
+	}	
+	
+	
 
 	public UserAccountRepository getUserAccountRepo() {
 		return userAccountRepo;
