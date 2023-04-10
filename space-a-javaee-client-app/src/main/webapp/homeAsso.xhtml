@@ -19,15 +19,7 @@
 						<b>Color 3 : ##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}</b>
 					</div>
 					
-					
-					<div class="window">
-			<h1>#{showAssociationController.asso.legalName}</h1><!-- A changer en NAME et pas legal name -->
-			<div class="row">
-			
-				<section>		
-		   			<h:graphicImage library="images" name="mainImageAssoEx.jpg"><!-- Mettre la MainImage -->
-		      		</h:graphicImage>
-		      		<h:form>
+					<h:form>
 									<h3>info de l'asso</h3>
 
 				<b><h:outputLabel value="Nom asso : " /></b>
@@ -42,6 +34,14 @@
 								<f:param name="assoIdjpp" value="#{showAssociationController.asso.id}"></f:param>
 								</h:commandButton>
 						</h:form>
+					<div class="window">
+			<h1>#{showAssociationController.asso.legalName}</h1><!-- A changer en NAME et pas legal name -->
+			<div class="row">
+			
+				<section>		
+		   			<h:graphicImage library="images" name="mainImageAssoEx.jpg"><!-- Mettre la MainImage -->
+		      		</h:graphicImage>
+		      		
 		      		
 		      		
 		   		</section>

@@ -18,19 +18,20 @@
 
 
 	<!-- bootstrap core css -->
-	
+
 	<!-- bootstrap prod -->
 	<!-- <h:outputStylesheet library="css" name="bootstrap.min.css" /> -->
-	
+
 	<!-- bootstrap dev -->
 	<h:outputStylesheet library="css" name="bootstrap.css" />
-
 	<!-- html template style css -->
 	<h:outputStylesheet library="css" name="template.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
 
 	<!-- font awesome style -->
 	<h:outputStylesheet library="webjars"
 		name="font-awesome/5.12.0/css/all.min-jsf.css" />
+		
 	<h:outputStylesheet library="webjars"
 		name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
 
@@ -52,7 +53,8 @@
 							id="navbarNav">
 							<h:form>
 								<ul class="navbar-nav">
-									<ui:fragment rendered="#{userLoginController.userLoggedIn == true}">
+									<ui:fragment
+										rendered="#{userLoginController.userLoggedIn == true}">
 										<li class="nav-item"><h:commandLink class="nav-link"
 												action="#{navController.index()}" value="Accueil" /></li>
 										<li class="nav-item"><h:commandLink class="nav-link"
@@ -77,12 +79,14 @@
 									<li class="nav-item"><h:commandLink class="nav-link"
 											action="#{navController.users()}" value="Users Management" />
 									</li>
-									<ui:fragment rendered="#{userLoginController.userLoggedIn == false}">
-									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.registrationUser()}" value="sign in" /></li>
+									<ui:fragment
+										rendered="#{userLoginController.userLoggedIn == false}">
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.registrationUser()}" value="sign in" /></li>
 									</ui:fragment>
 
-									<ui:fragment rendered="#{userLoginController.userLoggedIn == true}">
+									<ui:fragment
+										rendered="#{userLoginController.userLoggedIn == true}">
 										<li class="nav-item"><h:commandLink class="nav-link"
 												action="#{navController.oneUser()}" value="sdk" /></li>
 										<li class="nav-item"><h:commandLink class="nav-link"
@@ -93,15 +97,29 @@
 										<li class="nav-item"><h:commandLink class="nav-link"
 												action="#{userLoginController.Logout()}" value="logout" /></li>
 									</ui:fragment>
-									<ui:fragment rendered="#{userLoginController.userLoggedIn == false}">
-									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.login()}" value="login" /></li>
+									<ui:fragment
+										rendered="#{userLoginController.userLoggedIn == false}">
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.login()}" value="login" /></li>
 									</ui:fragment>
 								</ul>
 							</h:form>
 						</div>
 
 					</div>
+					<h:form>
+					<p:commandButton class="navbar-toggler" type="button"
+							data-bs-toggle="collapse" data-bs-target="#navbarNav"
+							aria-controls="navbarNav" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="bi bi-list"></span>
+							</p:commandButton>
+					
+					</h:form>
+
+
+
+
 				</div>
 			</nav>
 
@@ -125,6 +143,8 @@
 			target="head" />
 		<h:outputScript library="js" name="bootstrap.js" />
 		<h:outputScript library="js" name="copyright_year.js" />
+		<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+
 	</div>
 </h:body>
 </html>
