@@ -50,7 +50,7 @@ public class UserLoginController implements Serializable{
 	public void login() {	
 		try {	
 		userAccount = userAccountRepository.findByOneName(userLoginViewModel.getUsername());
-		if (userAccount != null && isUserLoggedIn() == false && userAccount.getAssociation() == null) {
+		if (userAccount != null && isUserLoggedIn() == false) {
 			registerLoggedUserSessionAttributes(userAccount);
 			processLogin();
 			navController.index();
@@ -152,33 +152,37 @@ public class UserLoginController implements Serializable{
 		this.userLoginViewModel = new UserLoginViewModel();
 	}
 	
+	private HttpSession getSession() {
+		return (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	}
+	
 	private void resetUserSessionAttributes() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		HttpSession session = getSession();
 		session.invalidate();
 	}
 	
 	private Long getLoggedUserIdFromSession() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		HttpSession session = getSession();
 		return (Long) session.getAttribute("loggedUserId");
 	}
 	
 	private String getLoggedUsernameFromSession() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		HttpSession session = getSession();
 		return (String) session.getAttribute("loggedUsername");
 	}
 	
 	private UserRole getLoggedUserRoleFromSession() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		HttpSession session = getSession();
 		return (UserRole) session.getAttribute("loggedUserRole");
 	}
 	
 	private Long getLoggedUserAssociationFromSession() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		HttpSession session = getSession();
 		return (Long) session.getAttribute("loggedAssociationId");
 	}
 	
 	private void registerLoggedUserSessionAttributes(UserAccount userAccount) {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		HttpSession session = getSession();
 		session.setAttribute("loggedUserId", userAccount.getUserId());
 		session.setAttribute("loggedUsername", userAccount.getUsername());
 		session.setAttribute("loggedUserRole", userAccount.getPrimaryRole());
