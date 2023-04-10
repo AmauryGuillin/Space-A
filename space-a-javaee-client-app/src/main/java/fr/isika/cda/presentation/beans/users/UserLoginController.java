@@ -50,7 +50,7 @@ public class UserLoginController implements Serializable{
 	public void login() {	
 		try {	
 		userAccount = userAccountRepository.findByOneName(userLoginViewModel.getUsername());
-		if (userAccount != null && isUserLoggedIn() == false) {
+		if (userAccount != null && isUserLoggedIn() == false && userAccount.getAssociation() == null) {
 			registerLoggedUserSessionAttributes(userAccount);
 			processLogin();
 			navController.index();

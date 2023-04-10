@@ -30,23 +30,86 @@
 						<h:commandButton id="materiels" value="Matériels" />
 						<h:commandButton id="parametres" value="Paramètres" />
 					</div>
-					
-					<div class="members-list">
-						
-						<h:dataTable>
-						
-							<h:column>
-								<f:facet name="header">
-									Nom
-								</f:facet>
-							</h:column>
-						
-						</h:dataTable>
-						
-					</div>
-					
-
 				</h:form>
+				<div class="members-list">
+					<h3>LISTE DES MEMBRES</h3>
+					<h:form>
+						<h:dataTable>
+							<h:column>
+								<f:facet name="header">Nom</f:facet>
+								#{user.userProfile.lastName}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prenom</f:facet>
+								#{user.userProfile.firstName}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date de naissance</f:facet>
+								#{user.userProfile.birthday}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Email n°1</f:facet>
+								#{user.userProfile.userContact.primaryEmail}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Email n°2</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Telephone</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Actions</f:facet>
+								<h:commandButton value="Modifier" />
+								<h:commandButton value="Supprimer" />
+							</h:column>
+						</h:dataTable>
+					</h:form>
+				</div>
+				<div class="activivites-list">
+					<h3>LISTE DES ACTIVITES</h3>
+					<h:form>
+						<h:dataTable>
+							<h:column>
+								<f:facet name="header">Nom</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Titre</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Actions</f:facet>
+								<h:commandButton value="Modifier" />
+								<h:commandButton value="Supprimer" />
+							</h:column>
+						</h:dataTable>
+					</h:form>
+				</div>
+				<div class="publication-list">
+				<h3>LISTE DES PUBLICATIONS</h3>
+					<h:form>
+						<h:dataTable>
+							<h:column>
+								<f:facet name="header">Nom</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Titre</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Auteur</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Type de publication</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Actions</f:facet>
+								<h:commandButton value="Modifier" />
+								<h:commandButton value="Supprimer" />
+							</h:column>
+						</h:dataTable>
+					</h:form>
+				</div>
 			</div>
 		</body>
 	</ui:define>

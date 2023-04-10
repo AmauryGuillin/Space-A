@@ -30,6 +30,7 @@ public class ShowUserController {
 	private String userName;
 	private UserAccount userAccount;
 	private String avatarFileName;
+	private UploadedFile file;
 
 
 	@PostConstruct
@@ -54,12 +55,14 @@ public class ShowUserController {
 	}
 
 	public String updateEntity() {
+		System.out.println("********************************* METHODE UPDATE");
 		userAccountRepo.majProfile(userAccount);
 		return "/index.xhtml?faces-redirect=true";
 	}
 	
 	
 	public void uploadFile(FileUploadEvent event) {
+		System.out.println("********************************* METHODE FILEUPLOAD");
 		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMYYYY_hhmmss"));
 		UploadedFile file = event.getFile();
 		avatarFileName = timestamp + "_" + file.getFileName();
@@ -117,6 +120,16 @@ public class ShowUserController {
 	public void setAvatarFileName(String avatarFileName) {
 		this.avatarFileName = avatarFileName;
 	}
+
+	public UploadedFile getFile() {
+		return file;
+	}
+
+	public void setFile(UploadedFile file) {
+		this.file = file;
+	}
+	
+	
 	
 	
 
