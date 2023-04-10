@@ -10,39 +10,107 @@
 
 <ui:composition template="/WEB-INF/template/template.xhtml">
 
-	<h:head>
-		<title>Contact</title>
-	</h:head>
-
 	<ui:define name="content">
 		<body>
-			<h:form id="dashboardAdminForm">
-				<h:outputLabel for="nomAdmin" value="BienvenueNomAdmin" />
-				<h:commandButton id="configFonctionnalite"
-					value="configFonctionnalite" />
-				<h:commandButton id="configEspace" value="configEspace" />
-				<br />
-				<br />
-				<h:commandButton id="adherents" value="Adhérents" />
-				<h:commandButton id="activites" value="Activités" />
-				<h:commandButton id="evenements" value="Événements" />
-				<h:commandButton id="materiels" value="Matériels" />
-				<h:commandButton id="parametres" value="Paramètres" />
-				<br />
-				<br />
-				<ul>
-					<li><h:inputText id="titre1" name="titre1" value="" /> 
-					<h:commandButton class="modifier" value="Modifier" /> 
-							
-					<h:commandButton class="supprimer" value="Supprimer" /></li>
-					<li><h:inputText id="titre2" name="titre2" value="" /> 
-					<h:commandButton class="modifier" value="Modifier" /> 
-					<h:commandButton class="supprimer" value="Supprimer" /></li>
-				</ul>
-				<h:commandButton id="ajouter" value="Ajouter un élément" />
-
-			</h:form>
-
+			<div class="pourtravail">
+				<h:form id="dashboardAdminForm">
+					<div>
+						<h:outputLabel for="nomAdmin"
+							value="Bienvenue #{userLoginController.displayUserUsername()}" />
+						<h:commandButton id="configFonctionnalite"
+							value="configFonctionnalite" />
+					</div>
+					<div>
+						<h:commandButton id="configEspace" value="configEspace" />
+					</div>
+					<div>
+						<h:commandButton id="adherents" value="Adhérents" />
+						<h:commandButton id="activites" value="Activités" />
+						<h:commandButton id="evenements" value="Événements" />
+						<h:commandButton id="materiels" value="Matériels" />
+						<h:commandButton id="parametres" value="Paramètres" />
+					</div>
+				</h:form>
+				<div class="members-list">
+					<h3>LISTE DES MEMBRES</h3>
+					<h:form>
+						<h:dataTable>
+							<h:column>
+								<f:facet name="header">Nom</f:facet>
+								#{user.userProfile.lastName}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prenom</f:facet>
+								#{user.userProfile.firstName}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date de naissance</f:facet>
+								#{user.userProfile.birthday}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Email n°1</f:facet>
+								#{user.userProfile.userContact.primaryEmail}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Email n°2</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Telephone</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Actions</f:facet>
+								<h:commandButton value="Modifier" />
+								<h:commandButton value="Supprimer" />
+							</h:column>
+						</h:dataTable>
+					</h:form>
+				</div>
+				<div class="activivites-list">
+					<h3>LISTE DES ACTIVITES</h3>
+					<h:form>
+						<h:dataTable>
+							<h:column>
+								<f:facet name="header">Nom</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Titre</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Actions</f:facet>
+								<h:commandButton value="Modifier" />
+								<h:commandButton value="Supprimer" />
+							</h:column>
+						</h:dataTable>
+					</h:form>
+				</div>
+				<div class="publication-list">
+				<h3>LISTE DES PUBLICATIONS</h3>
+					<h:form>
+						<h:dataTable>
+							<h:column>
+								<f:facet name="header">Nom</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Titre</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Auteur</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Type de publication</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Actions</f:facet>
+								<h:commandButton value="Modifier" />
+								<h:commandButton value="Supprimer" />
+							</h:column>
+						</h:dataTable>
+					</h:form>
+				</div>
+			</div>
 		</body>
 	</ui:define>
 </ui:composition>

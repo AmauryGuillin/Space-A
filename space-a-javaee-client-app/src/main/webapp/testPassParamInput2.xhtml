@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+
+	<ui:define name="content">
+
+		<body>
+			<div class="pourtravail">
+				<H1>TEST PASSAGE DE PARAMETRE ENTREE</H1>
+
+				<h2>f:attribute example</h2>
+				<hr />
+
+
+
+				<h:form>
+					<h:dataTable value="#{showAssociationController.allAssociations}"
+						var="asso">
+						<h:column>
+							<f:facet name="header">Nom legal</f:facet>
+								#{asso.legalName}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Directeur</f:facet>
+								#{asso.associationIdentity.director}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Redirection</f:facet>
+							<h:commandButton id="submit"
+								actionListener="#{testPassParamAttribute.attributeListener}"
+								action="testPassParamOutput2">
+								<f:attribute name="value" value="#{asso.id}" />
+								<f:attribute name="asso" value="#{asso}" />
+							</h:commandButton>
+						</h:column>
+					</h:dataTable>
+				</h:form>
+
+			</div>
+		</body>
+
+	</ui:define>
+
+</ui:composition>

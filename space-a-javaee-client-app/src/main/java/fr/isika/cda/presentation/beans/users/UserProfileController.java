@@ -31,8 +31,7 @@ public class UserProfileController implements Serializable {
 	private UserLoginController userLoginController;
 	
 	public String data1;
-	public String data2;
-	private UserAccount userAccount;
+	private String data2;
 
 
 	public String showResult() {

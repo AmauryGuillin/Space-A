@@ -50,7 +50,7 @@ public class UserLoginController implements Serializable{
 	public void login() {	
 		try {	
 		userAccount = userAccountRepository.findByOneName(userLoginViewModel.getUsername());
-		if (userAccount != null && isUserLoggedIn() == false) {
+		if (userAccount != null && isUserLoggedIn() == false && userAccount.getAssociation() == null) {
 			registerLoggedUserSessionAttributes(userAccount);
 			processLogin();
 			navController.index();
@@ -131,10 +131,11 @@ public class UserLoginController implements Serializable{
 		UserRole roleFromSession = getLoggedUserRoleFromSession();
 		switch (roleFromSession) {
 		case USER:
-		case MEMBER:
-			return "index.xhtml";//TODO changer les view correspondant pour les 3 !!!
-		case ADMIN:
 			return "index.xhtml";
+		case MEMBER:
+			return "userProfile.xhtml";//TODO changer les view correspondant pour les 3 !!!
+		case ADMIN:
+			return "dashboardAdmin.xhtml";
 		default:
 			return "index.xhtml";
 		}
