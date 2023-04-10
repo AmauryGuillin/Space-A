@@ -82,16 +82,8 @@ public class AssociationSubscriber {
 				+ dateOfMembership + ", justification=" + justification + ", listAssociations=" + listAssociations
 				+ "]";
 	}
-	
-	
 
-//	public List<Association> getListAssociations() {
-//		return listAssociations;
-//	}
-//
-//	public void setListAssociations(List<Association> listAssociations) {
-//		this.listAssociations = listAssociations;
-//	}
+
 
 
 
