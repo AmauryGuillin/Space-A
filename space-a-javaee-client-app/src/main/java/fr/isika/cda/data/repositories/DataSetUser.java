@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.common.Address;
 import fr.isika.cda.entities.common.Phone;
+import fr.isika.cda.entities.users.AssociationSubscriber;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserContact;
 import fr.isika.cda.entities.users.UserProfile;
@@ -31,10 +32,13 @@ public class DataSetUser {
 		
 		// Jeu de test
 		// 1 user : test
+		AssociationSubscriber userSubFirst = new AssociationSubscriber();
+		
 		UserAccount acc = new UserAccount();
 		acc.setUsername("Visiteur");
 		acc.setPassword("123");
 		acc.setPrimaryRole(UserRole.VISITOR);
+		acc.setAssociationSubscriber(userSubFirst);
 		
 		Address firstAdr = new Address();
 		firstAdr.setCity("city1");
@@ -69,10 +73,13 @@ public class DataSetUser {
 		
 	
 		// User 2
+		AssociationSubscriber userSubSecond = new AssociationSubscriber();
+		
 		UserAccount acc2 = new UserAccount();
 		acc2.setUsername("Admin");
 		acc2.setPassword("123");
 		acc2.setPrimaryRole(UserRole.ADMIN);
+		acc2.setAssociationSubscriber(userSubSecond);
 		
 		Address secondAdr = new Address();
 		secondAdr.setCity("city2");
@@ -105,10 +112,13 @@ public class DataSetUser {
 	
 		
 		// User 3
+		AssociationSubscriber userSubthird = new AssociationSubscriber();
+		
 		UserAccount acc3 = new UserAccount();
 		acc3.setUsername("Member");
 		acc3.setPassword("123");
 		acc3.setPrimaryRole(UserRole.MEMBER);
+		acc3.setAssociationSubscriber(userSubthird);
 		
 		Address thirdAdr = new Address();
 		thirdAdr.setCity("city3");
@@ -140,10 +150,14 @@ public class DataSetUser {
 		
 		
 		// User 4
+		AssociationSubscriber userSubfour = new AssociationSubscriber();	
+		
 		UserAccount acc4 = new UserAccount();
 		acc4.setUsername("User");
 		acc4.setPassword("123");
 		acc4.setPrimaryRole(UserRole.USER);
+		acc4.setAssociationSubscriber(userSubfour);
+		
 		
 		Address fourthAdr = new Address();
 		fourthAdr.setCity("city4");

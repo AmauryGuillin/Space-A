@@ -9,22 +9,36 @@
 	<ui:define name="content">
 		<body>
 			<section>
-							<div class="pourtravail">
-			<h:dataTable value="#{showAssociationController.allAssociations}"
-				var="asso">
-			<h:column>
-				<f:facet name="header">Nom legal</f:facet>
-				#{asso.legalName}
-			</h:column>
-				<h:column>
-				<f:facet name="header">Directeur</f:facet>
-				#{asso.associationIdentity.director}
-			</h:column>
-			</h:dataTable>
-			</div>
+				<div class="pourtravail">
+					<h:form>
+						<h:dataTable value="#{showAssociationController.allAssociations}"
+							var="asso">
+							<h:column>
+								<f:facet name="header">Nom legal</f:facet>
+								#{asso.legalName}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Directeur</f:facet>
+								#{asso.associationIdentity.director}
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Redirection</f:facet>
+								<h:commandButton id="submit"
+									actionListener="#{showAssociationController.attributListner}"
+									action="homeAsso">
+									<f:attribute name="value" value="#{asso.id}" />
+									<f:attribute name="asso" value="#{asso}" />
+								</h:commandButton>
+							</h:column>
+
+
+						</h:dataTable>
+					</h:form>
+				</div>
 			</section>
 		</body>
-		</ui:define>
+	</ui:define>
 </ui:composition>
 
 

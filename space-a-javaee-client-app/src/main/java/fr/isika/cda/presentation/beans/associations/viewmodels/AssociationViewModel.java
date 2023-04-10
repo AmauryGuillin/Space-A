@@ -15,6 +15,7 @@ public class AssociationViewModel implements Serializable {
 	 * Required
 	 */
 //Association	
+	private Long id;//J'AI RAJOUTER CA
 	private String legalName;
 	private int registrationNumber;
 	
@@ -45,6 +46,14 @@ public class AssociationViewModel implements Serializable {
 	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getMainColor() {
