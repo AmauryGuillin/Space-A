@@ -93,6 +93,19 @@ public class AssociationController {
 		return asso;
 	}
 	
+	public void autoFillPageOne() {
+		assoVM.setLegalName("legal name");
+		assoVM.setRegistrationNumber(000001);
+		assoVM.setName("nom");
+		assoVM.setDescription("description");
+		assoVM.setLogo("Path du logo....");
+		assoVM.setMainImage("Path de l'image principale");
+		assoVM.setHeadOffice("Siège social");
+		assoVM.setRscNumber("000000001");
+		assoVM.setKbisExtract("000000006545");
+		assoVM.setDirector("Directeur");
+	}
+	
 
 
 	public AssociationViewModel getAssoVM() {

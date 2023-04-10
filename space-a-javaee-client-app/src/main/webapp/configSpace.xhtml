@@ -38,6 +38,23 @@
 							id="mainImage"></h:inputText>
 					</div>
 					<h3>Partie Asso Space</h3>
+
+					<div class="primary-color">
+							<h:outputLabel value="Couleur principal" />
+							<p:colorPicker value="#{colorView.colorInlineOne}" mode="inline" />
+							<h:outputText value="value  : #{colorView.colorInlineOne}" />
+					</div>
+					<div class="secondary-color">
+							<h:outputLabel value="Couleur secondaire" />
+							<p:colorPicker value="#{colorView.colorInlineTwo}" mode="inline" />
+							<h:outputText value="value  : #{colorView.colorInlineTwo}" />
+					</div>
+					<div class="tertiary-color">
+							<h:outputLabel value="Couleur tertiaire" />
+							<p:colorPicker value="#{colorView.colorInlineThree}" mode="inline" />
+							<h:outputText value="value  : #{colorView.colorInlineThree}" />
+					</div>
+
 					<div>
 						<h:outputLabel value="Couleur principal" />
 						<h:inputText
@@ -71,6 +88,7 @@
 					<div>
 						<h:commandButton action="#{editAssoComplete.updateAsso()}"
 							value="Sauvegarder" />
+						<h:commandButton value="Display" update="out"/>
 					</div>
 
 				</h:form>
