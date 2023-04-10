@@ -7,13 +7,17 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
+import fr.isika.cda.data.repositories.users.associationSubscriberRepo;
 import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.users.AssociationSubscriber;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 import fr.isika.cda.presentation.utils.FileUpload;
@@ -29,6 +33,8 @@ public class ShowUserController {
 
 	private UserViewModel userVM = new UserViewModel();
 
+	private AssociationSubscriber selectedAssociation;
+	
 	private Long userId;
 	private String userName;
 	private UserAccount userAccount;
@@ -77,7 +83,7 @@ public class ShowUserController {
 		
 	}
 	
-	public List<Association> getAllAssocitionSubscriber() {
+	public List<Association> getAllAssociationSubscriber() {
 		userId = userLoginController.displayUserId();
 		return userAccountRepo.findAllAssociationSub(userId);
 	}
@@ -93,10 +99,22 @@ public class ShowUserController {
 		
 		//je sauv en db
 		userAccountRepo.majProfile(userAccount);
+		System.out.println("USERACCOUT : " + userAccount);
+		System.out.println("ASSO : " + asso);		
 		return asso;		
 	}	
 	
-	
+
+//	private AssociationSubscriber getOneAssocitionSubscriberById(Long id) {
+//		AssociationSubscriber associationSubscriber = null;
+//	    try {
+//	        associationSubscriberRepo.findById(id);
+//	    } catch (Exception e) {
+//	        e.printStackTrace();
+//	    }
+//	    return associationSubscriber;
+//	}
+
 
 	public UserAccountRepository getUserAccountRepo() {
 		return userAccountRepo;
@@ -152,6 +170,14 @@ public class ShowUserController {
 
 	public void setFile(UploadedFile file) {
 		this.file = file;
+	}
+
+	public AssociationSubscriber getSelectedAssociation() {
+		return selectedAssociation;
+	}
+
+	public void setSelectedAssociation(AssociationSubscriber selectedAssociation) {
+		this.selectedAssociation = selectedAssociation;
 	}
 	
 	

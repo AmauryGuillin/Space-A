@@ -82,8 +82,8 @@ public class AssociationSubscriber {
 				+ dateOfMembership + ", justification=" + justification + ", listAssociations=" + listAssociations
 				+ "]";
 	}
-	
-	
+
+
 
 
 

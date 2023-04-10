@@ -29,6 +29,17 @@ public class AssociationRepository {
 		TypedQuery<Association> query = entityManager.createQuery("SELECT a FROM Association a WHERE a.id = :id", Association.class);
 	    query.setParameter("id", id);
 	    return query.getSingleResult();
+	    
+//	    Association association = null;
+//	    try {
+//	        TypedQuery<Association> query = entityManager.createQuery("SELECT a FROM Association a WHERE a.id = :id", Association.class);
+//	        query.setParameter("id", id);
+//	        association = query.getSingleResult();
+//	    } catch (Exception e) {
+//	        e.printStackTrace();
+//	    }
+//	    return association;
+	    
 	}
 
 	@Override

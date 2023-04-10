@@ -8,19 +8,24 @@
 		<h:body class="picture-bg">
 			<div class="container">
 				<div class="pourtravail">
-					<H1>PAGE DE L'ASSO</H1>
+					<H1>Qui est connecté ??!</H1>
 					<div>
 						USERNAME : <b><h:outputLabel
 								value="#{userLoginController.displayUserUsername()}" /></b> ID : <b><h:outputLabel
 								value="#{userLoginController.displayUserId()}" /></b>
 					</div>
-					<div>
-						<h:form>
-							<h3>info de l'asso</h3>
-							
-				
-				
-				
+					
+					
+					<div class="window">
+			<h1>#{showAssociationController.asso.legalName}</h1><!-- A changer en NAME et pas legal name -->
+			<div class="row">
+			
+				<section>		
+		   			<h:graphicImage library="images" name="mainImageAssoEx.jpg"><!-- Mettre la MainImage -->
+		      		</h:graphicImage>
+		      		<h:form>
+									<h3>info de l'asso</h3>
+
 				<b><h:outputLabel value="Nom asso : " /></b>
 				#{showAssociationController.asso.legalName}
 				<b><h:outputLabel value="Main Image : " /></b>
@@ -33,6 +38,25 @@
 								<f:param name="assoIdjpp" value="#{showAssociationController.asso.id}"></f:param>
 								</h:commandButton>
 						</h:form>
+		      		
+		      		
+		   		</section>
+	   		
+		   		<!-- AUI SOMMES NOUS -->
+		   		<section>
+				  	<h2>Qui sommes-nous ?</h2>
+				  	<p>#{showAssociationController.asso.associationIdentity.associationDepiction.description}</p>
+				</section>
+			
+				<!-- ALBUM -->
+				<section>
+					<h1>Album</h1>
+					
+				</section>
+			</div>
+		</div>
+					<div>
+						
 					</div>
 
 
