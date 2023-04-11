@@ -4,74 +4,139 @@
 	xmlns:h="http://java.sun.com/jsf/html" lang="en"
 	template="/WEB-INF/template/template.xhtml">
 
+	<h:head>
+		<title>Nom Asso</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+		<!-- html template style css -->
+		
+
+
+	</h:head>
+
+
+
+
 	<ui:define name="content">
 		<h:body class="picture-bg">
+
+			<!-- QUI EST CO ! A ENLEVER UN JOUR -->
+<!-- 			<div class="pourtravail"> -->
+<!-- 				<H1>Qui est connecté ??!</H1> -->
+
+<!-- 				USERNAME : <b><h:outputLabel -->
+<!-- 						value="#{userLoginController.displayUserUsername()}" /></b> ID : <b><h:outputLabel -->
+<!-- 						value="#{userLoginController.displayUserId()}" /></b> <b>Color 1 -->
+<!-- 					: -->
+<!-- 					##{showAssociationController.asso.associationSpace.graphicChart.mainColor}</b> -->
+<!-- 				<b>Color 2 : -->
+<!-- 					##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}</b> -->
+<!-- 				<b>Color 3 : -->
+<!-- 					##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}</b> -->
+<!-- 				<b>Association_subscriber pour le user : </b> -->
+<!-- 				#{showAssociationController.oneAssoSub.membershipStatus} -->
+<!-- 			</div> -->
+
+
+
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+
+
 			<div class="container">
-				<div class="pourtravail" style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor}">
-					<H1>Qui est connecté ??!</H1>
-					<div>
-						USERNAME : <b><h:outputLabel
-								value="#{userLoginController.displayUserUsername()}" /></b> 
-						ID : <b><h:outputLabel
-								value="#{userLoginController.displayUserId()}" /></b>
-						<b>Color 1 : ##{showAssociationController.asso.associationSpace.graphicChart.mainColor}</b>
-						<b>Color 2 : ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}</b>
-						<b>Color 3 : ##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}</b>
-						<b>Association_subscriber pour le user : </b> #{showAssociationController.oneAssoSub.membershipStatus}
+				<div class="main-content">
+
+					<div class="row">
+
+
+						<div class="row">
+							<!-- TOP HOME ! 1/3 -->
+							<div class="top-home">
+								<h1>#{showAssociationController.asso.legalName}</h1>
+								<h:graphicImage class="img-main-asso" library="images"
+									name="mainImageAssoEx.jpg"></h:graphicImage>
+								<!-- Mettre la MainImage -->
+
+							</div>
+
+
+
+
+
+							<!-- QUI SOMME NOUS ! 2/3-->
+							<h:form class="form-sans-marg">								
+							<div class="infoAsso-home">
+									<h2>Qui sommes-nous</h2>
+									<p>#{showAssociationController.asso.associationIdentity.associationDepiction.description}</p>
+
+									<ui:fragment
+										rendered="#{!showAssociationController.idAssociationComparison()}">
+										<h:commandButton
+											action="#{showAssociationController.subscribeToAsso}"
+											value="S'inscrire">
+											<f:param name="assoIdjpp"
+												value="#{showAssociationController.asso.id}"></f:param>
+										</h:commandButton>
+										<!--j'attends le beau bouton d'Alex-->
+									</ui:fragment>
+								</div>
+							</h:form>
+
+
+
+							<!-- ALBUM ! 3/3-->
+							<div class="album-home">
+								<h2>Album</h2>
+
+								<div class="row">
+									<div class="col-md-4">
+<!-- 										<img src="assets/img1albumAsso.jpeg" alt="img1"> -->
+									</div>
+
+									<div class="col-md-4">
+<!-- 										<img src="assets/img2albumAsso.jpg" alt="img2"> -->
+									</div>
+									<div class="col-md-4">
+<!-- 										<img src="assets/img3albumAsso.webp" alt="img3"> -->
+									</div>
+
+									<div class="row">
+										<div class="col-md-4">
+<!-- 											<img src="assets/img1albumAsso.jpeg" alt="img1"> -->
+										</div>
+
+										<div class="col-md-4">
+<!-- 											<img src="assets/img2albumAsso.jpg" alt="img2"> -->
+										</div>
+										<div class="col-md-4">
+<!-- 											<img src="assets/img3albumAsso.webp" alt="img3"> -->
+										</div>
+
+
+									</div>
+
+
+
+								</div>
+
+
+
+
+							</div>
+						</div>
 					</div>
-					
-					<h:form>
-									<h3>info de l'asso</h3>
-
-				<b><h:outputLabel value="Nom asso : " /></b>
-				#{showAssociationController.asso.legalName}
-				<b><h:outputLabel value="Main Image : " /></b>
-							<h:outputLabel
-								value="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}" />
-
-							<ui:fragment
-								rendered="#{!showAssociationController.idAssociationComparison()}">
-							<h:commandButton
-								action="#{showAssociationController.subscribeToAsso}"
-								value="S'inscrire" >
-								<f:param name="assoIdjpp" value="#{showAssociationController.asso.id}"></f:param>
-								</h:commandButton>
-							</ui:fragment>
-						</h:form>
-					<div class="window">
-			<h1>#{showAssociationController.asso.legalName}</h1><!-- A changer en NAME et pas legal name -->
-			<div class="row">
-			
-				<section>		
-		   			<h:graphicImage library="images" name="mainImageAssoEx.jpg"><!-- Mettre la MainImage -->
-		      		</h:graphicImage>
-		      		
-		      		
-		      		
-		   		</section>
-	   		
-		   		<!-- AUI SOMMES NOUS -->
-		   		<section>
-				  	<h2>Qui sommes-nous ?</h2>
-				  	<p>#{showAssociationController.asso.associationIdentity.associationDepiction.description}</p>
-				</section>
-			
-				<!-- ALBUM -->
-				<section>
-					<h1>Album</h1>
-					
-				</section>
-			</div>
-		</div>
-					<div>
-						
-					</div>
-
+					<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
 
 				</div>
-			
 			</div>
+
+
+
+
 		</h:body>
 	</ui:define>
 </ui:composition>
