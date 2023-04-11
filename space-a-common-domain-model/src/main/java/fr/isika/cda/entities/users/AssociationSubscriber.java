@@ -34,6 +34,8 @@ public class AssociationSubscriber {
 	private String justification;
 	
 	
+	
+	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "ASSOCIATION_SUBSCRIBER",
 	joinColumns = @JoinColumn (name="ASSOCIATIONSUBSCRIBER_ID"), // Table correspondante à cette class ("AssociationSubscriber")
@@ -78,10 +80,22 @@ public class AssociationSubscriber {
 
 	@Override
 	public String toString() {
-		return "AssociationSubscriber [id=" + id + ", membershipStatus=" + membershipStatus + ", dateOfMembership="
-				+ dateOfMembership + ", justification=" + justification + ", listAssociations=" + listAssociations
-				+ "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("AssociationSubscriber [id=");
+		builder.append(id);
+		builder.append(", membershipStatus=");
+		builder.append(membershipStatus);
+		builder.append(", dateOfMembership=");
+		builder.append(dateOfMembership);
+		builder.append(", justification=");
+		builder.append(justification);
+		builder.append(", listAssociations=");
+		builder.append(listAssociations);
+		builder.append("]");
+		return builder.toString();
 	}
+
+	
 
 
 

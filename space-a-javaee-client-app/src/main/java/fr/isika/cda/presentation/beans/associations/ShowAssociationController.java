@@ -28,13 +28,14 @@ public class ShowAssociationController {
 	@Inject
 	private UserAccountRepository userRepo;
 	
+	
 	@Inject
 	private UserLoginController userLoginController;
 
 	private Long assoId;
 	private Long userId;
 	private Association asso;
-	private Association voila;
+	private UserAccount userAccount;
 	
 	
 	public List<Association> getAllAssociations(){
@@ -45,8 +46,23 @@ public class ShowAssociationController {
 		asso = assoRepo.findOneById(assoId);
 	}
 	
+	public UserAccount getOneUser() {
+		if (userAccount == null) {
+			userId = userLoginController.displayUserId();
+			userAccount = userRepo.findByOneId(userId);
+		}
+		return userAccount;
+	}
 	
+	public AssociationSubscriber getOneAssoSub() {
+		
+		UserAccount user = getOneUser();
+		UserAccount anotherUser  = userRepo.findByOneId(user.getUserId());
+		
+		return anotherUser.getAssociationSubscriber();
+	}
 	
+
 	public Association attributListner(ActionEvent event) {
 		asso = (Association) event.getComponent().getAttributes().get("asso");
 		return asso;		
@@ -85,9 +101,27 @@ public class ShowAssociationController {
 		
 		return "/index.xhtml?faces-redirect=true";
 	}
+	
+	
+	public Boolean idAssociationComparison() {
 
+		System.out.println("************************************** JE SUIS DANS LA METHODE idAssociationComparison ");
+		UserAccount user = getOneUser();
+		UserAccount anotherUser  = userRepo.findByOneId(user.getUserId());
+		
 
-
+		for (Association association : anotherUser.getAssociationSubscriber().getAssociations()) {
+			
+			System.out.println("************************************* FOR EACH");
+			
+			if (asso.getId() == association.getId()) {
+				System.out.println("**************************************** RETURN : TRUE");
+				return true;
+			}
+		}
+		System.out.println("**************************************** RETURN : FALSE");
+		return false;
+	}
 
 
 	public AssociationRepository getAssoRepo() {

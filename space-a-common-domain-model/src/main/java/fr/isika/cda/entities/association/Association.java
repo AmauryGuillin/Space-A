@@ -42,6 +42,9 @@ public class Association {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationPlanning associationPlanning;
 	
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getLegalName() {
 		return legalName;
 	}

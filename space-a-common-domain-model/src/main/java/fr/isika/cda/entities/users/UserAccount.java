@@ -58,9 +58,27 @@ public class UserAccount implements Serializable {
 
 	@Override
 	public String toString() {
-		return "UserAccount [userId=" + userId + ", username=" + username + ", password=" + password + ", primaryRole="
-				+ primaryRole + ", userProfile=" + userProfile + ", accountPlanning=" + accountPlanning
-				+ ", association=" + association + ", associationSubscriber=" + associationSubscriber + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("UserAccount [userId=");
+		builder.append(userId);
+		builder.append(", username=");
+		builder.append(username);
+		builder.append(", password=");
+		builder.append(password);
+		builder.append(", primaryRole=");
+		builder.append(primaryRole);
+		builder.append(", userProfile=");
+		builder.append(userProfile);
+		builder.append(", accountPlanning=");
+		builder.append(accountPlanning);
+		builder.append(", association=");
+		builder.append(association);
+		builder.append(", associationSubscriber=");
+		builder.append(associationSubscriber);
+		builder.append(", selectedAssociation=");
+		builder.append(selectedAssociation);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	public Long getUserId() {

@@ -17,6 +17,7 @@
 						<b>Color 1 : ##{showAssociationController.asso.associationSpace.graphicChart.mainColor}</b>
 						<b>Color 2 : ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}</b>
 						<b>Color 3 : ##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}</b>
+						<b>Association_subscriber pour le user : </b> #{showAssociationController.oneAssoSub.membershipStatus}
 					</div>
 					
 					<h:form>
@@ -29,8 +30,7 @@
 								value="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}" />
 
 							<ui:fragment
-								rendered="#{showAssociationController.asso.id != showUserController.oneUser.selectedAssociation}">
-							
+								rendered="#{!showAssociationController.idAssociationComparison()}">
 							<h:commandButton
 								action="#{showAssociationController.subscribeToAsso}"
 								value="S'inscrire" >

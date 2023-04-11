@@ -88,6 +88,7 @@ public class ShowUserController {
 		return userAccountRepo.findAllAssociationSub(userId);
 	}
 	
+	
 	public Association editSelectAssociation(ActionEvent event) {
 		//je récupère l'asso clické
 		Association asso = (Association) event.getComponent().getAttributes().get("asso");
