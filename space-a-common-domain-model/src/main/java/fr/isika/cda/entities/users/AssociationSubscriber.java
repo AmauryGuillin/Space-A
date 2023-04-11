@@ -36,8 +36,8 @@ public class AssociationSubscriber {
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "ASSOCIATION_SUBSCRIBER",
-	joinColumns = @JoinColumn (name="ASSOCIATION_ID"),
-	inverseJoinColumns=@JoinColumn(name="ASSOCIATIONSUBSCRIBER_ID"))
+	joinColumns = @JoinColumn (name="ASSOCIATIONSUBSCRIBER_ID"), // Table correspondante à cette class ("AssociationSubscriber")
+	inverseJoinColumns=@JoinColumn(name="ASSOCIATION_ID")) // table avec laquelle on fait la jointure (class "Association")
 	private List<Association> listAssociations = new ArrayList<>();
 	
 	public boolean isMembershipStatus() {

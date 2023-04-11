@@ -14,12 +14,14 @@ import org.primefaces.util.EscapeUtils;
 @ManagedBean
 public class FileUploadView {
 	
+	FileUpload fileupload;
 	private UploadedFile file;
     private UploadedFiles files;
     private String dropZoneText = "Drop zone p:inputTextarea demo.";
 
     public void upload() {
         if (file != null) {
+        	System.out.println("Successful, " + file.getFileName() + " is uploaded.");
             FacesMessage message = new FacesMessage("Successful", file.getFileName() + " is uploaded.");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
