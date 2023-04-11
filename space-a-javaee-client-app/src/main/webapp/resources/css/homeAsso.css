@@ -10,7 +10,7 @@
 
 
 .top-home{
-    background-color: green;/*couleur secondaire*/
+    background-color: green;/*couleur secondaire par defaut*/
     color: #FFFFFF;/*couleur primaire*/
     width: 100vw;
     font-family: 'Courier New', Courier, monospace;/*font Asso*/
@@ -20,10 +20,13 @@
 
 .container, .main-content, .row{
 	margin:0;
-	padding:0
+	padding:0;
+} 
+
+.form-sans-marg{
+	padding:0;
+	margin: 0;
 }
-
-
 
 
 .top-home h1{
