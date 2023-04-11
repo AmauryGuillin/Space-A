@@ -47,7 +47,7 @@ public class UserAccount implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AccountPlanning accountPlanning;
 	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true) // for the admin
 	private Association association;
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)

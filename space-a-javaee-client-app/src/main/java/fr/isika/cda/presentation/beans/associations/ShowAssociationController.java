@@ -17,6 +17,7 @@ import fr.isika.cda.presentation.beans.associations.viewmodels.AssociationViewMo
 import fr.isika.cda.presentation.beans.users.UserLoginController;
 
 @ManagedBean
+@SessionScoped
 public class ShowAssociationController {
 
 	private AssociationViewModel assoVM = new AssociationViewModel();

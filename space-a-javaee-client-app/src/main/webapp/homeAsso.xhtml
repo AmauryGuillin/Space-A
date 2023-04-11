@@ -28,11 +28,15 @@
 							<h:outputLabel
 								value="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}" />
 
+							<ui:fragment
+								rendered="#{showAssociationController.asso.id != showUserController.oneUser.selectedAssociation}">
+							
 							<h:commandButton
 								action="#{showAssociationController.subscribeToAsso}"
 								value="S'inscrire" >
 								<f:param name="assoIdjpp" value="#{showAssociationController.asso.id}"></f:param>
 								</h:commandButton>
+							</ui:fragment>
 						</h:form>
 					<div class="window">
 			<h1>#{showAssociationController.asso.legalName}</h1><!-- A changer en NAME et pas legal name -->
