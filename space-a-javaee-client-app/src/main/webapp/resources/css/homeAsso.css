@@ -1,0 +1,76 @@
+
+
+/* .picture-bg {
+	
+} */
+
+
+
+/*Contain*/
+
+
+.top-home{
+    background-color: green;/*couleur secondaire*/
+    color: #FFFFFF;/*couleur primaire*/
+    width: 100vw;
+    font-family: 'Courier New', Courier, monospace;/*font Asso*/
+    text-align: center;
+    padding-top: 100px;
+}
+
+.container, .main-content, .row{
+	margin:0;
+	padding:0
+}
+
+
+
+
+.top-home h1{
+    font-weight: bolder;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.top-home img{
+    width: 80%;;
+    border: #FFFFFF solid;/*couleur primaire*/
+    margin-bottom: 20px; 
+}
+
+.infoAsso-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;/*couleur primaire*/
+    min-height: 240px;
+    color: red;/*couleur tertiaire*/
+    font-family: 'Courier New', Courier, monospace;/*font Asso*/
+    text-align: center;
+}
+
+.album-home{
+    background-color: green;/*couleur secondaire*/
+    color: #FFFFFF;/*couleur primaire*/
+    font-family: 'Courier New', Courier, monospace;/*font Asso*/
+    width: 100vw;
+}
+
+.album-home h2{
+    text-align: center;
+}
+
+.album-home .img-main-asso{
+    height: 80%;
+    width: 80%; 
+    border: #FFFFFF solid; /*couleur primaire*/
+    margin: 20px;
+    margin: 10%;
+}
+
+
+
+
+
+
