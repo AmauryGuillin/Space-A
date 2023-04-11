@@ -69,6 +69,13 @@ public class ShowUserController {
 		return "/index.xhtml?faces-redirect=true";
 	}
 	
+	public UserAccount connectedUser() {
+		UserAccount user = getOneUser();
+		UserAccount anotherUser  = userAccountRepo.findByOneId(user.getUserId());
+		
+		return anotherUser;
+	}
+	
 	
 	
 	public void uploadFile(FileUploadEvent event) {
@@ -104,17 +111,7 @@ public class ShowUserController {
 		System.out.println("ASSO : " + asso);		
 		return asso;		
 	}	
-	
 
-//	private AssociationSubscriber getOneAssocitionSubscriberById(Long id) {
-//		AssociationSubscriber associationSubscriber = null;
-//	    try {
-//	        associationSubscriberRepo.findById(id);
-//	    } catch (Exception e) {
-//	        e.printStackTrace();
-//	    }
-//	    return associationSubscriber;
-//	}
 
 
 	public UserAccountRepository getUserAccountRepo() {

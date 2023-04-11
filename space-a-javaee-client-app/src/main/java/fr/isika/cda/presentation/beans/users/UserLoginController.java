@@ -142,11 +142,6 @@ public class UserLoginController implements Serializable{
 		
 	}
 	
-	public Long displayUserAssociationId() {
-		Long id = 0L;
-		id = getLoggedUserAssociationFromSession();
-		return id;
-	}
 	
 	private void resetViewModel() {
 		this.userLoginViewModel = new UserLoginViewModel();
@@ -176,21 +171,11 @@ public class UserLoginController implements Serializable{
 		return (UserRole) session.getAttribute("loggedUserRole");
 	}
 	
-	private Long getLoggedUserAssociationFromSession() {
-		HttpSession session = getSession();
-		return (Long) session.getAttribute("loggedAssociationId");
-	}
-	
 	private void registerLoggedUserSessionAttributes(UserAccount userAccount) {
 		HttpSession session = getSession();
 		session.setAttribute("loggedUserId", userAccount.getUserId());
 		session.setAttribute("loggedUsername", userAccount.getUsername());
-		session.setAttribute("loggedUserRole", userAccount.getPrimaryRole());
-		
-		if (userAccount.getAssociation().getId() != null) {
-			session.setAttribute("loggedAssociationId", userAccount.getAssociation().getId());
-		}
-		
+		session.setAttribute("loggedUserRole", userAccount.getPrimaryRole());	
 	}
 	
 	

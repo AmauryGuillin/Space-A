@@ -86,15 +86,10 @@
 												action="#{navController.registrationUser()}" value="sign in" /></li>
 									</ui:fragment>
 
-
-
 									<ui:fragment
 										rendered="#{userLoginController.userLoggedIn == true}">
-										<ui:fragment
-											rendered="#{showUserController.oneUser.associationSubscriber.membershipStatus == true}">
-											<li class="nav-item"><h:commandLink class="nav-link"
-													action="#{navController.homeAsso()}" value="AssoAccueil" /></li>
-										</ui:fragment>
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.homeAsso()}" value="AssoAccueil" /></li>
 										<li class="nav-item"><h:commandLink class="nav-link"
 												action="#{navController.modifProfile()}"
 												value="modif Profile" /></li>
@@ -113,17 +108,17 @@
 						</div>
 
 					</div>
+		
 
 
 
-
-					<button class="navbar-toggler" type="button"
-						data-bs-toggle="collapse" data-bs-target="#navbarNav"
-						aria-controls="navbarNav" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="bi bi-list"></span>
-					</button>
-
+						<button class="navbar-toggler" type="button"
+							data-bs-toggle="collapse" data-bs-target="#navbarNav"
+							aria-controls="navbarNav" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="bi bi-list"></span>
+						</button>
+		
 
 
 

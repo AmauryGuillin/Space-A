@@ -105,21 +105,16 @@ public class ShowAssociationController {
 	
 	public Boolean idAssociationComparison() {
 
-		System.out.println("************************************** JE SUIS DANS LA METHODE idAssociationComparison ");
 		UserAccount user = getOneUser();
 		UserAccount anotherUser  = userRepo.findByOneId(user.getUserId());
-		
 
 		for (Association association : anotherUser.getAssociationSubscriber().getAssociations()) {
 			
-			System.out.println("************************************* FOR EACH");
 			
 			if (asso.getId() == association.getId()) {
-				System.out.println("**************************************** RETURN : TRUE");
 				return true;
 			}
 		}
-		System.out.println("**************************************** RETURN : FALSE");
 		return false;
 	}
 
