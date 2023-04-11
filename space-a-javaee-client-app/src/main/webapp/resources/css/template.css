@@ -47,6 +47,12 @@ body{
 
 }
 
+.cadreForm{
+	background-color: #D9D9D9;
+	min-height: 500px; 
+	width: 90%;
+}
+
 .window {
 	background: #ffffff8c;
 }
