@@ -21,9 +21,7 @@ public class FileUpload {
 	public static void doUpload(UploadedFile file, final String fileNameToUse) {
 
 		try {
-
-			ServletContext servletContext = ((ServletContext) FacesContext.getCurrentInstance().getELContext()
-					.getContext(null));
+			ServletContext servletContext = ((ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext());
 			String resourcesPath = servletContext.getRealPath(JSF_RESOURCES_DIR_NAME);
 			String imagePath = resourcesPath + IMAGES_DIR_NAME;
 
