@@ -1,0 +1,59 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Matériel à louer</title>
+  <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+  <h:outputStylesheet library="css" name="formulaire.css" />
+</head>
+<ui:define name="content">
+		<body>
+    <div class="container">
+        <h1>Notre matériel à emprunter</h1>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <h:graphicImage value="photo1.jpg" alt="Photo du matériel 1" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">Nom du matériel 1</h5>
+                        <p class="card-text">Type : Type 1</p>
+                        <p class="card-text">Description : Description du matériel 1</p>
+                        <button type="button" class="btn btn-primary">Réserver</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card">
+                    <h:graphicImage value="photo2.jpg" alt="Photo du matériel 2" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">Nom du matériel 2</h5>
+                        <p class="card-text">Type : Type 2</p>
+                        <p class="card-text">Description : Description du matériel 2</p>
+                        <button type="button" class="btn btn-primary">Réserver</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card">
+                    <h:graphicImage value="photo3.jpg" alt="Photo du matériel 3" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">Nom du matériel 3</h5>
+                        <p class="card-text">Type : Type 3</p>
+                        <p class="card-text">Description : Description du matériel 3</p>
+                        <button type="button" class="btn btn-primary">Réserver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+	</ui:define>
+</ui:composition>

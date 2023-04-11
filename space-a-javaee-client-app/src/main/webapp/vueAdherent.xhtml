@@ -1,23 +1,83 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" lang="en">
-
-<h:outputStylesheet library="css" name="style.css" />
-
-<ui:composition template="/WEB-INF/template/template.xhtml">
-
-	<h:head>
-		<title>Vue adherent</title>
-	</h:head>
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+	<head>
+<meta charset="UTF-8" />
+<title>Vue adhérent</title>
+<h:outputStylesheet library="css" name="bootstrap.min.css" />
+<h:outputStylesheet library="css" name="formulaire.css" />
+	</head>
 	<ui:define name="content">
-		<body>
 
+		<h:body>
 
-		</body>
+			<div class="container">
+
+				<div class="row">
+
+					<div class="flex-container">
+						<div class="flex-item">
+							<h:outputLabel for="photo" value="Photo :" />
+							<input type="file" id="photo" name="photo" />
+						</div>
+						<div class="flex-item">
+							<h:outputLabel for="nomAdherent" value="Alexandre Hary" />
+							<br />
+							<h:outputLabel for="biographie"
+								value="Biographie : blablablablablablablablablablablablablablablablablabla" />
+						</div>
+						<div class="flex-item">
+							<h:outputLabel for="listeDeroulante" value="Association :" />
+							<select id="listeDeroulante" name="listeDeroulante">
+								<option value="option1">Option 1</option>
+								<option value="option2">Option 2</option>
+								<option value="option3">Option 3</option>
+							</select>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="row">
+						<div class="col-sm-4">
+							<div class="card">
+
+								<div class="card-body">
+									<h5 class="card-title">Activités Asso1</h5>
+									<p class="card-text">Contenu de la colonne 1</p>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="card">
+
+								<div class="card-body">
+									<h5 class="card-title">Évènements</h5>
+									<p class="card-text">Contenu de la colonne 2</p>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="card">
+
+								<div class="card-body">
+									<h5 class="card-title">Matériel</h5>
+									<p class="card-text">Contenu de la colonne 3</p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				
+			</div>
+		</h:body>
 	</ui:define>
 </ui:composition>
-</html>
