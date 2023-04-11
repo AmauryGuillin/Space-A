@@ -15,7 +15,7 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
-import fr.isika.cda.data.repositories.users.associationSubscriberRepo;
+import fr.isika.cda.data.repositories.users.AssociationSubscriberRepo;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.users.AssociationSubscriber;
 import fr.isika.cda.entities.users.UserAccount;
@@ -57,6 +57,11 @@ public class ShowUserController {
 
 	public void getOneUserById(Long id) {
 		userAccount = userAccountRepo.findByOneId(id);
+	}
+	
+	public UserAccount returnOneUserById(Long id) {
+		userAccount = userAccountRepo.findByOneId(id);
+		return userAccount;
 	}
 
 	public void getOneUserByName() {
