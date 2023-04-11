@@ -40,6 +40,7 @@ public class CreateAccountController {
 
 		UserProfile userProfile = new UserProfile();
 		userProfile.setUserContact(userContact);
+		userProfile.setAvatar("RoiThomas.PNG");
 
 		UserAccount userAccount = new UserAccount();
 		userAccount.setUsername(createAccountViewModel.getUsername());
@@ -47,6 +48,7 @@ public class CreateAccountController {
 		userAccount.setPrimaryRole(UserRole.USER);
 		userAccount.setUserProfile(userProfile);
 		userAccount.setAssociationSubscriber(assoSub);
+		userAccount.setSelectedAssociation(1L);
 
 		return userAccount;
 

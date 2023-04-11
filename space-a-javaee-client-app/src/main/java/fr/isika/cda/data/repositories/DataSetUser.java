@@ -39,6 +39,7 @@ public class DataSetUser {
 		acc.setPassword("123");
 		acc.setPrimaryRole(UserRole.VISITOR);
 		acc.setAssociationSubscriber(userSubFirst);
+		acc.setSelectedAssociation(1L);
 		
 		Address firstAdr = new Address();
 		firstAdr.setCity("city1");
@@ -63,6 +64,7 @@ public class DataSetUser {
 		UserProfile userProfile = new UserProfile()
 				.withFirstName("Julie")
 				.withLastName("Trappeur")
+				.withAvatar("user-avatar-basic.PNG")
 				.withContact(contact); // attached manually because of the @Embedded
 
 		acc.setUserProfile(userProfile);
@@ -73,13 +75,6 @@ public class DataSetUser {
 		
 	
 		// User 2
-		AssociationSubscriber userSubSecond = new AssociationSubscriber();
-		
-		UserAccount acc2 = new UserAccount();
-		acc2.setUsername("Admin");
-		acc2.setPassword("123");
-		acc2.setPrimaryRole(UserRole.ADMIN);
-		acc2.setAssociationSubscriber(userSubSecond);
 		
 		Address secondAdr = new Address();
 		secondAdr.setCity("city2");
@@ -92,21 +87,29 @@ public class DataSetUser {
 		Phone secondPhone = new Phone();
 		secondPhone.setCounrtyCode("+33");
 		secondPhone.setPhoneNumber("00 00 00 00 02");
-
+		
 		UserContact contact2 = new UserContact();
 		contact2.setPrimaryEmail("email2-email@email.fr");
 		contact2.setAddress(secondAdr);
 		contact2.setPhone(secondPhone);
 		
-		
 		UserProfile userProfile2 = new UserProfile()
 				.withFirstName("Alain")
 				.withLastName("Taweld")
+				.withAvatar("RoiThomas.PNG")
 				.withContact(contact2);
-
+		
+		AssociationSubscriber userSubSecond = new AssociationSubscriber();
+		
+		UserAccount acc2 = new UserAccount();
+		acc2.setUsername("Admin");
+		acc2.setPassword("123");
+		acc2.setPrimaryRole(UserRole.ADMIN);
+		acc2.setAssociationSubscriber(userSubSecond);
 		acc2.setUserProfile(userProfile2);
+		acc2.setSelectedAssociation(1L);
 
-		// ajouter les cascades
+		// ajouter les cascadess
 		manager.persist(contact2);
 		manager.persist(acc2);
 	
@@ -119,6 +122,7 @@ public class DataSetUser {
 		acc3.setPassword("123");
 		acc3.setPrimaryRole(UserRole.MEMBER);
 		acc3.setAssociationSubscriber(userSubthird);
+		acc3.setSelectedAssociation(1L);
 		
 		Address thirdAdr = new Address();
 		thirdAdr.setCity("city3");
@@ -140,6 +144,7 @@ public class DataSetUser {
 		UserProfile userProfile3 = new UserProfile()
 				.withFirstName("Elsa")
 				.withLastName("Asson")
+				.withAvatar("user-avatar-basic.PNG")
 				.withContact(contact3);
 
 		acc3.setUserProfile(userProfile3);
@@ -157,6 +162,7 @@ public class DataSetUser {
 		acc4.setPassword("123");
 		acc4.setPrimaryRole(UserRole.USER);
 		acc4.setAssociationSubscriber(userSubfour);
+		acc4.setSelectedAssociation(1L);
 		
 		
 		Address fourthAdr = new Address();
@@ -180,6 +186,7 @@ public class DataSetUser {
 		UserProfile userProfile4 = new UserProfile()
 				.withFirstName("Jean-Claude")
 				.withLastName("Paloin")
+				.withAvatar("user-avatar-basic.PNG")
 				.withContact(fourth);
 
 		acc4.setUserProfile(userProfile4);

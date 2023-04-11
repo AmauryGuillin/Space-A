@@ -10,7 +10,7 @@
 	xmlns:p="http://primefaces.org/ui" lang="en">
 
 <h:head>
-	<title>Space'A</title>
+	<title>Spac'A</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -69,8 +69,24 @@
 						</div>
 					</div>
 
-					<div class="logo">
-						<h:graphicImage library="images" name="logoAutreAsso.jpg"></h:graphicImage>
+					<div class="logo">	
+					<ui:fragment rendered="#{userLoginController.userLoggedIn == false}">
+							<h:graphicImage library="images" name="logo-basic.PNG"></h:graphicImage>
+					</ui:fragment>
+					
+					<ui:fragment rendered="#{userLoginController.userLoggedIn == true}">
+						<ui:fragment rendered="#{showUserController.oneUser.associationSubscriber.membershipStatus == true}">
+								<h:graphicImage library="images" name="#{showUserController.userSelectedAssociation.associationIdentity.associationDepiction.logo}"></h:graphicImage>
+						</ui:fragment>
+						<ui:fragment rendered="#{showUserController.oneUser.associationSubscriber.membershipStatus == true}">
+								<h:graphicImage library="images" name="user-avatar-basic.PNG"></h:graphicImage>
+						</ui:fragment>
+					</ui:fragment>
+					
+
+					
+					
+					
 					</div>
 
 					<div class="navbar-asso">

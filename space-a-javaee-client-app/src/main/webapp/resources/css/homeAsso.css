@@ -10,7 +10,7 @@
 
 
 .top-home{
-    background-color: green;/*couleur secondaire par defaut*/
+    background-color: #132d64ad;/*couleur secondaire par defaut*/
     color: #FFFFFF;/*couleur primaire*/
     width: 100vw;
     font-family: 'Courier New', Courier, monospace;/*font Asso*/
@@ -37,7 +37,8 @@
 }
 
 .top-home img{
-    width: 80%;;
+    min-width: 50%;
+    max-width: 50%;
     border: #FFFFFF solid;/*couleur primaire*/
     margin-bottom: 20px; 
 }
@@ -52,6 +53,11 @@
     color: red;/*couleur tertiaire*/
     font-family: 'Courier New', Courier, monospace;/*font Asso*/
     text-align: center;
+}
+
+.infoAsso-home p {
+	padding-left: 10rem;
+	padding-right: 10rem; 
 }
 
 .album-home{

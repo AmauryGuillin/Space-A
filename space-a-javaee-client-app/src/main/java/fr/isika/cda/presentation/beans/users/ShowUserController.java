@@ -14,10 +14,12 @@ import javax.inject.Inject;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
+import fr.isika.cda.data.repositories.association.AssociationRepository;
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.users.AssociationSubscriber;
 import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda.presentation.beans.associations.ShowAssociationController;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 import fr.isika.cda.presentation.utils.FileUpload;
 
@@ -30,6 +32,9 @@ public class ShowUserController {
 
 	@Inject
 	private UserLoginController userLoginController;
+	
+	@Inject
+	private AssociationRepository associationRepo;
 
 	private UserViewModel userVM = new UserViewModel();
 
@@ -71,12 +76,15 @@ public class ShowUserController {
 	
 	public UserAccount connectedUser() {
 		UserAccount user = getOneUser();
-		UserAccount anotherUser  = userAccountRepo.findByOneId(user.getUserId());
-		
+		UserAccount anotherUser  = userAccountRepo.findByOneId(user.getUserId());	
 		return anotherUser;
 	}
 	
-	
+	public Association getUserSelectedAssociation() {
+		UserAccount user = connectedUser();
+		Association asso = associationRepo.findOneById(user.getSelectedAssociation());
+		return asso;
+	}
 	
 	public void uploadFile(FileUploadEvent event) {
 		System.out.println("********************************* METHODE FILEUPLOAD");

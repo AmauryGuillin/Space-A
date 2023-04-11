@@ -17,7 +17,7 @@ public class AssociationViewModel implements Serializable {
 //Association	
 	private Long id;//J'AI RAJOUTER CA
 	private String legalName;
-	private int registrationNumber;
+	private String registrationNumber;
 	
 //Depiction
 	private String name;
@@ -104,11 +104,12 @@ public class AssociationViewModel implements Serializable {
 		this.legalName = legalName;
 	}
 
-	public int getRegistrationNumber() {
+
+	public String getRegistrationNumber() {
 		return registrationNumber;
 	}
 
-	public void setRegistrationNumber(int registrationNumber) {
+	public void setRegistrationNumber(String registrationNumber) {
 		this.registrationNumber = registrationNumber;
 	}
 

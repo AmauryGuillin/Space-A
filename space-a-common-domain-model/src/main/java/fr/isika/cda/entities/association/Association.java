@@ -27,12 +27,9 @@ public class Association {
 	@Column(length = 50, nullable = false, unique = true)
 	private String legalName;
 	
-	@Column(name="registration_number_siret", nullable = false, length = 14, unique = true)
-	private int registrationNumber;
-	
-//	@ManyToMany
-//	private List<AssociationSubscriber> listAssoSubscribers = new ArrayList<>();
-	
+	@Column(name="registration_number_siret", nullable = false, length = 17, unique = true)
+	private String registrationNumber;
+		
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationSpace associationSpace;
 	
@@ -50,12 +47,6 @@ public class Association {
 	}
 	public void setLegalName(String legalName) {
 		this.legalName = legalName;
-	}
-	public int getRegistrationNumber() {
-		return registrationNumber;
-	}
-	public void setRegistrationNumber(int registrationNumber) {
-		this.registrationNumber = registrationNumber;
 	}
 	public Long getId() {
 		return id;
@@ -80,22 +71,33 @@ public class Association {
 		this.associationPlanning = associationPlanning;
 	}
 	
+	public String getRegistrationNumber() {
+		return registrationNumber;
+	}
+	public void setRegistrationNumber(String registrationNumber) {
+		this.registrationNumber = registrationNumber;
+	}
 	
 	@Override
 	public String toString() {
-		return "Association [id=" + id + ", legalName=" + legalName + ", registrationNumber=" + registrationNumber
-				+ ", associationSpace=" + associationSpace + ", associationIdentity=" + associationIdentity
-				+ ", associationPlanning=" + associationPlanning + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Association [id=");
+		builder.append(id);
+		builder.append(", legalName=");
+		builder.append(legalName);
+		builder.append(", registrationNumber=");
+		builder.append(registrationNumber);
+		builder.append(", associationSpace=");
+		builder.append(associationSpace);
+		builder.append(", associationIdentity=");
+		builder.append(associationIdentity);
+		builder.append(", associationPlanning=");
+		builder.append(associationPlanning);
+		builder.append("]");
+		return builder.toString();
 	}
-	
-	
-//	public List<AssociationSubscriber> getListAssoSubscribers() {
-//		return listAssoSubscribers;
-//	}
-//	public void setListAssoSubscribers(List<AssociationSubscriber> listAssoSubscribers) {
-//		this.listAssoSubscribers = listAssoSubscribers;
-//	}
 
+	
 
 	
 	
