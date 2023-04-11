@@ -15,8 +15,8 @@ body{
 .navbar{
     background-color: #FFFFFF;
     font-size: 0.8rem;
-    height: 100px;
-    
+    min-height: 100px;
+    justify-content: center;
 }
 
 .navbar-spaca .nav-link{
