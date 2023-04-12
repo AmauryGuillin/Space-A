@@ -5,5 +5,12 @@
 	opacity:0.8;
 	box-shadow:12px 5px 20px;
 	border-radius: 25px;
-	margin: 50px;
+	
+}
+
+.pourtravail2{
+	background-color: white;
+	height: fit-content; 
+	width: 90%;
+
 }
