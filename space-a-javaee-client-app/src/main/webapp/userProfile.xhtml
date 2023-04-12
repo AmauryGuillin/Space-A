@@ -22,34 +22,20 @@
 								value="#{showUserController.oneUser.selectedAssociation}" />
 						</div>
 						<div>
-						
-							<b><h:outputLabel value="les asso où je suis inscrit : " /></b>
-
-
-							<h:dataTable
-								value="#{showUserController.allAssociationSubscriber}"
-								var="asso">
-								<h:column>
-									<f:facet name="header">Association :</f:facet>
-								#{asso.legalName}
-							</h:column>
-
-
-								<h:column>
-									
-									<h:commandButton id="submit"
-										actionListener="#{showUserController.editSelectAssociation}"
-										action="homeAsso">
-										<f:attribute name="value" value="#{asso.id}" />
-										<f:attribute name="asso" value="#{asso}" />
-									</h:commandButton>
-								</h:column>
-							</h:dataTable>
-
-
-
-
-
+							<b>
+								<h:outputLabel value="les asso où je suis inscrit : " />
+							</b>
+							<br/>
+							<ui:repeat value="#{showUserController.currentUserAssociationSubscriptions()}" var="asso">
+								
+								<h:commandButton id="submit"
+									actionListener="#{showUserController.editSelectAssociation}"
+									action="associationIndex" >
+									<f:attribute name="value" value="#{asso.legalName} (#{asso.id})" />
+									<f:attribute name="asso" value="#{asso}" />
+								</h:commandButton>
+								<br/>
+							</ui:repeat>
 
 						</div>
 						<div>

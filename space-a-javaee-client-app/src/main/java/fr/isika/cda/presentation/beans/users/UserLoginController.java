@@ -4,182 +4,131 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda.presentation.beans.navigation.NavController;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserLoginViewModel;
+import fr.isika.cda.presentation.utils.SessionUtils;
+import fr.isika.cda.presentation.utils.WebUiTools;
 
 @ManagedBean
 @SessionScoped
-public class UserLoginController implements Serializable{
-	
+public class UserLoginController implements Serializable {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -1179088506634622925L;
 
 	// Attributes
-	
+
 	@Inject
 	private UserLoginViewModel userLoginViewModel = new UserLoginViewModel();
-	
+
 	@Inject
 	private UserAccountRepository userAccountRepository;
-	
+
 	@Inject
 	private NavController navController;
-	
+
 	private UserAccount userAccount;
-	
-	
+
 	// Methodes
-	
+
 	public void show() {
-		if(isUserLoggedIn()) {
+		if (isUserLoggedIn()) {
 			processLogin();
-		}else {
+		} else {
 			navController.login();
 		}
 	}
-	
-	public void login() {	
-		try {	
+
+	public void login() {
+
 		userAccount = userAccountRepository.findByOneName(userLoginViewModel.getUsername());
-		if (userAccount != null && isUserLoggedIn() == false) {
-			registerLoggedUserSessionAttributes(userAccount);
-			processLogin();
-			navController.index();
-		} else if (isUserLoggedIn() == true) {
+		if(userAccount == null) {
 			navController.error();
-		} else if (userAccount == null){
-			navController.error();
+			return;
 		}
-		resetViewModel();
+		
+		try {
+			if (!isUserLoggedIn()) {
+				SessionUtils.registerLoggedUserSessionAttributes(userAccount);
+				processLogin();
+				navController.index();
+			}
+			resetViewModel();
 		} catch (Exception e) {
-			e.printStackTrace();
 			navController.error();
 		}
 	}
-	
 
-	public void Logout() {
+	public void logout() {
 		resetViewModel();
-		resetUserSessionAttributes();
+		SessionUtils.resetUserSessionAttributes();
 		navController.index();
 	}
 
-	
-	
 	public void processLogin() {
 		try {
-			redirect(resolveViewNamedByUserRole());
-		}catch(Exception e){
+			WebUiTools.redirectToView( resolveViewNamedByUserRole() );
+		} catch (Exception e) {
 			navController.index();
 		}
-		
 	}
-
-
+	
 	public boolean isUserLoggedIn() {
-		return getLoggedUserIdFromSession()!=null;
+		return SessionUtils.getLoggedUserIdFromSession() != null;
 	}
-	
+
 	public boolean hasAdminRole() {
-		return UserRole.ADMIN.equals(getLoggedUserRoleFromSession());
+		return UserRole.ADMIN.equals(SessionUtils.getLoggedUserRoleFromSession());
 	}
-	
+
 	public boolean hasMemberRole() {
-		return UserRole.MEMBER.equals(getLoggedUserRoleFromSession());
+		return UserRole.MEMBER.equals(SessionUtils.getLoggedUserRoleFromSession());
 	}
-	
+
 	public boolean hasUserRole() {
-		return UserRole.USER.equals(getLoggedUserRoleFromSession());
+		return UserRole.USER.equals(SessionUtils.getLoggedUserRoleFromSession());
 	}
-	
+
 	public String resolvedLoggedUsername() {
-		String usernameFromSession = getLoggedUsernameFromSession();
+		String usernameFromSession = SessionUtils.getLoggedUsernameFromSession();
 		return usernameFromSession != null ? usernameFromSession : "undefined";
 	}
-	
-	private void redirect(String viewName) {
-		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect(viewName);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-	}
-	
+
 	public String displayUserUsername() {
-		String username = "";
-		username = getLoggedUsernameFromSession();
-		return username;
+		return SessionUtils.getLoggedUsernameFromSession();
 	}
-	
+
 	public Long displayUserId() {
-		Long id = 0L;
-		id = getLoggedUserIdFromSession();
-		return id;
+		return SessionUtils.getLoggedUserIdFromSession();
 	}
-	
-	
+
 	private String resolveViewNamedByUserRole() {
-		UserRole roleFromSession = getLoggedUserRoleFromSession();
+		UserRole roleFromSession = SessionUtils.getLoggedUserRoleFromSession();
 		switch (roleFromSession) {
 		case USER:
-			return "index.xhtml";
+			return "/index.xhtml";
 		case MEMBER:
-			return "userProfile.xhtml";//TODO changer les view correspondant pour les 3 !!!
+			// TODO changer les view correspondant pour les 3 !!!
+			return "/userProfile.xhtml";
 		case ADMIN:
-			return "dashboardAdmin.xhtml";
+			return "/dashboardAdmin.xhtml";
 		default:
-			return "index.xhtml";
+			return "/index.xhtml";
 		}
-		
 	}
-	
-	
+
 	private void resetViewModel() {
 		this.userLoginViewModel = new UserLoginViewModel();
 	}
-	
-	private HttpSession getSession() {
-		return (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-	}
-	
-	private void resetUserSessionAttributes() {
-		HttpSession session = getSession();
-		session.invalidate();
-	}
-	
-	private Long getLoggedUserIdFromSession() {
-		HttpSession session = getSession();
-		return (Long) session.getAttribute("loggedUserId");
-	}
-	
-	private String getLoggedUsernameFromSession() {
-		HttpSession session = getSession();
-		return (String) session.getAttribute("loggedUsername");
-	}
-	
-	private UserRole getLoggedUserRoleFromSession() {
-		HttpSession session = getSession();
-		return (UserRole) session.getAttribute("loggedUserRole");
-	}
-	
-	private void registerLoggedUserSessionAttributes(UserAccount userAccount) {
-		HttpSession session = getSession();
-		session.setAttribute("loggedUserId", userAccount.getUserId());
-		session.setAttribute("loggedUsername", userAccount.getUsername());
-		session.setAttribute("loggedUserRole", userAccount.getPrimaryRole());	
-	}
-	
-	
-	//Getters and Setters
+
+	// Getters and Setters
 
 	public UserLoginViewModel getUserLoginViewModel() {
 		return userLoginViewModel;
@@ -212,6 +161,5 @@ public class UserLoginController implements Serializable{
 	public void setUserAccount(UserAccount userAccount) {
 		this.userAccount = userAccount;
 	}
-	
 
 }

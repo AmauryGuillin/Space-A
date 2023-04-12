@@ -1,4 +1,4 @@
-package fr.isika.cda.entities.users;
+package fr.isika.cda.entities.users.plannings;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package fr.isika.cda.entities.assoService;
+package fr.isika.cda.entities.association.services;
 
 import java.util.Date;
 
@@ -8,30 +8,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 import fr.isika.cda.entities.association.AssociationPlanning;
 
 @Entity
 public class Event {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id; 
-	
+	private Long id;
+
 	private Date startDate;
-	
-	private Date endDate; 
-	
-	private String description; 
-	
+
+	private Date endDate;
+
+	private String description;
+
 	private String title;
-	
+
 	@ManyToOne(cascade = CascadeType.ALL)
 	private AssociationPlanning associationPlanning;
-	
+
 //	@Enumerated(EnumType.STRING)
 //	private EventType eventType;
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -67,6 +67,5 @@ public class Event {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 
 }
