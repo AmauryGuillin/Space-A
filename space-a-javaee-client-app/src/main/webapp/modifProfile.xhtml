@@ -18,17 +18,20 @@
 
 			<div class="cadreForm">
 				<h:form>
+				<div class ="container-cadreForm">
 					<h1 class="text-center">Modification du votre profil
 						utilisateur</h1>
 					<hr />
+					
+					<!-- partie image gauche -->
 					<div class="row">
 						<div class="col-md-5">
 							<div class="text-center">
-								<h:graphicImage library="images" name="profile.png"
-									style=" width :500px" />
+								<h:graphicImage library="images" name="profile.png" class ="profile-pic" />
+									
 							</div>
 						</div>
-
+					<!-- partie droite générale -->
 						<div class="col-md-7">
 	
 							<div class="form-group row col-md-12 ">
@@ -40,7 +43,7 @@
 								<div class="col-md-9">
 									<p:inputText id="nom"
 										value="#{showUserController.oneUser.userProfile.lastName}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px"/>
 								</div>
 							</div>
 
@@ -54,7 +57,7 @@
 								<div class="col-md-9">
 									<p:inputText id="prenom"
 										value="#{showUserController.oneUser.userProfile.firstName}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px" />
 								</div>
 
 							</div>
@@ -75,7 +78,7 @@
 										accept=".gif,.jpg,.jpeg,.png" auto="true"
 										invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
 										fileUploadListener="#{showUserController.uploadFile()}"
-										class="form-control-file" />
+										class="form-control" style="border-radius:15px" />
 								</div>
 							</div>
 
@@ -89,7 +92,7 @@
 								<div class="col-md-9">
 									<p:inputText id="birthday"
 										value="#{showUserController.oneUser.userProfile.birthday}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px"/>
 								</div>
 							</div>
 
@@ -102,7 +105,7 @@
 								<div class="col-md-9">
 									<p:inputText id="primaryEmail"
 										value="#{showUserController.oneUser.userProfile.userContact.primaryEmail}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px"/>
 
 								</div>
 
@@ -118,7 +121,7 @@
 								<div class="col-md-9">
 									<p:inputText id="secondaryEmail"
 										value="#{showUserController.oneUser.userProfile.userContact.secondaryEmail}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px"/>
 
 								</div>
 
@@ -133,7 +136,7 @@
 								<div class="col-md-9">
 									<p:inputText id="lineOne"
 										value="#{showUserController.oneUser.userProfile.userContact.address.lineOne}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px"/>
 
 								</div>
 
@@ -148,7 +151,7 @@
 								<div class="col-md-9">
 									<p:inputText id="lineTwo"
 										value="#{showUserController.oneUser.userProfile.userContact.address.lineTwo}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px"/>
 
 								</div>
 
@@ -163,7 +166,7 @@
 								<div class="col-md-9">
 									<p:inputText id="zipCode"
 										value="#{showUserController.oneUser.userProfile.userContact.address.zipCode}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px"/>
 
 								</div>
 
@@ -178,7 +181,7 @@
 								<div class="col-md-9">
 									<p:inputText id="city"
 										value="#{showUserController.oneUser.userProfile.userContact.address.city}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px"/>
 
 								</div>
 
@@ -193,7 +196,7 @@
 								<div class="col-md-9">
 									<p:inputText id="state"
 										value="#{showUserController.oneUser.userProfile.userContact.address.state}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px"/>
 
 								</div>
 
@@ -208,7 +211,7 @@
 								<div class="col-md-9">
 									<p:inputText id="country"
 										value="#{showUserController.oneUser.userProfile.userContact.address.country}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px"/>
 
 								</div>
 
@@ -223,7 +226,7 @@
 								<div class="col-md-9">
 									<p:inputText id="counrtyCode"
 										value="#{showUserController.oneUser.userProfile.userContact.phone.counrtyCode}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px"/>
 
 								</div>
 
@@ -238,7 +241,7 @@
 								<div class="col-md-9">
 									<p:inputText id="phoneNumber"
 										value="#{showUserController.oneUser.userProfile.userContact.phone.phoneNumber}"
-										class="form-control" />
+										class="form-control" style="border-radius:15px"/>
 
 								</div>
 
@@ -268,6 +271,7 @@
 
 
 
+					</div>
 					</div>
 				</h:form>
 			</div>
