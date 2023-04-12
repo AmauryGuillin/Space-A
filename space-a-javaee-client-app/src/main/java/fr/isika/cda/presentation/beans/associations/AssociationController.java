@@ -62,7 +62,7 @@ public class AssociationController {
 	
 		//Graphic Association Default
 		GraphicChart assoGraphic = new GraphicChart();
-		assoGraphic.setBanner("Je suis une belle banière");// TODO a supprimer lorsqu'on va virer la bannière
+//		assoGraphic.setBanner("Je suis une belle banière");// TODO a supprimer lorsqu'on va virer la bannière
 		assoGraphic.setFont("Police par defaut"); //TODO Font pour Asso !
 		assoGraphic.setMainColor("abaaaa");
 		assoGraphic.setSecondaryColor("132d64");
@@ -97,7 +97,7 @@ public class AssociationController {
 	public void autoFillPageOne() {
 		assoVM.setLegalName("legal name");
 		assoVM.setRegistrationNumber("000001");
-		assoVM.setName("nom");
+//		assoVM.setName("nom");
 		assoVM.setDescription("description");
 //		assoVM.setLogo("Path du logo....");
 //		assoVM.setMainImage("Path de l'image principale");
