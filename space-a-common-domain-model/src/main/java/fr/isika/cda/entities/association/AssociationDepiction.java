@@ -22,7 +22,7 @@ public class AssociationDepiction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column(name="commercial_name", length = 50, nullable = false)
+	@Column(name="commercial_name", length = 50, nullable = true)
     private String name;
 	
 	@Column(length = 2000, nullable = true)
