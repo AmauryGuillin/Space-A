@@ -37,7 +37,7 @@
 }
 
 .top-home img{
-    min-width: 75%;
+    max-height:400px;
     max-width: 75%;
     /*border: #FFFFFF solid; --> couleur primaire*/
     margin-bottom: 20px; 

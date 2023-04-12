@@ -11,34 +11,7 @@
 			<section>
 				<div class="pourtravail">
 
-							<b><h:outputLabel value="les asso où je suis inscrit : " /></b>
-							<h:form>
-							
-							<h:dataTable value="#{showUserController.allAssociationSubscriber}"
-							var="asso">
-							<h:column>
-								<f:facet name="header">Association :</f:facet>
-								#{asso.legalName}
-							</h:column>
-							<h:column>
-								<f:facet name="header">directeur : </f:facet>
-								#{asso.associationIdentity.director}
-							</h:column>
 
-							<h:column>
-								<f:facet name="header">Redirection</f:facet>
-								<h:commandButton id="submit"
-									actionListener="#{showUserController.editSelectAssociation}"
-									action="userProfile">
-									<f:attribute name="value" value="#{asso.id}" />
-									<f:attribute name="asso" value="#{asso}" />
-								</h:commandButton>
-							</h:column>
-						</h:dataTable>
-							
-								
-
-							</h:form>
 
 					<h1>Profil utilisateur</h1>
 
@@ -50,7 +23,33 @@
 						</div>
 						<div>
 						
-						
+							<b><h:outputLabel value="les asso où je suis inscrit : " /></b>
+
+
+							<h:dataTable
+								value="#{showUserController.allAssociationSubscriber}"
+								var="asso">
+								<h:column>
+									<f:facet name="header">Association :</f:facet>
+								#{asso.legalName}
+							</h:column>
+
+
+								<h:column>
+									
+									<h:commandButton id="submit"
+										actionListener="#{showUserController.editSelectAssociation}"
+										action="homeAsso">
+										<f:attribute name="value" value="#{asso.id}" />
+										<f:attribute name="asso" value="#{asso}" />
+									</h:commandButton>
+								</h:column>
+							</h:dataTable>
+
+
+
+
+
 
 						</div>
 						<div>
@@ -69,7 +68,9 @@
 						</div>
 						<div>
 							<b><h:outputLabel value="Avatar : " /></b>
-							<h:graphicImage name="#{showUserController.oneUser.userProfile.avatar}" library="images"></h:graphicImage>
+							<h:graphicImage
+								name="#{showUserController.oneUser.userProfile.avatar}"
+								library="images"></h:graphicImage>
 						</div>
 						<div>
 							<b><h:outputLabel value="Date de naissance : " /></b>

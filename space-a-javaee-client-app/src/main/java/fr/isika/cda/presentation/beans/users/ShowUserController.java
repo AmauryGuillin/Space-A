@@ -42,6 +42,7 @@ public class ShowUserController {
 	private AssociationSubscriber selectedAssociation;
 	
 	private Long userId;
+	private Association asso;
 	private String userName;
 	private UserAccount userAccount;
 	private String avatarFileName;
@@ -113,7 +114,7 @@ public class ShowUserController {
 	
 	public Association editSelectAssociation(ActionEvent event) {
 		//je récupère l'asso clické
-		Association asso = (Association) event.getComponent().getAttributes().get("asso");
+		asso = (Association) event.getComponent().getAttributes().get("asso");
 		//je récupère mon user
 		userAccount = getOneUser();
 		

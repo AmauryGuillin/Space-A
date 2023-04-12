@@ -77,8 +77,7 @@ public class ShowAssociationController {
 
 	public Association attributListner(ActionEvent event) {
 		asso = (Association) event.getComponent().getAttributes().get("asso");
-		return asso;	
-		
+		return asso;
 	}	
 	
 	private UserAccount recupUser() {
