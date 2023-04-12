@@ -48,6 +48,7 @@ public class AssociationController {
 		
 		userConnecte.setAssociation(asso);
 		userConnecte.setPrimaryRole(UserRole.ADMIN);
+		userConnecte.setSelectedAssociation(asso.getId());
 			
 		userRepo.updateUserFromAsso(userConnecte);
 
