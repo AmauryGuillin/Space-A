@@ -57,6 +57,30 @@ body{
 	background: #ffffff8c;
 }
 
+.cadreForm2{
+	background-color: #d9d9d9cc;
+	height : fit-content;
+	width: 90%;
+
+	border-radius : 15px;
+	margin:50px ;
+	
+}
+
+
+
+.card{
+	border-radius : 15px;
+	margin-top: 25px;
+	
+}
+
+.container1{
+	
+	margin:50px ;
+}
+
+
 
 /*.index_section {
   display: -webkit-box;

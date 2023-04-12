@@ -1,0 +1,9 @@
+.cadreForm1{
+	background-color: #D9D9D9;
+	min-height: 500px; 
+	width: 90%;
+	opacity:0.8;
+	box-shadow:12px 5px 20px;
+	border-radius: 25px;
+	margin: 50px;
+}
