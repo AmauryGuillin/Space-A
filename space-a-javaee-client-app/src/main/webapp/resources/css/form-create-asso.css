@@ -45,6 +45,9 @@
 	
 }
 
+.ui-fileupload-row {
+	display: block !important;
+}
 
 
 
