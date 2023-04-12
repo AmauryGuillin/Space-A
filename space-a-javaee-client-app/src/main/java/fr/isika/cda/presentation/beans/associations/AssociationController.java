@@ -62,20 +62,20 @@ public class AssociationController {
 	
 		//Graphic Association Default
 		GraphicChart assoGraphic = new GraphicChart();
-		assoGraphic.setBanner("Je suis une belle banière");
-		assoGraphic.setFont("Police par defaut");
-		assoGraphic.setMainColor(assoVM.getMainColor());
-		assoGraphic.setSecondaryColor(assoVM.getSecondaryColor());
-		assoGraphic.setTertiaryColor(assoVM.getTertaryColor());
+		assoGraphic.setBanner("Je suis une belle banière");// TODO a supprimer lorsqu'on va virer la bannière
+		assoGraphic.setFont("Police par defaut"); //TODO Font pour Asso !
+		assoGraphic.setMainColor("abaaaa");
+		assoGraphic.setSecondaryColor("132d64");
+		assoGraphic.setTertiaryColor("000000");
 		
 		AssociationSpace assoSpace = new AssociationSpace();
 		assoSpace.setGraphicChart(assoGraphic);
 		
 		AssociationDepiction assoD = new AssociationDepiction();
 		assoD.setDescription(assoVM.getDescription());
-		assoD.setLogo(assoVM.getLogo());
-		assoD.setName(assoVM.getName());
-		assoD.setMainImage(assoVM.getMainImage());
+		assoD.setLogo("logo-basic.PNG");
+		assoD.setName(assoVM.getLegalName());
+		assoD.setMainImage("main-image-basic.JPG");
 		
 		AssociationIdentity assoI = new AssociationIdentity();
 		assoI.setDirector(assoVM.getDirector());
@@ -99,8 +99,8 @@ public class AssociationController {
 		assoVM.setRegistrationNumber("000001");
 		assoVM.setName("nom");
 		assoVM.setDescription("description");
-		assoVM.setLogo("Path du logo....");
-		assoVM.setMainImage("Path de l'image principale");
+//		assoVM.setLogo("Path du logo....");
+//		assoVM.setMainImage("Path de l'image principale");
 		assoVM.setHeadOffice("Siège social");
 		assoVM.setRscNumber("000000001");
 		assoVM.setKbisExtract("000000006545");
