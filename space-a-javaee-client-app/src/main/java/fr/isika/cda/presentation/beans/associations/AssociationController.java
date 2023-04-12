@@ -48,6 +48,7 @@ public class AssociationController {
 		
 		userConnecte.setAssociation(asso);
 		userConnecte.setPrimaryRole(UserRole.ADMIN);
+		userConnecte.getAssociationSubscriber().setMembershipStatus(true);;;
 		userConnecte.setSelectedAssociation(asso.getId());
 			
 		userRepo.updateUserFromAsso(userConnecte);
@@ -75,7 +76,7 @@ public class AssociationController {
 		assoD.setDescription(assoVM.getDescription());
 		assoD.setLogo("logo-basic.PNG");
 		assoD.setName(assoVM.getLegalName());
-		assoD.setMainImage("main-image-basic.JPG");
+		assoD.setMainImage("main-image-basic.jpg");
 		
 		AssociationIdentity assoI = new AssociationIdentity();
 		assoI.setDirector(assoVM.getDirector());

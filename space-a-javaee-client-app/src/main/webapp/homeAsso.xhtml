@@ -12,7 +12,7 @@
 
 
 		<!-- html template style css -->
-		
+
 
 
 	</h:head>
@@ -24,21 +24,21 @@
 		<h:body class="picture-bg">
 
 			<!-- QUI EST CO ! A ENLEVER UN JOUR -->
-<!-- 			<div class="pourtravail"> -->
-<!-- 				<H1>Qui est connecté ??!</H1> -->
+			<!-- 			<div class="pourtravail"> -->
+			<!-- 				<H1>Qui est connecté ??!</H1> -->
 
-<!-- 				USERNAME : <b><h:outputLabel -->
-<!-- 						value="#{userLoginController.displayUserUsername()}" /></b> ID : <b><h:outputLabel -->
-<!-- 						value="#{userLoginController.displayUserId()}" /></b> <b>Color 1 -->
-<!-- 					: -->
-<!-- 					##{showAssociationController.asso.associationSpace.graphicChart.mainColor}</b> -->
-<!-- 				<b>Color 2 : -->
-<!-- 					##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}</b> -->
-<!-- 				<b>Color 3 : -->
-<!-- 					##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}</b> -->
-<!-- 				<b>Association_subscriber pour le user : </b> -->
-<!-- 				#{showAssociationController.oneAssoSub.membershipStatus} -->
-<!-- 			</div> -->
+			<!-- 				USERNAME : <b><h:outputLabel -->
+			<!-- 						value="#{userLoginController.displayUserUsername()}" /></b> ID : <b><h:outputLabel -->
+			<!-- 						value="#{userLoginController.displayUserId()}" /></b> <b>Color 1 -->
+			<!-- 					: -->
+			<!-- 					##{showAssociationController.asso.associationSpace.graphicChart.mainColor}</b> -->
+			<!-- 				<b>Color 2 : -->
+			<!-- 					##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}</b> -->
+			<!-- 				<b>Color 3 : -->
+			<!-- 					##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}</b> -->
+			<!-- 				<b>Association_subscriber pour le user : </b> -->
+			<!-- 				#{showAssociationController.oneAssoSub.membershipStatus} -->
+			<!-- 			</div> -->
 
 
 
@@ -54,11 +54,14 @@
 
 						<div class="row">
 							<!-- TOP HOME ! 1/3 -->
-							<div class="top-home">
+							<div class="top-home"
+								style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color : ##{showAssociationController.asso.associationSpace.graphicChart.mainColor}">
 								<h1>#{showAssociationController.asso.legalName}</h1>
-								<h:graphicImage class="img-main-asso" library="images"
+								<h:graphicImage class="img-main-asso"
+									style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
+									library="images"
 									name="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
-								<!-- Mettre la MainImage -->
+
 
 							</div>
 
@@ -67,8 +70,9 @@
 
 
 							<!-- QUI SOMME NOUS ! 2/3-->
-							<h:form class="form-sans-marg">								
-							<div class="infoAsso-home">
+							<h:form class="form-sans-marg">
+								<div class="infoAsso-home"
+									style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor};  color : ##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}">
 									<h2>Qui sommes-nous</h2>
 									<p>#{showAssociationController.asso.associationIdentity.associationDepiction.description}</p>
 
@@ -76,7 +80,7 @@
 										rendered="#{!showAssociationController.idAssociationComparison()}">
 										<h:commandButton
 											action="#{showAssociationController.subscribeToAsso}"
-											value="S'inscrire">
+											value="Rejoignez-nous">
 											<f:param name="assoIdjpp"
 												value="#{showAssociationController.asso.id}"></f:param>
 										</h:commandButton>
@@ -88,32 +92,46 @@
 
 
 							<!-- ALBUM ! 3/3-->
-							<div class="album-home">
+							<div class="album-home"
+								style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color : ##{showAssociationController.asso.associationSpace.graphicChart.mainColor}">
 								<h2>Album</h2>
 
 								<div class="row">
 									<div class="col-md-4">
-<!-- 										<img src="assets/img1albumAsso.jpeg" alt="img1"> -->
+										<h:graphicImage class="img-main-asso"
+											style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
+											library="images"
+											name="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
 									</div>
 
 									<div class="col-md-4">
-<!-- 										<img src="assets/img2albumAsso.jpg" alt="img2"> -->
+										<h:graphicImage class="img-main-asso"
+											style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
+											library="images"
+											name="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
 									</div>
 									<div class="col-md-4">
-<!-- 										<img src="assets/img3albumAsso.webp" alt="img3"> -->
+										<h:graphicImage class="img-main-asso"
+											style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
+											library="images"
+											name="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
 									</div>
 
 									<div class="row">
 										<div class="col-md-4">
-<!-- 											<img src="assets/img1albumAsso.jpeg" alt="img1"> -->
+											<h:graphicImage class="img-main-asso"
+												style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
+												library="images"
+												name="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
 										</div>
 
 										<div class="col-md-4">
-<!-- 											<img src="assets/img2albumAsso.jpg" alt="img2"> -->
+											<h:graphicImage class="img-main-asso"
+												style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
+												library="images"
+												name="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
 										</div>
-										<div class="col-md-4">
-<!-- 											<img src="assets/img3albumAsso.webp" alt="img3"> -->
-										</div>
+
 
 
 									</div>
