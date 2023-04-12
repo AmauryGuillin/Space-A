@@ -6,10 +6,220 @@
 	xmlns:p="http://primefaces.org/ui" lang="en"
 	template="/WEB-INF/template/template.xhtml">
 
+
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Formulaire d'inscription pour une association</title>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    <h:outputStylesheet library="css-formulaireCreateAsso" name="formulaire.css" />
+  	<h:outputStylesheet library="css" name="all.min.css" rel="stylesheet" />
+</head>
+
+	<ui:define name="content">
+		<h:body>
+	<div class="fond-formulaire" >
+    <h:form>
+        <div class="container-form" >
+            <h1 class="text-center">Création d'une association</h1>
+            <br></br>
+            <hr></hr>
+            <div class="row">
+                <div class="col-md-6 space">
+                    <!-- Partie gauche du formulaire -->
+                    <div class="form-group">
+                        
+                        <h:outputLabel for="legalName" value="Nom Juridique"/>
+                        <h:inputText class="form-control" id="legalName" value="#{associationController.assoVM.legalName}"/> <!-- value="#{bean.legalName} -->
+                    </div> 
+                    <div class="form-group">
+                        <h:outputLabel for="registrationNumber" value="Numéro Siret"/>
+                        <h:inputText class="form-control" id="registrationNumber" value="#{associationController.assoVM.registrationNumber}"/><!--  value="#{bean.registrationNumber}"-->
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="headOffice" value="Siège Social"/>
+                        <h:inputText class="form-control" id="headOffice" value="#{associationController.assoVM.headOffice}"/> <!-- value="#{bean.headOffice}" -->
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="rcsNumber" value="Numéro RCS"/>
+                        <h:inputText class="form-control" id="rcsNumber" value="#{associationController.assoVM.rscNumber}"/> <!-- value="#{bean.rcsNumber}" -->
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="Kbis" value="Kbis"/>
+                        <h:inputText class="form-control" id="kbis" value="#{associationController.assoVM.kbisExtract}"/><!-- value="#{bean.kbis}" -->
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="director" value="Président"/>
+                        <h:inputText class="form-control" id="director" value="#{associationController.assoVM.director}"/> <!-- value="#{bean.director}" -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Partie droite du formulaire -->
+                    <div class="form-group">
+                      <h:outputLabel for="name" value="Nom"/>
+                        <h:inputText class="form-control" id="name" value="#{associationController.assoVM.name}"/> <!-- value="#{bean.name}" -->
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="description" value="Description"/>
+                        <h:inputTextarea class="form-control" id="description" value="#{associationController.assoVM.description}"/> <!-- value="#{bean.description}" -->
+                    </div>
+                    <br></br>
+                    <div class="form-group">
+                      <h:outputLabel for="logo" value="Logo" class="align-self-end"/>
+                        <h:inputFile class="form-control" id="logo" value="#{associationController.assoVM.logo}"/> <!-- value="#{bean.logo}" -->
+                    </div>
+                    <br></br>
+                    <div class="form-group">
+                        <h:outputLabel for="mainImage" value="Image Principale" class="align-self-end"/>
+                        <h:inputFile class="form-control" id="mainImage" value="#{associationController.assoVM.mainImage}"/> <!-- value="#{bean.mainImage}" -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center my-5">
+                    <p:commandButton id="button-validate" value="Valider"  icon="pi pi-check" action="#{associationController.CreateAsso()}"></p:commandButton>
+                </div>
+            </div>
+        </div>
+    </h:form>
+</div>
+    </h:body>
+    </ui:define>
+</ui:composition>			
+			
+<!-- 	 formulaire qui va bien ... -->
+<!-- 				<div class="pourtravail" 	 -->
+<!-- 	<h:form>  -->
+			
+			 
+			
+<!--     <div class="container shadow rounded"> -->
+<!--     <h1 class="text-center">Création d'une association</h1> -->
+<!--     <br></br> -->
+<!--      <hr></hr> -->
+<!--         <div class="row"> -->
+<!--             <div class="col-md-6"> -->
+
+<!--                 Partie gauche du formulaire -->
+
+<!--                 <div class="form-group"> -->
+<!--                     <label for="legalName">Legal Name</label> -->
+<!--                     <input type="text" class="form-control" id="legalName" name="legalName" /> -->
+<!--                 </div> -->
+<!--                 <div class="form-group"> -->
+<!--                     <label for="registrationNumber">Registration Number</label> -->
+<!--                     <input type="text" class="form-control" id="registrationNumber" name="registrationNumber" /> -->
+<!--                 </div> -->
+<!--                 <div class="form-group"> -->
+<!--                     <label for="headOffice">Head Office</label> -->
+<!--                     <input type="text" class="form-control" id="headOffice" name="headOffice" /> -->
+<!--                 </div> -->
+<!--                 <div class="form-group"> -->
+<!--                     <label for="rcsNumber">RCS Number</label> -->
+<!--                     <input type="text" class="form-control" id="rcsNumber" name="rcsNumber" /> -->
+<!--                 </div> -->
+<!--                 <div class="form-group"> -->
+<!--                     <label for="kbis">Kbis</label> -->
+<!--                     <input type="text" class="form-control" id="kbis" name="kbis" /> -->
+<!--                 </div> -->
+<!--                 <div class="form-group"> -->
+<!--                     <label for="director">Director</label> -->
+<!--                     <input type="text" class="form-control" id="director" name="director" /> -->
+<!--                 </div> -->
+
+<!--             </div> -->
+<!--             <div class="col-md-6"> -->
+
+<!--                 Partie droite du formulaire -->
+
+<!--                 <div class="form-group"> -->
+<!--                     <label for="name">Name</label> -->
+<!--                     <input type="text" class="form-control" id="name" name="name" /> -->
+<!--                 </div> -->
+<!--                 <div class="form-group"> -->
+<!--                     <label for="description">Description</label> -->
+<!--                     <textarea class="form-control" id="description" name="description" ></textarea> -->
+<!--                 </div> -->
+<!--                 <br></br> -->
+<!--                 <div class="form-group"> -->
+<!--                     <label for="logo" class="align-self-end">Logo</label> -->
+<!--                     <input type="file" class="form-control-file" id="logo" name="logo" /> -->
+<!--                 </div> -->
+<!--                 <br></br> -->
+<!--                 <div class="form-group"> -->
+<!--                     <label for="mainImage" class="align-self-end">Main Image</label> -->
+<!--                     <input type="file" class="form-control-file" id="mainImage" name="mainImage" /> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--         <div class="row"> -->
+<!--             <div class="col-md-12 text-center my-5"> -->
+<!--                 <button type="submit" class="btn btn-blue btn-lg" style="width:100%;">Valider</button> -->
+                
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+<!-- </h:form> -->
+			
+				<!-- Formulaire vertical 
+<h:form class="container my-5 p-3" style="background-color: rgba(255,255,255,0.8);">
+    <h1 class="text-center">Création d'une association</h1>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <h:outputLabel for="legalName" value="Nom juridique *" class="col-form-label"/>
+            <h:inputText id="legalName" class="form-control" required="true"/>
+        </div>
+        <div class="form-group col-md-6">
+            <h:outputLabel for="registrationNumber" value="Numéro d'enregistrement *" class="col-form-label"/>
+            <h:inputText id="registrationNumber" class="form-control" required="true"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <h:outputLabel for="headOffice" value="Siège social *" class="col-form-label"/>
+        <h:inputText id="headOffice" class="form-control" required="true"/>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <h:outputLabel for="rcsNumber" value="Numéro RCS" class="col-form-label"/>
+            <h:inputText id="rcsNumber" class="form-control"/>
+        </div>
+        <div class="form-group col-md-6">
+            <h:outputLabel for="kbis" value="Kbis" class="col-form-label"/>
+            <h:inputText id="kbis" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <h:outputLabel for="director" value="Directeur *" class="col-form-label"/>
+            <h:inputText id="director" class="form-control" required="true"/>
+        </div>
+        <div class="form-group col-md-6">
+            <h:outputLabel for="name" value="Nom *" class="col-form-label"/>
+            <h:inputText id="name" class="form-control" required="true"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <h:outputLabel for="description" value="Description *" class="col-form-label"/>
+        <h:inputTextarea id="description" rows="3" class="form-control" required="true"/>
+    </div>
+    <div class="form-group">
+        <h:outputLabel for="logo" value="Logo" class="col-form-label"/>
+        <h:inputFile id="logo" class="form-control-file"/>
+        </div>
+      <div class="form-group">
+        <h:commandButton value="Valider" class="btn btn-primary btn-block w-100"/>
+  
+    </div>
+    </h:form> -->
+ 
+
+
+<!-- Formulaire intial 
 	<ui:define name="content">
 		<h:body>
 				<div class="pourtravail">
-				<h1>CREATION ASSO</h1>
+				<<h1>CREATION ASSO</h1>
 					<h3>si tu n'es pas co "creer" fait crasher l'appli</h3>
 					<h:form id="associationManagementTableForm">
 						<div>
@@ -63,4 +273,4 @@
 
 		</h:body>
 	</ui:define>
-</ui:composition>
+</ui:composition> -->

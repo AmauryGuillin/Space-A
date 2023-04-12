@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+/* Section formulaire creation asso  */
+
+#button-validate {
+  background-color: red; /* Couleur de fond */
+  border: none; /* Pas de bordure */
+  color: white; /* Couleur du texte */
+  padding: 15px 32px; /* Espacement intérieur */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de soulignement */
+  display: inline-block; /* Afficher comme un élément en ligne */
+  font-size: 16px; /* Taille de la police */
+  margin: 4px 2px; /* Marge */
+  cursor: pointer; /* Curseur */
+  width: 2000px;
+}
+
+.fond-formulaire{
+	background-color: white;
+	height : 800px;
+	width: 60%;
+	margin: 50px;
+	opacity: 0.8;
+	box-shadow: 12px 5px 20px;
+	border-radius: 25px;
+}
+.container-form {
+	margin: 40px;
+}
+
+.form-group {
+	margin-top: 20px;
+	font-weight : bold;
+	
+}
+.form-control {
+	background: white;
+	color: white;
+	border-color: black;
+	font-weight : bold;
+	border-radius: 15px;
+	
+}
+
+
+/* fin section formulaire de creation association */
