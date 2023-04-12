@@ -2,8 +2,6 @@ package fr.isika.cda.presentation.beans.associations.viewmodels;
 
 import java.io.Serializable;
 
-import fr.isika.cda.entities.common.Address;
-
 public class AssociationViewModel implements Serializable {
 
 	/**

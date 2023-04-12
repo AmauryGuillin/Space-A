@@ -3,12 +3,12 @@ package fr.isika.cda.presentation.beans.users;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
-
 import javax.inject.Inject;
 
 import org.primefaces.event.FileUploadEvent;
@@ -16,11 +16,9 @@ import org.primefaces.model.file.UploadedFile;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
-import fr.isika.cda.data.repositories.users.AssociationSubscriberRepo;
 import fr.isika.cda.entities.association.Association;
-import fr.isika.cda.entities.users.AssociationSubscriber;
+import fr.isika.cda.entities.association.subscriptions.Subscription;
 import fr.isika.cda.entities.users.UserAccount;
-import fr.isika.cda.presentation.beans.associations.ShowAssociationController;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 import fr.isika.cda.presentation.utils.FileUpload;
 
@@ -39,15 +37,12 @@ public class ShowUserController {
 
 	private UserViewModel userVM = new UserViewModel();
 
-	private AssociationSubscriber selectedAssociation;
-	
 	private Long userId;
 	private Association asso;
 	private String userName;
 	private UserAccount userAccount;
 	private String avatarFileName;
 	private UploadedFile file;
-
 
 	@PostConstruct
 	public void init() {
@@ -57,7 +52,7 @@ public class ShowUserController {
 	public UserAccount getOneUser() {
 		if (userAccount == null) {
 			userId = userLoginController.displayUserId();
-			userAccount = userAccountRepo.findByOneId(userId);
+			userAccount = userAccountRepo.findByOneIdWithSubscriptions(userId);
 		}
 		return userAccount;
 	}
@@ -106,11 +101,14 @@ public class ShowUserController {
 		
 	}
 	
-	public List<Association> getAllAssociationSubscriber() {
+	public List<Association> currentUserAssociationSubscriptions() {
 		userId = userLoginController.displayUserId();
-		return userAccountRepo.findAllAssociationSub(userId);
+		List<Subscription> subscriptions = userAccountRepo.findUserSubscriptions(userId);
+		return subscriptions
+				.parallelStream()
+				.map(Subscription::getAssociation)
+				.collect(Collectors.toList());
 	}
-	
 	
 	public Association editSelectAssociation(ActionEvent event) {
 		//je récupère l'asso clické
@@ -119,22 +117,12 @@ public class ShowUserController {
 		userAccount = getOneUser();
 		
 		//je modifie mon user avec l'asso
-		userAccount.setSelectedAssociation(asso.getId());
+		userAccount.updateSelectedAssociation(asso.getId());
 		
 		//je sauv en db
 		userAccountRepo.majProfile(userAccount);		
 		return asso;		
 	}	
-
-
-
-	public UserAccountRepository getUserAccountRepo() {
-		return userAccountRepo;
-	}
-
-	public void setUserAccountRepo(UserAccountRepository userAccountRepo) {
-		this.userAccountRepo = userAccountRepo;
-	}
 
 	public UserAccount getUserAccount() {
 		return userAccount;
@@ -183,19 +171,5 @@ public class ShowUserController {
 	public void setFile(UploadedFile file) {
 		this.file = file;
 	}
-
-	public AssociationSubscriber getSelectedAssociation() {
-		return selectedAssociation;
-	}
-
-	public void setSelectedAssociation(AssociationSubscriber selectedAssociation) {
-		this.selectedAssociation = selectedAssociation;
-	}
-	
-	
-	
-	
-
-
 
 }

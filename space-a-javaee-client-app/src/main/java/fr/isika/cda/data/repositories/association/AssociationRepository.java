@@ -8,7 +8,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import fr.isika.cda.entities.association.Association;
-import fr.isika.cda.entities.users.UserAccount;
 
 @Stateless
 public class AssociationRepository {
@@ -22,39 +21,14 @@ public class AssociationRepository {
 	}
 	
 	public List<Association> findAll(){
-		return entityManager.createQuery("SELECT a FROM Association a").getResultList();
+		return entityManager.createQuery("SELECT a FROM Association a", Association.class).getResultList();
 	}
 	
 	public Association findOneById(Long id) {
 		TypedQuery<Association> query = entityManager.createQuery("SELECT a FROM Association a WHERE a.id = :id", Association.class);
 	    query.setParameter("id", id);
 	    return query.getSingleResult();
-	    
-//	    Association association = null;
-//	    try {
-//	        TypedQuery<Association> query = entityManager.createQuery("SELECT a FROM Association a WHERE a.id = :id", Association.class);
-//	        query.setParameter("id", id);
-//	        association = query.getSingleResult();
-//	    } catch (Exception e) {
-//	        e.printStackTrace();
-//	    }
-//	    return association;
-	    
 	}
-
-	@Override
-	public String toString() {
-		return "AssociationRepository [entityManager=" + entityManager + "]";
-	}
-
-	public EntityManager getEntityManager() {
-		return entityManager;
-	}
-
-	public void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
 
 	public Long majAsso(Association asso) {
 		Association mergedAsso = entityManager.merge(asso);
@@ -62,9 +36,5 @@ public class AssociationRepository {
 	    return mergedAsso.getId();
 		
 	}
-
-
-	
-	
 	
 }

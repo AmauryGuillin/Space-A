@@ -4,30 +4,22 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 
 import fr.isika.cda.business.exceptions.users.UserNotFoundException;
 import fr.isika.cda.data.repositories.GenericRepository;
-import fr.isika.cda.entities.association.Association;
-import fr.isika.cda.entities.users.AssociationSubscriber;
+import fr.isika.cda.entities.association.subscriptions.Subscription;
 import fr.isika.cda.entities.users.UserAccount;
 
 @Stateless
 public class UserAccountRepository extends GenericRepository<Long, UserAccount> {
 
-	@PersistenceContext
-	private EntityManager entityManager;
-	
-	
 	public Long createAccount(UserAccount account) {
 		entityManager.persist(account);
 		return account.getUserId();
 	}
-	
 
+	// @formatter:off
 	@Override
 	public Optional<UserAccount> findById(Long id) {
 		UserAccount userAccount = entityManager
@@ -36,15 +28,22 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 				.getSingleResult();
 		return Optional.ofNullable(userAccount);
 	}
+	// @formatter:on
 	
 	public UserAccount findByOneId(Long id) {
-		UserAccount userAccount = entityManager
+		return entityManager
 				.createNamedQuery(UserAccount.Queries.FINDBY_USERID_NAMED_QUERY, UserAccount.class)
 				.setParameter(UserAccount.Queries.USERID_QUERY_PARAM, id)
 				.getSingleResult();
-		return userAccount;
 	}
 
+	public UserAccount findByOneIdWithSubscriptions(Long id) {
+		return entityManager
+				.createQuery("SELECT u FROM UserAccount u LEFT JOIN FETCH u.subscriptions WHERE u.id=:userAccountIdParam", UserAccount.class)
+				.setParameter("userAccountIdParam", id)
+				.getSingleResult();
+	}
+	
 	@Override
 	public List<UserAccount> findAll() {
 		return entityManager
@@ -54,25 +53,18 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 
 	public Optional<UserAccount> findByUsername(final String username) throws UserNotFoundException {
 		try {
-			UserAccount account = entityManager
-					.createNamedQuery(UserAccount.Queries.FINDBY_USERNAME_NAMED_QUERY, UserAccount.class)
-					.setParameter(UserAccount.Queries.USERNAME_QUERY_PARAM, username)
-					.getSingleResult();
-			
-			return Optional.ofNullable(account);
+			return Optional.ofNullable(findByOneName(username));
 		} catch (NoResultException e) {
 			throw new UserNotFoundException(String.format("No user with username : %s", username), e);
 		}
 	}
 
-	public UserAccount findByOneName(String userName) {
-		UserAccount userAccount = entityManager
+	public UserAccount findByOneName(final String userName) {
+		return entityManager
 				.createNamedQuery(UserAccount.Queries.FINDBY_USERNAME_NAMED_QUERY, UserAccount.class)
 				.setParameter(UserAccount.Queries.USERNAME_QUERY_PARAM, userName)
-				.getSingleResult();
-		return userAccount;	
-		}
-	
+				.getSingleResult();	
+	}
 
 	public UserAccount createUserAccount(UserAccount userAccount) {
 		entityManager.persist(userAccount);
@@ -87,7 +79,8 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 
 
 	public void remove(Long idToDelete) {
-		UserAccount userAccount = entityManager.createNamedQuery(UserAccount.Queries.FINDBY_USERID_NAMED_QUERY, UserAccount.class)
+		UserAccount userAccount = entityManager
+				.createNamedQuery(UserAccount.Queries.FINDBY_USERID_NAMED_QUERY, UserAccount.class)
 				.setParameter(UserAccount.Queries.USERID_QUERY_PARAM, idToDelete)
 				.getSingleResult();
 		entityManager.remove(userAccount);
@@ -95,22 +88,14 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 
 
 	public UserAccount updateUserFromAsso(UserAccount userConnecte) {
-		UserAccount mergedUser = entityManager.merge(userConnecte);
-	    return mergedUser;
+		return entityManager.merge(userConnecte);
 	}
 
-
-	public List<Association> findAllAssociationSub(Long userId) {
-		// récupérer l'utilisateur par son ID
-		UserAccount user = entityManager.find(UserAccount.class, userId);
-		
-		// récupérer l'objet "AssociationSubscriber" associé à l'utilisateur
-		AssociationSubscriber sub = user.getAssociationSubscriber();
-		
-		// récupérer la liste des associations liées à l'objet "AssociationSubscriber"
-		List<Association> associations = sub.getAssociations();
-		
-		return associations;
+	public List<Subscription> findUserSubscriptions(Long userId) {
+		return entityManager
+				.createQuery("SELECT s FROM Subscription s WHERE s.account.id =: userAccountIdParam", Subscription.class)
+				.setParameter("userAccountIdParam", userId)
+				.getResultList();
 	}
 
 }

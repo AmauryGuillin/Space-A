@@ -1,4 +1,4 @@
-package fr.isika.cda.entities.assoService;
+package fr.isika.cda.entities.association.services;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -15,15 +15,15 @@ public class Publication {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	private String title;
-	
+
 	private String description;
-	
+
 	private String author;
-	
+
 	private String imagePath;
-	
+
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Association association;
 
@@ -62,7 +62,7 @@ public class Publication {
 	public long getId() {
 		return id;
 	}
-	
+
 	// ajouter l'enum publicationType
-	
+
 }
