@@ -12,6 +12,7 @@
 				<div class="pourtravail">
 
 
+
 					<h1>Profil utilisateur</h1>
 
 					<h:form>
@@ -22,22 +23,34 @@
 						</div>
 						<div>
 						
-						
 							<b><h:outputLabel value="les asso où je suis inscrit : " /></b>
-							<h:form>
-							
-								<h:selectOneMenu
-									value="#{showUserController.selectedAssociation}">
-									
-									
-									<f:selectItems
-										value="#{showUserController.allAssociationSubscriber}"
-										var="asso" itemValue="#{asso}" itemLabel="#{asso.legalName}" />
-									<f:ajax listener="#{showUserController.editSelectAssociation}"
-										/>
-								</h:selectOneMenu>
 
-							</h:form>
+
+							<h:dataTable
+								value="#{showUserController.allAssociationSubscriber}"
+								var="asso">
+								<h:column>
+									<f:facet name="header">Association :</f:facet>
+								#{asso.legalName}
+							</h:column>
+
+
+								<h:column>
+									
+									<h:commandButton id="submit"
+										actionListener="#{showUserController.editSelectAssociation}"
+										action="homeAsso">
+										<f:attribute name="value" value="#{asso.id}" />
+										<f:attribute name="asso" value="#{asso}" />
+									</h:commandButton>
+								</h:column>
+							</h:dataTable>
+
+
+
+
+
+
 						</div>
 						<div>
 							<b><h:outputLabel value="Nom d'utilisateur : " /></b>
@@ -55,7 +68,9 @@
 						</div>
 						<div>
 							<b><h:outputLabel value="Avatar : " /></b>
-							<h:graphicImage name="#{showUserController.oneUser.userProfile.avatar}" library="images"></h:graphicImage>
+							<h:graphicImage
+								name="#{showUserController.oneUser.userProfile.avatar}"
+								library="images"></h:graphicImage>
 						</div>
 						<div>
 							<b><h:outputLabel value="Date de naissance : " /></b>

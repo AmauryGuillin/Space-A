@@ -42,6 +42,7 @@ public class ShowUserController {
 	private AssociationSubscriber selectedAssociation;
 	
 	private Long userId;
+	private Association asso;
 	private String userName;
 	private UserAccount userAccount;
 	private String avatarFileName;
@@ -113,7 +114,7 @@ public class ShowUserController {
 	
 	public Association editSelectAssociation(ActionEvent event) {
 		//je récupère l'asso clické
-		Association asso = (Association) event.getComponent().getAttributes().get("asso");
+		asso = (Association) event.getComponent().getAttributes().get("asso");
 		//je récupère mon user
 		userAccount = getOneUser();
 		
@@ -121,9 +122,7 @@ public class ShowUserController {
 		userAccount.setSelectedAssociation(asso.getId());
 		
 		//je sauv en db
-		userAccountRepo.majProfile(userAccount);
-		System.out.println("USERACCOUT : " + userAccount);
-		System.out.println("ASSO : " + asso);		
+		userAccountRepo.majProfile(userAccount);		
 		return asso;		
 	}	
 

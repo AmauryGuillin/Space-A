@@ -50,6 +50,9 @@ public class NavController {
 	}
 	
 	public void homeAsso() {
+		//user
+		//choper son assoSelect
+		//asso : assoselect
 		WebUiTools.redirectToView("/homeAsso.xhtml");		
 	}
 	

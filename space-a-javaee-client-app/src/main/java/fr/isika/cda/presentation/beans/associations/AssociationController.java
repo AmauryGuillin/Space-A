@@ -65,7 +65,7 @@ public class AssociationController {
 		GraphicChart assoGraphic = new GraphicChart();
 //		assoGraphic.setBanner("Je suis une belle banière");//
 		assoGraphic.setFont("Police par defaut"); //TODO ABI Font pour Asso !
-		assoGraphic.setMainColor("abaaaa");
+		assoGraphic.setMainColor("FFFFFF");
 		assoGraphic.setSecondaryColor("132d64");
 		assoGraphic.setTertiaryColor("000000");
 		
