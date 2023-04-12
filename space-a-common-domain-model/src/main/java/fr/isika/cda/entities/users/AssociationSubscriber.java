@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import fr.isika.cda.entities.association.Association;
 
@@ -29,6 +31,7 @@ public class AssociationSubscriber {
 	@Column(nullable = false)
 	private boolean membershipStatus;
 	
+	@Temporal (TemporalType.DATE)
 	private Date dateOfMembership;
 	
 	private String justification;

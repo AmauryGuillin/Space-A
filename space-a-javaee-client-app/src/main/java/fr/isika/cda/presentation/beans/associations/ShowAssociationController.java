@@ -1,5 +1,6 @@
 package fr.isika.cda.presentation.beans.associations;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -90,6 +91,7 @@ public class ShowAssociationController {
 		
 		//je modifie mon AssiociationSubscriber
 		userConnecte.getAssociationSubscriber().setMembershipStatus(true);
+		userConnecte.getAssociationSubscriber().setDateOfMembership(new Date());
 		userConnecte.getAssociationSubscriber().addAssociationToUser(assoRecup);
 		userConnecte.setSelectedAssociation(cePUTAINdidAssoDeMERDE);
 
