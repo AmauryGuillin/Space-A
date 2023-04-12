@@ -10,7 +10,7 @@
 	xmlns:p="http://primefaces.org/ui" lang="en">
 
 <h:head>
-	<title>Space'A</title>
+	<title>Spac'A</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,6 +26,7 @@
 	<h:outputStylesheet library="css" name="bootstrap.css" />
 	<!-- html template style css -->
 	<h:outputStylesheet library="css" name="template.css" />
+	<h:outputStylesheet library="css" name="homeAsso.css" />
 	<link rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
 
@@ -40,7 +41,7 @@
 
 <h:body>
 
-	<div id="container">
+	<div id="navbar-container">
 
 		<div id="header">
 
@@ -68,8 +69,24 @@
 						</div>
 					</div>
 
-					<div class="logo">
-						<h:graphicImage library="images" name="logoAutreAsso.jpg"></h:graphicImage>
+					<div class="logo">	
+					<ui:fragment rendered="#{userLoginController.userLoggedIn == false}">
+							<h:graphicImage library="images" name="logo-basic.PNG"></h:graphicImage>
+					</ui:fragment>
+					
+					<ui:fragment rendered="#{userLoginController.userLoggedIn == true}">
+						<ui:fragment rendered="#{showUserController.oneUser.associationSubscriber.membershipStatus == true}">
+								<h:graphicImage library="images" name="#{showUserController.userSelectedAssociation.associationIdentity.associationDepiction.logo}"></h:graphicImage>
+						</ui:fragment>
+						<ui:fragment rendered="#{showUserController.oneUser.associationSubscriber.membershipStatus == true}">
+								<h:graphicImage library="images" name="user-avatar-basic.PNG"></h:graphicImage>
+						</ui:fragment>
+					</ui:fragment>
+					
+
+					
+					
+					
 					</div>
 
 					<div class="navbar-asso">
@@ -88,8 +105,11 @@
 
 									<ui:fragment
 										rendered="#{userLoginController.userLoggedIn == true}">
-										<li class="nav-item"><h:commandLink class="nav-link"
-												action="#{navController.homeAsso()}" value="AssoAccueil" /></li>
+										<ui:fragment
+											rendered="#{showUserController.oneUser.associationSubscriber.membershipStatus == true}">
+											<li class="nav-item"><h:commandLink class="nav-link"
+													action="#{navController.homeAsso()}" value="AssoAccueil" /></li>
+										</ui:fragment>
 										<li class="nav-item"><h:commandLink class="nav-link"
 												action="#{navController.modifProfile()}"
 												value="modif Profile" /></li>
@@ -106,23 +126,13 @@
 								</ul>
 							</h:form>
 						</div>
-
 					</div>
-		
-
-
-
-						<button class="navbar-toggler" type="button"
+					<button class="navbar-toggler" type="button"
 							data-bs-toggle="collapse" data-bs-target="#navbarNav"
 							aria-controls="navbarNav" aria-expanded="false"
 							aria-label="Toggle navigation">
 							<span class="bi bi-list"></span>
-						</button>
-		
-
-
-
-
+					</button>
 				</div>
 			</nav>
 

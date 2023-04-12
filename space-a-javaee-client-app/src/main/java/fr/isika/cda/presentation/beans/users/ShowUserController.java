@@ -6,23 +6,26 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
-import javax.faces.event.AjaxBehaviorEvent;
-import javax.faces.event.ValueChangeEvent;
+
 import javax.inject.Inject;
 
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
+import fr.isika.cda.data.repositories.association.AssociationRepository;
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.data.repositories.users.AssociationSubscriberRepo;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.users.AssociationSubscriber;
 import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda.presentation.beans.associations.ShowAssociationController;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 import fr.isika.cda.presentation.utils.FileUpload;
 
 @ManagedBean
+@ViewScoped
 public class ShowUserController {
 
 	@Inject
@@ -30,6 +33,9 @@ public class ShowUserController {
 
 	@Inject
 	private UserLoginController userLoginController;
+	
+	@Inject
+	private AssociationRepository associationRepo;
 
 	private UserViewModel userVM = new UserViewModel();
 
@@ -76,12 +82,15 @@ public class ShowUserController {
 	
 	public UserAccount connectedUser() {
 		UserAccount user = getOneUser();
-		UserAccount anotherUser  = userAccountRepo.findByOneId(user.getUserId());
-		
+		UserAccount anotherUser  = userAccountRepo.findByOneId(user.getUserId());	
 		return anotherUser;
 	}
 	
-	
+	public Association getUserSelectedAssociation() {
+		UserAccount user = connectedUser();
+		Association asso = associationRepo.findOneById(user.getSelectedAssociation());
+		return asso;
+	}
 	
 	public void uploadFile(FileUploadEvent event) {
 		System.out.println("********************************* METHODE FILEUPLOAD");
@@ -89,8 +98,9 @@ public class ShowUserController {
 		UploadedFile file = event.getFile();
 		avatarFileName = timestamp + "_" + file.getFileName();
 		FileUpload.doUpload(file, avatarFileName);
-		userId = userLoginController.displayUserId();
-		userAccount = userAccountRepo.findByOneId(userId);
+		
+		System.out.println("*********************************************" + avatarFileName);
+		
 		userAccount.getUserProfile().setAvatar(avatarFileName);
 		
 	}

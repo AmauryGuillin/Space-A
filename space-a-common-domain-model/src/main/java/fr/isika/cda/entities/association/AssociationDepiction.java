@@ -23,7 +23,7 @@ public class AssociationDepiction {
 	@Column(name="commercial_name", length = 50, nullable = false)
     private String name;
 	
-	@Column(length = 150, nullable = true)
+	@Column(length = 2000, nullable = true)
     private String description;
 	
 	@Column(nullable = true)

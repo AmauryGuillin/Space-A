@@ -32,10 +32,8 @@
 							  label="Choisissez une image" mode="advanced" sizeLimit="5000000"
 							  fileLimit="1" accept=".gif,.jpg,.jpeg,.png"
 							  invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
-							  listener="#{fileUploadView.file}" 
+							  listener="#{showUserController.uploadFile}" 
 							  class="imgInput"/>
-
-						        <p:commandButton value="Submit" ajax="false" action="#{showUserController.uploadFile()}" styleClass="mt-3 ui-button-outlined block"/>
 						</div>
 						<div>
 							<b><h:outputLabel value="Date de naissance : " /></b>

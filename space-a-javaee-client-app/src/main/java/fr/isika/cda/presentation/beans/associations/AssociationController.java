@@ -95,7 +95,7 @@ public class AssociationController {
 	
 	public void autoFillPageOne() {
 		assoVM.setLegalName("legal name");
-		assoVM.setRegistrationNumber(000001);
+		assoVM.setRegistrationNumber("000001");
 		assoVM.setName("nom");
 		assoVM.setDescription("description");
 		assoVM.setLogo("Path du logo....");
