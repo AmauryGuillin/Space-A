@@ -14,6 +14,7 @@ import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.users.AssociationSubscriber;
 import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda.presentation.beans.associations.viewmodels.AssociationViewModel;
 import fr.isika.cda.presentation.beans.users.UserLoginController;
 
@@ -91,6 +92,7 @@ public class ShowAssociationController {
 		
 		//je modifie mon AssiociationSubscriber
 		userConnecte.getAssociationSubscriber().setMembershipStatus(true);
+		userConnecte.setPrimaryRole(UserRole.MEMBER);
 		userConnecte.getAssociationSubscriber().setDateOfMembership(new Date());
 		userConnecte.getAssociationSubscriber().addAssociationToUser(assoRecup);
 		userConnecte.setSelectedAssociation(cePUTAINdidAssoDeMERDE);
