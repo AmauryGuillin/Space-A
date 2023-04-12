@@ -31,8 +31,8 @@
 								<h:commandButton id="submit"
 									actionListener="#{showUserController.editSelectAssociation}"
 									action="associationIndex" >
-									<f:attribute name="value" value="#{asso.legalName} (#{asso.id})" />
-									<f:attribute name="asso" value="#{asso}" />
+									<f:attribute name="value" value="#{asso.legalName} #{asso.id}" />
+									<f:attribute name="asso" value="#{asso}"/>
 								</h:commandButton>
 								<br/>
 							</ui:repeat>

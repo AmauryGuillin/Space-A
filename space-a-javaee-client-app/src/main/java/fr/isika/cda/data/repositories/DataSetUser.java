@@ -62,9 +62,7 @@ public class DataSetUser {
 				.withPrimaryRole(UserRole.VISITOR)
 				.withSelectedAssociation(1L)
 				.withProfile(userProfile);
-		
-		Subscription userSubFirst = new Subscription();
-		acc.addSubscription(userSubFirst);
+	
 		
 		// ajouter les cascades
 		manager.persist(contact); // persisted manually because of the @Embedded
@@ -178,9 +176,7 @@ public class DataSetUser {
 				.withSelectedAssociation(1L)
 				.withProfile(userProfile4);
 		
-		Subscription userSubFourth = new Subscription();
-		acc4.addSubscription(userSubFourth);
-		
+	
 		// ajouter les cascades
 		manager.persist(fourth);
 		manager.persist(acc4);
