@@ -121,9 +121,7 @@ public class ShowUserController {
 		userAccount.setSelectedAssociation(asso.getId());
 		
 		//je sauv en db
-		userAccountRepo.majProfile(userAccount);
-		System.out.println("USERACCOUT : " + userAccount);
-		System.out.println("ASSO : " + asso);		
+		userAccountRepo.majProfile(userAccount);		
 		return asso;		
 	}	
 
