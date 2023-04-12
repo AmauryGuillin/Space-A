@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import fr.isika.cda.entities.common.AlbumImage;
+
 @Entity
 @Table(name = "association_depiction")
 public class AssociationDepiction {

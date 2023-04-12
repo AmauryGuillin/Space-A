@@ -9,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import fr.isika.cda.entities.common.Address;
-
 @Entity
 @Table(name = "association_identity")
 public class AssociationIdentity {

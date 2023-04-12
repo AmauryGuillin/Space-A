@@ -13,11 +13,6 @@ import fr.isika.cda.entities.association.AssociationDepiction;
 import fr.isika.cda.entities.association.AssociationIdentity;
 import fr.isika.cda.entities.association.graphic.AssociationSpace;
 import fr.isika.cda.entities.association.graphic.GraphicChart;
-import fr.isika.cda.entities.common.Address;
-import fr.isika.cda.entities.users.UserAccount;
-import fr.isika.cda.entities.users.UserContact;
-import fr.isika.cda.entities.users.UserProfile;
-import fr.isika.cda.entities.users.UserRole;
 
 @Singleton
 @Startup

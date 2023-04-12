@@ -9,22 +9,18 @@ import fr.isika.cda.presentation.utils.WebUiTools;
 @ApplicationScoped
 public class NavController {
 
-	public void assoForm() {
+	public void createAsso() {
 		WebUiTools.redirectToView("/createAsso.xhtml");
 	}
 
-	public void listAllAsso() {
-		WebUiTools.redirectToView("/listAllAsso.xhtml");
+	public void associations() {
+		WebUiTools.redirectToView("/associations.xhtml");
 	}
 
 	public void users() {
 		WebUiTools.redirectToView("/users.xhtml");
 	}
 	
-	public void oneUser() {
-		WebUiTools.redirectToView("/oneUser.xhtml");
-	}
-
 	public void index() {
 		WebUiTools.redirectToView("/index.xhtml");
 	}
@@ -37,8 +33,8 @@ public class NavController {
 		WebUiTools.redirectToView("/userProfile.xhtml");
 	}
 	
-	public void modifProfile() {
-		WebUiTools.redirectToView("/modifProfile.xhtml");
+	public void updateProfile() {
+		WebUiTools.redirectToView("/updateProfile.xhtml");
 	}
 
 	public void login() {
@@ -49,8 +45,11 @@ public class NavController {
 		WebUiTools.redirectToView("/error.xhtml");		
 	}
 	
-	public void homeAsso() {
-		WebUiTools.redirectToView("/homeAsso.xhtml");		
+	public void associationIndex() {
+		//user
+		//choper son assoSelect
+		//asso : assoselect
+		WebUiTools.redirectToView("/associationIndex.xhtml");		
 	}
 	
 	

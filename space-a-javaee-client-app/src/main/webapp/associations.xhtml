@@ -11,8 +11,7 @@
 			<section>
 				<div class="pourtravail">
 					<h:form>
-						<h:dataTable value="#{showAssociationController.allAssociations}"
-							var="asso">
+						<h:dataTable value="#{showAssociationController.allAssociations}" var="asso">
 							<h:column>
 								<f:facet name="header">Nom legal</f:facet>
 								#{asso.legalName}
@@ -26,7 +25,7 @@
 								<f:facet name="header">Redirection</f:facet>
 								<h:commandButton id="submit"
 									actionListener="#{showAssociationController.attributListner}"
-									action="homeAsso">
+									action="associationIndex">
 									<f:attribute name="value" value="#{asso.id}" />
 									<f:attribute name="asso" value="#{asso}" />
 								</h:commandButton>

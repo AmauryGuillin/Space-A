@@ -63,9 +63,9 @@
 										<li class="nav-item"><h:commandLink class="nav-link"
 												action="#{navController.index()}" value="Accueil" /></li>
 										<li class="nav-item"><h:commandLink class="nav-link"
-												action="#{navController.listAllAsso()}" value="Liste Asso" /></li>
+												action="#{navController.associations()}" value="Liste Asso" /></li>
 										<li class="nav-item"><h:commandLink class="nav-link"
-												action="#{navController.assoForm()}" value="Créer Asso" /></li>
+												action="#{navController.createAsso()}" value="Créer Asso" /></li>
 									</ui:fragment>
 								</ul>
 							</h:form>
@@ -74,11 +74,11 @@
 
 					<div class="logo">	
 					
-					<ui:fragment rendered="#{userLoginController.userLoggedIn == true}">
-						<ui:fragment rendered="#{showUserController.oneUser.associationSubscriber.membershipStatus == true}">
+					<ui:fragment rendered="#{userLoginController.userLoggedIn}">
+						<ui:fragment rendered="#{showUserController.oneUser.hasSubscriptions()}">
 								<h:graphicImage library="images" name="#{showUserController.userSelectedAssociation.associationIdentity.associationDepiction.logo}"></h:graphicImage>
 						</ui:fragment>
-						<ui:fragment rendered="#{showUserController.oneUser.associationSubscriber.membershipStatus == false}">
+						<ui:fragment rendered="#{not showUserController.oneUser.hasSubscriptions()}">
 								<h:graphicImage library="images" name="logo-basic-spaca.png"></h:graphicImage>
 						</ui:fragment>
 					</ui:fragment>
@@ -104,19 +104,19 @@
 									</ui:fragment>
 
 									<ui:fragment
-										rendered="#{userLoginController.userLoggedIn == true}">
+										rendered="#{userLoginController.userLoggedIn}">
 										<ui:fragment
-											rendered="#{showUserController.oneUser.associationSubscriber.membershipStatus == true}">
+											rendered="#{showUserController.oneUser.hasSubscriptions()}">
 											<li class="nav-item"><h:commandLink class="nav-link"
-													action="#{navController.homeAsso()}" value="AssoAccueil" /></li>
+													action="#{navController.associationIndex()}" value="AssoAccueil" /></li>
 										</ui:fragment>
 										<li class="nav-item"><h:commandLink class="nav-link"
-												action="#{navController.modifProfile()}"
+												action="#{navController.updateProfile()}"
 												value="modif Profile" /></li>
 										<li class="nav-item"><h:commandLink class="nav-link"
 												action="#{navController.userProfile()}" value="Profile" /></li>
 										<li class="nav-item"><h:commandLink class="nav-link"
-												action="#{userLoginController.Logout()}" value="logout" /></li>
+												action="#{userLoginController.logout()}" value="logout" /></li>
 									</ui:fragment>
 									<ui:fragment
 										rendered="#{userLoginController.userLoggedIn == false}">

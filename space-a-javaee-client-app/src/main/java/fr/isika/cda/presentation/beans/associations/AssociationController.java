@@ -14,15 +14,12 @@ import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda.presentation.beans.associations.viewmodels.AssociationViewModel;
 import fr.isika.cda.presentation.beans.users.UserLoginController;
-import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 
 @ManagedBean
 public class AssociationController {
 
 	private AssociationViewModel assoVM = new AssociationViewModel();
-	private Long userId;
-	
-	//private UserViewModel userVM = new UserViewModel();
+
 	@Inject
 	private UserLoginController userLoginController;
 	
@@ -43,21 +40,21 @@ public class AssociationController {
 		assoRepo.createAsso(asso);
 		
 		//rattaché le userAccount à l'asso créé
-		userId = userLoginController.displayUserId();
-		UserAccount userConnecte = userRepo.findByOneId(userId);//je récup mon user connecté
+		Long userId = userLoginController.displayUserId();
+		UserAccount userConnecte = userRepo.findByOneId(userId);
+		userConnecte.updateSelectedAssociation(asso.getId());
+
+		// Ecraser la variable a chaque appel pour màj avec le builder 
+		userConnecte = userConnecte.withAssociation(asso);
+		userConnecte = userConnecte.withPrimaryRole(UserRole.ADMIN);
 		
-		userConnecte.setAssociation(asso);
-		userConnecte.setPrimaryRole(UserRole.ADMIN);
-		userConnecte.getAssociationSubscriber().setMembershipStatus(true);;;
-		userConnecte.setSelectedAssociation(asso.getId());
-			
 		userRepo.updateUserFromAsso(userConnecte);
 
 		//Reset VM
-		assoVM = new AssociationViewModel(); 
-		return "/configSpace.xhtml?faces-redirect=true"; //TODO 00 Demander à Mo car fullcon
+		assoVM = new AssociationViewModel();
+		//TODO 00 Demander à Mo car fullcon
+		return "/configSpace.xhtml?faces-redirect=true"; 
 	}
-
 
 	private Association createAssoFromVM() {
 	
@@ -65,7 +62,7 @@ public class AssociationController {
 		GraphicChart assoGraphic = new GraphicChart();
 //		assoGraphic.setBanner("Je suis une belle banière");//
 		assoGraphic.setFont("Police par defaut"); //TODO ABI Font pour Asso !
-		assoGraphic.setMainColor("abaaaa");
+		assoGraphic.setMainColor("FFFFFF");
 		assoGraphic.setSecondaryColor("132d64");
 		assoGraphic.setTertiaryColor("000000");
 		
@@ -108,8 +105,6 @@ public class AssociationController {
 		assoVM.setDirector("Directeur");
 	}
 	
-
-
 	public AssociationViewModel getAssoVM() {
 		return assoVM;
 	}
@@ -118,18 +113,4 @@ public class AssociationController {
 		this.assoVM = assoVM;
 	}
 
-	public AssociationRepository getAssoRepo() {
-		return assoRepo;
-	}
-
-	public void setAssoRepo(AssociationRepository assoRepo) {
-		this.assoRepo = assoRepo;
-	}
-
-	@Override
-	public String toString() {
-		return "AssociationController [assoVM=" + assoVM + ", assoRepo=" + assoRepo + "]";
-	}
-	
-	
 }

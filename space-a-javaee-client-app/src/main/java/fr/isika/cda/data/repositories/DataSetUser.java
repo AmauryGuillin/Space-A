@@ -8,9 +8,9 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda.entities.association.subscriptions.Subscription;
 import fr.isika.cda.entities.common.Address;
 import fr.isika.cda.entities.common.Phone;
-import fr.isika.cda.entities.users.AssociationSubscriber;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserContact;
 import fr.isika.cda.entities.users.UserProfile;
@@ -32,15 +32,6 @@ public class DataSetUser {
 		
 		// Jeu de test
 		// 1 user : test
-		AssociationSubscriber userSubFirst = new AssociationSubscriber();
-		
-		UserAccount acc = new UserAccount();
-		acc.setUsername("Visiteur");
-		acc.setPassword("123");
-		acc.setPrimaryRole(UserRole.VISITOR);
-		acc.setAssociationSubscriber(userSubFirst);
-		acc.setSelectedAssociation(1L);
-		
 		Address firstAdr = new Address();
 		firstAdr.setCity("city1");
 		firstAdr.setCountry("France");
@@ -57,8 +48,6 @@ public class DataSetUser {
 		contact.setPrimaryEmail("email1-email@email.fr");
 		contact.setAddress(firstAdr);
 		contact.setPhone(firstPhone);
-		
-		
 		contact.setAddress(firstAdr);
 		
 		UserProfile userProfile = new UserProfile()
@@ -67,8 +56,14 @@ public class DataSetUser {
 				.withAvatar("user-avatar-basic.PNG")
 				.withContact(contact); // attached manually because of the @Embedded
 
-		acc.setUserProfile(userProfile);
-
+		UserAccount acc = new UserAccount()
+				.withUsername("Visiteur")
+				.withPassword("123")
+				.withPrimaryRole(UserRole.VISITOR)
+				.withSelectedAssociation(1L)
+				.withProfile(userProfile);
+	
+		
 		// ajouter les cascades
 		manager.persist(contact); // persisted manually because of the @Embedded
 		manager.persist(acc);
@@ -76,95 +71,81 @@ public class DataSetUser {
 	
 		// User 2
 		
-		Address secondAdr = new Address();
-		secondAdr.setCity("city2");
-		secondAdr.setCountry("France");
-		secondAdr.setLineOne("Ligne 1 de l'adresse");
-		secondAdr.setLineTwo("Ligne 2 de l'adresse");
-		secondAdr.setState("Region2");
-		secondAdr.setZipCode("00002");
-		
-		Phone secondPhone = new Phone();
-		secondPhone.setCounrtyCode("+33");
-		secondPhone.setPhoneNumber("00 00 00 00 02");
-		
-		UserContact contact2 = new UserContact();
-		contact2.setPrimaryEmail("email2-email@email.fr");
-		contact2.setAddress(secondAdr);
-		contact2.setPhone(secondPhone);
-		
-		UserProfile userProfile2 = new UserProfile()
-				.withFirstName("Alain")
-				.withLastName("Taweld")
-				.withAvatar("RoiThomas.PNG")
-				.withContact(contact2);
-		
-		AssociationSubscriber userSubSecond = new AssociationSubscriber();
-		
-		UserAccount acc2 = new UserAccount();
-		acc2.setUsername("Admin");
-		acc2.setPassword("123");
-		acc2.setPrimaryRole(UserRole.ADMIN);
-		acc2.setAssociationSubscriber(userSubSecond);
-		acc2.setUserProfile(userProfile2);
-		acc2.setSelectedAssociation(1L);
-
-		// ajouter les cascadess
-		manager.persist(contact2);
-		manager.persist(acc2);
-	
-		
-		// User 3
-		AssociationSubscriber userSubthird = new AssociationSubscriber();
-		
-		UserAccount acc3 = new UserAccount();
-		acc3.setUsername("Member");
-		acc3.setPassword("123");
-		acc3.setPrimaryRole(UserRole.MEMBER);
-		acc3.setAssociationSubscriber(userSubthird);
-		acc3.setSelectedAssociation(1L);
-		
-		Address thirdAdr = new Address();
-		thirdAdr.setCity("city3");
-		thirdAdr.setCountry("France");
-		thirdAdr.setLineOne("Ligne 1 de l'adresse");
-		thirdAdr.setLineTwo("Ligne 2 de l'adresse");
-		thirdAdr.setState("Region3");
-		thirdAdr.setZipCode("00003");
-		
-		Phone thirdPhone = new Phone();
-		thirdPhone.setCounrtyCode("+33");
-		thirdPhone.setPhoneNumber("00 00 00 00 03");
-
-		UserContact contact3 = new UserContact();
-		contact3.setPrimaryEmail("email3-email@email.fr");
-		contact3.setAddress(thirdAdr);
-		contact3.setPhone(thirdPhone);
-		
-		UserProfile userProfile3 = new UserProfile()
-				.withFirstName("Elsa")
-				.withLastName("Asson")
-				.withAvatar("user-avatar-basic.PNG")
-				.withContact(contact3);
-
-		acc3.setUserProfile(userProfile3);
-
-		// ajouter les cascades
-		manager.persist(contact3);
-		manager.persist(acc3);
+//		Address secondAdr = new Address();
+//		secondAdr.setCity("city2");
+//		secondAdr.setCountry("France");
+//		secondAdr.setLineOne("Ligne 1 de l'adresse");
+//		secondAdr.setLineTwo("Ligne 2 de l'adresse");
+//		secondAdr.setState("Region2");
+//		secondAdr.setZipCode("00002");
+//		
+//		Phone secondPhone = new Phone();
+//		secondPhone.setCounrtyCode("+33");
+//		secondPhone.setPhoneNumber("00 00 00 00 02");
+//		
+//		UserContact contact2 = new UserContact();
+//		contact2.setPrimaryEmail("email2-email@email.fr");
+//		contact2.setAddress(secondAdr);
+//		contact2.setPhone(secondPhone);
+//		
+//		UserProfile userProfile2 = new UserProfile()
+//				.withFirstName("Alain")
+//				.withLastName("Taweld")
+//				.withAvatar("RoiThomas.PNG")
+//				.withContact(contact2);
+//		
+//		UserAccount acc2 = new UserAccount();
+//		acc2.setUsername("Admin");
+//		acc2.setPassword("123");
+//		acc2.setPrimaryRole(UserRole.ADMIN);
+//		acc2.setAssociationSubscriber(userSubSecond);
+//		acc2.setUserProfile(userProfile2);
+//		acc2.setSelectedAssociation(1L);
+//
+//		// ajouter les cascadess
+//		manager.persist(contact2);
+//		manager.persist(acc2);
+//	
+//		
+//		// User 3
+//		UserAccount acc3 = new UserAccount();
+//		acc3.setUsername("Member");
+//		acc3.setPassword("123");
+//		acc3.setPrimaryRole(UserRole.MEMBER);
+//		acc3.setAssociationSubscriber(userSubthird);
+//		acc3.setSelectedAssociation(1L);
+//		
+//		Address thirdAdr = new Address();
+//		thirdAdr.setCity("city3");
+//		thirdAdr.setCountry("France");
+//		thirdAdr.setLineOne("Ligne 1 de l'adresse");
+//		thirdAdr.setLineTwo("Ligne 2 de l'adresse");
+//		thirdAdr.setState("Region3");
+//		thirdAdr.setZipCode("00003");
+//		
+//		Phone thirdPhone = new Phone();
+//		thirdPhone.setCounrtyCode("+33");
+//		thirdPhone.setPhoneNumber("00 00 00 00 03");
+//
+//		UserContact contact3 = new UserContact();
+//		contact3.setPrimaryEmail("email3-email@email.fr");
+//		contact3.setAddress(thirdAdr);
+//		contact3.setPhone(thirdPhone);
+//		
+//		UserProfile userProfile3 = new UserProfile()
+//				.withFirstName("Elsa")
+//				.withLastName("Asson")
+//				.withAvatar("user-avatar-basic.PNG")
+//				.withContact(contact3);
+//
+//		acc3.setUserProfile(userProfile3);
+//
+//		// ajouter les cascades
+//		manager.persist(contact3);
+//		manager.persist(acc3);
 		
 		
 		// User 4
-		AssociationSubscriber userSubfour = new AssociationSubscriber();	
-		
-		UserAccount acc4 = new UserAccount();
-		acc4.setUsername("User");
-		acc4.setPassword("123");
-		acc4.setPrimaryRole(UserRole.USER);
-		acc4.setAssociationSubscriber(userSubfour);
-		acc4.setSelectedAssociation(1L);
-		
-		
 		Address fourthAdr = new Address();
 		fourthAdr.setCity("city4");
 		fourthAdr.setCountry("France");
@@ -182,15 +163,20 @@ public class DataSetUser {
 		fourth.setAddress(fourthAdr);
 		fourth.setPhone(fourthPhone);
 		
-		
 		UserProfile userProfile4 = new UserProfile()
 				.withFirstName("Jean-Claude")
 				.withLastName("Paloin")
 				.withAvatar("user-avatar-basic.PNG")
 				.withContact(fourth);
-
-		acc4.setUserProfile(userProfile4);
-
+		
+		UserAccount acc4 = new UserAccount()
+				.withUsername("User")
+				.withPassword("123")
+				.withPrimaryRole(UserRole.USER)
+				.withSelectedAssociation(1L)
+				.withProfile(userProfile4);
+		
+	
 		// ajouter les cascades
 		manager.persist(fourth);
 		manager.persist(acc4);

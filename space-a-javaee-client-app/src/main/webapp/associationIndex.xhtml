@@ -23,29 +23,7 @@
 	<ui:define name="content">
 		<h:body class="picture-bg">
 
-			<!-- QUI EST CO ! A ENLEVER UN JOUR -->
-			<!-- 			<div class="pourtravail"> -->
-			<!-- 				<H1>Qui est connecté ??!</H1> -->
-
-			<!-- 				USERNAME : <b><h:outputLabel -->
-			<!-- 						value="#{userLoginController.displayUserUsername()}" /></b> ID : <b><h:outputLabel -->
-			<!-- 						value="#{userLoginController.displayUserId()}" /></b> <b>Color 1 -->
-			<!-- 					: -->
-			<!-- 					##{showAssociationController.asso.associationSpace.graphicChart.mainColor}</b> -->
-			<!-- 				<b>Color 2 : -->
-			<!-- 					##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}</b> -->
-			<!-- 				<b>Color 3 : -->
-			<!-- 					##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}</b> -->
-			<!-- 				<b>Association_subscriber pour le user : </b> -->
-			<!-- 				#{showAssociationController.oneAssoSub.membershipStatus} -->
-			<!-- 			</div> -->
-
-
-
 			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-
-
-
 			<div class="container">
 				<div class="main-content">
 
@@ -75,17 +53,13 @@
 									style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor};  color : ##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}">
 									<h2>Qui sommes-nous</h2>
 									<p>#{showAssociationController.asso.associationIdentity.associationDepiction.description}</p>
-
-									<ui:fragment
-										rendered="#{!showAssociationController.idAssociationComparison()}">
-										<h:commandButton
+									
+									<h:commandButton
 											action="#{showAssociationController.subscribeToAsso}"
 											value="Rejoignez-nous">
 											<f:param name="assoIdjpp"
 												value="#{showAssociationController.asso.id}"></f:param>
 										</h:commandButton>
-										<!--j'attends le beau bouton d'Alex-->
-									</ui:fragment>
 								</div>
 							</h:form>
 
