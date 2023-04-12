@@ -22,7 +22,7 @@ public class GraphicChart {
 	
 	private String font;
 	
-//	private String banner; //TODO A SUPPRIMER DEFINITIVEMENT
+//	private String banner; //TODO ABI - A SUPPRIMER DEFINITIVEMENT
 	
 	public String getMainColor() {
 		return mainColor;

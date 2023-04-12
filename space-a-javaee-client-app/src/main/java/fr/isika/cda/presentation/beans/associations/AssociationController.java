@@ -62,8 +62,8 @@ public class AssociationController {
 	
 		//Graphic Association Default
 		GraphicChart assoGraphic = new GraphicChart();
-//		assoGraphic.setBanner("Je suis une belle banière");// TODO a supprimer lorsqu'on va virer la bannière
-		assoGraphic.setFont("Police par defaut"); //TODO Font pour Asso !
+//		assoGraphic.setBanner("Je suis une belle banière");//
+		assoGraphic.setFont("Police par defaut"); //TODO ABI Font pour Asso !
 		assoGraphic.setMainColor("abaaaa");
 		assoGraphic.setSecondaryColor("132d64");
 		assoGraphic.setTertiaryColor("000000");

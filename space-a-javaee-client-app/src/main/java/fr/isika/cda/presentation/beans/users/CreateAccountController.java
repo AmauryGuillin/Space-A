@@ -1,10 +1,14 @@
 package fr.isika.cda.presentation.beans.users;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.common.Address;
+import fr.isika.cda.entities.users.AccountPlanning;
 import fr.isika.cda.entities.users.AssociationSubscriber;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserContact;
@@ -40,7 +44,14 @@ public class CreateAccountController {
 
 		UserProfile userProfile = new UserProfile();
 		userProfile.setUserContact(userContact);
-		userProfile.setAvatar("RoiThomas.PNG");
+		userProfile.setAvatar("user-avatar-basic.PNG");
+		userProfile.setLastName("LastName");
+		userProfile.setFirstName("FirstName");
+		
+		userProfile.setBirthday(new Date());
+		
+		
+		AccountPlanning userPlanning = new AccountPlanning();
 
 		UserAccount userAccount = new UserAccount();
 		userAccount.setUsername(createAccountViewModel.getUsername());
@@ -48,6 +59,7 @@ public class CreateAccountController {
 		userAccount.setPrimaryRole(UserRole.USER);
 		userAccount.setUserProfile(userProfile);
 		userAccount.setAssociationSubscriber(assoSub);
+		userAccount.setAccountPlanning(userPlanning);
 		userAccount.setSelectedAssociation(1L);
 
 		return userAccount;
