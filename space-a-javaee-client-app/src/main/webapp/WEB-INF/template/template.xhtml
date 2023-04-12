@@ -70,16 +70,13 @@
 					</div>
 
 					<div class="logo">	
-					<ui:fragment rendered="#{userLoginController.userLoggedIn == false}">
-							<h:graphicImage library="images" name="logo-basic.PNG"></h:graphicImage>
-					</ui:fragment>
 					
 					<ui:fragment rendered="#{userLoginController.userLoggedIn == true}">
 						<ui:fragment rendered="#{showUserController.oneUser.associationSubscriber.membershipStatus == true}">
 								<h:graphicImage library="images" name="#{showUserController.userSelectedAssociation.associationIdentity.associationDepiction.logo}"></h:graphicImage>
 						</ui:fragment>
-						<ui:fragment rendered="#{showUserController.oneUser.associationSubscriber.membershipStatus == true}">
-								<h:graphicImage library="images" name="user-avatar-basic.PNG"></h:graphicImage>
+						<ui:fragment rendered="#{showUserController.oneUser.associationSubscriber.membershipStatus == false}">
+								<h:graphicImage library="images" name="logo-basic-spaca.png"></h:graphicImage>
 						</ui:fragment>
 					</ui:fragment>
 					

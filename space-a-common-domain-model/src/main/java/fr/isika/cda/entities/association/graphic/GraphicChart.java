@@ -22,7 +22,7 @@ public class GraphicChart {
 	
 	private String font;
 	
-	private String banner;
+//	private String banner; //TODO ABI - A SUPPRIMER DEFINITIVEMENT
 	
 	public String getMainColor() {
 		return mainColor;
@@ -56,13 +56,13 @@ public class GraphicChart {
 		this.font = font;
 	}
 
-	public String getBanner() {
-		return banner;
-	}
-
-	public void setBanner(String banner) {
-		this.banner = banner;
-	}
+//	public String getBanner() {
+//		return banner;
+//	}
+//
+//	public void setBanner(String banner) {
+//		this.banner = banner;
+//	}
 
 	public Long getId() {
 		return id;
