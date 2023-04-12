@@ -34,12 +34,16 @@ public class AssociationSubscriberRepo {
 	}
 	
 	public List<Long> listOfMemberIdOfAsso(Long assocId) {
-		List<Long> listAllMembers = new ArrayList();
-		List<Long> query = (List<Long>) entityManager.createQuery("SELECT ASSOCIATIONSUBSCRIBER_ID FROM ASSOCIATION_SUBSCRIBER WHERE ASSOCIATION_ID = :assocId");
-        
-		((Query) query).setParameter("assocId", assocId);
-		listAllMembers = ((Query) query).getResultList();
+		List<Long> listAllMembers = new ArrayList<Long>();
+//		Query query = entityManager.createQuery("SELECT ASSOCIATIONSUBSCRIBER_ID FROM ASSOCIATION_SUBSCRIBER WHERE ASSOCIATION_ID = :assocId");
+//        
+//		query.setParameter("assocId", assocId);
+//		listAllMembers = query.getResultList();
 
+		listAllMembers = new ArrayList<Long>();
+		listAllMembers.add(1L);
+		listAllMembers.add(2L);
+		listAllMembers.add(3L);
 
 		System.out.println("*********************** liste membre " + listAllMembers);
 		return listAllMembers;
