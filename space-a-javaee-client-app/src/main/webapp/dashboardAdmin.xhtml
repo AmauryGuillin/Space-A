@@ -13,7 +13,7 @@
 	<ui:define name="content">
 		<body>
 			<div class="pourtravail">
-				<h:form id="dashboardAdminForm">
+				<h:form id="dashboardAdminForm" >
 					<div>
 						<h:outputLabel for="nomAdmin"
 							value="Bienvenue #{userLoginController.displayUserUsername()}" />
@@ -34,7 +34,7 @@
 				<div class="members-list">
 					<h3>LISTE DES MEMBRES</h3>
 					<h:form>
-						<h:dataTable>
+						<h:dataTable value="#{showAssociationController.recupAllMembersOfAssoc()}" var="user">
 							<h:column>
 								<f:facet name="header">Nom</f:facet>
 								#{user.userProfile.lastName}
