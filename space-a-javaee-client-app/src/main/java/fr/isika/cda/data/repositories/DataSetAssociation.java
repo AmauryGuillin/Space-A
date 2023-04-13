@@ -48,13 +48,13 @@ public class DataSetAssociation {
 		spaceGraphicChart.setMainColor("FFFFFF"); // blanc
 		spaceGraphicChart.setSecondaryColor("132d64ad"); // bleu
 		spaceGraphicChart.setTertiaryColor("000000"); // noir
-		spaceGraphicChart.setFont("Police à faire");
+		spaceGraphicChart.setFont("jsp");
 		
 		AssociationSpace spaceAssociationSpace = new AssociationSpace();
 		spaceAssociationSpace.setGraphicChart(spaceGraphicChart);
 		
 		Association spaca = new Association();
-		spaca.setLegalName("Spac'A");
+		spaca.setLegalName("SAS - Spac'A");
 		spaca.setRegistrationNumber("069 690 690 69690");
 		spaca.setAssociationIdentity(spaceAssocId);
 		spaca.setAssociationSpace(spaceAssociationSpace);
@@ -66,7 +66,7 @@ public class DataSetAssociation {
 		// ISIKA
 		
 		AssociationDepiction assocDepic = new AssociationDepiction();
-		assocDepic.setName("ISIKA");
+		assocDepic.setName("KakawetFrez");
 		assocDepic.setMainImage("main-image-isika.png");
 		assocDepic.setLogo("logo-isika.png");
 		assocDepic.setDescription("Vous savez, moi je ne crois pas qu’il y ait de bonne ou de mauvaise association. Moi, si je devais résumer ma vie aujourd’hui avec vous, je dirais que c’est d’abord des rencontres. Des gens qui m’ont tendu la main, peut-être à un moment où je ne pouvais pas, où j’étais seul chez moi. Et c’est assez curieux de se dire que les hasards, les rencontres forgent une destinée… Parce que quand on a le goût de la chose, quand on a le goût de la chose bien faite, le beau geste, parfois on ne trouve pas l’interlocuteur en face je dirais, le miroir qui vous aide à avancer. Alors ça n’est pas mon cas, comme je disais là, puisque moi au contraire, j’ai pu : et je dis merci à la vie, je lui dis merci, je chante la vie, je danse la vie… je ne suis qu’amour ! Et finalement, quand beaucoup de gens aujourd’hui me disent « Mais comment fais-tu pour avoir cette humanité ? », et bien je leur réponds très simplement, je leur dis que c’est ce goût de l’amour ce goût donc qui m’a poussé aujourd’hui à entreprendre une construction mécanique, mais demain qui sait ? Peut-être simplement à me mettre au service de la communauté, à faire le don, le don de soi…");
@@ -82,13 +82,13 @@ public class DataSetAssociation {
 		graphicChart.setMainColor("ffffff"); // blanc
 		graphicChart.setSecondaryColor("00ff08"); // vert
 		graphicChart.setTertiaryColor("ff0000"); // rouge
-		graphicChart.setFont("Font à faire");
+		graphicChart.setFont("Algerian");
 		
 		AssociationSpace associationSpace = new AssociationSpace();
 		associationSpace.setGraphicChart(graphicChart);
 		
 		Association assoc = new Association();
-		assoc.setLegalName("ISIKA-(lg)");
+		assoc.setLegalName("ISIKA");
 		assoc.setRegistrationNumber("835 200 361 00011");
 		assoc.setAssociationIdentity(assocId);
 		assoc.setAssociationSpace(associationSpace);
@@ -98,21 +98,31 @@ public class DataSetAssociation {
 
 		// 3e assoc
 		AssociationDepiction assoc2Depic = new AssociationDepiction();
-		assoc2Depic.setName("Golf Team");
-		assoc2Depic.setMainImage("url");
-		assoc2Depic.setLogo("url");
+		assoc2Depic.setName("Foot en Coeur");
+		assoc2Depic.setMainImage("mainImageAssoEx.jpg");
+		assoc2Depic.setLogo("logoAutreAsso.jpg");
 		assoc2Depic.setDescription("Ze best assoc");
 		
 		AssociationIdentity assoc2Id = new AssociationIdentity();
-		assoc2Id.setHeadOffice("M. Office");
+		assoc2Id.setHeadOffice("quelque part");
 		assoc2Id.setDirector("Ms. Louise");
 		assoc2Id.setRscNumber("3322");
 		assoc2Id.setAssociationDepiction(assoc2Depic);
 		
+		GraphicChart graphickakawet = new GraphicChart();
+		graphickakawet.setMainColor("ffffff"); // blanc
+		graphickakawet.setSecondaryColor("00ff08"); // vert
+		graphickakawet.setTertiaryColor("ff0000"); // rouge
+		graphickakawet.setFont("Algerian");
+		
+		AssociationSpace associationSpacekakawete = new AssociationSpace();
+		associationSpacekakawete.setGraphicChart(graphickakawet);
+		
 		Association assoc2 = new Association();
-		assoc2.setLegalName("Legal name2");
+		assoc2.setLegalName("Legal name Foot");
 		assoc2.setRegistrationNumber("3773737");
 		assoc2.setAssociationIdentity(assoc2Id);
+		assoc2.setAssociationSpace(associationSpacekakawete);
 
 		manager.persist(assoc2);
 		
