@@ -21,8 +21,7 @@ import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda.presentation.utils.SessionUtils;
 
-@ManagedBean
-@SessionScoped
+@ManagedBean // TODO 00 - J'ai enlevé le scoped ! 
 public class ShowAssociationController {
 	
 	@Inject

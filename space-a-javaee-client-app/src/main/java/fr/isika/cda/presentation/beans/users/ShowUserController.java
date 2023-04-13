@@ -69,6 +69,20 @@ public class ShowUserController {
 	public void getOneUserByName() {
 		userAccount = userAccountRepo.findByOneName(userName);
 	}
+	
+	public Association getAssociationSelected() {
+		
+		//Je récupère mon user connecté complet 
+		UserAccount userConnected = connectedUser();
+		
+		//je récupère l'id de l'asso connecté qui est par défaut Spac'A 1
+		Long assoIdSelected = userConnected.getSelectedAssociation();
+		
+		//je récupère l'association sélectionné complète
+		Association assoSelect = associationRepo.findOneById(assoIdSelected);
+		
+		return assoSelect;
+	}
 
 	public String updateEntity() {
 		System.out.println("********************************* METHODE UPDATE");
