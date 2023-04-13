@@ -23,7 +23,7 @@
 	<ui:define name="content">
 		<h:body class="picture-bg">
 
-			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+			
 			<div class="container">
 				<div class="main-content">
 
@@ -33,7 +33,7 @@
 						<div class="row">
 							<!-- TOP HOME ! 1/3 -->
 							<div class="top-home"
-								style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color : ##{showAssociationController.asso.associationSpace.graphicChart.mainColor}">
+								style="background-color: ##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor}; color : ##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}">
 								<h1>#{showUserController.associationSelected.legalName}</h1>
 								<h:graphicImage class="img-main-asso"
 									style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
@@ -50,16 +50,10 @@
 							<!-- QUI SOMME NOUS ! 2/3-->
 							<h:form class="form-sans-marg">
 								<div class="infoAsso-home"
-									style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor};  color : ##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}">
+									style="background-color: ##{showUserController.associationSelected.associationSpace.graphicChart.mainColor};  color : ##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}">
 									<h2>Qui sommes-nous</h2>
-									<p>#{showAssociationController.asso.associationIdentity.associationDepiction.description}</p>
+									<p>#{showUserController.associationSelected.associationIdentity.associationDepiction.description}</p>
 									
-									<h:commandButton
-											action="#{showAssociationController.subscribeToAsso}"
-											value="Rejoignez-nous">
-											<f:param name="assoIdjpp"
-												value="#{showAssociationController.asso.id}"></f:param>
-										</h:commandButton>
 								</div>
 							</h:form>
 
@@ -67,44 +61,32 @@
 							
 							<!-- ALBUM ! 3/3-->
 							<div class="album-home"
-								style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color : ##{showAssociationController.asso.associationSpace.graphicChart.mainColor}">
+								style="background-color: ##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor}; color : ##{showAssociationController.asso.associationSpace.graphicChart.mainColor}">
 								<h2>Album</h2>
 
 								<div class="row">
 									<div class="col-md-4">
 										<h:graphicImage class="img-main-asso"
-											style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
+											style="border: ##{showUserController.associationSelected.associationSpace.graphicChart.mainColor} solid"
 											library="images"
-											name="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
+											name="#{showUserController.associationSelected.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
 									</div>
 
 									<div class="col-md-4">
 										<h:graphicImage class="img-main-asso"
-											style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
+											style="border: ##{showUserController.associationSelected.associationSpace.graphicChart.mainColor} solid"
 											library="images"
-											name="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
+											name="#{showUserController.associationSelected.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
 									</div>
 									<div class="col-md-4">
 										<h:graphicImage class="img-main-asso"
-											style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
+											style="border: ##{showUserController.associationSelected.associationSpace.graphicChart.mainColor} solid"
 											library="images"
-											name="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
+											name="#{showUserController.associationSelected.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
 									</div>
 
-									<div class="row">
-										<div class="col-md-4">
-											<h:graphicImage class="img-main-asso"
-												style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
-												library="images"
-												name="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
-										</div>
 
-										<div class="col-md-4">
-											<h:graphicImage class="img-main-asso"
-												style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
-												library="images"
-												name="#{showAssociationController.asso.associationIdentity.associationDepiction.mainImage}"></h:graphicImage>
-										</div>
+									
 
 
 
@@ -120,11 +102,9 @@
 							</div>
 						</div>
 					</div>
-					<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
 
 				</div>
-			</div>
 
 
 
