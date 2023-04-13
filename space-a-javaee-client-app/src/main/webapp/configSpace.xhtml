@@ -40,23 +40,33 @@
 					<h3>Partie Asso Space</h3>
 
 					<div class="primary-color">
-							<h:outputLabel value="Couleur principal" />
-							<p:colorPicker value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.mainColor}" mode="inline" />
+						<h:outputLabel value="Couleur principal" />
+						<p:colorPicker
+							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.mainColor}"
+							mode="inline" />
 					</div>
 					<div class="secondary-color">
-							<h:outputLabel value="Couleur secondaire" />
-							<p:colorPicker value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.secondaryColor}" mode="inline" />
+						<h:outputLabel value="Couleur secondaire" />
+						<p:colorPicker
+							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.secondaryColor}"
+							mode="inline" />
 					</div>
 					<div class="tertiary-color">
-							<h:outputLabel value="Couleur tertiaire" />
-							<p:colorPicker value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.tertiaryColor}" mode="inline" />
+						<h:outputLabel value="Couleur tertiaire" />
+						<p:colorPicker
+							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.tertiaryColor}"
+							mode="inline" />
 					</div>
+					
+					
+					
 					<div>
-						<h:outputLabel value="Police :" />
-						<h:inputText
-							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.font}"
-							id="font"></h:inputText>
+						<p:selectOneMenu value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.font}">
+							<f:selectItems value="#{editAssoComplete.fontList}" />
+						</p:selectOneMenu>
 					</div>
+					
+					
 					<div>
 						<h:commandButton action="#{editAssoComplete.updateAsso()}"
 							value="Sauvegarder" />

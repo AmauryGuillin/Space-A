@@ -69,6 +69,7 @@
 										<li class="nav-item"><h:commandLink class="nav-link"
 												action="#{navController.createAsso()}" value="Créer Asso" /></li>
 									</ui:fragment>
+
 								</ul>
 							</h:form>
 						</div>
@@ -117,9 +118,17 @@
 												value="modif Profile" /></li>
 										<li class="nav-item"><h:commandLink class="nav-link"
 												action="#{navController.userProfile()}" value="Profile" /></li>
+												
+									<ui:fragment
+										rendered="#{showUserController.connectedUser().association != null}">
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.dashboardAdmin()}" value="DashBoard" /></li>
+									</ui:fragment>
+									
 										<li class="nav-item"><h:commandLink class="nav-link"
 												action="#{userLoginController.logout()}" value="logout" /></li>
 									</ui:fragment>
+									
 									<ui:fragment
 										rendered="#{userLoginController.userLoggedIn == false}">
 										<li class="nav-item"><h:commandLink class="nav-link"
