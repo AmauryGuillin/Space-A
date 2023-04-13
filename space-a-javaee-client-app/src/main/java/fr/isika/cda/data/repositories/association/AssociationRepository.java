@@ -8,6 +8,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.association.functionnality.ConfigType;
+import fr.isika.cda.entities.association.functionnality.EventType;
 
 @Stateless
 public class AssociationRepository {
@@ -35,6 +37,22 @@ public class AssociationRepository {
 	    entityManager.flush();
 	    return mergedAsso.getId();
 		
+	}
+
+	public void addEventToAsso(Association asso, EventType event) {
+//		Association assoWithEvents = entityManager.createQuery(
+//				"SELECT a FROM Association a, AssociationFonctionnality af, ConfigType c, EventType e JOIN FETCH a.af.c.events WHERE a.id =:assoIdParam",
+//				Association.class).setParameter("associationFunctionnality", asso.getId()).getSingleResult();
+		
+		
+		ConfigType config = entityManager.createQuery(
+				"SELECT c, a FROM ConfigType c, Association a LEFT JOIN FETCH c.events WHERE a.id =:assoIdParam", ConfigType.class)
+				.setParameter("assoIdParam", asso.getId())
+				.getSingleResult();
+		
+		config.addEventType(event);
+		entityManager.persist(event);
+		entityManager.merge(config);
 	}
 	
 }

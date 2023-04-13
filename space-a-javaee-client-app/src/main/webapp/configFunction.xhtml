@@ -10,22 +10,21 @@
 		<h:body>
 			<div class="pourtravail">
 				<h1>CONFIG FONCTION</h1>
-				
-				<h:form id="associationFunct">
+
+				<h:form>
 
 					<h3>Partie Config Type</h3>
-					
-					
 
-					
-					
-					
 					<div>
-						<h:commandButton action="#{editAssoComplete.updateAsso()}"
-							value="Sauvegarder" />
+						<b><h:outputLabel for="eventType" value="Event : " /></b>
+						<h:inputText id="eventType"
+							value="#{editAssoComplete.configTypeViewModel.nameEventType}" />
+						<h:commandButton action="#{editAssoComplete.addEvent}" value="Ajouter" />
 					</div>
 
+
 				</h:form>
+
 			</div>
 
 		</h:body>
