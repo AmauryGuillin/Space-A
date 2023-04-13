@@ -22,7 +22,6 @@ import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda.presentation.utils.SessionUtils;
 
 @ManagedBean
-@SessionScoped
 public class ShowAssociationController {
 	
 	@Inject
