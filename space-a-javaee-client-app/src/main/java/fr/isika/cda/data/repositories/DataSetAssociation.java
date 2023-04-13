@@ -11,8 +11,12 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationDepiction;
 import fr.isika.cda.entities.association.AssociationIdentity;
+import fr.isika.cda.entities.association.functionnality.ActivityType;
 import fr.isika.cda.entities.association.functionnality.AssociationFunctionnality;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
+import fr.isika.cda.entities.association.functionnality.EventType;
+import fr.isika.cda.entities.association.functionnality.PublicationType;
+import fr.isika.cda.entities.association.functionnality.RentingType;
 import fr.isika.cda.entities.association.graphic.AssociationSpace;
 import fr.isika.cda.entities.association.graphic.GraphicChart;
 
@@ -29,9 +33,19 @@ public class DataSetAssociation {
 	private void init() {
 		LOGGER.info("Début du DataSetAssoc");
 
+		
 		// Jeu de test
 		// 1 assoc : Spac'A
 
+		EventType eventOne = new EventType();
+		eventOne.setNameEventType("Réunion");
+		PublicationType publiOne = new PublicationType();
+		publiOne.setNamePublicationType("Article");
+		ActivityType activityOne = new ActivityType();
+		activityOne.setNameActivityType("Entrainement");
+		RentingType rentingOne = new RentingType();
+		rentingOne.setNameRentingType("Salle");
+		
 		AssociationDepiction spaceDepic = new AssociationDepiction();
 		spaceDepic.setName("Spac'A");
 		spaceDepic.setMainImage("main-image-spacA.JPG");
@@ -56,6 +70,11 @@ public class DataSetAssociation {
 		spaceAssociationSpace.setGraphicChart(spaceGraphicChart);
 
 		ConfigType configTypespacA = new ConfigType();
+		configTypespacA.addEventType(eventOne);
+		configTypespacA.addPublicationsType(publiOne);
+		configTypespacA.addActivityType(activityOne);
+		configTypespacA.addRentingType(rentingOne);
+
 
 		AssociationFunctionnality assoFunctionspacA = new AssociationFunctionnality();
 		assoFunctionspacA.setConfigType(configTypespacA);
@@ -71,6 +90,15 @@ public class DataSetAssociation {
 
 		// 2e asso
 		// ISIKA
+		
+		EventType eventTwo = new EventType();
+		eventTwo.setNameEventType("Réunion");
+		PublicationType publiTwo = new PublicationType();
+		publiTwo.setNamePublicationType("Article");
+		ActivityType activityTwo = new ActivityType();
+		activityTwo.setNameActivityType("Entrainement");
+		RentingType rentingTwo = new RentingType();
+		rentingTwo.setNameRentingType("Salle");
 
 		AssociationDepiction assocDepic = new AssociationDepiction();
 		assocDepic.setName("KakawetFrez");
@@ -96,6 +124,10 @@ public class DataSetAssociation {
 		associationSpace.setGraphicChart(graphicChart);
 		
 		ConfigType configTypkakawet = new ConfigType();
+		configTypkakawet.addEventType(eventTwo);
+		configTypkakawet.addPublicationsType(publiTwo);
+		configTypkakawet.addActivityType(activityTwo);
+		configTypkakawet.addRentingType(rentingTwo);
 
 		AssociationFunctionnality assoFunctionkakawet = new AssociationFunctionnality();
 		assoFunctionkakawet.setConfigType(configTypkakawet);
@@ -110,6 +142,16 @@ public class DataSetAssociation {
 		manager.persist(assoc);
 
 		// 3e assoc
+		
+		EventType eventThree = new EventType();
+		eventThree.setNameEventType("Réunion");
+		PublicationType publiThree = new PublicationType();
+		publiThree.setNamePublicationType("Article");
+		ActivityType activityThree = new ActivityType();
+		activityThree.setNameActivityType("Entrainement");
+		RentingType rentingThree = new RentingType();
+		rentingThree.setNameRentingType("Salle");
+		
 		AssociationDepiction assoc2Depic = new AssociationDepiction();
 		assoc2Depic.setName("Foot en Coeur");
 		assoc2Depic.setMainImage("mainImageAssoEx.jpg");
@@ -132,6 +174,10 @@ public class DataSetAssociation {
 		associationSpacekakawete.setGraphicChart(graphickakawet);
 		
 		ConfigType configTypjsp = new ConfigType();
+		configTypjsp.addEventType(eventThree);
+		configTypjsp.addPublicationsType(publiThree);
+		configTypjsp.addActivityType(activityThree);
+		configTypjsp.addRentingType(rentingThree);
 
 		AssociationFunctionnality assoFunctionjsp = new AssociationFunctionnality();
 		assoFunctionjsp.setConfigType(configTypjsp);
