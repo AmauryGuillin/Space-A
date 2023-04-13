@@ -16,6 +16,7 @@ import fr.isika.cda.entities.association.services.Publication;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda.presentation.beans.associations.viewmodels.AssociationViewModel;
+import fr.isika.cda.presentation.beans.users.ShowUserController;
 import fr.isika.cda.presentation.beans.users.UserLoginController;
 import fr.isika.cda.presentation.utils.FileUpload;
 
@@ -29,12 +30,15 @@ public class PubliController {
 	@Inject
 	private UserAccountRepository userRepo;
 	
+	@Inject
+	private ShowUserController showUserController;
+	
 	private Long publiId;
 	private Publication publi = new Publication();
 	private String imageUrl;
 
 	
-	
+
 	public void uploadImagePath(FileUploadEvent event) {
 		System.out.println("********************************* METHODE FILEUPLOAD");
 		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMYYYY_hhmmss"));
@@ -50,8 +54,8 @@ public class PubliController {
 	
 	public String createPubli() {
 		
-		UserAccount admin = userRepo.findAdmin();
-		Association asso = assoRepo.findOneById(admin.getAssociation().getId());
+		Association asso = showUserController.getUserSelectedAssociation();
+
 
 		//Creation Publi
 		publi.setTitle(publi.getTitle());

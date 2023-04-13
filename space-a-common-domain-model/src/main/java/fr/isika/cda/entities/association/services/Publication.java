@@ -30,8 +30,9 @@ public class Publication {
 	
 	private PublicationType publiType;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private Association association;
+	
 
 	public String getTitle() {
 		return title;
