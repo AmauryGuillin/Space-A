@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.association.functionnality.PublicationType;
 
 @Entity
 public class Publication {
@@ -23,6 +24,8 @@ public class Publication {
 	private String author;
 
 	private String imagePath;
+	
+	private PublicationType publiType;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Association association;
@@ -63,6 +66,5 @@ public class Publication {
 		return id;
 	}
 
-	// ajouter l'enum publicationType
 
 }

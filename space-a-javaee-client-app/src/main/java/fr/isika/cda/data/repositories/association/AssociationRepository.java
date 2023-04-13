@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.association.services.Publication;
 
 @Stateless
 public class AssociationRepository {
@@ -35,6 +36,11 @@ public class AssociationRepository {
 	    entityManager.flush();
 	    return mergedAsso.getId();
 		
+	}
+
+	public Long createPubli(Publication publi) {
+		entityManager.persist(publi);
+		return publi.getId();
 	}
 	
 }

@@ -1,5 +1,8 @@
 package fr.isika.cda.entities.association;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import fr.isika.cda.entities.association.graphic.AssociationSpace;
+import fr.isika.cda.entities.association.services.Publication;
 
 @Entity
 public class Association {
@@ -33,7 +37,7 @@ public class Association {
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationPlanning associationPlanning;
-	
+		
 	public void setId(Long id) {
 		this.id = id;
 	}
