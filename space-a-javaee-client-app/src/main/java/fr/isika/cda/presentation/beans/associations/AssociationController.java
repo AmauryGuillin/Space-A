@@ -8,8 +8,12 @@ import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationDepiction;
 import fr.isika.cda.entities.association.AssociationIdentity;
+import fr.isika.cda.entities.association.functionnality.ActivityType;
 import fr.isika.cda.entities.association.functionnality.AssociationFunctionnality;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
+import fr.isika.cda.entities.association.functionnality.EventType;
+import fr.isika.cda.entities.association.functionnality.PublicationType;
+import fr.isika.cda.entities.association.functionnality.RentingType;
 import fr.isika.cda.entities.association.graphic.AssociationSpace;
 import fr.isika.cda.entities.association.graphic.GraphicChart;
 import fr.isika.cda.entities.users.UserAccount;
@@ -60,6 +64,17 @@ public class AssociationController {
 
 	private Association createAssoFromVM() {
 	
+		//ConfigType Association Default
+		EventType eventDefault = new EventType();
+		eventDefault.setNameEventType("Réunion");
+		PublicationType publiDefault = new PublicationType();
+		publiDefault.setNamePublicationType("Article");
+		ActivityType activityDefault = new ActivityType();
+		activityDefault.setNameActivityType("Entrainement");
+		RentingType rentingDefault = new RentingType();
+		rentingDefault.setNameRentingType("Salle");
+		
+		
 		//Graphic Association Default
 		GraphicChart assoGraphic = new GraphicChart();
 //		assoGraphic.setBanner("Je suis une belle banière");//
@@ -85,6 +100,10 @@ public class AssociationController {
 		assoI.setAssociationDepiction(assoD);
 		
 		ConfigType configType = new ConfigType();
+		configType.addActivityType(activityDefault);
+		configType.addEventType(eventDefault);
+		configType.addPublicationsType(publiDefault);
+		configType.addRentingType(rentingDefault);
 		
 		AssociationFunctionnality assoFunction = new AssociationFunctionnality();
 		assoFunction.setConfigType(configType);
