@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+				<div class="fond-formulaire" >
+    <h:form>
+        <div class="container-form" >
+            <h1 class="text-center">Création d'une publication</h1>
+            <br></br>
+            <hr></hr>
+            <div class="row">
+                <div class="col-md-6 space">
+                    <div class="form-group">
+                        
+                        <h:outputLabel for="legalName" value="Titre"/>
+                        <h:inputText class="form-control" id="publiTitre" value="#{associationController.assoVM.legalName}"/> <!-- value="#{bean.legalName} -->
+                    </div> 
+                    
+                    <div class="form-group">
+                        
+                        <h:outputLabel for="legalName" value="Votre texte"/>
+                        <h:inputText class="form-control" id="publiText" value="#{associationController.assoVM.legalName}"/> <!-- value="#{bean.legalName} -->
+                    </div> 
+          
+                    <div class="form-group">
+                        <h:outputLabel for="mainImage" value="Image Principale" class="align-self-end"/>
+                        <p:fileUpload skinSimple="true" id="mainImageInput"
+								  uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
+								  chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
+								  cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
+								  label="Choisissez une image" mode="advanced" sizeLimit="5000000"
+								  fileLimit="1" accept=".gif,.jpg,.jpeg,.png"
+								  invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
+								  listener="#{showUserController.uploadFile}" 
+								  class="imgInput"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center my-5 submit-button">
+                    <p:commandButton id="button-validate" value="Valider" action="#{associationController.CreateAsso()}"></p:commandButton>
+                </div>
+            </div>
+        </div>
+    </h:form>
+</div>
+
+		</h:body>
+	</ui:define>
+</ui:composition>
