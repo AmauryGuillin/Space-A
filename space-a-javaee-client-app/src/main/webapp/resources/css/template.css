@@ -19,7 +19,7 @@ body{
     justify-content: center;
 }
 
-.navbar-spaca .nav-link{
+.nav-link{
     font-family: 'Open Sans', sans-serif;
     color: #1A3EB8;
 }
@@ -28,10 +28,7 @@ body{
     height: 80px;
 }
 
-.navbar-asso .nav-link{
-    font-family: 'Courier New', Courier, monospace;
-    color: green;
-}
+
 
 /*Contain*/
 .main-content{
