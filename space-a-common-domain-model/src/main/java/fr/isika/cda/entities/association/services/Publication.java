@@ -1,6 +1,7 @@
 package fr.isika.cda.entities.association.services;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.association.functionnality.PublicationType;
 
 @Entity
 public class Publication {
@@ -16,16 +18,21 @@ public class Publication {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	@Column(length = 50, nullable = true)
 	private String title;
 
+	@Column(length = 2000, nullable = true)
 	private String description;
 
 	private String author;
 
 	private String imagePath;
+	
+	private PublicationType publiType;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private Association association;
+	
 
 	public String getTitle() {
 		return title;
@@ -63,6 +70,12 @@ public class Publication {
 		return id;
 	}
 
-	// ajouter l'enum publicationType
+	public Association getAssociation() {
+		return association;
+	}
+
+	public void setAssociation(Association association) {
+		this.association = association;
+	}
 
 }
