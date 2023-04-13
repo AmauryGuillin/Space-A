@@ -26,6 +26,9 @@ public class PubliController {
 	@Inject
 	private AssociationRepository assoRepo;
 	
+	@Inject
+	private UserAccountRepository userRepo;
+	
 	private Long publiId;
 	private Publication publi = new Publication();
 	private String imageUrl;
@@ -46,12 +49,17 @@ public class PubliController {
 	}
 	
 	public String createPubli() {
+		
+		UserAccount admin = userRepo.findAdmin();
+		Association asso = assoRepo.findOneById(admin.getAssociation().getId());
 
 		//Creation Publi
 		publi.setTitle(publi.getTitle());
 		publi.setDescription(publi.getDescription());
 		publi.setImagePath(publi.getImagePath());
 		publi.setAuthor(publi.getAuthor());
+		publi.setAssociation(asso);
+		
 		//publi en bdd
 		assoRepo.createPubli(publi);
 		

@@ -66,6 +66,13 @@ public class UserAccountRepository extends GenericRepository<Long, UserAccount> 
 				.getSingleResult();	
 	}
 
+	public UserAccount findAdmin() {
+		return entityManager
+				.createQuery("SELECT u FROM user_account u WHERE u.account.primaryrole =: role", UserAccount.class)
+				.setParameter("role", "ADMIN")
+				.getSingleResult();
+	}
+	
 	public UserAccount createUserAccount(UserAccount userAccount) {
 		entityManager.persist(userAccount);
 		return userAccount;
