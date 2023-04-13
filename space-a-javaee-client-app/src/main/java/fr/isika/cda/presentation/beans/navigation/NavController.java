@@ -45,6 +45,10 @@ public class NavController {
 		WebUiTools.redirectToView("/error.xhtml");		
 	}
 	
+	public void dashboardAdmin() {
+		WebUiTools.redirectToView("/dashboardAdmin.xhtml");		
+	}
+	
 	public void associationIndex() {
 		//user
 		//choper son assoSelect

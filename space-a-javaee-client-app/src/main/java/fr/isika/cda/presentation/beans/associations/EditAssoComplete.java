@@ -36,7 +36,7 @@ public class EditAssoComplete {
 
 	public String updateAsso() {
 		assoRepo.majAsso(asso);
-		return "/index.xhtml?faces-redirect=true";
+		return "/dashboardAdmin.xhtml?faces-redirect=true";
 	}
 	
 	
