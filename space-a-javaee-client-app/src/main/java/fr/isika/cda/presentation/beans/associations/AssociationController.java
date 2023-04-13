@@ -11,7 +11,6 @@ import fr.isika.cda.entities.association.AssociationIdentity;
 import fr.isika.cda.entities.association.functionnality.ActivityType;
 import fr.isika.cda.entities.association.functionnality.AssociationFunctionnality;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
-import fr.isika.cda.entities.association.functionnality.EventType;
 import fr.isika.cda.entities.association.functionnality.PublicationType;
 import fr.isika.cda.entities.association.functionnality.RentingType;
 import fr.isika.cda.entities.association.graphic.AssociationSpace;
@@ -65,8 +64,6 @@ public class AssociationController {
 	private Association createAssoFromVM() {
 	
 		//ConfigType Association Default
-		EventType eventDefault = new EventType();
-		eventDefault.setNameEventType("Réunion");
 		PublicationType publiDefault = new PublicationType();
 		publiDefault.setNamePublicationType("Article");
 		ActivityType activityDefault = new ActivityType();
@@ -101,7 +98,6 @@ public class AssociationController {
 		
 		ConfigType configType = new ConfigType();
 		configType.addActivityType(activityDefault);
-		configType.addEventType(eventDefault);
 		configType.addPublicationsType(publiDefault);
 		configType.addRentingType(rentingDefault);
 		

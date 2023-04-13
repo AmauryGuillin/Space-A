@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import fr.isika.cda.data.repositories.association.AssociationRepository;
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.association.functionnality.ConfigType;
 import fr.isika.cda.entities.association.functionnality.EventType;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.associations.viewmodels.ConfigTypeViewModel;
@@ -41,7 +42,7 @@ public class EditAssoComplete {
 	
 	@PostConstruct
     public void init() {
-        fontList = new ArrayList<SelectItem>();
+        fontList = new ArrayList<>();
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         Font[] fonts = ge.getAllFonts();
         for (Font font : fonts) {
@@ -62,26 +63,15 @@ public class EditAssoComplete {
 		return asso;
 	}
 
-	public String addEvent() {
-		Association asso = getOneAsso();
-		System.out.println("ASSO : " + asso);
-		
+	public void addEvent() {
 		EventType event = createEventToVM();
-		System.out.println("EVENT : " + event);
-		
-		
-		assoRepo.addEventToAsso(asso, event);
-		
-//		asso.getAssociationFunctionnality().getConfigType().addEventType(event);
-//		assoRepo.majAsso(asso);
-		return "/index.xhtml?faces-redirect=true";
+		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+		assoRepo.addEventToAsso(configType.getId(), event);
 	}
 	
-	public EventType createEventToVM() {
+	private EventType createEventToVM() {
 		EventType event = new EventType();
-		System.out.println("event dans VM" + configTypeViewModel.getNameEventType());
 		event.setNameEventType(configTypeViewModel.getNameEventType());
-		
 		return event;
 	}
 	
@@ -90,21 +80,13 @@ public class EditAssoComplete {
 		return "/index.xhtml?faces-redirect=true";
 	}
 	
-//	public List<EventType> getListEvents(){
-//		
-//		//je récupère l'asso 
-//		Association asso = getOneAsso();
-//		//je récupère la liste des types d'event
-//		List<EventType> listEvent = asso.getAssociationFunctionnality().getConfigType().getEvents();
-//		
-//		
-//		return listEvent;
-//	}
+	public List<EventType> getListEvents(){
+		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+		return assoRepo.getAllEventsByConfigTypeId(configType.getId());
+	}
 
 	public ConfigTypeViewModel getConfigTypeViewModel() {
 		return configTypeViewModel;
 	}
-	
-	
 	
 }

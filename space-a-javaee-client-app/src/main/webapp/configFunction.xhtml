@@ -22,9 +22,18 @@
 						<h:commandButton action="#{editAssoComplete.addEvent}" value="Ajouter" />
 					</div>
 
-
 				</h:form>
-
+				
+				<h:dataTable var="evt" value="#{editAssoComplete.listEvents}">
+					<h:column>
+						<f:facet name="header">Id</f:facet>
+						#{evt.id}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Nom</f:facet>
+						#{evt.nameEventType}
+					</h:column>
+				</h:dataTable>
 			</div>
 
 		</h:body>

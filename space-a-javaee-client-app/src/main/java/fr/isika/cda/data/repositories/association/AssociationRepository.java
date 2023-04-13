@@ -14,6 +14,8 @@ import fr.isika.cda.entities.association.functionnality.EventType;
 @Stateless
 public class AssociationRepository {
 
+	private static final String CONFIG_TYPE_WITH_EVTS_BY_ID = "SELECT c FROM ConfigType c LEFT JOIN FETCH c.events WHERE c.id =:configTypeIdParam";
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 	
@@ -39,20 +41,24 @@ public class AssociationRepository {
 		
 	}
 
-	public void addEventToAsso(Association asso, EventType event) {
-//		Association assoWithEvents = entityManager.createQuery(
-//				"SELECT a FROM Association a, AssociationFonctionnality af, ConfigType c, EventType e JOIN FETCH a.af.c.events WHERE a.id =:assoIdParam",
-//				Association.class).setParameter("associationFunctionnality", asso.getId()).getSingleResult();
-		
-		
-		ConfigType config = entityManager.createQuery(
-				"SELECT c, a FROM ConfigType c, Association a LEFT JOIN FETCH c.events WHERE a.id =:assoIdParam", ConfigType.class)
-				.setParameter("assoIdParam", asso.getId())
-				.getSingleResult();
-		
-		config.addEventType(event);
-		entityManager.persist(event);
-		entityManager.merge(config);
+	public List<EventType> getAllEventsByConfigTypeId(Long configTypeId) {
+		return getConfigTypeWithEvtsById(configTypeId).getEvents();
 	}
+	
+	public void addEventToAsso(Long configTypeId, EventType event) {
+		ConfigType configWithEvents = getConfigTypeWithEvtsById(configTypeId);
+		configWithEvents.addEventType(event);
+		entityManager.persist(event);
+		entityManager.merge(configWithEvents);
+	}
+
+	private ConfigType getConfigTypeWithEvtsById(Long configTypeId) {
+		return entityManager.createQuery(
+				CONFIG_TYPE_WITH_EVTS_BY_ID, ConfigType.class)
+				.setParameter("configTypeIdParam", configTypeId)
+				.getSingleResult();
+	}
+	
+	
 	
 }
