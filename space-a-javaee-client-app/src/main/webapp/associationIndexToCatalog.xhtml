@@ -2,7 +2,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html" lang="en"
-	template="/WEB-INF/template/template.xhtml">
+	template="/WEB-INF/template/template.xhtml"
+	xmlns:p="http://primefaces.org/ui">
 
 	<h:head>
 		<title>Nom Asso</title>
@@ -24,7 +25,8 @@
 							<!-- TOP HOME ! 1/3 -->
 							<div class="top-home"
 								style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color : ##{showAssociationController.asso.associationSpace.graphicChart.mainColor}">
-								<h1 style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">#{showAssociationController.asso.associationIdentity.associationDepiction.name}</h1>
+								<h1
+									style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">#{showAssociationController.asso.associationIdentity.associationDepiction.name}</h1>
 								<h:graphicImage class="img-main-asso"
 									style="border: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor} solid"
 									library="images"
@@ -35,23 +37,30 @@
 							<h:form class="form-sans-marg">
 								<div class="infoAsso-home"
 									style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor};  color : ##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}">
-									<h2 style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">Qui sommes-nous</h2>
-									<p style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">#{showAssociationController.asso.associationIdentity.associationDepiction.description}</p>
+									<h2
+										style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">Qui
+										sommes-nous</h2>
+									<p
+										style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">#{showAssociationController.asso.associationIdentity.associationDepiction.description}</p>
 
-									<h:commandButton styleClass="abi-button" style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor};"
+
+
+									<p:commandButton
+										style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor};"
 										action="#{showAssociationController.subscribeToAsso}"
 										value="Rejoignez-nous">
 										<f:param name="assoIdjpp"
 											value="#{showAssociationController.asso.id}"></f:param>
-									</h:commandButton>
-
+									</p:commandButton>
 								</div>
 							</h:form>
 
 							<!-- ALBUM ! 3/3-->
 							<div class="album-home"
 								style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color : ##{showAssociationController.asso.associationSpace.graphicChart.mainColor}">
-								<h2 style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}" >Publication a faire</h2>
+								<h2
+									style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">Publication
+									a faire</h2>
 
 								<div class="row">
 
