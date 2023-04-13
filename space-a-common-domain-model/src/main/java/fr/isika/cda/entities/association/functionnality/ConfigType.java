@@ -12,17 +12,5 @@ public class ConfigType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Enumerated
-	private EventType eventType;
-	
-	@Enumerated
-	private PublicationType publicationType;
-	
-	@Enumerated
-	private ActivityType activityType;
-	
-	@Enumerated
-	private RentingType rentingType;
 
 }

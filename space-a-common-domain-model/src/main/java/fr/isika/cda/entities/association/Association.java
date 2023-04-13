@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import fr.isika.cda.entities.association.functionnality.AssociationFunctionnality;
 import fr.isika.cda.entities.association.graphic.AssociationSpace;
 
 @Entity
@@ -33,6 +34,9 @@ public class Association {
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AssociationPlanning associationPlanning;
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private AssociationFunctionnality associationFunctionnality;
 	
 	public void setId(Long id) {
 		this.id = id;
@@ -73,6 +77,14 @@ public class Association {
 		this.registrationNumber = registrationNumber;
 	}
 	
+	
+	
+	public AssociationFunctionnality getAssociationFunctionnality() {
+		return associationFunctionnality;
+	}
+	public void setAssociationFunctionnality(AssociationFunctionnality associationFunctionnality) {
+		this.associationFunctionnality = associationFunctionnality;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -88,8 +100,12 @@ public class Association {
 		builder.append(associationIdentity);
 		builder.append(", associationPlanning=");
 		builder.append(associationPlanning);
+		builder.append(", associationFunctionnality=");
+		builder.append(associationFunctionnality);
 		builder.append("]");
 		return builder.toString();
 	}
+
+	
 	
 }

@@ -1,5 +1,6 @@
 package fr.isika.cda.data.repositories;
 
+import java.io.ObjectInputFilter.Config;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
@@ -11,6 +12,10 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationDepiction;
 import fr.isika.cda.entities.association.AssociationIdentity;
+import fr.isika.cda.entities.association.functionnality.AssociationFunctionnality;
+import fr.isika.cda.entities.association.functionnality.ConfigType;
+import fr.isika.cda.entities.association.functionnality.EventType;
+import fr.isika.cda.entities.association.functionnality.PublicationType;
 import fr.isika.cda.entities.association.graphic.AssociationSpace;
 import fr.isika.cda.entities.association.graphic.GraphicChart;
 
@@ -30,6 +35,15 @@ public class DataSetAssociation {
 		
 		// Jeu de test
 		// 1 assoc : Spac'A
+		
+		ConfigType configTypeA = new ConfigType();
+		
+		AssociationFunctionnality assoFunctA = new AssociationFunctionnality();
+		assoFunctA.setConfigType(configTypeA);
+		
+		PublicationType publiTypeA = new PublicationType();
+		publiTypeA.setNamePublicationType("Article");
+		publiTypeA.setConfigType(configTypeA);
 		
 		AssociationDepiction spaceDepic = new AssociationDepiction();
 		spaceDepic.setName("Spac'A");
@@ -58,12 +72,26 @@ public class DataSetAssociation {
 		spaca.setRegistrationNumber("069 690 690 69690");
 		spaca.setAssociationIdentity(spaceAssocId);
 		spaca.setAssociationSpace(spaceAssociationSpace);
+		spaca.setAssociationFunctionnality(assoFunctA);
 		
+
+		manager.persist(publiTypeA);
 		manager.persist(spaca);
+		
 		
 		
 		// 2e asso
 		// ISIKA
+		
+		ConfigType configTypeB = new ConfigType();
+		
+		AssociationFunctionnality assoFunctB = new AssociationFunctionnality();
+		assoFunctB.setConfigType(configTypeB);
+		
+		PublicationType publiTypeB = new PublicationType();
+		publiTypeB.setNamePublicationType("Article");
+		publiTypeB.setConfigType(configTypeB);
+		
 		
 		AssociationDepiction assocDepic = new AssociationDepiction();
 		assocDepic.setName("KakawetFrez");
@@ -92,8 +120,11 @@ public class DataSetAssociation {
 		assoc.setRegistrationNumber("835 200 361 00011");
 		assoc.setAssociationIdentity(assocId);
 		assoc.setAssociationSpace(associationSpace);
+		spaca.setAssociationFunctionnality(assoFunctB);
 		
+		manager.persist(publiTypeB);
 		manager.persist(assoc);
+
 
 
 		// 3e assoc
