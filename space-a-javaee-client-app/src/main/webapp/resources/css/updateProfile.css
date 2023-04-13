@@ -34,8 +34,6 @@ body .ui-inputfield {
 .profile-pic {
 	max-width: 390px;
 	min-width: 390px;
-	min-height:300px;
-	max-height:300px;
 	clip-path: circle();
 	object-fit: contain;
 }
