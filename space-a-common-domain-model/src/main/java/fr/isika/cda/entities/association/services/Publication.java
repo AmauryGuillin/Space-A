@@ -28,7 +28,7 @@ public class Publication {
 
 	private String imagePath;
 	
-	private PublicationType publiType;
+//	private PublicationType publiType;
 
 	@ManyToOne
 	private Association association;
