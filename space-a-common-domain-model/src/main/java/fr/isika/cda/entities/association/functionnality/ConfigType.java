@@ -25,4 +25,6 @@ public class ConfigType {
 	@Enumerated
 	private RentingType rentingType;
 
+	
+	
 }
