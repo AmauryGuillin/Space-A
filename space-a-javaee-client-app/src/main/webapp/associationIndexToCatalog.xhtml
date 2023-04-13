@@ -38,7 +38,7 @@
 									<h2 style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">Qui sommes-nous</h2>
 									<p style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">#{showAssociationController.asso.associationIdentity.associationDepiction.description}</p>
 
-									<h:commandButton
+									<h:commandButton styleClass="abi-button" style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor};"
 										action="#{showAssociationController.subscribeToAsso}"
 										value="Rejoignez-nous">
 										<f:param name="assoIdjpp"
