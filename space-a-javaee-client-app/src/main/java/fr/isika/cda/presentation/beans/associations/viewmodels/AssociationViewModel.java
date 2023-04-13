@@ -34,7 +34,6 @@ public class AssociationViewModel implements Serializable {
 	private String secondaryColor;
 	private String tertaryColor;	
 	private String font;
-//	private String banner;
 	
 //getters and setters
 	
@@ -85,14 +84,6 @@ public class AssociationViewModel implements Serializable {
 	public void setFont(String font) {
 		this.font = font;
 	}
-
-//	public String getBanner() {
-//		return banner;
-//	}
-//
-//	public void setBanner(String banner) {
-//		this.banner = banner;
-//	}
 
 	public String getLegalName() {
 		return legalName;

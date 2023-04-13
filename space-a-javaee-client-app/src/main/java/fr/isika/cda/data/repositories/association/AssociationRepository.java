@@ -8,11 +8,16 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.association.functionnality.ConfigType;
+import fr.isika.cda.entities.association.functionnality.EventType;
 import fr.isika.cda.entities.association.services.Publication;
+
 
 @Stateless
 public class AssociationRepository {
 
+	private static final String CONFIG_TYPE_WITH_EVTS_BY_ID = "SELECT c FROM ConfigType c LEFT JOIN FETCH c.events WHERE c.id =:configTypeIdParam";
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 	
@@ -38,9 +43,28 @@ public class AssociationRepository {
 		
 	}
 
+	public List<EventType> getAllEventsByConfigTypeId(Long configTypeId) {
+		return getConfigTypeWithEvtsById(configTypeId).getEvents();
+	}
+	
+	public void addEventToAsso(Long configTypeId, EventType event) {
+		ConfigType configWithEvents = getConfigTypeWithEvtsById(configTypeId);
+		configWithEvents.addEventType(event);
+		entityManager.persist(event);
+		entityManager.merge(configWithEvents);
+	}
+
+	private ConfigType getConfigTypeWithEvtsById(Long configTypeId) {
+		return entityManager.createQuery(
+				CONFIG_TYPE_WITH_EVTS_BY_ID, ConfigType.class)
+				.setParameter("configTypeIdParam", configTypeId)
+				.getSingleResult();
+	}
+
 	public Long createPubli(Publication publi) {
 		entityManager.persist(publi);
 		return publi.getId();
 	}
+
 	
 }

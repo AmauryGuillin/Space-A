@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+			<div class="pourtravail">
+				<h1>CONFIG FONCTION</h1>
+
+				<h:form>
+
+					<h3>Partie Config Type</h3>
+
+					<div>
+						<b><h:outputLabel for="eventType" value="Event : " /></b>
+						<h:inputText id="eventType"
+							value="#{editAssoComplete.configTypeViewModel.nameEventType}" />
+						<h:commandButton action="#{editAssoComplete.addEvent}" value="Ajouter" />
+					</div>
+
+				</h:form>
+				
+				<h:dataTable var="evt" value="#{editAssoComplete.listEvents}">
+					<h:column>
+						<f:facet name="header">Id</f:facet>
+						#{evt.id}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Nom</f:facet>
+						#{evt.nameEventType}
+					</h:column>
+				</h:dataTable>
+			</div>
+
+		</h:body>
+	</ui:define>
+</ui:composition>

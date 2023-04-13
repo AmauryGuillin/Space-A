@@ -8,6 +8,11 @@ import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationDepiction;
 import fr.isika.cda.entities.association.AssociationIdentity;
+import fr.isika.cda.entities.association.functionnality.ActivityType;
+import fr.isika.cda.entities.association.functionnality.AssociationFunctionnality;
+import fr.isika.cda.entities.association.functionnality.ConfigType;
+import fr.isika.cda.entities.association.functionnality.PublicationType;
+import fr.isika.cda.entities.association.functionnality.RentingType;
 import fr.isika.cda.entities.association.graphic.AssociationSpace;
 import fr.isika.cda.entities.association.graphic.GraphicChart;
 import fr.isika.cda.entities.users.UserAccount;
@@ -58,6 +63,15 @@ public class AssociationController {
 
 	private Association createAssoFromVM() {
 	
+		//ConfigType Association Default
+		PublicationType publiDefault = new PublicationType();
+		publiDefault.setNamePublicationType("Article");
+		ActivityType activityDefault = new ActivityType();
+		activityDefault.setNameActivityType("Entrainement");
+		RentingType rentingDefault = new RentingType();
+		rentingDefault.setNameRentingType("Salle");
+		
+		
 		//Graphic Association Default
 		GraphicChart assoGraphic = new GraphicChart();
 //		assoGraphic.setBanner("Je suis une belle banière");//
@@ -82,12 +96,20 @@ public class AssociationController {
 		assoI.setRscNumber(assoVM.getRscNumber());
 		assoI.setAssociationDepiction(assoD);
 		
+		ConfigType configType = new ConfigType();
+		configType.addActivityType(activityDefault);
+		configType.addPublicationsType(publiDefault);
+		configType.addRentingType(rentingDefault);
+		
+		AssociationFunctionnality assoFunction = new AssociationFunctionnality();
+		assoFunction.setConfigType(configType);
+		
 		Association asso = new Association();
 		asso.setRegistrationNumber(assoVM.getRegistrationNumber());
 		asso.setLegalName(assoVM.getLegalName());
 		asso.setAssociationIdentity(assoI);
 		asso.setAssociationSpace(assoSpace);
-		
+		asso.setAssociationFunctionnality(assoFunction);
 		
 		return asso;
 	}
