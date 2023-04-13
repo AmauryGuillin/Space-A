@@ -1,0 +1,97 @@
+.cadreForm {
+	background-color: #d9d9d999;
+	height: fit-content;
+	width: 70%;
+	margin: 50px;
+	margin-top: 8rem;
+	/* opacity: 0.8; */ box-shadow : 12px 5px 20px;
+	border-radius: 25px;
+	box-shadow: 12px 5px 20px
+}
+
+.container-cadreForm {
+	margin-top: 20px;
+}
+
+.form-group {
+	margin-top: 20px;
+}
+
+.form-control1 {
+	
+	width: 100% !important;
+}
+
+.border-block {
+	border-left: 2px solid #0006;
+}
+
+body .ui-inputfield {
+	width: 100% !important;
+	border-radius:15px;
+}
+
+.profile-pic {
+	max-width: 390px;
+	min-width: 390px;
+	min-height:300px;
+	max-height:300px;
+	clip-path: circle();
+	object-fit: contain;
+}
+
+.text-center {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	flex-direction: column !important;
+}
+
+.img-upload {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+body .ui-fileupload .ui-fileupload-buttonbar {
+	width: 16rem !important;
+	background-color: #d9d9d9cc;
+}
+
+body .ui-fileupload .ui-fileupload-buttonbar .ui-button {
+	margin-bottom: 0.5rem;
+}
+
+body .ui-fileupload .ui-fileupload-content {
+	width: 16rem !important;
+	background-color: #d9d9d9cc;
+}
+
+body .ui-fileupload .ui-fileupload-content .ui-fileupload-files .ui-fileupload-row>div {
+	padding: 0;
+}
+
+.ui-fileupload-content .ui-progressbar {
+	width: 96px !important;
+}
+
+.window {
+	background: #ffffff8c;
+}
+
+.cadreForm2 {
+	background-color: #d9d9d9cc;
+	height: fit-content;
+	width: 90%;
+	border-radius: 15px;
+	margin: 50px;
+}
+
+.card {
+	border-radius: 15px;
+	margin-top: 25px;
+}
+
+.container1 {
+	margin: 50px;
+}
