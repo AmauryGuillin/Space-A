@@ -10,6 +10,8 @@ import javax.persistence.TypedQuery;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
 import fr.isika.cda.entities.association.functionnality.EventType;
+import fr.isika.cda.entities.association.services.Publication;
+
 
 @Stateless
 public class AssociationRepository {
@@ -58,7 +60,11 @@ public class AssociationRepository {
 				.setParameter("configTypeIdParam", configTypeId)
 				.getSingleResult();
 	}
-	
-	
+
+	public Long createPubli(Publication publi) {
+		entityManager.persist(publi);
+		return publi.getId();
+	}
+
 	
 }

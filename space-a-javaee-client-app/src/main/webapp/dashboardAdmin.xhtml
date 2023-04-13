@@ -11,107 +11,74 @@
 <ui:composition template="/WEB-INF/template/template.xhtml">
 
 	<ui:define name="content">
-		<body>
-			<div class="pourtravail">
-				<h:form id="dashboardAdminForm" >
-					<div>
-						<h:outputLabel for="nomAdmin"
-							value="Bienvenue #{userLoginController.displayUserUsername()}" />
-						<h:commandButton id="configFonctionnalite"
-							value="configFonctionnalite" />
+		<h:body>
+			<div class="dashboard-admin">
+				<h:form id="dashboardAdminForm">
+					<div class="row">
+						<div class="titles">
+							<h3>Tableau de bord de votre association</h3>
+							<h4>Bienvenue : USER</h4>					
+						</div>
+						<div class="btn-dashbord-admin">
+							<h:commandButton id="adherents" value="Adhérents" />
+							<h:commandButton id="activites" value="Activités" />
+							<h:commandButton id="evenements" value="Événements" />
+							<h:commandButton id="materiels" value="Matériels" />
+							<h:commandButton id="configFonctionnalite" value="configFonctionnalite" />
+							<h:commandButton id="configEspace" value="configEspace" />
+							<h:commandButton id="publi" value="Créer publication" action="#{navController.creationPubli()}" />
+						</div>
 					</div>
-					<div>
-						<h:commandButton id="configEspace" value="configEspace" />
-					</div>
-					<div>
-						<h:commandButton id="adherents" value="Adhérents" />
-						<h:commandButton id="activites" value="Activités" />
-						<h:commandButton id="evenements" value="Événements" />
-						<h:commandButton id="materiels" value="Matériels" />
-						<h:commandButton id="parametres" value="Paramètres" />
+					
+					<div class="row">
+						<div class="create-edite-delete">
+							<div class="members-list">
+								<h3 class="text-center">LISTE DES MEMBRES</h3>
+								<hr />
+								<div class="section-table">
+									<h:form>
+										<h:dataTable class="data-table" cellpadding="15"
+											cellspacing="10"
+											value="#{showAssociationController.recupAllMembersOfAssoc()}"
+											var="user">
+											<h:column>
+												<f:facet name="header">Nom</f:facet>
+					                          	#{user.userProfile.lastName}
+					                        </h:column>
+											<h:column >
+												<f:facet name="header">Prenom</f:facet>
+					                          	#{user.userProfile.firstName}
+					                        </h:column>
+											<h:column>
+												<f:facet name="header">Date de naissance</f:facet>
+					                          	#{user.userProfile.birthday}
+					                        </h:column>
+											<h:column>
+												<f:facet name="header">Email n°1</f:facet>
+					                          	#{user.userProfile.userContact.primaryEmail}
+					                        </h:column>
+											<h:column>
+												<f:facet name="header">Email n°2</f:facet>
+												#{user.userProfile.userContact.secondaryEmail}
+											</h:column>
+											<h:column>
+												<f:facet name="header">Telephone</f:facet>
+												#{user.userProfile.userContact.phone.phoneNumber}
+											</h:column>
+											<h:column>
+												<f:facet name="header">Actions</f:facet>
+												<h:commandButton value="Modifier" />
+												<h:commandButton value="Supprimer" />
+											</h:column>
+										</h:dataTable>
+									</h:form>
+								</div>
+							</div>
+						</div>
 					</div>
 				</h:form>
-				<div class="members-list">
-					<h3>LISTE DES MEMBRES</h3>
-					<h:form>
-						<h:dataTable value="#{showAssociationController.recupAllMembersOfAssoc()}" var="user">
-							<h:column>
-								<f:facet name="header">Nom</f:facet>
-								#{user.userProfile.lastName}
-							</h:column>
-							<h:column>
-								<f:facet name="header">Prenom</f:facet>
-								#{user.userProfile.firstName}
-							</h:column>
-							<h:column>
-								<f:facet name="header">Date de naissance</f:facet>
-								#{user.userProfile.birthday}
-							</h:column>
-							<h:column>
-								<f:facet name="header">Email n°1</f:facet>
-								#{user.userProfile.userContact.primaryEmail}
-							</h:column>
-							<h:column>
-								<f:facet name="header">Email n°2</f:facet>
-							</h:column>
-							<h:column>
-								<f:facet name="header">Telephone</f:facet>
-							</h:column>
-							<h:column>
-								<f:facet name="header">Adresse</f:facet>
-							</h:column>
-							<h:column>
-								<f:facet name="header">Actions</f:facet>
-								<h:commandButton value="Modifier" />
-								<h:commandButton value="Supprimer" />
-							</h:column>
-						</h:dataTable>
-					</h:form>
-				</div>
-				<div class="activivites-list">
-					<h3>LISTE DES ACTIVITES</h3>
-					<h:form>
-						<h:dataTable>
-							<h:column>
-								<f:facet name="header">Nom</f:facet>
-							</h:column>
-							<h:column>
-								<f:facet name="header">Titre</f:facet>
-							</h:column>
-							<h:column>
-								<f:facet name="header">Actions</f:facet>
-								<h:commandButton value="Modifier" />
-								<h:commandButton value="Supprimer" />
-							</h:column>
-						</h:dataTable>
-					</h:form>
-				</div>
-				<div class="publication-list">
-				<h3>LISTE DES PUBLICATIONS</h3>
-					<h:form>
-						<h:dataTable>
-							<h:column>
-								<f:facet name="header">Nom</f:facet>
-							</h:column>
-							<h:column>
-								<f:facet name="header">Titre</f:facet>
-							</h:column>
-							<h:column>
-								<f:facet name="header">Auteur</f:facet>
-							</h:column>
-							<h:column>
-								<f:facet name="header">Type de publication</f:facet>
-							</h:column>
-							<h:column>
-								<f:facet name="header">Actions</f:facet>
-								<h:commandButton value="Modifier" />
-								<h:commandButton value="Supprimer" />
-							</h:column>
-						</h:dataTable>
-					</h:form>
-				</div>
 			</div>
-		</body>
+		</h:body>
 	</ui:define>
 </ui:composition>
 </html>

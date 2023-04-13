@@ -1,5 +1,8 @@
 package fr.isika.cda.entities.association;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +13,7 @@ import javax.persistence.OneToOne;
 
 import fr.isika.cda.entities.association.functionnality.AssociationFunctionnality;
 import fr.isika.cda.entities.association.graphic.AssociationSpace;
+import fr.isika.cda.entities.association.services.Publication;
 
 @Entity
 public class Association {

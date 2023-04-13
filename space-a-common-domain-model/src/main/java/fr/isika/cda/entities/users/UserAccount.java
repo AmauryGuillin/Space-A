@@ -85,7 +85,9 @@ public class UserAccount implements Serializable {
 	public void updateUserRole(final UserRole newRole) {
 		this.primaryRole = newRole;
 	}
-	
+	public boolean isAdmin() {
+		return primaryRole.equals("ADMIN");
+	}
 	/*
 	 * Getters
 	 */
