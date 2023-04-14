@@ -24,12 +24,28 @@ public class StuffToRent {
 	private String description;
 	private Date startDate;
 	private Date endDate;
+	public Association getAssociation() {
+		return association;
+	}
+
+	public void setAssociation(Association association) {
+		this.association = association;
+	}
+
+	public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+	public void setUserAccount(UserAccount userAccount) {
+		this.userAccount = userAccount;
+	}
+
 	private String rentingType;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private Association association;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private UserAccount userAccount;
 
 	// getters and setters, exception setter deleted on id
