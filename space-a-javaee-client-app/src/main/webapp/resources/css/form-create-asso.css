@@ -23,7 +23,6 @@
 
 .form-control {
 	background: white;
-	color: white;
 	border-color: black;
 	font-weight: bold;
 	border-radius: 15px;
@@ -31,6 +30,10 @@
 
 .ui-fileupload-row {
 	display: block !important;
+}
+
+body .ui-button.ui-button-text-icon-left .ui-icon {
+	margin-top: -0.7rem !important;
 }
 
 #button-validate {
@@ -51,6 +54,7 @@
 	width: 50% !important;
 	border: none !important;
 	color: white !important;
+	font-weight: bold !important;
 	position: relative;
 }
 
