@@ -25,31 +25,34 @@
 <!-- 						</h:dataTable>				 -->
 
 						<h3>Tableau de bord de votre association</h3>
-						<h4>Bienvenue </h4>	
+						<h4>Bienvenue : #{userLoginController.displayUserUsername()}</h4>	
+						<p:separator/>
+					</div>
 
 						</div>
+						<div class="row">
 						<div class="btn-dashbord-admin">
 							<h3>Visualiser</h3>
-						
 							<h:commandButton id="adherents" value="Adhérents" />
 							<h:commandButton id="activites" value="Activités" />
 							<h:commandButton id="materiels" value="Matériels" action="#{navController.matosList()}" />
 							<h:commandButton id="events" value="Événements" action="#{navController.eventList()}" />
 							<h:commandButton id="publi" value="Publications" action="#{navController.publiList()}" />
-							<h:commandButton id="configFonctionnalite" value="configFonctionnalite" />
-							<h:commandButton id="configEspace" value="configEspace" action="#{navController.configSpace()}" />
-							
+							<h:commandButton id="configFonctionnalite" value="Modif fonctionnalités" />
+							<h:commandButton id="configEspace" value="Modif visuel" action="#{navController.configSpace()}" />
 						</div>
-						
-						<div class="btn-dashbord-admin-create">
-							<h3>Créer</h3>
-							<h:commandButton id="matosCreation" value="Créer matos" action="#{navController.creationMatos()}" />
-							<h:commandButton id="evenementsCreation" value="Créer événement" action="#{navController.creationEvent()}" />
-							<h:commandButton id="publicationCreation" value="Créer publication" action="#{navController.creationPubli()}" />
 						</div>
-					</div>
+						<div class="row d-flex justify-content-center align-items-center">
+							<div class="btn-dashbord-admin-create">
+								<h3>Créer</h3>
+								<h:commandButton id="matosCreation" value="Ajout Matériel" action="#{navController.creationMatos()}" />
+								<h:commandButton id="evenementsCreation" value="Ajout événement" action="#{navController.creationEvent()}" />
+								<h:commandButton id="publicationCreation" value="Ajout publication" action="#{navController.creationPubli()}" />
+							</div>
+						</div>
 					
-					<div class="row">
+					
+					<div class="row d-flex justify-content-center">
 						<div class="create-edite-delete">
 							<div class="members-list">
 								<h3 class="text-center">LISTE DES MEMBRES</h3>

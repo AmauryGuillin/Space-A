@@ -15,10 +15,14 @@
 
 .btn-dashbord-admin {
 	margin-top: 1rem;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-	gap: 10px;
+	display: flex;
+	align-items: center;
 }
+
+.btn-dashbord-admin h3 {
+	margin-right: 1rem;
+}
+
 
 .create-edite-delete {
 	margin: 1rem 2rem 1rem 2rem;
@@ -39,6 +43,15 @@
 
 .titles h4, .titles h3 {
 	font-weight: bold;
+}
+
+.btn-dashbord-admin-create h3 {
+	margin-right: 10rem;
+}
+
+.btn-dashbord-admin-create {
+	display: flex;
+	align-items: center;
 }
 
 .members-list h3 {
