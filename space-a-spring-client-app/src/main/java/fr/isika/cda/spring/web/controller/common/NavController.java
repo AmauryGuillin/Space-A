@@ -8,7 +8,12 @@ public class NavController {
 
 	@GetMapping("/index")
 	public String index() {
-		return "index";
+		return "index.html";
+	}
+	
+	@GetMapping("/users")
+	public String users() {
+		return "users.html";
 	}
 	
 }

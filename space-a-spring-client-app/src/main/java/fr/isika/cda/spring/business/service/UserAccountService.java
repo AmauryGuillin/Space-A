@@ -15,24 +15,24 @@ import fr.isika.cda.spring.business.repo.UserAccountRepo;
 
 @Service
 @Transactional
-public class UserAccountService implements InitializingBean {
+public class UserAccountService /*implements InitializingBean*/ {
 
 	@Autowired
 	private UserAccountRepo repo;
 
 	//@formatter:off
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		
-		UserAccount account = new UserAccount()
-				.withUsername("test")
-				.withPassword("test")
-				.withProfile(new UserProfile()
-						.withFirstName("Mo")
-						.withLastName("BH"));
-		
-		repo.save(account);
-	}
+//	@Override
+//	public void afterPropertiesSet() throws Exception {
+//		
+//		UserAccount account = new UserAccount()
+//				.withUsername("test")
+//				.withPassword("test")
+//				.withProfile(new UserProfile()
+//						.withFirstName("Mo")
+//						.withLastName("BH"));
+//		
+//		repo.save(account);
+//	}
 	//@formatter:on
 
 	public Optional<UserAccount> byId(final Long id) {
