@@ -19,7 +19,7 @@ public class AssociationIdentity {
 
 	private String headOffice;
 
-	@Column(name="rcs_number", length = 18, unique = true, nullable = true)
+	@Column(name="rcs_number", length = 50, unique = true, nullable = true)
 	private String rscNumber;//String car ex : "RCS Lyon 123456789"
 
 	@Column(name="kbis_extract")

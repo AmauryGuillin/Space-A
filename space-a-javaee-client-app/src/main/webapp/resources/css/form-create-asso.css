@@ -10,6 +10,7 @@
 	box-shadow: 12px 5px 20px;
 	border-radius: 25px;
 	margin-top: 8rem;
+	position: relative;
 }
 
 .container-form {
@@ -36,6 +37,10 @@ body .ui-button.ui-button-text-icon-left .ui-icon {
 	margin-top: -0.7rem !important;
 }
 
+.descriptionAsso {
+	height:200px !important;
+}
+
 #button-validate {
 	background-color: red; /* Couleur de fond */
 	border: none; /* Pas de bordure */
@@ -56,6 +61,12 @@ body .ui-button.ui-button-text-icon-left .ui-icon {
 	color: white !important;
 	font-weight: bold !important;
 	position: relative;
+}
+
+.admin-autofill {
+	position: absolute !important;
+	top: 5rem !important;
+	opacity: 0;
 }
 
 

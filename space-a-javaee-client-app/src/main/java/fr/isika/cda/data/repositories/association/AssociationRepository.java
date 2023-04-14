@@ -58,6 +58,7 @@ public class AssociationRepository {
 	}
 
 	public Long majAsso(Association asso) {
+		System.out.println(asso.getAssociationIdentity().getAssociationDepiction().getMainImage());
 		Association mergedAsso = entityManager.merge(asso);
 	    entityManager.flush();
 	    return mergedAsso.getId();
