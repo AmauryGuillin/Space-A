@@ -1,0 +1,206 @@
+
+
+/* .picture-bg {
+	
+} */
+
+
+
+/*Contain*/
+
+
+.top-home{
+    /*background-color: #132d64ad; --> couleur secondaire par defaut*/
+    /*color: #FFFFFF; --> couleur primaire*/
+    width: 100vw;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.container, .main-content, .row{
+	margin:0;
+	padding:0;
+} 
+
+.form-sans-marg{
+	padding:0;
+	margin: 0;
+}
+
+
+.top-home h1{
+    font-weight: bolder;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    padding-top:20px;
+    font-family: monospace;/*font Asso*/
+}
+
+.top-home img{
+    max-height:400px;
+    max-width: 75%;
+    /*border: #FFFFFF solid; --> couleur primaire*/
+    margin-bottom: 20px; 
+}
+
+.infoAsso-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*background-color: #FFFFFF;couleur primaire*/
+    min-height: 240px;
+    /*color: red; --> couleur tertiaire*/
+    font-family: monospace;/*font Asso*/
+    text-align: center;
+}
+
+.infoAsso-home h2{
+	padding-top:10px;
+	padding-bottom:10px;
+	font-weight: bold;
+}
+
+.infoAsso-home p {
+	padding-left: 10rem;
+	padding-right: 10rem; 
+}
+
+.album-home{
+    /*background-color: green; --> couleur secondaire*/
+    /*color: #FFFFFF; --> couleur primaire*/
+    font-family: monospace;/*font Asso*/
+    width: 100vw;
+}
+
+.album-home h2{
+    text-align: center;
+    padding-top:30px;
+    font-weight: bold;
+
+}
+
+.album-home .img-main-asso{
+    height: 80%;
+    width: 80%; 
+    /*border: #FFFFFF solid; couleur primaire*/
+    margin: 10%;
+}
+
+.top-spaca{
+    color: #FFFFFF;
+    width: 100vw;
+    text-align: center;
+    padding-top: 100px;
+    background: url("#{resource['images/bg-ciel.png']}");
+}
+
+.top-spaca h1{
+	margin: 40px;
+	font-size: 6rem;
+}
+
+.top-spaca .img-main-top{
+    height:500px;
+    width: 90%;
+    border : #FFFFFF solid; 
+    margin-bottom: 20px; 
+}
+
+.img-index-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.btn-create-asso {
+    position: absolute;
+    bottom: 50px;
+}
+
+.btn-find-asso {
+    position: absolute;
+    bottom: 50px;
+}
+
+
+.infoSpace{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    background-color: #FFFFFF;
+    color:black;
+    text-align: center;
+}
+
+
+
+
+.infoSpace h2{
+	padding-top:30px;
+	padding-bottom:30px;
+	font-weight: bold;
+}
+
+.infoSpace p {
+	padding-left: 10rem;
+	padding-right: 10rem; 
+}
+
+.catalogue-asso {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 240px;
+    color:white;
+    text-align: center;
+    padding-bottom: 2rem;
+    background: url("#{resource['images/bg-ciel.png']}");
+}
+
+.catalogue-asso h2{
+    margin: 30px;
+    font-size: 3rem;
+    font-weight: bold;
+    
+}
+
+.asso-card1 {
+    height: 400px;
+    width: 300px;
+    position: relative;
+    text-align: center;
+    background: url("#{resource['images/card1.png']}");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.asso-card2 {
+    height: 400px;
+    width: 300px;
+    position: relative;
+    text-align: center;
+    background: url("#{resource['images/card2.png']}");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.asso-card3 {
+    height: 400px;
+    width: 300px;
+    position: relative;
+    text-align: center;
+    background: url("#{resource['images/card3.png']}");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
