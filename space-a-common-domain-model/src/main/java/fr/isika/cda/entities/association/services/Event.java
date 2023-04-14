@@ -21,9 +21,9 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String startDate;
+	private Date startDate;
 
-	private String endDate;
+	private Date endDate;
 
 	private String description;
 
@@ -40,19 +40,22 @@ public class Event {
 		return id;
 	}
 
-	public String getStartDate() {
+
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(String startDate) {
+
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public String getEndDate() {
+
+	public Date getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(String endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 

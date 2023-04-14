@@ -8,53 +8,71 @@
 
 	<ui:define name="content">
 		<h:body>
-				<div class="fond-formulaire" >
-   
-        <div class="container-form" >
-            <h1 class="text-center">Création d'un événement</h1>
-            <br></br>
-            <hr></hr>
-            <h:form>
-            <div class="row">
-                <div class="col-md-6 space">
-                
-                    <div class="form-group">
-                        
-                        <h:outputLabel for="author" value="Date début"/>
-                        <h:inputText class="form-control" id="startDate" value="#{eventController.event.startDate}"/> 
-                    </div> 
-                    
-                    <div class="form-group">
-                        
-                        <h:outputLabel for="author" value="Date fin"/>
-                        <h:inputText class="form-control" id="endDate" value="#{eventController.event.endDate}"/> 
-                    </div> 
-                    
-                    <div class="form-group">
-                        
-                        <h:outputLabel for="title" value="Titre"/>
-                        <h:inputText class="form-control" id="publiTitre" value="#{eventController.event.title}"/> 
-                    </div> 
-                    
-                    <div class="form-group">
-                        
-                        <h:outputLabel for="description" value="Décrivez l'événement"/>
-                        <h:inputTextarea class="form-control" id="publiText" value="#{eventController.event.description}"/> 
-                    </div> 
-          
-  
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center my-5 submit-button">
-                    <p:commandButton id="button-validate" value="Valider" action="#{eventController.createEvent()}"></p:commandButton>
-                </div>
-            </div>
-    
-            </h:form>
-        </div>
-  
-</div>
+			<div class="fond-formulaire">
+
+				<div class="container-form">
+					<h1 class="text-center">Création d'un événement</h1>
+					<br></br>
+					<hr></hr>
+					<h:form>
+						<div class="row">
+							<div class="col-md-6 space">
+
+
+								<div class="form-group row col-md-12">
+									<div class="col-md-3">
+										<h:outputLabel for="startDate" value="Date de début :"
+											class="col-form-label font-weight-bold" />
+									</div>
+								<div class="col-md-9">
+									<p:datePicker id="startDate"
+										value="#{eventController.event.startDate}"
+										showButtonBar="true" class="form-control1"
+										style="border-radius: 15px" />
+								</div>
+								</div>	
+						
+								<div class="form-group row col-md-12">
+									<div class="col-md-3">
+										<h:outputLabel for="endDate" value="Date de fin :"
+											class="col-form-label font-weight-bold" />
+									</div>
+								<div class="col-md-9">
+									<p:datePicker id="endDate"
+										value="#{eventController.event.endDate}"
+										showButtonBar="true" class="form-control1"
+										style="border-radius: 15px" />
+								</div>
+								</div>
+
+								<div class="form-group">
+
+									<h:outputLabel for="title" value="Titre" />
+									<h:inputText class="form-control" id="publiTitre"
+										value="#{eventController.event.title}" />
+								</div>
+
+								<div class="form-group">
+
+									<h:outputLabel for="description" value="Décrivez l'événement" />
+									<h:inputTextarea class="form-control" id="publiText"
+										value="#{eventController.event.description}" />
+								</div>
+
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center my-5 submit-button">
+								<p:commandButton id="button-validate" value="Valider"
+									action="#{eventController.createEvent()}"></p:commandButton>
+							</div>
+						</div>
+
+					</h:form>
+				</div>
+
+			</div>
 
 		</h:body>
 	</ui:define>
