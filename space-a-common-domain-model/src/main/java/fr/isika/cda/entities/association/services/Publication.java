@@ -28,7 +28,8 @@ public class Publication {
 
 	private String imagePath;
 	
-//	private PublicationType publiType;
+//	private PublicationType publiType; 
+// ça sera surement un string pour rappel
 
 	@ManyToOne
 	private Association association;

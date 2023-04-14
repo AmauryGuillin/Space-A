@@ -3,16 +3,22 @@ package fr.isika.cda.presentation.beans.associations;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
+import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationPlanning;
+import fr.isika.cda.entities.association.functionnality.ConfigType;
+import fr.isika.cda.entities.association.functionnality.EventType;
 import fr.isika.cda.entities.association.services.Event;
+import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.users.ShowUserController;
+import fr.isika.cda.presentation.beans.users.UserLoginController;
 
 
 @ManagedBean
@@ -32,7 +38,16 @@ public class EventController {
 	
 	@Inject
 	private ShowUserController showUserController;
+	
+	@Inject
+	private UserLoginController userLoginController;
 
+	@Inject 
+	private UserAccountRepository userRepo;
+	
+	private Association asso;
+	private UserAccount userAccount;
+	private Long userId;
 
 	public String createEvent() {
 		
@@ -43,12 +58,27 @@ public class EventController {
 		event.setStartDate(event.getStartDate());
 		event.setEndDate(event.getEndDate());
 		event.setDescription(event.getDescription());
+		event.setEventType(event.getEventType());
 		event.setAssociation(asso);
 		
 		//event en bdd
 		assoRepo.createEvent(event);
 
 		return "/dashboardAdmin.xhtml?faces-redirect=true"; 
+	}
+	
+	public Association getOneAsso() {
+		if (userAccount == null) {
+			userId = userLoginController.displayUserId();
+			userAccount = userRepo.findByOneId(userId);
+			asso = assoRepo.findOneById(userAccount.getAssociation().getId());
+		}
+		return asso;
+	}
+	
+	public List<EventType> getListEvents(){
+		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+		return assoRepo.getAllEventsByConfigTypeId(configType.getId());
 	}
 
 	// GETTERS AND SETTERS

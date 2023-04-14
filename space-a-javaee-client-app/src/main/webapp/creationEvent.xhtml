@@ -52,11 +52,21 @@
 										value="#{eventController.event.title}" />
 								</div>
 
+
 								<div class="form-group">
 
-									<h:outputLabel for="description" value="Décrivez l'événement" />
-									<h:inputTextarea class="form-control" id="publiText"
-										value="#{eventController.event.description}" />
+								
+								
+
+								<h:selectOneMenu
+									value="#{eventController.event.eventType}">
+									<f:selectItems
+										value="#{eventController.listEvents}"
+										var="type" itemValue="#{type.nameEventType}" itemLabel="#{type.nameEventType}" />
+									
+								</h:selectOneMenu>
+
+					
 								</div>
 
 
