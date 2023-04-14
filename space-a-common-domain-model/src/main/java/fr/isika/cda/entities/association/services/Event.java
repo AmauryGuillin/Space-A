@@ -30,8 +30,9 @@ public class Event {
 	private String title;
 	
 	@ManyToOne
-	private AssociationPlanning associationPlanning;
+	private Association association;
 
+	
 //	@Enumerated(EnumType.STRING)
 //	private EventType eventType;
 
@@ -71,11 +72,12 @@ public class Event {
 		this.title = title;
 	}
 
-	public AssociationPlanning getAssociationPlanning() {
-		return associationPlanning;
+	public Association getAssociation() {
+		return association;
 	}
 
-	public void setAssociationPlanning(AssociationPlanning associationPlanning) {
-		this.associationPlanning = associationPlanning;
+	public void setAssociation(Association association) {
+		this.association = association;
 	}
+
 }
