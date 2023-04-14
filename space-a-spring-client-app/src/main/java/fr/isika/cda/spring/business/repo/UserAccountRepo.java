@@ -5,4 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import fr.isika.cda.entities.users.UserAccount;
 
 public interface UserAccountRepo extends CrudRepository<UserAccount, Long> {
+	
+	//----> Possible rajout de méthodes custom ICI <----
+	
 }

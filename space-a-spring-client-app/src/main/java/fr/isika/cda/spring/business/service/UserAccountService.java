@@ -23,6 +23,7 @@ public class UserAccountService implements InitializingBean {
 	//@formatter:off
 	@Override
 	public void afterPropertiesSet() throws Exception {
+		
 		UserAccount account = new UserAccount()
 				.withUsername("test")
 				.withPassword("test")
