@@ -13,10 +13,15 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
+import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.association.functionnality.ConfigType;
+import fr.isika.cda.entities.association.functionnality.RentingType;
 import fr.isika.cda.entities.association.services.Publication;
 import fr.isika.cda.entities.association.services.StuffToRent;
+import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.users.ShowUserController;
+import fr.isika.cda.presentation.beans.users.UserLoginController;
 import fr.isika.cda.presentation.utils.FileUpload;
 
 @ManagedBean
@@ -29,8 +34,17 @@ public class MatosController {
 	@Inject
 	private ShowUserController showUserController;
 	
+	@Inject
+	private UserLoginController userLoginController;
+
+	@Inject 
+	private UserAccountRepository userRepo;
+	
 	private StuffToRent matos = new StuffToRent();
 
+	private Association asso;
+	private UserAccount userAccount;
+	private Long userId;
 	
 	public String createMatos() {
 		
@@ -51,7 +65,19 @@ public class MatosController {
 		return "/dashboardAdmin.xhtml?faces-redirect=true"; 
 	}
 
-
+	public Association getOneAsso() {
+		if (userAccount == null) {
+			userId = userLoginController.displayUserId();
+			userAccount = userRepo.findByOneId(userId);
+			asso = assoRepo.findOneById(userAccount.getAssociation().getId());
+		}
+		return asso;
+	}
+	
+	public List<RentingType> getListStuffs(){
+		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+		return assoRepo.getAllStuffByConfigTypeId(configType.getId());
+	}
 
 	public StuffToRent getMatos() {
 		return matos;
