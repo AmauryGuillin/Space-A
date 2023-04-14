@@ -53,6 +53,10 @@ public class NavController {
 		WebUiTools.redirectToView("/creationPubli.xhtml");		
 	}
 	
+	public void creationEvent() {
+		WebUiTools.redirectToView("/creationEvent.xhtml");		
+	}
+	
 	public void associationIndex() {
 		//user
 		//choper son assoSelect

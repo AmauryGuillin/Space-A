@@ -9,11 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationPlanning;
 
 @Entity
 public class Event {
 	
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -25,10 +28,11 @@ public class Event {
 	private String description;
 
 	private String title;
+	
+	@ManyToOne
+	private Association association;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	private AssociationPlanning associationPlanning;
-
+	
 //	@Enumerated(EnumType.STRING)
 //	private EventType eventType;
 
@@ -36,13 +40,16 @@ public class Event {
 		return id;
 	}
 
+
 	public Date getStartDate() {
 		return startDate;
 	}
 
+
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
+
 
 	public Date getEndDate() {
 		return endDate;
@@ -66,6 +73,14 @@ public class Event {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Association getAssociation() {
+		return association;
+	}
+
+	public void setAssociation(Association association) {
+		this.association = association;
 	}
 
 }
