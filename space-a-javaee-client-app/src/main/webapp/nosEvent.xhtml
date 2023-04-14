@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" lang="en">
 
-<h:outputStylesheet library="css" name="style.css" />
+<!-- <h:outputStylesheet library="css" name="style.css" /> -->
 
 <ui:composition template="/WEB-INF/template/template.xhtml">
 
@@ -15,27 +15,112 @@
 	</h:head>
 
 	<ui:define name="content">
-		<body>
-			<div style="flex: 2;">
-				<h2>Nos évènements</h2>
+		<h:body>
+			<div class="nos-event">
 				<h:form id="evtsForm">
-					<h:panelGrid columns="2">
-						
-						<h:panelGrid columns="1">	
-							<h:graphicImage library="images" name="A.png" style="position: relative;" />
-							<h:graphicImage library="images" name="nature.jpg" style="position: relative; top: 10px;" />
-						</h:panelGrid>
-						
-						<h:panelGrid columns="1">
-							<h:outputText id="evtTitleTxt" value="Ici le titre de l'évènement" />
-							<p>Ici le contenu de la description</p>
-							<p:commandButton class="btn btn-primary" value="CTA : S’inscrire" />
-						</h:panelGrid>
-						
-					</h:panelGrid>
+					<div class="row">
+						<h1 class="text-center">
+							<b>Nos évènements</b>
+						</h1>
+					</div>
+
+					<div class="row">
+						<div class="event-retail">
+							<div class="text-center">
+								<h:outputText id="title" value="Ici le titre de l'évènement" />
+							</div>
+							<br/>
+
+							<div class="form-group row col-md-12">
+
+
+								<div class="col-md-4">
+									<div class="text-center">
+										<h:graphicImage library="images" name="nature.jpg"
+											class="pic-event" />
+									</div>
+								</div>
+
+								<div class="row col-md-8">
+									<div class="text-center">
+										<!-- 4 attributs, title, startDate, endDate, description -->
+										<!-- 								<h:outputText id="title"
+									value="Ici le titre de l'évènement" />
+								<br/> -->
+										<h:outputText id="startDate"
+											value="Ici la date du début de l'évènement" />
+										<h:outputText id="endDate"
+											value="Ici la date du fin de l'évènement"
+											style="margin-left: 15px;" />
+										<hr />
+
+										<p align="left">Lorem ipsum dolor sit amet, consectetur
+											adipiscing elit, sed do eiusmod tempor incididunt ut labore
+											et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in
+											voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+											Excepteur sint occaecat cupidatat non proident, sunt in culpa
+											qui officia deserunt mollit anim id est laborum. Lorem ipsum
+											dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim
+											ad minim veniam, quis nostrud exercitation ullamco laboris
+											nisi ut aliquip ex ea commodo consequat. Duis aute irure
+											dolor in reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+											non proident, sunt in culpa qui officia deserunt mollit anim
+											id est laborum. Lorem ipsum dolor sit amet, consectetur
+											adipiscing elit, sed do eiusmod tempor incididunt ut labore
+											et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in
+											voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+											Excepteur sint occaecat cupidatat non proident, sunt in culpa
+											qui officia deserunt mollit anim id est laborum.</p>
+
+									</div>
+								</div>
+
+							</div>
+							<div class="col-md-12 text-center my-5">
+
+								<!-- <h:commandButton value="Valider" class="btn btn-blue btn-lg" style="width:100%;"/>  -->
+								<p:commandButton class="btn btn-primary" value="S’inscrire" />
+
+							</div>
+						</div>
+					</div>
+
 				</h:form>
+
+
+
+
+				<!-- 				<div style="flex: 2;">
+					<h2 class="text-center">Nos évènements</h2>
+					<h:form id="evtsForm">
+						<h:panelGrid columns="2">
+
+							<h:panelGrid columns="1">
+								<h:graphicImage library="images" name="A.png"
+									style="position: relative;" />
+								<h:graphicImage library="images" name="A.png"
+									style="position: relative; top: 10px;" />
+							</h:panelGrid>
+
+							<h:panelGrid columns="1">
+								<h:outputText id="evtTitleTxt"
+									value="Ici le titre de l'évènement" />
+								<p>Ici le contenu de la description</p>
+								<p:commandButton class="btn btn-primary"
+									value="CTA : S’inscrire" />
+							</h:panelGrid>
+
+						</h:panelGrid>
+					</h:form>
+				</div> -->
 			</div>
-		</body>
+		</h:body>
 	</ui:define>
 </ui:composition>
 </html>
