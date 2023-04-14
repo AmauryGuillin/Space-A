@@ -29,6 +29,8 @@ public class Event {
 
 	private String title;
 	
+	private String eventType;
+	
 	@ManyToOne
 	private Association association;
 
@@ -81,6 +83,16 @@ public class Event {
 
 	public void setAssociation(Association association) {
 		this.association = association;
+	}
+
+
+	public String getEventType() {
+		return eventType;
+	}
+
+
+	public void setEventType(String eventType) {
+		this.eventType = eventType;
 	}
 
 }
