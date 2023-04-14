@@ -25,10 +25,10 @@
 							<h:commandButton id="adherents" value="Adhérents" />
 							<h:commandButton id="activites" value="Activités" />
 							<h:commandButton id="materiels" value="Matériels" />
-							<h:commandButton id="events" value="Événements" />
-							<h:commandButton id="publi" value="Publications" />
+							<h:commandButton id="events" value="Événements" action="#{navController.eventList()}" />
+							<h:commandButton id="publi" value="Publications" action="#{navController.publiList()}" />
 							<h:commandButton id="configFonctionnalite" value="configFonctionnalite" />
-							<h:commandButton id="configEspace" value="configEspace" />
+							<h:commandButton id="configEspace" value="configEspace" action="#{navController.configSpace()}" />
 							
 						</div>
 						
