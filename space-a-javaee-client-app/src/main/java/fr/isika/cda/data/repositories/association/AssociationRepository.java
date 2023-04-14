@@ -46,9 +46,6 @@ public class AssociationRepository {
 		Publication publi = findPubliById(publicationId);
 		entityManager.remove(publi);
 	}
-	public void deletePubli(Publication publi) {
-		entityManager.remove(publi);
-	}
 	
 	public Association findOneById(Long id) {
 		TypedQuery<Association> query = entityManager.createQuery("SELECT a FROM Association a WHERE a.id = :id", Association.class);
@@ -91,5 +88,21 @@ public class AssociationRepository {
 		return event.getId();		
 	}
 
-	
+	public void deleteEvent(Long eventId) {
+		Event event = findEventById(eventId);
+		entityManager.remove(event);
+	}
+
+	private Event findEventById(Long eventId) {
+		TypedQuery<Event> query = entityManager.createQuery("SELECT e FROM Event e WHERE e.id =: id", Event.class);
+	    query.setParameter("id", eventId);
+	    return query.getSingleResult();
+	}
+
+	public List<Event> findAllEvent() {
+		return entityManager.createQuery("SELECT e FROM Event e", Event.class).getResultList();
+	}
+
+
+
 }
