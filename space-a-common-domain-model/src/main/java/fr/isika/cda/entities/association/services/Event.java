@@ -34,9 +34,6 @@ public class Event {
 	@ManyToOne
 	private Association association;
 
-	
-//	@Enumerated(EnumType.STRING)
-//	private EventType eventType;
 
 	public Long getId() {
 		return id;

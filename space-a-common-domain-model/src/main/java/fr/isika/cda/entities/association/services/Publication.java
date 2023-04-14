@@ -28,8 +28,7 @@ public class Publication {
 
 	private String imagePath;
 	
-//	private PublicationType publiType; 
-// ça sera surement un string pour rappel
+	private String publicationType;
 
 	@ManyToOne
 	private Association association;
@@ -77,6 +76,14 @@ public class Publication {
 
 	public void setAssociation(Association association) {
 		this.association = association;
+	}
+
+	public String getPublicationType() {
+		return publicationType;
+	}
+
+	public void setPublicationType(String publicationType) {
+		this.publicationType = publicationType;
 	}
 
 }
