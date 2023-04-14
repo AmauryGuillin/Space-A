@@ -64,12 +64,12 @@ public class AssociationController {
 	private Association createAssoFromVM() {
 	
 		//ConfigType Association Default
-		PublicationType publiDefault = new PublicationType();
-		publiDefault.setNamePublicationType("Article");
-		ActivityType activityDefault = new ActivityType();
-		activityDefault.setNameActivityType("Entrainement");
-		RentingType rentingDefault = new RentingType();
-		rentingDefault.setNameRentingType("Salle");
+//		PublicationType publiDefault = new PublicationType();
+//		publiDefault.setNamePublicationType("Article");
+//		ActivityType activityDefault = new ActivityType();
+//		activityDefault.setNameActivityType("Entrainement");
+//		RentingType rentingDefault = new RentingType();
+//		rentingDefault.setNameRentingType("Salle");
 		
 		
 		//Graphic Association Default
@@ -97,10 +97,10 @@ public class AssociationController {
 		assoI.setAssociationDepiction(assoD);
 		
 		ConfigType configType = new ConfigType();
-		configType.addActivityType(activityDefault);
-		configType.addPublicationsType(publiDefault);
-		configType.addRentingType(rentingDefault);
-		
+//		configType.addActivityType(activityDefault);
+//		configType.addPublicationsType(publiDefault);
+//		configType.addRentingType(rentingDefault);
+//		
 		AssociationFunctionnality assoFunction = new AssociationFunctionnality();
 		assoFunction.setConfigType(configType);
 		

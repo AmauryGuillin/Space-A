@@ -76,11 +76,11 @@
 			</div>
 			<div class="pourtravail">
 				<h1>CONFIG FONCTION</h1>
-
+<div>
 				<h:form>
 
 					<h3>Partie Config Type</h3>
-
+					<h4>TYPES DES EVENTS</h4>
 					<div>
 						<b><h:outputLabel for="eventType" value="Event : " /></b>
 						<h:inputText id="eventType"
@@ -100,7 +100,37 @@
 						#{evt.nameEventType}
 					</h:column>
 				</h:dataTable>
+</div>				
+<div>
+				<h:form>
+
+					
+					<h4>TYPES DES PUBLICATION</h4>
+					<div>
+						<b><h:outputLabel for="publicationType" value="Publication : " /></b>
+						<h:inputText id="publicationType"
+							value="#{editAssoComplete.configTypeViewModel.namePublicationType}" />
+						<h:commandButton action="#{editAssoComplete.addPublications()}" value="Ajouter" />
+					</div>
+
+				</h:form>
+				
+				<h:dataTable var="publi" value="#{editAssoComplete.listPublications}">
+					<h:column>
+						<f:facet name="header">Id</f:facet>
+						#{publi.id}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Nom</f:facet>
+						#{publi.namePublicationType}
+					</h:column>
+				</h:dataTable>
+</div>				
+				
+				
 			</div>
+			
+			
 
 		</h:body>
 	</ui:define>
