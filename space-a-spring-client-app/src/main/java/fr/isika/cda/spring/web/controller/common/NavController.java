@@ -20,9 +20,14 @@ public class NavController {
 	@Autowired
 	private AssociationSpaceService associationSpaceService;
 
-	@GetMapping("/index")
+	@GetMapping("/")
 	public String index() {
 		return "index.html";
+	}
+	
+	@GetMapping("/db2")
+	public String dbTwo() {
+		return "dashboard2.html";
 	}
 
 	@GetMapping("/dashboard")
