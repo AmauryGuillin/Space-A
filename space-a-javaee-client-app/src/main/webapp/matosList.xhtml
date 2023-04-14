@@ -11,8 +11,7 @@
 			<section>
 				<div class="pourtravail">
 					<h:form>
-						<h:dataTable value="#{editMatosController.allMatos}"
-							var="matos">
+						<h:dataTable value="#{editMatosController.allMatos}" var="matos">
 							<h:column>
 								<f:facet name="header">Nom</f:facet>
 								#{matos.title}
@@ -26,15 +25,22 @@
 								<f:facet name="header">Type</f:facet>
 								#{matos.rentingType}
 							</h:column>
-							
+
 							<h:column>
 								<f:facet name="header">Date début</f:facet>
 								#{matos.startDate}
 							</h:column>
-							
+
 							<h:column>
 								<f:facet name="header">Date fin</f:facet>
 								#{matos.endDate}
+							</h:column>
+
+
+							<h:column>
+								<f:facet name="header">Action(s)</f:facet>
+								<p:commandButton id="button-reserve" value="Réserver"
+									action="#{editMatosController.bookMatos(matos.id)}"></p:commandButton>
 							</h:column>
 
 							<h:column>
@@ -45,8 +51,8 @@
 
 
 						</h:dataTable>
-							<p:commandButton id="button-validate" value="Retour"
-								action="#{navController.dashboardAdmin()}"></p:commandButton>
+						<p:commandButton id="button-validate" value="Retour"
+							action="#{navController.dashboardAdmin()}"></p:commandButton>
 
 
 					</h:form>

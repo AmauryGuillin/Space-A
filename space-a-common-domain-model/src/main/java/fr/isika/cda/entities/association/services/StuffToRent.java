@@ -24,6 +24,8 @@ public class StuffToRent {
 	private String description;
 	private Date startDate;
 	private Date endDate;
+	private Long idUser;
+	
 	public Association getAssociation() {
 		return association;
 	}
@@ -92,6 +94,14 @@ public class StuffToRent {
 
 	public void setRentingType(String rentingType) {
 		this.rentingType = rentingType;
+	}
+
+	public Long getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
 	}
 
 }
