@@ -2,6 +2,7 @@ package fr.isika.cda.presentation.beans.associations;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
@@ -69,6 +70,12 @@ public class PubliController {
 		
 
 		return "/dashboardAdmin.xhtml?faces-redirect=true"; 
+	}
+	
+	
+	
+	public List<Publication> getAllPubli(){
+		return assoRepo.findAllPubli();
 	}
 	
 	

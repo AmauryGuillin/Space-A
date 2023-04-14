@@ -20,13 +20,22 @@
 							<h4>Bienvenue : USER</h4>					
 						</div>
 						<div class="btn-dashbord-admin">
+							<h3>Visualiser</h3>
+						
 							<h:commandButton id="adherents" value="Adhérents" />
 							<h:commandButton id="activites" value="Activités" />
-							<h:commandButton id="evenements" value="Créer événement" action="#{navController.creationEvent()}" />
 							<h:commandButton id="materiels" value="Matériels" />
+							<h:commandButton id="events" value="Événements" />
+							<h:commandButton id="publi" value="Publications" />
 							<h:commandButton id="configFonctionnalite" value="configFonctionnalite" />
 							<h:commandButton id="configEspace" value="configEspace" />
-							<h:commandButton id="publi" value="Créer publication" action="#{navController.creationPubli()}" />
+							
+						</div>
+						
+						<div class="btn-dashbord-admin-create">
+							<h3>Créer</h3>
+							<h:commandButton id="evenementsCreation" value="Créer événement" action="#{navController.creationEvent()}" />
+							<h:commandButton id="publicationCreation" value="Créer publication" action="#{navController.creationPubli()}" />
 						</div>
 					</div>
 					
