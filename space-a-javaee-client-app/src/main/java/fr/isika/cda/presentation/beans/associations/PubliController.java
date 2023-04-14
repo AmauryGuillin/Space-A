@@ -34,10 +34,10 @@ public class PubliController {
 	private ShowUserController showUserController;
 	
 	private Long publiId;
-	private Publication publi = new Publication();
 	private String imageUrl;
 
-	
+	private Publication publi = new Publication();
+
 
 	public void uploadImagePath(FileUploadEvent event) {
 		System.out.println("********************************* METHODE FILEUPLOAD");

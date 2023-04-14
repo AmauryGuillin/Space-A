@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
 import fr.isika.cda.entities.association.functionnality.EventType;
+import fr.isika.cda.entities.association.services.Event;
 import fr.isika.cda.entities.association.services.Publication;
 
 
@@ -64,6 +65,11 @@ public class AssociationRepository {
 	public Long createPubli(Publication publi) {
 		entityManager.persist(publi);
 		return publi.getId();
+	}
+
+	public Long createEvent(Event event) {
+		entityManager.persist(event);
+		return event.getId();		
 	}
 
 	
