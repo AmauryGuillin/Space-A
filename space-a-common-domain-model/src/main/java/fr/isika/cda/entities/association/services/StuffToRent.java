@@ -24,6 +24,7 @@ public class StuffToRent {
 	private String description;
 	private Date startDate;
 	private Date endDate;
+	private String stuffType;
 	public Association getAssociation() {
 		return association;
 	}
@@ -92,6 +93,14 @@ public class StuffToRent {
 
 	public void setRentingType(String rentingType) {
 		this.rentingType = rentingType;
+	}
+
+	public String getStuffType() {
+		return stuffType;
+	}
+
+	public void setStuffType(String stuffType) {
+		this.stuffType = stuffType;
 	}
 
 }

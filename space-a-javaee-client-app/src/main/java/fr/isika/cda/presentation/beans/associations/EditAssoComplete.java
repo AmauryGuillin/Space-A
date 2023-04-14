@@ -16,6 +16,8 @@ import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
 import fr.isika.cda.entities.association.functionnality.EventType;
 import fr.isika.cda.entities.association.functionnality.PublicationType;
+import fr.isika.cda.entities.association.functionnality.RentingType;
+import fr.isika.cda.entities.association.services.StuffToRent;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.associations.viewmodels.ConfigTypeViewModel;
 import fr.isika.cda.presentation.beans.users.UserLoginController;
@@ -69,6 +71,11 @@ public class EditAssoComplete {
 		return "/dashboardAdmin.xhtml?faces-redirect=true";
 	}
 	
+
+	public ConfigTypeViewModel getConfigTypeViewModel() {
+		return configTypeViewModel;
+	}
+	
 //EVENTS
 
 	public void addEvent() {
@@ -108,9 +115,26 @@ public class EditAssoComplete {
 		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
 		return assoRepo.getAllPublicationByConfigTypeId(configType.getId());
 	}
+	
+//STUFF
 
-	public ConfigTypeViewModel getConfigTypeViewModel() {
-		return configTypeViewModel;
+	public void addStuff() {
+		RentingType stuff = createStuffToVM();
+		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+		assoRepo.addStuffToAsso(configType.getId(), stuff);
 	}
+	
+	private RentingType createStuffToVM() {
+		RentingType stuff = new RentingType();
+		stuff.setNameRentingType(configTypeViewModel.getNameStuffType());
+		return stuff;
+	}
+	
+
+	public List<RentingType> getListStuffs(){
+		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+		return assoRepo.getAllStuffByConfigTypeId(configType.getId());
+	}
+
 	
 }

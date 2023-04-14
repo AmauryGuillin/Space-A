@@ -126,6 +126,31 @@
 					</h:column>
 				</h:dataTable>
 </div>				
+<div>
+				<h:form>
+
+					
+					<h4>TYPES DU MATERIEL </h4>
+					<div>
+						<b><h:outputLabel for="stuffType" value="Stuff : " /></b>
+						<h:inputText id="stuffType"
+							value="#{editAssoComplete.configTypeViewModel.nameStuffType}" /> 
+						<h:commandButton action="#{editAssoComplete.addStuff()}" value="Ajouter" />
+					</div>
+
+				</h:form>
+				
+				<h:dataTable var="stuff" value="#{editAssoComplete.listStuffs}">
+					<h:column>
+						<f:facet name="header">Id</f:facet>
+						#{stuff.id}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Nom</f:facet>
+						#{stuff.nameRentingType}
+					</h:column>
+				</h:dataTable>
+</div>				
 				
 				
 			</div>

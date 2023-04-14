@@ -13,6 +13,8 @@ public class ConfigTypeViewModel implements Serializable {
 
 		private String namePublicationType;
 		
+		private String nameStuffType;
+		
 		public String getNameEventType() {
 			return nameEventType;
 		}
@@ -27,6 +29,14 @@ public class ConfigTypeViewModel implements Serializable {
 
 		public void setNamePublicationType(String namePublicationType) {
 			this.namePublicationType = namePublicationType;
+		}
+
+		public String getNameStuffType() {
+			return nameStuffType;
+		}
+
+		public void setNameStuffType(String nameStuffType) {
+			this.nameStuffType = nameStuffType;
 		}
 		
 		
