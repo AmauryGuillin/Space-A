@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import javax.jws.soap.SOAPBinding.Use;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
+import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.services.Publication;
 import fr.isika.cda.entities.association.services.StuffToRent;
 import fr.isika.cda.entities.users.UserAccount;
@@ -25,11 +26,32 @@ public class EditMatosController implements Serializable {
 	private static final long serialVersionUID = -8426808289757260052L;
 	
 	@Inject
+	private UserAccountRepository userRepo;
+	
+	@Inject
 	private AssociationRepository assoRepo;
 
 	public List<StuffToRent> getAllMatos(){
 		return assoRepo.findAllMatos();
 	}
+	
+	public List<StuffToRent> getAllMatosOneAsso(){
+		List <StuffToRent> listAllStuff = assoRepo.findAllMatos();
+		List <StuffToRent> listReturn = new ArrayList<>();
+		
+		Long userId = SessionUtils.getLoggedUserIdFromSession();
+		UserAccount user = userRepo.findByOneId(userId);
+		
+		for(StuffToRent stuff : listAllStuff) {
+			
+			if(stuff.getAssociation().getId() == user.getSelectedAssociation()) {
+				listReturn.add(stuff);
+			}		
+		}
+		return listReturn;
+	}
+	
+	
 	
 	public List<StuffToRent> getUserBookedMatos(){
 		List <StuffToRent> listAllStuff = assoRepo.findAllMatos();
