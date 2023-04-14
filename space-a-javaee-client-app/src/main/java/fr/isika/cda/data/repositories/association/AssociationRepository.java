@@ -31,6 +31,11 @@ public class AssociationRepository {
 		return entityManager.createQuery("SELECT a FROM Association a", Association.class).getResultList();
 	}
 	
+	public List<Publication> findAllPubli(){
+		return entityManager.createQuery("SELECT p FROM Publication p", Publication.class).getResultList();
+	}
+	
+	
 	public Association findOneById(Long id) {
 		TypedQuery<Association> query = entityManager.createQuery("SELECT a FROM Association a WHERE a.id = :id", Association.class);
 	    query.setParameter("id", id);
