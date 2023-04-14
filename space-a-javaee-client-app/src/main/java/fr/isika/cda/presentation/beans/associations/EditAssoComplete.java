@@ -15,6 +15,7 @@ import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
 import fr.isika.cda.entities.association.functionnality.EventType;
+import fr.isika.cda.entities.association.functionnality.PublicationType;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.associations.viewmodels.ConfigTypeViewModel;
 import fr.isika.cda.presentation.beans.users.UserLoginController;
@@ -62,6 +63,13 @@ public class EditAssoComplete {
 		}
 		return asso;
 	}
+	
+	public String updateAsso() {
+		assoRepo.majAsso(asso);
+		return "/dashboardAdmin.xhtml?faces-redirect=true";
+	}
+	
+//EVENTS
 
 	public void addEvent() {
 		EventType event = createEventToVM();
@@ -75,14 +83,30 @@ public class EditAssoComplete {
 		return event;
 	}
 	
-	public String updateAsso() {
-		assoRepo.majAsso(asso);
-		return "/dashboardAdmin.xhtml?faces-redirect=true";
-	}
-	
+
 	public List<EventType> getListEvents(){
 		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
 		return assoRepo.getAllEventsByConfigTypeId(configType.getId());
+	}
+	
+//PUBLICATIONS
+	
+	public void addPublications() {
+		PublicationType publi = createPubliToVM();
+		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+		assoRepo.addPublicationToAsso(configType.getId(), publi);
+	}
+	
+	private PublicationType createPubliToVM() {
+		PublicationType publi = new PublicationType();
+		publi.setNamePublicationType(configTypeViewModel.getNamePublicationType());
+		return publi;
+	}
+	
+
+	public List<PublicationType> getListPublications(){
+		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+		return assoRepo.getAllPublicationByConfigTypeId(configType.getId());
 	}
 
 	public ConfigTypeViewModel getConfigTypeViewModel() {
