@@ -11,7 +11,8 @@
 			<section>
 				<div class="pourtravail">
 					<h:form>
-						<h:dataTable value="#{publiController.allPubli}" var="publi">
+						<h:dataTable value="#{editPublicationController.allPubli}"
+							var="publi">
 							<h:column>
 								<f:facet name="header">Titre de la publication</f:facet>
 								#{publi.title}
@@ -21,8 +22,23 @@
 								#{publi.description}
 							</h:column>
 
+							<h:column>
+								<f:facet name="header">Description</f:facet>
+								#{publi.author}
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Action(s)</f:facet>
+								<p:commandButton id="button-validate" value="Supprimer"
+									action="#{editPublicationController.deletePubli(publi.id)}"></p:commandButton>
+							</h:column>
+
 
 						</h:dataTable>
+							<p:commandButton id="button-validate" value="Retour"
+								action="#{navController.dashboardAdmin()}"></p:commandButton>
+
+
 					</h:form>
 				</div>
 			</section>

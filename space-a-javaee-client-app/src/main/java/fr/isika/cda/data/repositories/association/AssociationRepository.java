@@ -36,6 +36,20 @@ public class AssociationRepository {
 	}
 	
 	
+	public Publication findPubliById(Long idPubli) {
+		TypedQuery<Publication> query = entityManager.createQuery("SELECT p FROM Publication p WHERE p.id =: id", Publication.class);
+	    query.setParameter("id", idPubli);
+	    return query.getSingleResult();
+	}
+	
+	public void deletePubli(Long publicationId) {
+		Publication publi = findPubliById(publicationId);
+		entityManager.remove(publi);
+	}
+	public void deletePubli(Publication publi) {
+		entityManager.remove(publi);
+	}
+	
 	public Association findOneById(Long id) {
 		TypedQuery<Association> query = entityManager.createQuery("SELECT a FROM Association a WHERE a.id = :id", Association.class);
 	    query.setParameter("id", id);

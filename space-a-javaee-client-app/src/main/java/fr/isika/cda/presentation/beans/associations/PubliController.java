@@ -5,36 +5,28 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
-import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.services.Publication;
-import fr.isika.cda.entities.users.UserAccount;
-import fr.isika.cda.entities.users.UserRole;
-import fr.isika.cda.presentation.beans.associations.viewmodels.AssociationViewModel;
 import fr.isika.cda.presentation.beans.users.ShowUserController;
-import fr.isika.cda.presentation.beans.users.UserLoginController;
 import fr.isika.cda.presentation.utils.FileUpload;
 
 @ManagedBean
+@ViewScoped
 public class PubliController {
-
 	
 	@Inject
 	private AssociationRepository assoRepo;
-	
-	@Inject
-	private UserAccountRepository userRepo;
-	
+		
 	@Inject
 	private ShowUserController showUserController;
 	
-	private Long publiId;
 	private String imageUrl;
 
 	private Publication publi = new Publication();
@@ -73,10 +65,9 @@ public class PubliController {
 	}
 	
 	
-	
-	public List<Publication> getAllPubli(){
-		return assoRepo.findAllPubli();
-	}
+//	public List<Publication> getAllPubli(){
+//		return assoRepo.findAllPubli();
+//	}
 	
 	
 	
@@ -90,11 +81,5 @@ public class PubliController {
 	public void setPubli(Publication publi) {
 		this.publi = publi;
 	}
-
-	public Long getPubliId() {
-		return publiId;
-	}
-
-
 	
 }
