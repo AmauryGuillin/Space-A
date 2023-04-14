@@ -1,6 +1,7 @@
 package fr.isika.cda.presentation.beans.associations;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -30,6 +31,23 @@ public class EditMatosController implements Serializable {
 		return assoRepo.findAllMatos();
 	}
 	
+	public List<StuffToRent> getUserBookedMatos(){
+		List <StuffToRent> listAllStuff = assoRepo.findAllMatos();
+		List <StuffToRent> listReturn = new ArrayList<>();
+		
+		Long userId = SessionUtils.getLoggedUserIdFromSession();
+		
+		for(StuffToRent stuff : listAllStuff) {
+			
+			if(stuff.getIdUser() == userId) {
+				listReturn.add(stuff);
+			}		
+		}
+		return listReturn;
+	}
+	
+	
+	
 	public String deleteMatos(Long matosId) {
 		assoRepo.deleteMatos(matosId);
 		return "/matosList.xhtml?faces-redirect=true"; 
@@ -51,4 +69,7 @@ public class EditMatosController implements Serializable {
 		
 	return "/userProfile.xhtml?faces-redirect=true";
 	}
+	
+	
+	
 }
