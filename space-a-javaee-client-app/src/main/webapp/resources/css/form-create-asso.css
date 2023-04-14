@@ -37,6 +37,10 @@ body .ui-button.ui-button-text-icon-left .ui-icon {
 	margin-top: -0.7rem !important;
 }
 
+.descriptionAsso {
+	height:200px !important;
+}
+
 #button-validate {
 	background-color: red; /* Couleur de fond */
 	border: none; /* Pas de bordure */

@@ -1,40 +1,30 @@
 package fr.isika.cda.presentation.beans.associations;
 
-import java.io.File;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
-import org.primefaces.event.FileUploadEvent;
-import org.primefaces.model.file.UploadedFile;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationDepiction;
 import fr.isika.cda.entities.association.AssociationIdentity;
-import fr.isika.cda.entities.association.functionnality.ActivityType;
 import fr.isika.cda.entities.association.functionnality.AssociationFunctionnality;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
-import fr.isika.cda.entities.association.functionnality.PublicationType;
-import fr.isika.cda.entities.association.functionnality.RentingType;
 import fr.isika.cda.entities.association.graphic.AssociationSpace;
 import fr.isika.cda.entities.association.graphic.GraphicChart;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda.presentation.beans.associations.viewmodels.AssociationViewModel;
 import fr.isika.cda.presentation.beans.users.UserLoginController;
-import fr.isika.cda.presentation.utils.FileUpload;
 
 @ManagedBean
+@ViewScoped
 public class AssociationController {
 
-	private String mainImage;
-	private String logoImage;
-	private String kbisExtract;
-	private UploadedFile file;
 	
 	private AssociationViewModel assoVM = new AssociationViewModel();
 
@@ -47,6 +37,7 @@ public class AssociationController {
 	@Inject 
 	private UserAccountRepository userRepo;
 	
+
 	public String CreateAsso() {
 		
 		//TODO ABI faire le control : si co ok sinon page login
@@ -127,34 +118,16 @@ public class AssociationController {
 		return asso;
 	}
 	
-	public void uploadMainImage(FileUploadEvent event) {
-		System.out.println("********************************* METHODE FILEUPLOAD");
-		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMYYYY_hhmmss"));
-		UploadedFile file = event.getFile();
-		mainImage = timestamp + "_" + file.getFileName();
-		FileUpload.doUpload(file, mainImage);
-		
-		System.out.println("*********************************************" + mainImage);
-		
-//		userAccount.getUserProfile().setAvatar(mainImage);
-		
-	}
-	
 	public void autoFillPageOne() {
-		System.out.println("******************************************************* AUTOFILL");
 		assoVM.setLegalName("KakawetFrez");
 		assoVM.setRegistrationNumber("552 178 639 00132");
-//		assoVM.setName("nom");
 		assoVM.setDescription("Nous sommes une petite association dédiée à la pratique du 'cacahuète fraise', un sport encore méconnu mais avec de grandes similitudes avec la pétanque. "
 				+ "Le but de notre jeu est très simple. Il vous faut tirer une cacahuète au milieu du terrain de jeu. Munissez-vous de fraises et essayer de toucher la cacahuète ! "
 				+ "Notre dirigeante, détient le record absolu avec 46 fraises réussies à la suite. Sauriez-vous relever le défi ?");
-//		assoVM.setLogo("Path du logo....");
-//		assoVM.setMainImage("Path de l'image principale...");
 		assoVM.setHeadOffice("7 chemin Colette Jacquot, 46813 Merledan");
 		assoVM.setRscNumber("PARIS B 517 403 572");
 		assoVM.setKbisExtract("Path de l'extrait kbis...");
 		assoVM.setDirector("Mme. Brigitte");
-		System.out.println("******************************************************* AUTOFILL");
 	}
 	
 	public AssociationViewModel getAssoVM() {

@@ -28,11 +28,6 @@
 										value="#{associationController.assoVM.registrationNumber}" />
 								</div>
 								<div class="form-group">
-									<h:outputLabel for="headOffice" value="Siège Social" />
-									<h:inputText class="form-control" id="headOffice"
-										value="#{associationController.assoVM.headOffice}" />
-								</div>
-								<div class="form-group">
 									<h:outputLabel for="rcsNumber" value="Numéro RCS*" />
 									<h:inputText class="form-control" id="rcsNumber"
 										value="#{associationController.assoVM.rscNumber}" />
@@ -43,56 +38,22 @@
 										value="#{associationController.assoVM.director}" />
 								</div>
 								<div class="form-group">
+									<h:outputLabel for="headOffice" value="Siège Social" />
+									<h:inputText class="form-control" id="headOffice"
+										value="#{associationController.assoVM.headOffice}" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<!-- Partie droite du formulaire -->
+								<div class="form-group">
 									<h:outputLabel for="name" value="Nom" />
 									<h:inputText class="form-control" id="name"
 										value="#{associationController.assoVM.name}" />
 								</div>
 								<div class="form-group">
 									<h:outputLabel for="description" value="Description" />
-									<h:inputTextarea class="form-control" id="description"
+									<h:inputTextarea class="form-control descriptionAsso" id="description"
 										value="#{associationController.assoVM.description}" />
-								</div>
-							</div>
-							<div class="col-md-6 d-flex flex-column align-items-center">
-								<!-- Partie droite du formulaire -->
-								<br></br>
-								<div class="form-group">
-									<h:outputLabel for="logo" value="Logo" class="align-self-end" />
-									<p:fileUpload skinSimple="true" id="logoInput"
-										uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
-										chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
-										cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
-										label="Choisissez une image" mode="advanced"
-										sizeLimit="5000000" fileLimit="1"
-										accept=".gif,.jpg,.jpeg,.png"
-										invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
-										listener="#{showUserController.uploadFile}" class="imgInput" />
-								</div>
-								<br></br>
-								<div class="form-group">
-									<h:outputLabel for="mainImage" value="Image Principale"
-										class="align-self-end" />
-									<p:fileUpload skinSimple="true" id="mainImageInput"
-										uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
-										chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
-										cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
-										label="Choisissez une image" mode="advanced"
-										sizeLimit="5000000" fileLimit="1"
-										accept=".gif,.jpg,.jpeg,.png"
-										invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
-										listener="#{showUserController.uploadFile}" class="imgInput" />
-								</div>
-								<br></br>
-								<div class="form-group">
-									<h:outputLabel for="Kbis" value="Kbis" />
-									<p:fileUpload skinSimple="true" id="kBisExtractInput"
-										uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
-										chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
-										cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
-										label="Document pdf" mode="advanced"
-										sizeLimit="5000000" fileLimit="1" accept=".pdf"
-										invalidSizeMessage="Le fichier ne doit pas dépasser 5 Mo"
-										listener="#{showUserController.uploadFile}" class="imgInput" />
 								</div>
 							</div>
 						</div>
