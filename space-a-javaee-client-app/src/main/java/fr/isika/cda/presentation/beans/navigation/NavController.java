@@ -69,6 +69,13 @@ public class NavController {
 		WebUiTools.redirectToView("/configSpace.xhtml");		
 	}
 	
+	public void creationMatos() {
+		WebUiTools.redirectToView("/creationMatos.xhtml");		
+	}
+	
+	public void matosList() {
+		WebUiTools.redirectToView("/matosList.xhtml");		
+	}
 	
 	public void associationIndex() {
 		//user

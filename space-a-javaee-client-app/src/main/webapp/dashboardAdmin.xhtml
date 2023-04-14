@@ -16,15 +16,24 @@
 				<h:form id="dashboardAdminForm">
 					<div class="row">
 						<div class="titles">
-							<h3>Tableau de bord de votre association</h3>
-							<h4>Bienvenue : USER</h4>					
+<!-- 						<h:dataTable value="#{showUserController.connectedUser()}" -->
+<!-- 							var="user"> -->
+<!-- 							<h3>Tableau de bord de votre association</h3> -->
+<!-- 							<h4>Bienvenue </h4>	 -->
+<!-- 							<h:outputLabel value="#{user.username}"/> -->
+							
+<!-- 						</h:dataTable>				 -->
+
+						<h3>Tableau de bord de votre association</h3>
+						<h4>Bienvenue </h4>	
+
 						</div>
 						<div class="btn-dashbord-admin">
 							<h3>Visualiser</h3>
 						
 							<h:commandButton id="adherents" value="Adhérents" />
 							<h:commandButton id="activites" value="Activités" />
-							<h:commandButton id="materiels" value="Matériels" />
+							<h:commandButton id="materiels" value="Matériels" action="#{navController.matosList()}" />
 							<h:commandButton id="events" value="Événements" action="#{navController.eventList()}" />
 							<h:commandButton id="publi" value="Publications" action="#{navController.publiList()}" />
 							<h:commandButton id="configFonctionnalite" value="configFonctionnalite" />
@@ -34,6 +43,7 @@
 						
 						<div class="btn-dashbord-admin-create">
 							<h3>Créer</h3>
+							<h:commandButton id="matosCreation" value="Créer matos" action="#{navController.creationMatos()}" />
 							<h:commandButton id="evenementsCreation" value="Créer événement" action="#{navController.creationEvent()}" />
 							<h:commandButton id="publicationCreation" value="Créer publication" action="#{navController.creationPubli()}" />
 						</div>

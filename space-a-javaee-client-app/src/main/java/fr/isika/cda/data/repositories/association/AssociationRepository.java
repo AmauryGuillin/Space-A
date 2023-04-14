@@ -12,6 +12,7 @@ import fr.isika.cda.entities.association.functionnality.ConfigType;
 import fr.isika.cda.entities.association.functionnality.EventType;
 import fr.isika.cda.entities.association.services.Event;
 import fr.isika.cda.entities.association.services.Publication;
+import fr.isika.cda.entities.association.services.StuffToRent;
 
 
 @Stateless
@@ -101,6 +102,26 @@ public class AssociationRepository {
 
 	public List<Event> findAllEvent() {
 		return entityManager.createQuery("SELECT e FROM Event e", Event.class).getResultList();
+	}
+
+	public List<StuffToRent> findAllMatos() {
+		return entityManager.createQuery("SELECT m FROM StuffToRent m", StuffToRent.class).getResultList();
+	}
+
+	public void deleteMatos(Long matosId) {
+		StuffToRent matos = findMatosById(matosId);
+		entityManager.remove(matos);
+	}
+
+	private StuffToRent findMatosById(Long matosId) {
+		TypedQuery<StuffToRent> query = entityManager.createQuery("SELECT m FROM StuffToRent m WHERE m.id =: id", StuffToRent.class);
+	    query.setParameter("id", matosId);
+	    return query.getSingleResult();
+	}
+
+	public Long createMatos(StuffToRent matos) {
+		entityManager.persist(matos);
+		return matos.getId();
 	}
 
 
