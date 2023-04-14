@@ -12,9 +12,15 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
+import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.association.functionnality.ConfigType;
+import fr.isika.cda.entities.association.functionnality.EventType;
+import fr.isika.cda.entities.association.functionnality.PublicationType;
 import fr.isika.cda.entities.association.services.Publication;
+import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.users.ShowUserController;
+import fr.isika.cda.presentation.beans.users.UserLoginController;
 import fr.isika.cda.presentation.utils.FileUpload;
 
 @ManagedBean
@@ -27,7 +33,16 @@ public class PubliController {
 	@Inject
 	private ShowUserController showUserController;
 	
+	@Inject
+	private UserLoginController userLoginController;
+	
+	@Inject 
+	private UserAccountRepository userRepo;
+	
 	private String imageUrl;
+	private Association asso;
+	private UserAccount userAccount;
+	private Long userId;
 
 	private Publication publi = new Publication();
 
@@ -65,9 +80,19 @@ public class PubliController {
 	}
 	
 	
-//	public List<Publication> getAllPubli(){
-//		return assoRepo.findAllPubli();
-//	}
+	public Association getOneAsso() {
+		if (userAccount == null) {
+			userId = userLoginController.displayUserId();
+			userAccount = userRepo.findByOneId(userId);
+			asso = assoRepo.findOneById(userAccount.getAssociation().getId());
+		}
+		return asso;
+	}
+	
+	public List<PublicationType> getListPublications(){
+		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+		return assoRepo.getAllPublicationByConfigTypeId(configType.getId());
+	}
 	
 	
 	

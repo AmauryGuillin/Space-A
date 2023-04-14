@@ -31,6 +31,24 @@
                     </div> 
                     
                     <div class="form-group">
+
+								
+								
+
+								<h:selectOneMenu
+									value="#{publiController.publi.publicationType}">
+									<f:selectItems
+										value="#{publiController.listPublications}"
+										var="type" itemValue="#{type.namePublicationType}" itemLabel="#{type.namePublicationType}" />
+									
+								</h:selectOneMenu>
+
+					
+								</div>
+                    
+                    
+                    
+                    <div class="form-group">
                         
                         <h:outputLabel for="description" value="Votre texte"/>
                         <h:inputTextarea class="form-control" id="publiText" value="#{publiController.publi.description}"/> 
