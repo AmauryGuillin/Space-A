@@ -1,0 +1,18 @@
+.login-form{
+    text-align: center;
+    background: url("#{resource['images/bg-ciel.png']}");
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    
+
+}
+
+
+
+
+
