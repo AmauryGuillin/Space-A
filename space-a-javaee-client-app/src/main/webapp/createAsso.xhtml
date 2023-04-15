@@ -8,95 +8,67 @@
 
 	<ui:define name="content">
 		<h:body>
-				<div class="fond-formulaire" >
-    <h:form>
-        <div class="container-form" >
-            <h1 class="text-center">Création d'une association</h1>
-            <br></br>
-            <hr></hr>
-            <div class="row">
-                <div class="col-md-6 space">
-                    <!-- Partie gauche du formulaire -->
-                    <div class="form-group">
-                        
-                        <h:outputLabel for="legalName" value="Nom Juridique"/>
-                        <h:inputText class="form-control" id="legalName" value="#{associationController.assoVM.legalName}"/> <!-- value="#{bean.legalName} -->
-                    </div> 
-                    <div class="form-group">
-                        <h:outputLabel for="registrationNumber" value="Numéro Siret"/>
-                        <h:inputText class="form-control" id="registrationNumber" value="#{associationController.assoVM.registrationNumber}"/><!--  value="#{bean.registrationNumber}"-->
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="headOffice" value="Siège Social"/>
-                        <h:inputText class="form-control" id="headOffice" value="#{associationController.assoVM.headOffice}"/> <!-- value="#{bean.headOffice}" -->
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="rcsNumber" value="Numéro RCS"/>
-                        <h:inputText class="form-control" id="rcsNumber" value="#{associationController.assoVM.rscNumber}"/> <!-- value="#{bean.rcsNumber}" -->
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="Kbis" value="Kbis"/>
-                        <p:fileUpload skinSimple="true" id="kBisExtractInput"
-								  uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
-								  chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
-								  cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
-								  label="Choisissez une image" mode="advanced" sizeLimit="5000000"
-								  fileLimit="1" accept=".pdf"
-								  invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
-								  listener="#{showUserController.uploadFile}" 
-								  class="imgInput"/>
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="director" value="Président"/>
-                        <h:inputText class="form-control" id="director" value="#{associationController.assoVM.director}"/> <!-- value="#{bean.director}" -->
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <!-- Partie droite du formulaire -->
-                    <div class="form-group">
-                      <h:outputLabel for="name" value="Nom"/>
-                        <h:inputText class="form-control" id="name" value="#{associationController.assoVM.name}"/> <!-- value="#{bean.name}" -->
-                    </div>
-                    <div class="form-group">
-                        <h:outputLabel for="description" value="Description"/>
-                        <h:inputTextarea class="form-control" id="description" value="#{associationController.assoVM.description}"/> <!-- value="#{bean.description}" -->
-                    </div>
-                    <br></br>
-                    <div class="form-group">
-                      <h:outputLabel for="logo" value="Logo" class="align-self-end"/>
-                        <p:fileUpload skinSimple="true" id="logoInput"
-								  uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
-								  chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
-								  cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
-								  label="Choisissez une image" mode="advanced" sizeLimit="5000000"
-								  fileLimit="1" accept=".gif,.jpg,.jpeg,.png"
-								  invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
-								  listener="#{showUserController.uploadFile}" 
-								  class="imgInput"/>
-                    </div>
-                    <br></br>
-                    <div class="form-group">
-                        <h:outputLabel for="mainImage" value="Image Principale" class="align-self-end"/>
-                        <p:fileUpload skinSimple="true" id="mainImageInput"
-								  uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
-								  chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
-								  cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
-								  label="Choisissez une image" mode="advanced" sizeLimit="5000000"
-								  fileLimit="1" accept=".gif,.jpg,.jpeg,.png"
-								  invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
-								  listener="#{showUserController.uploadFile}" 
-								  class="imgInput"/>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center my-5 submit-button">
-                    <p:commandButton id="button-validate" value="Valider" action="#{associationController.CreateAsso()}"></p:commandButton>
-                </div>
-            </div>
-        </div>
-    </h:form>
-</div>
+			<div class="fond-formulaire">
+				<h:form>
+					<div class="container-form">
+						<h1 class="text-center">Création d'une association</h1>
+						<br></br>
+						<hr></hr>
+						<div class="row">
+							<div class="col-md-6 space">
+								<!-- Partie gauche du formulaire -->
+								<div class="form-group">
+									<h:outputLabel for="legalName" value="Nom Juridique*" />
+									<h:inputText class="form-control" id="legalName"
+										value="#{associationController.assoVM.legalName}" />
+								</div>
+								<div class="form-group">
+									<h:outputLabel for="registrationNumber" value="Numéro Siret*" />
+									<h:inputText class="form-control" id="registrationNumber"
+										value="#{associationController.assoVM.registrationNumber}" />
+								</div>
+								<div class="form-group">
+									<h:outputLabel for="rcsNumber" value="Numéro RCS*" />
+									<h:inputText class="form-control" id="rcsNumber"
+										value="#{associationController.assoVM.rscNumber}" />
+								</div>
+								<div class="form-group">
+									<h:outputLabel for="director" value="Président*" />
+									<h:inputText class="form-control" id="director"
+										value="#{associationController.assoVM.director}" />
+								</div>
+								<div class="form-group">
+									<h:outputLabel for="headOffice" value="Siège Social" />
+									<h:inputText class="form-control" id="headOffice"
+										value="#{associationController.assoVM.headOffice}" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<!-- Partie droite du formulaire -->
+								<div class="form-group">
+									<h:outputLabel for="name" value="Nom" />
+									<h:inputText class="form-control" id="name"
+										value="#{associationController.assoVM.name}" />
+								</div>
+								<div class="form-group">
+									<h:outputLabel for="description" value="Description" />
+									<h:inputTextarea class="form-control descriptionAsso" id="description"
+										value="#{associationController.assoVM.description}" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center my-5 submit-button">
+								<p:commandButton id="button-validate" value="Valider"
+									action="#{associationController.CreateAsso()}"></p:commandButton>
+							</div>
+							<div>
+							<h:commandButton class="admin-autofill" value="Admin-autofill" action="#{associationController.autoFillPageOne()}"></h:commandButton>
+							</div>
+						</div>
+					</div>
+				</h:form>
+			</div>
 
 		</h:body>
 	</ui:define>

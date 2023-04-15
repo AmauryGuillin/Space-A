@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<title>::Dashboard::</title>
+
+<link rel="stylesheet" type="text/css"
+	href="/space-a-spring-client-app/css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="/space-a-spring-client-app/css/index.css">
+<link rel="stylesheet" type="text/css"
+	href="/space-a-spring-client-app/css/general.css">
+
+</head>
+
+
+
+<body>
+	<header>
+		<nav class="navbar navbar-expand-sm bg-body-tertiary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"
+					onclick="switchSubPart('idWelcomeSubPart')"> <b>Spac'A
+						TABLEAU BORD</b></a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#"
+							onclick="switchSubPart('idWelcomeSubPart')">Utilisateurs</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"
+							onclick="switchSubPart('idSubPartForm')">Associations</a></li>
+						<li class="nav-item"><a class="nav-link disabled">Abonnement</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<div id="mainContent" class="mainContentUnderNavBar">
+		<!-- Main View -->
+		<div id="idWelcomeSubPart" class="defaultSubPart">
+			<div class="container">
+				<div class="members">
+			<h3>Liste des utilisateurs</h3>
+					<table id="usersTab">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Nom de compte</th>
+								<th>Prenom</th>
+								<th>Nom</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tr th:each="user : ${users}">
+							<td><span th:text=${user.userId}></span></td>
+							<td><span th:text=${user.username}></span></td>
+							<td><span th:text=${user.userProfile.firstName}></span></td>
+							<td><span th:text=${user.userProfile.lastName}></span></td>
+							<td><a th:href="@{/deleteUser(id=${user.userId})}">Supprimer</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+		</div>
+		<div id="idSubPartForm" class="alternativeSubPart">
+
+			<div class="container">
+				<div class="members">
+			<h3>Liste des associations</h3>
+					<table id="associationsTab">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Nom legal</th>
+								<th>Numero de Siret</th>
+								<th>Numero RCS</th>
+								<th>Directeur</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tr th:each="asso : ${assos}">
+							<td><span th:text=${asso.id}></span></td>
+							<td><span th:text=${asso.legalName}></span></td>
+							<td><span th:text=${asso.registrationNumber}></span></td>
+							<td><span th:text=${asso.associationIdentity.rscNumber}></span></td>
+							<td><span th:text=${asso.associationIdentity.director}></span></td>
+							<td><a th:href="@{/deleteAsso(id=${asso.id})}">Supprimer</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script type="text/javascript"
+		src="/space-a-spring-client-app/js/bootstrap.js"></script>
+	<script type="text/javascript"
+		src="/space-a-spring-client-app/js/general.js"></script>
+
+</body>
+</html>

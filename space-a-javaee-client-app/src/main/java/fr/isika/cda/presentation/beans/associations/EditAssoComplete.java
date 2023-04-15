@@ -2,13 +2,19 @@ package fr.isika.cda.presentation.beans.associations;
 
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 import javax.inject.Inject;
+
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.file.UploadedFile;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
@@ -21,14 +27,19 @@ import fr.isika.cda.entities.association.services.StuffToRent;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.associations.viewmodels.ConfigTypeViewModel;
 import fr.isika.cda.presentation.beans.users.UserLoginController;
+import fr.isika.cda.presentation.utils.FileUpload;
 
 
 @ManagedBean
+@ViewScoped
 public class EditAssoComplete {
 
 	private Association asso;
 	private UserAccount userAccount;
 	private Long userId;
+	private String mainImage;
+	private String logoImage;
+	private String kbisExtract;
 	
 	private ConfigTypeViewModel configTypeViewModel = new ConfigTypeViewModel();
 	
@@ -51,6 +62,7 @@ public class EditAssoComplete {
         for (Font font : fonts) {
             fontList.add(new SelectItem(font.getFontName()));
         }
+        asso = getOneAsso();
     }
 
     public List<SelectItem> getFontList() {
@@ -67,15 +79,44 @@ public class EditAssoComplete {
 	}
 	
 	public String updateAsso() {
+		if (mainImage != null) {
+			asso.getAssociationIdentity().getAssociationDepiction().setMainImage(mainImage);
+		}
+		if (logoImage != null) {
+			asso.getAssociationIdentity().getAssociationDepiction().setLogo(logoImage);
+		}
+		if (kbisExtract != null) {
+			asso.getAssociationIdentity().setKbisExtract(kbisExtract);
+		}
 		assoRepo.majAsso(asso);
 		return "/dashboardAdmin.xhtml?faces-redirect=true";
 	}
-	
 
 	public ConfigTypeViewModel getConfigTypeViewModel() {
 		return configTypeViewModel;
 	}
+
+	public void uploadKbisExtract(FileUploadEvent event) {	
+		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMYYYY_hhmmss"));
+		UploadedFile file = event.getFile();
+		kbisExtract = timestamp + "_" + file.getFileName();
+		FileUpload.doUpload(file, kbisExtract);
+	}
 	
+	public void uploadLogoImage(FileUploadEvent event) {
+		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMYYYY_hhmmss"));
+		UploadedFile file = event.getFile();
+		logoImage = timestamp + "_" + file.getFileName();
+		FileUpload.doUpload(file, logoImage);
+	}
+	
+	public void uploadMainImage(FileUploadEvent event) {
+		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMYYYY_hhmmss"));
+		UploadedFile file = event.getFile();
+		mainImage = timestamp + "_" + file.getFileName();
+		FileUpload.doUpload(file, mainImage);
+	}
+
 //EVENTS
 
 	public void addEvent() {
@@ -135,6 +176,5 @@ public class EditAssoComplete {
 		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
 		return assoRepo.getAllStuffByConfigTypeId(configType.getId());
 	}
-
 	
 }

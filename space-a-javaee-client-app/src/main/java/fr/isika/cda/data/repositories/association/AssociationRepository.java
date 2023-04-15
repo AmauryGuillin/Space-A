@@ -15,62 +15,66 @@ import fr.isika.cda.entities.association.functionnality.RentingType;
 import fr.isika.cda.entities.association.services.Event;
 import fr.isika.cda.entities.association.services.Publication;
 import fr.isika.cda.entities.association.services.StuffToRent;
-
+import fr.isika.cda.entities.users.UserAccount;
 
 @Stateless
 public class AssociationRepository {
 
 	private static final String CONFIG_TYPE_WITH_EVTS_BY_ID = "SELECT c FROM ConfigType c LEFT JOIN FETCH c.events WHERE c.id =:configTypeIdParam";
-	
+
 	private static final String CONFIG_TYPE_WITH_PUBLI_BY_ID = "SELECT c FROM ConfigType c LEFT JOIN FETCH c.publications WHERE c.id =:configTypeIdParam";
+
 	
 	private static final String CONFIG_TYPE_WITH_STUFF_BY_ID = "SELECT c FROM ConfigType c LEFT JOIN FETCH c.rentals WHERE c.id =:configTypeIdParam";
 	
+
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	public Long createAsso(Association association) {
 		entityManager.persist(association);
 		return association.getId();
 	}
-	
-	public List<Association> findAll(){
+
+	public List<Association> findAll() {
 		return entityManager.createQuery("SELECT a FROM Association a", Association.class).getResultList();
 	}
-	
-	public List<Publication> findAllPubli(){
+
+	public List<Publication> findAllPubli() {
 		return entityManager.createQuery("SELECT p FROM Publication p", Publication.class).getResultList();
 	}
-	
-	
+
 	public Publication findPubliById(Long idPubli) {
-		TypedQuery<Publication> query = entityManager.createQuery("SELECT p FROM Publication p WHERE p.id =: id", Publication.class);
-	    query.setParameter("id", idPubli);
-	    return query.getSingleResult();
+		TypedQuery<Publication> query = entityManager.createQuery("SELECT p FROM Publication p WHERE p.id =: id",
+				Publication.class);
+		query.setParameter("id", idPubli);
+		return query.getSingleResult();
 	}
-	
+
 	public void deletePubli(Long publicationId) {
 		Publication publi = findPubliById(publicationId);
 		entityManager.remove(publi);
 	}
-	
+
 	public Association findOneById(Long id) {
-		TypedQuery<Association> query = entityManager.createQuery("SELECT a FROM Association a WHERE a.id = :id", Association.class);
-	    query.setParameter("id", id);
-	    return query.getSingleResult();
+		TypedQuery<Association> query = entityManager.createQuery("SELECT a FROM Association a WHERE a.id = :id",
+				Association.class);
+		query.setParameter("id", id);
+		return query.getSingleResult();
 	}
 
 	public Long majAsso(Association asso) {
+		System.out.println(asso.getAssociationIdentity().getAssociationDepiction().getMainImage());
 		Association mergedAsso = entityManager.merge(asso);
-	    entityManager.flush();
-	    return mergedAsso.getId();
-		
+		entityManager.flush();
+		return mergedAsso.getId();
+
 	}
 
 	public List<EventType> getAllEventsByConfigTypeId(Long configTypeId) {
 		return getConfigTypeWithEvtsById(configTypeId).getEvents();
 	}
-	
+
 	public List<PublicationType> getAllPublicationByConfigTypeId(Long configTypeId) {
 		return getConfigTypeWithPubliById(configTypeId).getPublications();
 	}
@@ -85,13 +89,13 @@ public class AssociationRepository {
 		entityManager.persist(event);
 		entityManager.merge(configWithEvents);
 	}
-	
+
 	public void addPublicationToAsso(Long configTypeId, PublicationType publi) {
 		ConfigType configWithPublications = getConfigTypeWithPubliById(configTypeId);
 		configWithPublications.addPublicationsType(publi);
 		entityManager.persist(publi);
 		entityManager.merge(configWithPublications);
-		
+
 	}
 	
 	public void addStuffToAsso(Long configTypeId, RentingType stuff) {
@@ -103,17 +107,13 @@ public class AssociationRepository {
 	}
 
 	private ConfigType getConfigTypeWithEvtsById(Long configTypeId) {
-		return entityManager.createQuery(
-				CONFIG_TYPE_WITH_EVTS_BY_ID, ConfigType.class)
-				.setParameter("configTypeIdParam", configTypeId)
-				.getSingleResult();
+		return entityManager.createQuery(CONFIG_TYPE_WITH_EVTS_BY_ID, ConfigType.class)
+				.setParameter("configTypeIdParam", configTypeId).getSingleResult();
 	}
-	
+
 	private ConfigType getConfigTypeWithPubliById(Long configTypeId) {
-		return entityManager.createQuery(
-				CONFIG_TYPE_WITH_PUBLI_BY_ID, ConfigType.class)
-				.setParameter("configTypeIdParam", configTypeId)
-				.getSingleResult();
+		return entityManager.createQuery(CONFIG_TYPE_WITH_PUBLI_BY_ID, ConfigType.class)
+				.setParameter("configTypeIdParam", configTypeId).getSingleResult();
 	}
 	
 	private ConfigType getConfigTypeWithStuffById(Long configTypeId) {
@@ -130,7 +130,7 @@ public class AssociationRepository {
 
 	public Long createEvent(Event event) {
 		entityManager.persist(event);
-		return event.getId();		
+		return event.getId();
 	}
 
 	public void deleteEvent(Long eventId) {
@@ -140,8 +140,8 @@ public class AssociationRepository {
 
 	private Event findEventById(Long eventId) {
 		TypedQuery<Event> query = entityManager.createQuery("SELECT e FROM Event e WHERE e.id =: id", Event.class);
-	    query.setParameter("id", eventId);
-	    return query.getSingleResult();
+		query.setParameter("id", eventId);
+		return query.getSingleResult();
 	}
 
 	public List<Event> findAllEvent() {
@@ -157,10 +157,11 @@ public class AssociationRepository {
 		entityManager.remove(matos);
 	}
 
-	private StuffToRent findMatosById(Long matosId) {
-		TypedQuery<StuffToRent> query = entityManager.createQuery("SELECT m FROM StuffToRent m WHERE m.id =: id", StuffToRent.class);
-	    query.setParameter("id", matosId);
-	    return query.getSingleResult();
+	public StuffToRent findMatosById(Long matosId) {
+		TypedQuery<StuffToRent> query = entityManager.createQuery("SELECT m FROM StuffToRent m WHERE m.id =: id",
+				StuffToRent.class);
+		query.setParameter("id", matosId);
+		return query.getSingleResult();
 	}
 
 	public Long createMatos(StuffToRent matos) {
@@ -168,8 +169,12 @@ public class AssociationRepository {
 		return matos.getId();
 	}
 
+	public Long updateMatos(StuffToRent stuff) {
+		StuffToRent mergedstuff = entityManager.merge(stuff);
+	    entityManager.flush();
+	    return mergedstuff.getId();
 
-
+	}
 
 
 }

@@ -22,21 +22,37 @@
 								value="#{showUserController.oneUser.selectedAssociation}" />
 						</div>
 						<div>
-							<b>
-								<h:outputLabel value="les asso où je suis inscrit : " />
+							<b> <h:outputLabel value="Kakawet emprunté : " />
 							</b>
-							<br/>
-							<ui:repeat value="#{showUserController.currentUserAssociationSubscriptions()}" var="asso">
-								
-								<h:commandButton id="submit"
-									actionListener="#{showUserController.editSelectAssociation}"
-									action="userProfile" >
-									<f:attribute name="value" value="#{asso.legalName} #{asso.id}" />
-									<f:attribute name="asso" value="#{asso}"/>
-								</h:commandButton>
-								<br/>
-							</ui:repeat>
+							<h:form>
+								<h:dataTable value="#{editMatosController.userBookedMatos}" var="matos">
+									<h:column>
+										<f:facet name="header">Nom</f:facet>
+										#{matos.title}
+							</h:column>
+							</h:dataTable>
+							</h:form>
 
+									<br />
+
+									<br />
+									<b> <h:outputLabel value="les asso où je suis inscrit : " />
+									</b>
+
+									<br />
+									<ui:repeat
+										value="#{showUserController.currentUserAssociationSubscriptions()}"
+										var="asso">
+
+										<h:commandButton id="submit"
+											actionListener="#{showUserController.editSelectAssociation}"
+											action="userProfile">
+											<f:attribute name="value"
+												value="#{asso.legalName} #{asso.id}" />
+											<f:attribute name="asso" value="#{asso}" />
+										</h:commandButton>
+										<br />
+									</ui:repeat>
 						</div>
 						<div>
 							<b><h:outputLabel value="Rôle : " /></b>

@@ -1,18 +1,19 @@
 package fr.isika.cda.presentation.beans.associations;
 
+
+
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
+
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationDepiction;
 import fr.isika.cda.entities.association.AssociationIdentity;
-import fr.isika.cda.entities.association.functionnality.ActivityType;
 import fr.isika.cda.entities.association.functionnality.AssociationFunctionnality;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
-import fr.isika.cda.entities.association.functionnality.PublicationType;
-import fr.isika.cda.entities.association.functionnality.RentingType;
 import fr.isika.cda.entities.association.graphic.AssociationSpace;
 import fr.isika.cda.entities.association.graphic.GraphicChart;
 import fr.isika.cda.entities.users.UserAccount;
@@ -21,8 +22,10 @@ import fr.isika.cda.presentation.beans.associations.viewmodels.AssociationViewMo
 import fr.isika.cda.presentation.beans.users.UserLoginController;
 
 @ManagedBean
+@ViewScoped
 public class AssociationController {
 
+	
 	private AssociationViewModel assoVM = new AssociationViewModel();
 
 	@Inject
@@ -34,6 +37,7 @@ public class AssociationController {
 	@Inject 
 	private UserAccountRepository userRepo;
 	
+
 	public String CreateAsso() {
 		
 		//TODO ABI faire le control : si co ok sinon page login
@@ -115,16 +119,15 @@ public class AssociationController {
 	}
 	
 	public void autoFillPageOne() {
-		assoVM.setLegalName("legal name");
-		assoVM.setRegistrationNumber("000001");
-//		assoVM.setName("nom");
-		assoVM.setDescription("description");
-//		assoVM.setLogo("Path du logo....");
-//		assoVM.setMainImage("Path de l'image principale");
-		assoVM.setHeadOffice("Siège social");
-		assoVM.setRscNumber("000000001");
-		assoVM.setKbisExtract("000000006545");
-		assoVM.setDirector("Directeur");
+		assoVM.setLegalName("KakawetFrez");
+		assoVM.setRegistrationNumber("552 178 639 00132");
+		assoVM.setDescription("Nous sommes une petite association dédiée à la pratique du 'cacahuète fraise', un sport encore méconnu mais avec de grandes similitudes avec la pétanque. "
+				+ "Le but de notre jeu est très simple. Il vous faut tirer une cacahuète au milieu du terrain de jeu. Munissez-vous de fraises et essayer de toucher la cacahuète ! "
+				+ "Notre dirigeante, détient le record absolu avec 46 fraises réussies à la suite. Sauriez-vous relever le défi ?");
+		assoVM.setHeadOffice("7 chemin Colette Jacquot, 46813 Merledan");
+		assoVM.setRscNumber("PARIS B 517 403 572");
+		assoVM.setKbisExtract("Path de l'extrait kbis...");
+		assoVM.setDirector("Mme. Brigitte");
 	}
 	
 	public AssociationViewModel getAssoVM() {
