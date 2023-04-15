@@ -37,6 +37,7 @@
 
 								<h:selectOneMenu
 									value="#{publiController.publi.publicationType}">
+									<f:selectItem itemLabel="Sélectionnez votre type" itemValue="" />
 									<f:selectItems
 										value="#{publiController.listPublications}"
 										var="type" itemValue="#{type.namePublicationType}" itemLabel="#{type.namePublicationType}" />

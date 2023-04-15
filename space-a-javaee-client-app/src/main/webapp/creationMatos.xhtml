@@ -27,6 +27,7 @@
 
 											<div class="form-group">
 					<h:selectOneMenu value="#{matosController.matos.rentingType}">
+					<f:selectItem itemLabel="Sélectionnez votre type" itemValue="" />
 						<f:selectItems value="#{matosController.listStuffs}" var="type"
 							itemValue="#{type.nameRentingType}"
 							itemLabel="#{type.nameRentingType}" />
