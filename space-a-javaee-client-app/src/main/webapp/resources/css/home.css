@@ -40,10 +40,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*background-color: #FFFFFF;couleur primaire*/
     min-height: 240px;
-    /*color: red; --> couleur tertiaire*/
-    font-family: monospace;/*font Asso*/
     text-align: center;
 }
 
@@ -59,9 +56,6 @@
 }
 
 .album-home{
-    /*background-color: green; --> couleur secondaire*/
-    /*color: #FFFFFF; --> couleur primaire*/
-    font-family: monospace;/*font Asso*/
     width: 100vw;
 }
 
@@ -75,7 +69,6 @@
 .album-home .img-main-asso{
     height: 80%;
     width: 80%; 
-    /*border: #FFFFFF solid; couleur primaire*/
     margin: 10%;
 }
 
@@ -110,6 +103,18 @@
 .btn-create-asso {
     position: absolute;
     bottom: 50px;
+    width: 100%;
+    height: 40px;
+    border-radius: 15px;
+    margin-top: 1.5em;
+    background: ;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    color: aliceblue;
+    transition: 0.5s;
 }
 
 .btn-find-asso {
