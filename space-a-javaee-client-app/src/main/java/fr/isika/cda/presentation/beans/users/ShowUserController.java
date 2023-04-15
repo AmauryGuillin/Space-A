@@ -141,7 +141,6 @@ public class ShowUserController {
 
 
 	public String deleteUser(Long userId) {
-		System.out.println("******************* USER ID " + userId);
 		userAccountRepo.remove(userId);
 		return "/index.xhtml?faces-redirect=true"; 
 	}
