@@ -21,6 +21,7 @@ import fr.isika.cda.entities.association.subscriptions.Subscription;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.users.viewmodels.UserViewModel;
 import fr.isika.cda.presentation.utils.FileUpload;
+import fr.isika.cda.presentation.utils.SessionUtils;
 
 @ManagedBean
 @ViewScoped
@@ -138,6 +139,14 @@ public class ShowUserController {
 		return asso;		
 	}	
 
+
+	public String deleteUser(Long userId) {
+		System.out.println("******************* USER ID " + userId);
+		userAccountRepo.remove(userId);
+		return "/index.xhtml?faces-redirect=true"; 
+	}
+	
+	
 	public UserAccount getUserAccount() {
 		return userAccount;
 	}

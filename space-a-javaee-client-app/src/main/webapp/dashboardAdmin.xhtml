@@ -16,42 +16,44 @@
 				<h:form id="dashboardAdminForm">
 					<div class="row">
 						<div class="titles">
-<!-- 						<h:dataTable value="#{showUserController.connectedUser()}" -->
-<!-- 							var="user"> -->
-<!-- 							<h3>Tableau de bord de votre association</h3> -->
-<!-- 							<h4>Bienvenue </h4>	 -->
-<!-- 							<h:outputLabel value="#{user.username}"/> -->
-							
-<!-- 						</h:dataTable>				 -->
-
-						<h3>Tableau de bord de votre association #{showUserController.associationSelected.legalName}</h3>
-						<h4>Bienvenue : #{userLoginController.displayUserUsername()}</h4>	
-						<p:separator/>
-					</div>
-
+							<h3>Tableau de bord de votre association
+								#{showUserController.associationSelected.legalName}</h3>
+							<h4>Bienvenue : #{userLoginController.displayUserUsername()}</h4>
+							<p:separator />
 						</div>
-						<div class="row">
+
+					</div>
+					<div class="row">
 						<div class="btn-dashbord-admin">
 							<h3>Visualiser</h3>
 							<h:commandButton id="adherents" value="Adhérents" />
 							<h:commandButton id="activites" value="Activités" />
-							<h:commandButton id="materiels" value="Matériels" action="#{navController.matosList()}" />
-							<h:commandButton id="events" value="Événements" action="#{navController.eventList()}" />
-							<h:commandButton id="publi" value="Publications" action="#{navController.publiList()}" />
-							<h:commandButton id="configFonctionnalite" value="Modif fonctionnalités" />
-							<h:commandButton id="configEspace" value="Modif visuel" action="#{navController.configSpace()}" />
+							<h:commandButton id="materiels" value="Matériels"
+								action="#{navController.matosList()}" />
+							<h:commandButton id="events" value="Événements"
+								action="#{navController.eventList()}" />
+							<h:commandButton id="publi" value="Publications"
+								action="#{navController.publiList()}" />
+							<h:commandButton id="configFonctionnalite"
+								value="Modif fonctionnalités" />
+							<h:commandButton id="configEspace" value="Modif visuel"
+								action="#{navController.configSpace()}" />
 						</div>
+					</div>
+					<div class="row d-flex justify-content-center align-items-center">
+						<div class="btn-dashbord-admin-create">
+							<h3>Créer</h3>
+							<h:commandButton id="matosCreation" value="Ajout Matériel"
+								action="#{navController.creationMatos()}" />
+							<h:commandButton id="evenementsCreation" value="Ajout événement"
+								action="#{navController.creationEvent()}" />
+							<h:commandButton id="publicationCreation"
+								value="Ajout publication"
+								action="#{navController.creationPubli()}" />
 						</div>
-						<div class="row d-flex justify-content-center align-items-center">
-							<div class="btn-dashbord-admin-create">
-								<h3>Créer</h3>
-								<h:commandButton id="matosCreation" value="Ajout Matériel" action="#{navController.creationMatos()}" />
-								<h:commandButton id="evenementsCreation" value="Ajout événement" action="#{navController.creationEvent()}" />
-								<h:commandButton id="publicationCreation" value="Ajout publication" action="#{navController.creationPubli()}" />
-							</div>
-						</div>
-					
-					
+					</div>
+
+
 					<div class="row d-flex justify-content-center">
 						<div class="create-edite-delete">
 							<div class="members-list">
@@ -67,7 +69,7 @@
 												<f:facet name="header">Nom</f:facet>
 					                          	#{user.userProfile.lastName}
 					                        </h:column>
-											<h:column >
+											<h:column>
 												<f:facet name="header">Prenom</f:facet>
 					                          	#{user.userProfile.firstName}
 					                        </h:column>
@@ -87,11 +89,16 @@
 												<f:facet name="header">Telephone</f:facet>
 												#{user.userProfile.userContact.phone.phoneNumber}
 											</h:column>
+
 											<h:column>
-												<f:facet name="header">Actions</f:facet>
-												<h:commandButton value="Modifier" />
-												<h:commandButton value="Supprimer" />
+												<f:facet name="header"></f:facet>
+												<h:outputText value="#{user.userId}" />
+								
+												<p:commandButton id="button-delete" value="Supprimer"
+													action="#{showUserController.deleteUser(user.userId)}"></p:commandButton>
 											</h:column>
+
+
 										</h:dataTable>
 									</h:form>
 								</div>
