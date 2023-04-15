@@ -6,70 +6,67 @@
 
 	<ui:define name="content">
 		<h:body class="picture-bg">
-			<div class="container-index">
-				
+			
+			
+			<div class="container-fluid">
+			
+			<div class="row">
+			<!-- TOP SPACA ! 1/3 -->
+					<div class="top-spaca">
 
-					
-
-						
-
-							<!-- TOP SPACA ! 1/3 -->
-							<div class="top-spaca">
-								<div class="row">
-									<h1>L'espace des Associations</h1>
-
-									<div class="col-md-6 img-index-top">
-										<h:graphicImage class="img-main-top" library="images"
-											name="creerAsso.jpg">
-											<h:form>
-												<h:commandButton class="btn-create-asso"
-													value="Inscrire mon Association"
-													action="#{navController.createAsso()}"></h:commandButton>
-											</h:form>
-										</h:graphicImage>
-									</div>
-									<div class="col-md-6 img-index-top">
-										<h:graphicImage class="img-main-top" library="images"
-											name="trouverAsso.jpg">
-											<h:form>
-												<h:commandButton class="btn-create-asso"
-													value="M'inscrire et me laisser guider"
-													action="#{navController.login()}"></h:commandButton>
-											</h:form>
-										</h:graphicImage>
-									</div>
-								</div>
+						<h1>L'espace des Associations</h1>
+						<div class="row">
+							<div class="col-md-6 img-index-top">
+								<h:graphicImage class="img-main-top" library="images"
+									name="creerAsso.jpg">
+									<h:form>
+										<h:commandButton class="btn-create-asso"
+											value="Inscrire mon Association"
+											action="#{navController.createAsso()}"></h:commandButton>
+									</h:form>
+								</h:graphicImage>
 							</div>
-							<!-- QUI SOMME NOUS ! 2/3-->
-
-							<div class="infoSpace">
-								<h2>Qui sommes-nous</h2>
-								<p style="color: red">Lorem ipsum dolor sit amet,
-									consectetur adipiscing elit. Nulla non arcu semper, ullamcorper
-									eros nec, lobortis libero. Vestibulum ut diam ac risus eleifend
-									sollicitudin. Integer quis luctus massa, id maximus nulla. Nunc
-									eget aliquam justo. Curabitur vitae ipsum in elit rhoncus
-									euismod. Proin ut semper lorem. Sed porta, lacus vel luctus
-									lobortis, arcu est fringilla tortor, at tristique ex purus eu
-									nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Nulla non arcu semper, ullamcorper eros nec, lobortis libero.
-									Vestibulum ut diam ac risus eleifend sollicitudin. Integer quis
-									luctus massa, id maximus nulla. Nunc eget aliquam justo.
-									Curabitur vitae ipsum in elit rhoncus euismod. Proin ut semper
-									lorem. Sed porta, lacus vel luctus lobortis, arcu est fringilla
-									tortor, at tristique ex purus eu nulla. Lorem ipsum dolor sit
-									amet, consectetur adipiscing elit. Nulla non arcu semper,
-									ullamcorper eros nec, lobortis libero. Vestibulum ut diam ac
-									risus eleifend sollicitudin. Integer quis luctus massa, id
-									maximus nulla. Nunc eget aliquam justo. Curabitur vitae ipsum
-									in elit rhoncus euismod. Proin ut semper lorem. Sed porta,
-									lacus vel luctus lobortis, arcu est fringilla tortor, at
-									tristique ex purus eu nulla.</p>
+							<div class="col-md-6 img-index-top">
+								<h:graphicImage class="img-main-top" library="images"
+									name="trouverAsso.jpg">
+									<h:form>
+										<h:commandButton class="btn-create-asso"
+											value="M'inscrire et me laisser guider"
+											action="#{navController.login()}"></h:commandButton>
+									</h:form>
+								</h:graphicImage>
 							</div>
-
-
-							<!-- ASSOCIATION ! 3/3-->
-							<div class="catalogue-asso">
+						</div>
+					</div>
+				</div>
+			<div class="row bg-dark">
+					<div class="infoSpace">
+						<h2>Qui sommes-nous</h2>
+						<p style="color: red">Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Nulla non arcu semper, ullamcorper eros nec,
+							lobortis libero. Vestibulum ut diam ac risus eleifend
+							sollicitudin. Integer quis luctus massa, id maximus nulla. Nunc
+							eget aliquam justo. Curabitur vitae ipsum in elit rhoncus
+							euismod. Proin ut semper lorem. Sed porta, lacus vel luctus
+							lobortis, arcu est fringilla tortor, at tristique ex purus eu
+							nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Nulla non arcu semper, ullamcorper eros nec, lobortis libero.
+							Vestibulum ut diam ac risus eleifend sollicitudin. Integer quis
+							luctus massa, id maximus nulla. Nunc eget aliquam justo.
+							Curabitur vitae ipsum in elit rhoncus euismod. Proin ut semper
+							lorem. Sed porta, lacus vel luctus lobortis, arcu est fringilla
+							tortor, at tristique ex purus eu nulla. Lorem ipsum dolor sit
+							amet, consectetur adipiscing elit. Nulla non arcu semper,
+							ullamcorper eros nec, lobortis libero. Vestibulum ut diam ac
+							risus eleifend sollicitudin. Integer quis luctus massa, id
+							maximus nulla. Nunc eget aliquam justo. Curabitur vitae ipsum in
+							elit rhoncus euismod. Proin ut semper lorem. Sed porta, lacus vel
+							luctus lobortis, arcu est fringilla tortor, at tristique ex purus
+							eu nulla.</p>
+					</div>
+				</div>
+			<div class="row bg-info">
+			<div class="catalogue-asso">
 								<h2>Les Associations de la semaine</h2>
 								<div class="row">
 
@@ -84,10 +81,12 @@
 									</div>
 								</div>
 							</div>
-
-						</div>
-				
-				
+			
+			</div>
+			
+			
+			</div>
+			
 		
 		</h:body>
 	</ui:define>

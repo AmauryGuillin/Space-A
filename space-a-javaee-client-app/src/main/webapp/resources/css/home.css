@@ -17,10 +17,7 @@
     padding-top: 100px;
 }
 
-.container, .main-content, .row{
-	margin:0;
-	padding:0;
-} 
+
 
 .form-sans-marg{
 	padding:0;
@@ -91,12 +88,14 @@
     color: #FFFFFF;
     width: 100vw;
     text-align: center;
-    padding-top: 100px;
     background: url("#{resource['images/bg-ciel.png']}");
 }
 
 .top-spaca h1{
-	
+	font-weight: bolder;
+    font-size: 3em;
+    margin-bottom: 30px;
+    padding-top:30px;
 }
 
 .top-spaca .img-main-top{
@@ -163,7 +162,7 @@
 
 .catalogue-asso h2{
     margin: 30px;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     
 }
