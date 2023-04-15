@@ -60,6 +60,7 @@
 
 								<h:selectOneMenu
 									value="#{eventController.event.eventType}">
+									<f:selectItem itemLabel="Sélectionnez votre type" itemValue="" />
 									<f:selectItems
 										value="#{eventController.listEvents}"
 										var="type" itemValue="#{type.nameEventType}" itemLabel="#{type.nameEventType}" />

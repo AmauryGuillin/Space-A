@@ -2,38 +2,114 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html" lang="en"
-	template="/WEB-INF/template/template.xhtml">
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/template/template.xhtml"
+	xmlns:p="http://primefaces.org/ui">
 
 
 	<ui:define name="content">
 
-		<body>
-			<div class="pourtravail">
+		<h:body>
+			<div class="login-form">
+				<div class="wrapper">
+<div class="form-box login">
 
-				<H1>ON EST LOGIN</H1>
-				<h:form id="loginForm">
-
-					<div>
-						<h:outputLabel value="username" />
-						<h:inputText
-							value="#{userLoginController.userLoginViewModel.username}" />
+						<h2>Connection</h2>
+						<h:form id="loginForm">
+							<div class="input-box">
+								<h:inputText
+									value="#{userLoginController.userLoginViewModel.username}" />
+								<h:outputLabel class="test" value="Identifiant" />
+							</div>
+							<div class="input-box">
+								<h:inputSecret
+									value="#{userLoginController.userLoginViewModel.password}" />
+								<h:outputLabel value="Mot de passe" />
+							</div>
+							<div class="forget">
+								<h:link value="Mot de passe oublié" />
+							</div>
+							<div>
+								<h:commandButton class="btn-login"
+									action="#{userLoginController.login()}" value="Se connecter" />
+							</div>
+							<div class="login-register">
+								<p>
+									Pas encore de compte ? <br /> <a href="#"
+										class="register-link">Inscrivez-vous</a>
+								</p>
+							</div>
+						</h:form>
 					</div>
 
+			<div class="form-box register">
+
+				<h2>Inscription</h2>
+				<h:form id="registrationForm">
+					<div class="input-box">
+						<h:inputText class="input"
+							value="#{createAccountController.createAccountViewModel.username}"
+							a:placeholder="entrer votre nom d'utilisateur" />
+
+						<h:outputLabel value="Nom d'utilisateur : " />
+					</div>
+					<div class="input-box">
+						<h:inputSecret class="input"
+							value="#{createAccountController.createAccountViewModel.password}"
+							a:placeholder="entrer votre mot de passe" />
+
+						<h:outputLabel value="Mot de passe : " />
+					</div>
+					<div class="input-box">
+						<h:inputSecret class="input"
+							value="#{createAccountController.createAccountViewModel.passwordControl}"
+							a:placeholder="confirmer votre mot de passe" />
+
+						<h:outputLabel value="Confirmation du mot de passe :  " />
+					</div>
+					<div class="input-box">
+						<h:inputText class="input"
+							value="#{createAccountController.createAccountViewModel.primaryEmail}"
+							a:placeholder="entrer votre adresse mail" />
+						<h:outputLabel value="Adresse email : " />
+					</div>
+					 
 					<div>
-						<h:outputLabel value="password" />
-						<h:inputSecret
-							value="#{userLoginController.userLoginViewModel.password}" />
+		<h:commandButton class="btn-login" action="#{createAccountController.createAccount()}" value="Créer" />
+
 					</div>
 
-					<div>
-						<h:commandButton action="#{userLoginController.login()}"
-							value="Login" />
+
+
+
+
+
+
+
+							<div></div>
+							<div class="login-register">
+								<p>
+									Déjà un compte ?  <br /> <a href="#"
+										class="login-link">Connectez-vous</a>
+								</p>
+							</div>
+						</h:form>
 					</div>
 
 
-				</h:form>
+
+
+
+
+
+
+
+
+
+
+				</div>
 			</div>
-		</body>
+		</h:body>
 
 	</ui:define>
 

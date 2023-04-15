@@ -29,7 +29,9 @@
 	<h:outputStylesheet library="css" name="home.css" />
 	<h:outputStylesheet library="css" name="updateProfile.css" />
 	<h:outputStylesheet library="css" name="dashboardAdmin.css" />
+	<h:outputStylesheet library="css" name="login.css" />
 	<h:outputStylesheet library="css" name="SubscriptionDisplayPage.css" />
+
 	
 	<link rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
@@ -88,6 +90,7 @@
 					
 						<div class="collapse navbar-collapse justify-content-start"
 							id="navbarNav">
+							
 						<h:form>
 						<ui:fragment rendered="#{userLoginController.userLoggedIn}">	
 							<ul class="navbar-nav">
@@ -97,7 +100,8 @@
 							
 							<h:commandLink class="nav-link"
 										action="#{navController.associationIndex()}"
-										value="Accueil #{showUserController.userSelectedAssociation.associationIdentity.associationDepiction.name}" /></li>
+										value="Accueil 
+										 #{showUserController.userSelectedAssociation.associationIdentity.associationDepiction.name}" /></li>
 								
 								<li class="nav-item"><h:commandLink class="nav-link"
 										action="#{navController.eventList()}" 
@@ -128,7 +132,7 @@
 
 								<ui:fragment rendered="#{userLoginController.userLoggedIn}">
 									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.userProfile()}" value="Profile" /></li>
+											action="#{navController.userProfile()}" value="Profil" /></li>
 
 
 									<ui:fragment
@@ -139,7 +143,7 @@
 
 
 									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{userLoginController.logout()}" value="logout" /></li>
+											action="#{userLoginController.logout()}" value="Se déconnecter" /></li>
 								</ui:fragment>
 
 
@@ -156,19 +160,20 @@
 
 							</ul>
 							</h:form>
+						
 						</div>
+						
+						
+						
 						</div>
-						
-						
-						
-						
-					
-					<button class="navbar-toggler" type="button"
+							<button class="navbar-toggler" type="button"
 							data-bs-toggle="collapse" data-bs-target="#navbarNav"
 							aria-controls="navbarNav" aria-expanded="false"
 							aria-label="Toggle navigation">
 							<span class="bi bi-list"></span>
 					</button>
+					
+				
 			
 			</nav>
 
@@ -193,6 +198,7 @@
 
 		<h:outputScript library="js" name="copyright_year.js" />
 		<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+		<h:outputScript library="js" name="login.js" />
 
 	</div>
 </h:body>

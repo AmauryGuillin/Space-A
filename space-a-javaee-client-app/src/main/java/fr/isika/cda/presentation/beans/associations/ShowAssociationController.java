@@ -88,7 +88,7 @@ public class ShowAssociationController {
 				
 		userRepo.majProfile(userConnecte);
 		
-		return "/index.xhtml?faces-redirect=true";
+		return "/userProfile.xhtml?faces-redirect=true";
 	}
 
 	public Association getAsso() {

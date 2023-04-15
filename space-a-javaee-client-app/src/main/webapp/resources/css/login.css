@@ -1,0 +1,178 @@
+.login-form{
+    text-align: center;
+    background: url("#{resource['images/bg-ciel.png']}");
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Times New Roman'
+
+}
+
+
+
+.wrapper{
+	position: relative;
+  	width: 400px;
+    height: 450px;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    overflow: hidden; 
+    transform: scale(1);
+    transition: transform .5s ease, height .2s ease;
+}
+
+.wrapper.active-popup{
+    transform: scale(1);
+}
+
+.wrapper.active{
+    height: 600px;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login{
+transition: transform .18s ease;
+transform: translateX(0)
+}
+
+.wrapper.active .form-box.login{
+    transition:none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register{
+    transition: transform .18s ease;
+    transform: translateX(0)
+    }
+
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.login-form .form-box h2{
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid aliceblue;
+    margin: 30px 0 ;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color:aliceblue;
+    font-size: 1.2em;
+    pointer-events: none;
+    transition: 0.6s;
+    font-weight: bold;
+}
+
+input:focus ~ label, 
+input:valid ~ label{
+    top: -5px;
+} 
+
+.input-box input{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    padding: 0 35px 0 5px;
+    color: aliceblue;
+}
+
+.input::placeholder {
+  color: #D2D0D0;
+  font-size: 1rem
+}
+
+.forget{
+    margin: -15px 0 15px;
+    font-size: 0.8em;
+    color:aliceblue;
+    justify-content: center;
+    margin: -15px 0 15px;
+}
+
+
+.forget label input {
+    margin-right: 3px;
+}
+
+.forget a { 
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.forget a:hover {
+    text-decoration: underline;
+}
+
+
+.btn-login{
+    width: 100%;
+    height: 40px;
+    border-radius: 15px;
+    margin-top: 1.5em;
+    background: rgba(0, 0, 0, 0.37);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    color: aliceblue;
+    transition: 0.5s;
+}
+
+.btn-login:hover{
+    background: aliceblue;
+    color:black;
+}
+
+.login-register{
+    font-size: 1em;
+    color: aliceblue;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register a { 
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: 700;
+}
+
