@@ -17,7 +17,7 @@ public class UserController {
 	@Autowired
 	private UserAccountService userAccountService;
 	
-	@RequestMapping("/edit")
+	@RequestMapping("/editUser")
 	public ModelAndView editUserAccountForm(@RequestParam Long id) {
 		ModelAndView mav = new ModelAndView("edit_userAccount");
 		Optional<UserAccount> userAccount = userAccountService.byId(id);
