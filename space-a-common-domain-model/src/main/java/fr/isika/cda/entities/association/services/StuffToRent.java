@@ -104,6 +104,7 @@ public class StuffToRent {
 
 	public void setStuffType(String stuffType) {
 		this.stuffType = stuffType;
+	}
 
 	public Long getIdUser() {
 		return idUser;
