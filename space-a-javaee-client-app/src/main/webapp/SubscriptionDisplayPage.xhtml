@@ -8,11 +8,26 @@
 
 	<ui:define name="content">
 		<h:body>
-			<div class="pourtravail">
-			<h4>TITRE DE L'ABO : #{assoAdminSubscriptionController.adminSubDetails.title}</h4>
-			<h3>prix : #{assoAdminSubscriptionController.adminSubDetails.price}</h3>
-			<p>description : #{assoAdminSubscriptionController.adminSubDetails.description}</p>
-			<p:commandButton value="Payer"></p:commandButton>
+			<div class="container-fluid c-main">
+				<div class="subscription-content">
+					<div class="subscription-title">
+						<h4>Abonnement</h4>
+					</div>
+					<div class="subscription-card">
+					<div class="sub-title">
+						#{assoAdminSubscriptionController.adminSubDetails.title}
+					</div>
+					<div class="sub-description">
+						<p>#{assoAdminSubscriptionController.adminSubDetails.description}</p>
+					</div>
+					<div class="sub-price">
+						#{assoAdminSubscriptionController.adminSubDetails.price}€
+					</div>
+					<div class="sub-btn">
+						<h:commandButton value="S'abonner" /> premier mois gratuit !
+					</div>
+					</div>
+				</div>
 			</div>
 		</h:body>
 	</ui:define>

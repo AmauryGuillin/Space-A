@@ -1,0 +1,86 @@
+.c-main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.subscription-content {
+	margin-top: 5rem;
+	background: #d9d9d999;
+	width: 1000px;
+	height: fit-content;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.subscription-title {
+	width: 100%;
+	text-align: center;
+	border-bottom: 2px solid black;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background: #ddd9d9;
+}
+
+.subscription-title h4 {
+	width:100%;
+	margin-top: 1rem;
+	padding-bottom: 1rem;
+	font-weight: bold;
+	justify-self: center; 
+}
+
+.subscription-card {
+	background: #dbdbdb;
+	border: 2px solid black;
+	border-radius: 20px;
+	height: 600px;
+	width: 480px;
+	margin: 2rem 0 2rem 0;
+}
+
+.sub-title {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	text-align: center;
+	width: 100%;
+	border-bottom: 2px solid black;
+	background: linear-gradient(to right, #000000e5, #fba3339c);
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	color: white;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+.sub-description {
+	margin-top: 5rem;
+	text-align: center;
+	font-size: 1.1rem;
+}
+
+.sub-description p {
+
+	margin: 0 1rem 1rem 1rem;
+}
+
+.sub-price {
+	text-align: center;
+	font-weight: bold;
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+.sub-btn {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
