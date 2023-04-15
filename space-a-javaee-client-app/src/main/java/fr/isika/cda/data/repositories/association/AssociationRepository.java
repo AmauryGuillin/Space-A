@@ -11,6 +11,7 @@ import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
 import fr.isika.cda.entities.association.functionnality.EventType;
 import fr.isika.cda.entities.association.functionnality.PublicationType;
+import fr.isika.cda.entities.association.services.Activity;
 import fr.isika.cda.entities.association.services.Event;
 import fr.isika.cda.entities.association.services.Publication;
 import fr.isika.cda.entities.association.services.StuffToRent;
@@ -150,6 +151,11 @@ public class AssociationRepository {
 	    entityManager.flush();
 	    return mergedstuff.getId();
 
+	}
+
+	public Long createActivity(Activity activity) {
+		entityManager.persist(activity);
+		return activity.getId();
 	}
 
 

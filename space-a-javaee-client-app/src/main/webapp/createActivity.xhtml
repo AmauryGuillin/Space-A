@@ -1,58 +1,102 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" lang="en">
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
 
-<h:outputStylesheet library="css" name="style.css" />
+	<ui:define name="content">
+		<h:body>
+			<div class="fond-formulaire">
 
-<ui:composition template="/WEB-INF/template/template.xhtml">
+				<div class="container-form">
+					<h1 class="text-center">Création d'une activité</h1>
+					<br></br>
+					<hr></hr>
+					<h:form>
+						<div class="row">
+							<div class="col-md-6 space">
+
+
+								<div class="form-group row col-md-12">
+									<div class="col-md-3">
+										<h:outputLabel for="startDate" value="Date de début :"
+											class="col-form-label font-weight-bold" />
+									</div>
+									<div class="col-md-9">
+										<p:datePicker id="startDate"
+											value="#{activityController.activity.startDate}"
+											showButtonBar="true" class="form-control1"
+											style="border-radius: 15px" />
+									</div>
+								</div>
+
+								<div class="form-group row col-md-12">
+									<div class="col-md-3">
+										<h:outputLabel for="endDate" value="Date de fin :"
+											class="col-form-label font-weight-bold" />
+									</div>
+									<div class="col-md-9">
+										<p:datePicker id="endDate"
+											value="#{activityController.activity.endDate}"
+											showButtonBar="true" class="form-control1"
+											style="border-radius: 15px" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<h:outputLabel for="title" value="Titre" />
+									<h:inputText class="form-control" id="activityTitre"
+										value="#{activityController.activity.title}" />
+								</div>
+
+								<div class="form-group">
+									<h:outputLabel for="description" value="Description" />
+									<h:inputText class="form-control" id="activityDescription"
+										value="#{activityController.activity.description}" />
+								</div>
+
+								<div class="form-group">
+									<h:outputLabel for="maxCapacity" value="Nombre de personnes" />
+									<h:inputText class="form-control" id="activityMaxCapacity"
+										value="#{activityController.activity.maxCapacity}" />
+								</div>
+
 	
-	<h:head>
-		<title>Créer activité</title>
-	</h:head>
-	<ui:define name="content"> 
-	<body>
-		<h:form enctype="multipart/form-data">
-  <h:outputLabel for="titre" value="Titre :" />
-  <br />
-  <h:inputText id="titre"  required="true" />
-  <br />
-  
-  <h:outputLabel for="date_debut" value="Date de début :" />
-  <br />
-  <h:inputText id="date_debut"  required="true" >
-    <f:convertDateTime pattern="yyyy-MM-dd" />
-  </h:inputText>
-  <br />
-  
-  <h:outputLabel for="date_fin" value="Date de fin :" />
-  <br />
-  <h:inputText id="date_fin"  required="true" >
-    <f:convertDateTime pattern="yyyy-MM-dd" />
-  </h:inputText>
-  <br />
-  <h:outputLabel for="capacity" value="capacité d'accueil :" />
-  <br />
-  <h:inputTextarea id="capacity"  rows="5" required="true" />
-  <br />
-  <h:outputLabel for="photo" value="Photo :" />
-  <br />
-  <h:inputFile id="photo"  required="true" accept="image/*" />
-  <br />
-  
-  <h:outputLabel for="descriptif" value="Descriptif :" />
-  <br />
-  <h:inputTextarea id="descriptif"  rows="5" required="true" />
-  <br />
-  
-  <h:commandButton value="Envoyer"  />
-   <h:commandButton value="Annuler"  />
-</h:form>
-		
-		</body>
+
+
+								<div class="form-group">
+
+
+
+
+									<!-- 								<h:selectOneMenu -->
+									<!-- 									value="#{activityController.activity.activityType}"> -->
+									<!-- 									<f:selectItems -->
+									<!-- 										value="#{eventController.listEvents}" -->
+									<!-- 										var="type" itemValue="#{type.nameEventType}" itemLabel="#{type.nameEventType}" /> -->
+
+									<!-- 								</h:selectOneMenu> -->
+
+
+								</div>
+
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center my-5 submit-button">
+								<p:commandButton id="button-validate" value="Valider"
+									action="#{activityController.createActivity()}"></p:commandButton>
+							</div>
+						</div>
+
+					</h:form>
+				</div>
+
+			</div>
+
+		</h:body>
 	</ui:define>
 </ui:composition>
-</html>

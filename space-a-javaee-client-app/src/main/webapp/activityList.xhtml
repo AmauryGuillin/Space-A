@@ -11,26 +11,31 @@
 			<section>
 				<div class="pourtravail">
 					<h:form>
-						<h:dataTable value="#{editPublicationController.allPubli}"
-							var="publi">
+						<h:dataTable value="#{editActivityController.allActivity}"
+							var="activity">
 							<h:column>
-								<f:facet name="header">Titre de la publication</f:facet>
-								#{publi.title}
+								<f:facet name="header">Titre </f:facet>
+								#{activity.title}
 							</h:column>
 							<h:column>
 								<f:facet name="header">Description</f:facet>
-								#{publi.description}
+								#{activity.description}
 							</h:column>
 
 							<h:column>
-								<f:facet name="header">Auteur</f:facet>
-								#{publi.author}
+								<f:facet name="header">Date début</f:facet>
+								#{activity.startDate}
 							</h:column>
 
+							<h:column>
+								<f:facet name="header">Date fin</f:facet>
+								#{activity.endDate}
+							</h:column>
+							
 							<h:column>
 								<f:facet name="header"></f:facet>
 								<p:commandButton id="button-validate" value="Supprimer"
-									action="#{editPublicationController.deletePubli(publi.id)}"></p:commandButton>
+									action="#{editEventController.deleteEvent(event.id)}"></p:commandButton>
 							</h:column>
 
 
@@ -45,5 +50,4 @@
 		</body>
 	</ui:define>
 </ui:composition>
-
 

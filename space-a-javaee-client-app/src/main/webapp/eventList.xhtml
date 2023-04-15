@@ -19,7 +19,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">Description</f:facet>
-								#{publi.description}
+								#{event.description}
 							</h:column>
 
 							<h:column>
@@ -33,7 +33,7 @@
 							</h:column>
 							
 							<h:column>
-								<f:facet name="header">Action(s)</f:facet>
+								<f:facet name="header"></f:facet>
 								<p:commandButton id="button-validate" value="Supprimer"
 									action="#{editEventController.deleteEvent(event.id)}"></p:commandButton>
 							</h:column>
