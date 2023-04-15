@@ -38,10 +38,15 @@ public class Activity {
 	
 	private String eventType;
 	
+	private Long idUser;
+
 	//private List<UserAccount> registeredList = new ArrayList<>();
 	
 	@ManyToOne
 	private Association association;
+
+	@ManyToOne
+	private UserAccount userAccount;
 
 	public Long getId() {
 		return id;
@@ -121,6 +126,22 @@ public class Activity {
 
 	public void setEventType(String eventType) {
 		this.eventType = eventType;
+	}
+
+	public Long getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
+	}
+
+	public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+	public void setUserAccount(UserAccount userAccount) {
+		this.userAccount = userAccount;
 	}
 
 

@@ -175,7 +175,6 @@ public class AssociationRepository {
 		StuffToRent mergedstuff = entityManager.merge(stuff);
 	    entityManager.flush();
 	    return mergedstuff.getId();
-
 	}
 
 	public Long createActivity(Activity activity) {
@@ -196,11 +195,18 @@ public class AssociationRepository {
 		entityManager.remove(activity);
 	}
 
-	private Activity findActivityById(Long activityId) {
+	public Activity findActivityById(Long activityId) {
 		TypedQuery<Activity> query = entityManager.createQuery("SELECT a FROM Activity a WHERE a.id =: id", Activity.class);
 		query.setParameter("id", activityId);
 		return query.getSingleResult();
 	}
+
+	public Long updateActivity(Activity activity) {
+		Activity mergedActivity = entityManager.merge(activity);
+	    entityManager.flush();
+	    return mergedActivity.getId();
+	}
+
 
 
 
