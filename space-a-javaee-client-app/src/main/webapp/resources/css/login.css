@@ -115,7 +115,8 @@ input:valid ~ label{
 }
 
 .input::placeholder {
-  color: white;
+  color: #D2D0D0;
+  font-size: 1rem
 }
 
 .forget{
