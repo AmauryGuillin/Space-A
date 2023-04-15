@@ -95,18 +95,6 @@ public class EditMatosController implements Serializable {
 	public StuffToRent getOneMatos(Long matosId) {
 		return assoRepo.findMatosById(matosId);
 	}
-	
-	
-	
-	
-//	
-//	public boolean stuffBooked(Long matosId) {
-//	StuffToRent stuff = assoRepo.findMatosById(matosId);
-//
-//	if(stuff.getIdUser() != 0L) {
-//		return true;
-//	}
-//	return false;
-//}
+
 	
 }

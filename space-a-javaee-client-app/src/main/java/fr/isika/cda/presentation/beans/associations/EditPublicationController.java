@@ -20,12 +20,12 @@ public class EditPublicationController implements Serializable {
 	@Inject
 	private AssociationRepository assoRepo;
 
-	public List<StuffToRent> getAllMatos(){
-		return assoRepo.findAllMatos();
+	public List<Publication> getAllPubli(){
+		return assoRepo.findAllPubli();
 	}
 	
-	public String deleteMatos(Long matosId) {
-		assoRepo.deleteMatos(matosId);
+	public String deletePubli(Long publiId) {
+		assoRepo.deletePubli(publiId);
 		return "/matosList.xhtml?faces-redirect=true"; 
 	}
 
