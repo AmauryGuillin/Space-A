@@ -25,29 +25,43 @@
 								value="#{showUserController.oneUser.selectedAssociation}" />
 						</div>
 						<div>
-							<b> <h:outputLabel value="Matériel emprunté : " />
-							</b>
-							<h:form>
-								<h:dataTable value="#{editMatosController.userBookedMatos}"
-									var="matos">
-									<h:column>
-										<f:facet name="header">Nom</f:facet>
-										#{matos.title}
-							</h:column>
-								</h:dataTable>
-							</h:form>
 							
-							<b> <h:outputLabel value="Activité(s) auxquelles je suis inscrit(e) : " />
-							</b>
-							<h:form>
-								<h:dataTable value="#{editActivityController.userBookedActivity}"
-									var="matos">
-									<h:column>
-										<f:facet name="header">Nom</f:facet>
-										#{activity.title}
-							</h:column>
-								</h:dataTable>
-							</h:form>
+							
+					
+							
+							<br /> <br /> <b> <h:outputLabel
+									value="Activité(s) auxquelles je suis inscrit(e) : " />
+							</b> <br />
+							<ui:repeat
+								value="#{editActivityController.userBookedActivity}"
+								var="activity">
+
+								<h:commandButton id="submit"
+									actionListener="#{showUserController.editSelectAssociation}"
+									action="userProfile">
+									<f:attribute name="value" value="#{activity.title}" />
+								</h:commandButton>
+								<br />
+							</ui:repeat>
+							
+							
+							
+							<br /> <br /> <b> <h:outputLabel
+									value="Matériel emprunté : " />
+							</b> <br />
+							<ui:repeat
+								value="#{editMatosController.userBookedMatos}"
+								var="matos">
+
+								<h:commandButton id="submit"
+									actionListener="#{showUserController.editSelectAssociation}"
+									action="userProfile">
+									<f:attribute name="value" value="#{matos.title}" />
+								</h:commandButton>
+								<br />
+							</ui:repeat>
+							
+							
 
 							<br /> <br /> <b> <h:outputLabel
 									value="les asso où je suis inscrit : " />
@@ -60,7 +74,6 @@
 									actionListener="#{showUserController.editSelectAssociation}"
 									action="userProfile">
 									<f:attribute name="value" value="#{asso.legalName} #{asso.id}" />
-									<f:attribute name="asso" value="#{asso}" />
 								</h:commandButton>
 								<br />
 							</ui:repeat>
