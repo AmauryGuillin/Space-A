@@ -26,6 +26,8 @@
 								</div>
 
 											<div class="form-group">
+											<h:outputLabel for="desc" value="Type" />
+											
 					<h:selectOneMenu value="#{matosController.matos.rentingType}">
 					<f:selectItem itemLabel="Sélectionnez votre type" itemValue="" />
 						<f:selectItems value="#{matosController.listStuffs}" var="type"
@@ -35,7 +37,7 @@
 				</div>
 
 								<div class="form-group">
-									<h:outputLabel for="desc" value="Descriptio" />
+									<h:outputLabel for="desc" value="Description" />
 									<h:inputText class="form-control" id="descriptionMatos"
 										value="#{matosController.matos.description}" />
 								</div>

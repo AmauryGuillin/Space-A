@@ -19,6 +19,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.association.subscriptions.AssoAdminSubscription;
 import fr.isika.cda.entities.association.subscriptions.Subscription;
 import fr.isika.cda.entities.users.plannings.AccountPlanning;
 
@@ -63,6 +64,9 @@ public class UserAccount implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "subscription_id")
 	private List<Subscription> subscriptions = new ArrayList<>();
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private AssoAdminSubscription assoAdminSubscription;
 
 	/*
 	 * Public methods
@@ -176,7 +180,14 @@ public class UserAccount implements Serializable {
 		selectedAssociation = selectedAssociationId;
 		return this;
 	}
-
+	
+	public AssoAdminSubscription getAssoAdminSubscription() {
+		return assoAdminSubscription;
+	}
+	public void setAssoAdminSubscription(AssoAdminSubscription assoAdminSubscription) {
+		this.assoAdminSubscription = assoAdminSubscription;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

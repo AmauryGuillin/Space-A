@@ -31,6 +31,7 @@
     	<class>fr.isika.cda.entities.users.UserContact</class>
     	<class>fr.isika.cda.entities.users.UserProfile</class>
     	<class>fr.isika.cda.entities.users.plannings.AccountPlanning</class>
+    	<class>fr.isika.cda.entities.association.subscriptions.AssoAdminSubscription</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/spacea?serverTimezone=Europe/Paris" />
             <property name="javax.persistence.jdbc.user" value="root" />

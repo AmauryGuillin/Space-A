@@ -81,6 +81,14 @@ public class NavController {
 		WebUiTools.redirectToView("/matosList.xhtml");		
 	}
 	
+	public void creationActivity() {
+		WebUiTools.redirectToView("/creationActivity.xhtml");		
+	}
+	
+	public void activityList() {
+		WebUiTools.redirectToView("/activityList.xhtml");		
+	}
+	
 	public void associationIndex() {
 		//user
 		//choper son assoSelect

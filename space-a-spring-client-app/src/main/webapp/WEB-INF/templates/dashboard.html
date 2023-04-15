@@ -2,18 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
 <title>::Dashboard::</title>
-
-<link rel="stylesheet" type="text/css"
-	href="/space-a-spring-client-app/css/bootstrap.css">
-<link rel="stylesheet" type="text/css"
-	href="/space-a-spring-client-app/css/index.css">
-<link rel="stylesheet" type="text/css"
-	href="/space-a-spring-client-app/css/general.css">
-
+<link rel="stylesheet" type="text/css" href="/space-a-spring-client-app/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/space-a-spring-client-app/css/index.css">
+<link rel="stylesheet" type="text/css" href="/space-a-spring-client-app/css/general.css">
 </head>
-
-
-
 <body>
 	<header>
 		<nav class="navbar navbar-expand-sm bg-body-tertiary">
@@ -34,13 +26,13 @@
 							onclick="switchSubPart('idWelcomeSubPart')">Utilisateurs</a></li>
 						<li class="nav-item"><a class="nav-link" href="#"
 							onclick="switchSubPart('idSubPartForm')">Associations</a></li>
-						<li class="nav-item"><a class="nav-link disabled">Abonnement</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"
+							onclick="switchSubPart('idSubPartFormSub')">Abonnements</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</header>
-
 	<div id="mainContent" class="mainContentUnderNavBar">
 		<!-- Main View -->
 		<div id="idWelcomeSubPart" class="defaultSubPart">
@@ -67,10 +59,8 @@
 					</table>
 				</div>
 			</div>
-
 		</div>
 		<div id="idSubPartForm" class="alternativeSubPart">
-
 			<div class="container">
 				<div class="members">
 			<h3>Liste des associations</h3>
@@ -96,14 +86,36 @@
 					</table>
 				</div>
 			</div>
+		</div>
+		<div id="idSubPartFormSub" class="alternativeSubPart">
+			<div class="container">
+				<div class="members">
+			<h3>Liste des abonnements</h3>
+					<table id="associationsTab">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Titre</th>
+								<th>Prix</th>
+								<th>Descrition</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tr th:each="sub : ${subs}">
+							<td><span th:text=${sub.id}></span></td>
+							<td><span th:text=${sub.title}></span></td>
+							<td><span th:text=${sub.price}></span></td>
+							<td><span th:text=${sub.description}></span></td>
+							<td><a th:href="@{/esub}">Modifier</a></td>
+							<td><a th:href="@{/delteSub(id=${sub.id})}">Supprimer</a></td>
 
+						</tr>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
-
-	<script type="text/javascript"
-		src="/space-a-spring-client-app/js/bootstrap.js"></script>
-	<script type="text/javascript"
-		src="/space-a-spring-client-app/js/general.js"></script>
-
+	<script type="text/javascript" src="/space-a-spring-client-app/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/space-a-spring-client-app/js/general.js"></script>
 </body>
 </html>
