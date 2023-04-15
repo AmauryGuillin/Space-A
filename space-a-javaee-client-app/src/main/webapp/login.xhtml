@@ -27,22 +27,20 @@
 							</div>
 							<div class="forget">
 								<h:link value="Mot de passe oublié" />
+							</div>
+							<div>
+								<h:commandButton class="btn-login"
+									action="#{userLoginController.login()}" value="Se connecter" />
+							</div>
+							<div class="login-register">
+								<p>
+									Pas encore de compte ? <br /> <a href="#"
+										class="register-link">Inscrivez-vous</a>
+								</p>
 
 
 
-								<div>
-						<h:commandButton class="btn-login" action="#{userLoginController.login()}"
-							value="Login" />
-					</div>
-								
-								
-								
-								<div class="login-register">
-									<p>
-										Don't have a account ? <br/>
-										<a href="#" class="register-link">Register</a>
-									</p>
-								</div>
+
 
 
 							</div>
