@@ -2,6 +2,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html" lang="en"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	template="/WEB-INF/template/template.xhtml"
 	xmlns:p="http://primefaces.org/ui">
 
@@ -11,7 +12,7 @@
 		<h:body>
 			<div class="login-form">
 				<div class="wrapper">
-					<div class="form-box login">
+<div class="form-box login">
 
 						<h2>Login</h2>
 						<h:form id="loginForm">
@@ -37,17 +38,75 @@
 									Pas encore de compte ? <br /> <a href="#"
 										class="register-link">Inscrivez-vous</a>
 								</p>
-
-
-
-
-
-
 							</div>
-
-
 						</h:form>
 					</div>
+
+			<div class="form-box register">
+
+				<h2>Registration</h2>
+				<h:form id="registrationForm">
+					<div class="input-box">
+						<h:inputText class="input"
+							value="#{createAccountController.createAccountViewModel.username}"
+							a:placeholder="entrer votre nom d'utilisateur" />
+
+						<h:outputLabel value="Nom d'utilisateur : " />
+					</div>
+					<div class="input-box">
+						<h:inputSecret class="input"
+							value="#{createAccountController.createAccountViewModel.password}"
+							a:placeholder="entrer votre mot de passe" />
+
+						<h:outputLabel value="Mot de passe : " />
+					</div>
+					<div class="input-box">
+						<h:inputSecret class="input"
+							value="#{createAccountController.createAccountViewModel.passwordControl}"
+							a:placeholder="confirmer votre mot de passe" />
+
+						<h:outputLabel value="Confirmation du mot de passe :  " />
+					</div>
+					<div class="input-box">
+						<h:inputText class="input"
+							value="#{createAccountController.createAccountViewModel.primaryEmail}"
+							a:placeholder="entrer votre adresse mail" />
+						<h:outputLabel value="Adresse email : " />
+					</div>
+					 
+					<div>
+		<h:commandButton class="btn-login" action="#{createAccountController.createAccount()}" value="Créer" />
+
+					</div>
+
+
+
+
+
+
+
+
+							<div></div>
+							<div class="login-register">
+								<p>
+									Déjà un compte ?  <br /> <a href="#"
+										class="login-link">Connectez-vous</a>
+								</p>
+							</div>
+						</h:form>
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
 				</div>
 			</div>
 		</h:body>

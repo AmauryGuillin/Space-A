@@ -27,8 +27,45 @@
     justify-content: center;
     align-items: center;
     color: aliceblue;
- 
+    overflow: hidden; 
+    transform: scale(1);
+    transition: transform .5s ease, height .2s ease;
 }
+
+.wrapper.active-popup{
+    transform: scale(1);
+}
+
+.wrapper.active{
+    height: 600px;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login{
+transition: transform .18s ease;
+transform: translateX(0)
+}
+
+.wrapper.active .form-box.login{
+    transition:none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register{
+    transition: transform .18s ease;
+    transform: translateX(0)
+    }
+
 
 .wrapper .form-box{
     width: 100%;
@@ -77,6 +114,10 @@ input:valid ~ label{
     color: aliceblue;
 }
 
+.input::placeholder {
+  color: white;
+}
+
 .forget{
     margin: -15px 0 15px;
     font-size: 0.8em;
@@ -84,6 +125,7 @@ input:valid ~ label{
     justify-content: center;
     margin: -15px 0 15px;
 }
+
 
 .forget label input {
     margin-right: 3px;
