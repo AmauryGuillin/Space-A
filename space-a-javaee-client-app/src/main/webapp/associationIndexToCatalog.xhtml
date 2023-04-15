@@ -36,15 +36,14 @@
 					<h:form class="form-sans-marg">
 						<div class="infoAsso-home"
 									style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor};  color : ##{showAssociationController.asso.associationSpace.graphicChart.tertiaryColor}">
-									<h2
-										style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">Qui
+									<h2	style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">Qui
 										sommes-nous</h2>
 									<p
 										style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">#{showAssociationController.asso.associationIdentity.associationDepiction.description}</p>
 
 
 
-									<h:commandButton
+									<h:commandButton class="btn-joinAsso"
 										style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor};"
 										action="#{showAssociationController.subscribeToAsso}"
 										value="Rejoignez-nous">
