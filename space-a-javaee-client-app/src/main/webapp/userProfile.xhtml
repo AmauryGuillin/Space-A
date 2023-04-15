@@ -25,7 +25,7 @@
 								value="#{showUserController.oneUser.selectedAssociation}" />
 						</div>
 						<div>
-							<b> <h:outputLabel value="Kakawet emprunté : " />
+							<b> <h:outputLabel value="Matériel emprunté : " />
 							</b>
 							<h:form>
 								<h:dataTable value="#{editMatosController.userBookedMatos}"
@@ -33,6 +33,18 @@
 									<h:column>
 										<f:facet name="header">Nom</f:facet>
 										#{matos.title}
+							</h:column>
+								</h:dataTable>
+							</h:form>
+							
+							<b> <h:outputLabel value="Activité(s) auxquelles je suis inscrit(e) : " />
+							</b>
+							<h:form>
+								<h:dataTable value="#{editActivityController.userBookedActivity}"
+									var="matos">
+									<h:column>
+										<f:facet name="header">Nom</f:facet>
+										#{activity.title}
 							</h:column>
 								</h:dataTable>
 							</h:form>

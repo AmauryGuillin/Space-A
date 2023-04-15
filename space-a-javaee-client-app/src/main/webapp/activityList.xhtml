@@ -11,31 +11,44 @@
 			<section>
 				<div class="pourtravail">
 					<h:form>
-						<h:dataTable value="#{editEventController.allEvent}"
-							var="event">
+						<h:dataTable value="#{editActivityController.allActivities}"
+							var="activity">
 							<h:column>
 								<f:facet name="header">Titre </f:facet>
-								#{event.title}
+								#{activity.title}
 							</h:column>
 							<h:column>
 								<f:facet name="header">Description</f:facet>
-								#{event.description}
+								#{activity.description}
 							</h:column>
 
 							<h:column>
 								<f:facet name="header">Date début</f:facet>
-								#{event.startDate}
+								#{activity.startDate}
 							</h:column>
 
 							<h:column>
 								<f:facet name="header">Date fin</f:facet>
-								#{event.endDate}
+								#{activity.endDate}
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header">Nombre de personnes max</f:facet>
+								#{activity.maxCapacity}
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header"></f:facet>
+								<ui:fragment rendered="#{activity.idUser == null}">
+								<p:commandButton id="button-reserve" value="Réserver"
+									action="#{editActivityController.bookActivity(activity.id)}"></p:commandButton>
+								</ui:fragment>
 							</h:column>
 							
 							<h:column>
 								<f:facet name="header"></f:facet>
 								<p:commandButton id="button-validate" value="Supprimer"
-									action="#{editEventController.deleteEvent(event.id)}"></p:commandButton>
+									action="#{editActivityController.deleteActivity(activity.id)}"></p:commandButton>
 							</h:column>
 
 
