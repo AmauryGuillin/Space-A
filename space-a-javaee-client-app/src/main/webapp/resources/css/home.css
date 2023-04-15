@@ -96,8 +96,7 @@
 }
 
 .top-spaca h1{
-	margin: 40px;
-	font-size: 6rem;
+	
 }
 
 .top-spaca .img-main-top{
@@ -130,7 +129,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 300px;
+    min-height: 100px;
     background-color: #FFFFFF;
     color:black;
     text-align: center;
