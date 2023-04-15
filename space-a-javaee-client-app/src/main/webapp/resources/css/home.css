@@ -10,11 +10,8 @@
 
 
 .top-home{
-    /*background-color: #132d64ad; --> couleur secondaire par defaut*/
-    /*color: #FFFFFF; --> couleur primaire*/
     width: 100vw;
-    text-align: center;
-    padding-top: 100px;
+    text-align: center;  
 }
 
 
@@ -27,17 +24,15 @@
 
 .top-home h1{
     font-weight: bolder;
-    font-size: 2.5em;
+    font-size: 2.7em;
     margin-bottom: 20px;
-    padding-top:20px;
-    font-family: monospace;/*font Asso*/
+	margin-top: 20px
 }
 
 .top-home img{
     max-height:400px;
     max-width: 75%;
-    /*border: #FFFFFF solid; --> couleur primaire*/
-    margin-bottom: 20px; 
+    margin-bottom: 40px; 
 }
 
 .infoAsso-home {
