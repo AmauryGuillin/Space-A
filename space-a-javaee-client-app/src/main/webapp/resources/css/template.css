@@ -16,7 +16,24 @@ body{
     background-color: #FFFFFF;
     font-size: 0.8rem;
     min-height: 100px;
-    justify-content: center;
+}
+
+.navbar-spaca{
+	min-width:300px 
+}
+
+.logo-spaca{
+	margin-left : 40px
+}
+
+.navbar-asso{
+float: left;
+width: 75%;
+}
+
+.navbar-login{
+	margin-right: 50px;
+	min-width: 300px
 }
 
 .nav-link{

@@ -12,6 +12,10 @@ public class NavController {
 	public void createAsso() {
 		WebUiTools.redirectToView("/createAsso.xhtml");
 	}
+	
+	public void contact() {
+		WebUiTools.redirectToView("/contact.xhtml");
+	}
 
 	public void associations() {
 		WebUiTools.redirectToView("/associations.xhtml");
