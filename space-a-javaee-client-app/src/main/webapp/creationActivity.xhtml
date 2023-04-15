@@ -1,0 +1,90 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+			<div class="fond-formulaire">
+
+				<div class="container-form">
+					<h1 class="text-center">Création d'une activité</h1>
+					<br></br>
+					<hr></hr>
+					<h:form>
+						<div class="row">
+							<div class="col-md-6 space">
+
+								<div class="form-group">
+									<h:outputLabel for="title" value="Titre" />
+									<h:inputText class="form-control" id="activityTitre"
+										value="#{activityController.activity.title}" />
+								</div>
+
+								<div class="form-group row col-md-12">
+									<div class="col-md-3">
+										<h:outputLabel for="startDate" value="Date de début :"
+											class="col-form-label font-weight-bold" />
+									</div>
+								<div class="col-md-9">
+									<p:datePicker id="startDate"
+										value="#{activityController.activity.startDate}"
+										showButtonBar="true" class="form-control1"
+										style="border-radius: 15px" />
+								</div>
+								</div>	
+						
+								<div class="form-group row col-md-12">
+									<div class="col-md-3">
+										<h:outputLabel for="endDate" value="Date de fin :"
+											class="col-form-label font-weight-bold" />
+									</div>
+								<div class="col-md-9">
+									<p:datePicker id="endDate"
+										value="#{activityController.activity.endDate}"
+										showButtonBar="true" class="form-control1"
+										style="border-radius: 15px" />
+								</div>
+								</div>
+
+
+								<div class="form-group">
+									<h:outputLabel for="Description" value="Description" />
+									<h:inputText class="form-control" id="activityDescription"
+										value="#{activityController.activity.description}" />
+								</div>
+								
+								<div class="form-group">
+									<h:outputLabel for="maxCapacity" value="Nombre de personnes max" />
+									<h:inputText class="form-control" id="activityMaxCapacity"
+										value="#{activityController.activity.maxCapacity}" />
+								</div>
+
+								<div class="form-group">
+
+								
+								
+					
+								</div>
+
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center my-5 submit-button">
+								<p:commandButton id="button-validate" value="Valider"
+									action="#{activityController.createActivity()}"></p:commandButton>
+							</div>
+						</div>
+
+					</h:form>
+				</div>
+
+			</div>
+
+		</h:body>
+	</ui:define>
+</ui:composition>

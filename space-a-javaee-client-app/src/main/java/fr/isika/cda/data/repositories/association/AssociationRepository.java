@@ -8,10 +8,12 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.association.functionnality.ActivityType;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
 import fr.isika.cda.entities.association.functionnality.EventType;
 import fr.isika.cda.entities.association.functionnality.PublicationType;
 import fr.isika.cda.entities.association.functionnality.RentingType;
+import fr.isika.cda.entities.association.services.Activity;
 import fr.isika.cda.entities.association.services.Event;
 import fr.isika.cda.entities.association.services.Publication;
 import fr.isika.cda.entities.association.services.StuffToRent;
@@ -175,6 +177,31 @@ public class AssociationRepository {
 	    return mergedstuff.getId();
 
 	}
+
+	public Long createActivity(Activity activity) {
+		entityManager.persist(activity);
+		return activity.getId();
+	}
+
+	public List<ActivityType> getAllActivitiesByConfigTypeId(Long configTypeId) {
+		return getConfigTypeWithEvtsById(configTypeId).getActivities();
+	}
+
+	public List<Activity> findAllActivities() {
+		return entityManager.createQuery("SELECT a FROM Activity a", Activity.class).getResultList();
+	}
+
+	public void deleteActivity(Long activityId) {
+		Activity activity = findActivityById(activityId);
+		entityManager.remove(activity);
+	}
+
+	private Activity findActivityById(Long activityId) {
+		TypedQuery<Activity> query = entityManager.createQuery("SELECT a FROM Activity a WHERE a.id =: id", Activity.class);
+		query.setParameter("id", activityId);
+		return query.getSingleResult();
+	}
+
 
 
 }
