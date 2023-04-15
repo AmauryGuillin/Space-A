@@ -88,7 +88,7 @@ public class ShowUserController {
 	public String updateEntity() {
 		System.out.println("********************************* METHODE UPDATE");
 		userAccountRepo.majProfile(userAccount);
-		return "/index.xhtml?faces-redirect=true";
+		return "/userProfile.xhtml?faces-redirect=true";
 	}
 	
 	public UserAccount connectedUser() {

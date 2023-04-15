@@ -20,19 +20,23 @@
 
 									<div class="col-md-6 img-index-top">
 										<h:graphicImage class="img-main-top" library="images"
-											name="creerAsso.jpg"></h:graphicImage>
-
-										<input class="btn-create-asso" type="button"
-											value="Inscrire mon association" />
-
+											name="creerAsso.jpg">
+											<h:form>
+												<h:commandButton class="btn-create-asso"
+													value="Inscrire mon Association"
+													action="#{navController.createAsso()}"></h:commandButton>
+											</h:form>
+										</h:graphicImage>
 									</div>
-
-
 									<div class="col-md-6 img-index-top">
 										<h:graphicImage class="img-main-top" library="images"
-											name="trouverAsso.jpg"></h:graphicImage>
-										<input class="btn-find-asso" type="button"
-											value="M'inscrire et me laisser guider" />
+											name="trouverAsso.jpg">
+											<h:form>
+												<h:commandButton class="btn-create-asso"
+													value="M'inscrire et me laisser guider"
+													action="#{navController.login()}"></h:commandButton>
+											</h:form>
+										</h:graphicImage>
 									</div>
 								</div>
 							</div>
