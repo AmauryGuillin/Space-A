@@ -22,6 +22,8 @@ import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
 import fr.isika.cda.entities.association.functionnality.EventType;
 import fr.isika.cda.entities.association.functionnality.PublicationType;
+import fr.isika.cda.entities.association.functionnality.RentingType;
+import fr.isika.cda.entities.association.services.StuffToRent;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.associations.viewmodels.ConfigTypeViewModel;
 import fr.isika.cda.presentation.beans.users.UserLoginController;
@@ -89,7 +91,11 @@ public class EditAssoComplete {
 		assoRepo.majAsso(asso);
 		return "/dashboardAdmin.xhtml?faces-redirect=true";
 	}
-	
+
+	public ConfigTypeViewModel getConfigTypeViewModel() {
+		return configTypeViewModel;
+	}
+
 	public void uploadKbisExtract(FileUploadEvent event) {	
 		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMYYYY_hhmmss"));
 		UploadedFile file = event.getFile();
@@ -110,9 +116,7 @@ public class EditAssoComplete {
 		mainImage = timestamp + "_" + file.getFileName();
 		FileUpload.doUpload(file, mainImage);
 	}
-	
-	
-	
+
 //EVENTS
 
 	public void addEvent() {
@@ -152,12 +156,25 @@ public class EditAssoComplete {
 		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
 		return assoRepo.getAllPublicationByConfigTypeId(configType.getId());
 	}
-
-	public ConfigTypeViewModel getConfigTypeViewModel() {
-		return configTypeViewModel;
-	}
-
-
 	
+//STUFF
+
+	public void addStuff() {
+		RentingType stuff = createStuffToVM();
+		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+		assoRepo.addStuffToAsso(configType.getId(), stuff);
+	}
+	
+	private RentingType createStuffToVM() {
+		RentingType stuff = new RentingType();
+		stuff.setNameRentingType(configTypeViewModel.getNameStuffType());
+		return stuff;
+	}
+	
+
+	public List<RentingType> getListStuffs(){
+		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+		return assoRepo.getAllStuffByConfigTypeId(configType.getId());
+	}
 	
 }

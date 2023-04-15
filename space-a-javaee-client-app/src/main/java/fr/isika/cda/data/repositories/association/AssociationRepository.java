@@ -11,6 +11,7 @@ import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
 import fr.isika.cda.entities.association.functionnality.EventType;
 import fr.isika.cda.entities.association.functionnality.PublicationType;
+import fr.isika.cda.entities.association.functionnality.RentingType;
 import fr.isika.cda.entities.association.services.Event;
 import fr.isika.cda.entities.association.services.Publication;
 import fr.isika.cda.entities.association.services.StuffToRent;
@@ -22,6 +23,10 @@ public class AssociationRepository {
 	private static final String CONFIG_TYPE_WITH_EVTS_BY_ID = "SELECT c FROM ConfigType c LEFT JOIN FETCH c.events WHERE c.id =:configTypeIdParam";
 
 	private static final String CONFIG_TYPE_WITH_PUBLI_BY_ID = "SELECT c FROM ConfigType c LEFT JOIN FETCH c.publications WHERE c.id =:configTypeIdParam";
+
+	
+	private static final String CONFIG_TYPE_WITH_STUFF_BY_ID = "SELECT c FROM ConfigType c LEFT JOIN FETCH c.rentals WHERE c.id =:configTypeIdParam";
+	
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -73,7 +78,11 @@ public class AssociationRepository {
 	public List<PublicationType> getAllPublicationByConfigTypeId(Long configTypeId) {
 		return getConfigTypeWithPubliById(configTypeId).getPublications();
 	}
-
+	
+	public List<RentingType> getAllStuffByConfigTypeId(Long configTypeId) {
+		return getConfigTypeWithStuffById(configTypeId).getRentals();
+	}
+	
 	public void addEventToAsso(Long configTypeId, EventType event) {
 		ConfigType configWithEvents = getConfigTypeWithEvtsById(configTypeId);
 		configWithEvents.addEventType(event);
@@ -82,11 +91,19 @@ public class AssociationRepository {
 	}
 
 	public void addPublicationToAsso(Long configTypeId, PublicationType publi) {
-		ConfigType configWithPublications = getConfigTypeWithEvtsById(configTypeId);
+		ConfigType configWithPublications = getConfigTypeWithPubliById(configTypeId);
 		configWithPublications.addPublicationsType(publi);
 		entityManager.persist(publi);
 		entityManager.merge(configWithPublications);
 
+	}
+	
+	public void addStuffToAsso(Long configTypeId, RentingType stuff) {
+		ConfigType configWithStuff = getConfigTypeWithStuffById(configTypeId);
+		configWithStuff.addRentingType(stuff);
+		entityManager.persist(stuff);
+		entityManager.merge(configWithStuff);
+		
 	}
 
 	private ConfigType getConfigTypeWithEvtsById(Long configTypeId) {
@@ -97,6 +114,13 @@ public class AssociationRepository {
 	private ConfigType getConfigTypeWithPubliById(Long configTypeId) {
 		return entityManager.createQuery(CONFIG_TYPE_WITH_PUBLI_BY_ID, ConfigType.class)
 				.setParameter("configTypeIdParam", configTypeId).getSingleResult();
+	}
+	
+	private ConfigType getConfigTypeWithStuffById(Long configTypeId) {
+		return entityManager.createQuery(
+				CONFIG_TYPE_WITH_STUFF_BY_ID, ConfigType.class)
+				.setParameter("configTypeIdParam", configTypeId)
+				.getSingleResult();
 	}
 
 	public Long createPubli(Publication publi) {
