@@ -121,6 +121,14 @@ input:valid ~ label{
   font-size: 1rem
 }
 
+.icon{
+    position:absolute;
+    right: 8px;
+    color: aliceblue;
+    font-size: 1.3em;
+    top: 10px;
+}
+
 .forget{
     margin: -15px 0 15px;
     font-size: 0.8em;
