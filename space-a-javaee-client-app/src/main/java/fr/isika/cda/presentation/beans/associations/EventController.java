@@ -60,6 +60,7 @@ public class EventController {
 		event.setDescription(event.getDescription());
 		event.setEventType(event.getEventType());
 		event.setAssociation(asso);
+		event.setImgEvent("img-event-basic.png");
 		
 		//event en bdd
 		assoRepo.createEvent(event);
