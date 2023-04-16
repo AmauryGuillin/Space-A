@@ -6,50 +6,63 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" lang="en">
 
-<h:outputStylesheet library="css" name="style.css" />
-
 <ui:composition template="/WEB-INF/template/template.xhtml">
 	
-	<h:head>
-		<title>Contact</title>
-	</h:head>
-	
 	<ui:define name="content">
-		<body>
+		<h:body>
+		
+	
+		<div class="container form-contact">
+		<h1>Contact</h1>
+		<div class="row">
+		<div class="col-md-6 gauche-contact">
 
-			<h:graphicImage library="images" name="background.png" width="50px" height="50px" />
-			<div class="container" style="background-color: lightgray;">
-				<div class="row">
-					<h1>CONTACT</h1>
-					<div class="col-md-6">
-						<h:graphicImage library="images" name="A.png" width="50px" height="50px" alt="Photo" />
-					</div>
-					<div class="col-md-6">
+			<h:graphicImage class="img-contact" library="images"
+				name="img-astronaute-contact.png"></h:graphicImage>
 
-						<h:form id="contactForm">
-							<h1>Contactez-nous</h1>
-							<div class="form-group">
-								<i class="fa fa-fw fa-user" aria-hidden="true"></i>
-								<label for="name">Name :</label>
-								<p:inputText class="form-control" id="name"
-									a:placeholder="Entrez votre nom" />
-							</div>
-							<div class="form-group">
-								<i class="fa fa-fw fa-envelope" aria-hidden="true"></i>
-								<label for="email">Email :</label>
-								<p:inputText class="form-control" id="email"
-									a:placeholder="Entrez votre email" />
-							</div>
-							<div class="form-group">
-								<label for="message">Message :</label>
-								<p:inputTextarea class="form-control" id="message" rows="5"></p:inputTextarea>
-							</div>
-							<p:commandButton class="btn btn-primary" value="Envoyer" />
-						</h:form>
-					</div>
-				</div>
+		</div>
+		<div class="col-md-5 droit-contact">
+			
+			<div>
+			<div>
+			<p:outputLabel class="input-contact" value="Nom :" />
+			<p:inputText 
+				value="" />
+		</div>
+		<div>
+			<p:outputLabel value="Email :" />
+			<p:inputText
+				value="" />
+		</div>
+		<div>
+			<p:outputLabel value="Message :" />
+			<p:inputText class="message-contact"
+				value="" />
+			
+			
+			
+			
 			</div>
-		</body>
+			<div class="text-center">
+			<h:commandButton class="btn-contact" value="Envoyez" />
+			</div>
+			</div>
+		</div>
+		
+		
+		
+		</div>
+		
+		</div>
+		
+		
+		
+		
+		
+		
+
+			
+		</h:body>
 	</ui:define>
 </ui:composition>
 </html>
