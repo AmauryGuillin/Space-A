@@ -20,9 +20,18 @@
 								<h:graphicImage class="img-main-top" library="images"
 									name="creerAsso.jpg">
 									<h:form>
+										<ui:fragment rendered="#{userLoginController.userLoggedIn}">
 										<h:commandButton class="btn-create-asso"
 											value="Inscrire mon Association"
 											action="#{navController.createAsso()}"></h:commandButton>
+										</ui:fragment>
+										
+										<ui:fragment
+										rendered="#{userLoginController.userLoggedIn == false}">	
+										<h:commandButton class="btn-create-asso"
+											value="Inscrire mon Association"
+											action="#{navController.login()}"></h:commandButton>
+										</ui:fragment>
 									</h:form>
 								</h:graphicImage>
 							</div>
@@ -30,9 +39,17 @@
 								<h:graphicImage class="img-main-top" library="images"
 									name="trouverAsso.jpg">
 									<h:form>
+									<ui:fragment rendered="#{userLoginController.userLoggedIn}">
+										<h:commandButton class="btn-create-asso"
+											value="M'inscrire et me laisser guider"
+											action="#{navController.associations()}"></h:commandButton>
+										</ui:fragment>
+										<ui:fragment
+										rendered="#{userLoginController.userLoggedIn == false}">	
 										<h:commandButton class="btn-create-asso"
 											value="M'inscrire et me laisser guider"
 											action="#{navController.login()}"></h:commandButton>
+										</ui:fragment>
 									</h:form>
 								</h:graphicImage>
 							</div>
