@@ -8,34 +8,53 @@
 
 	<ui:define name="content">
 		<body>
-			<section>
-				<div class="pourtravail">
-					<h:form>
-						<h:dataTable value="#{showAssociationController.allAssociations}" var="asso">
-							<h:column>
-								<f:facet name="header">Nom legal</f:facet>
-								#{asso.legalName}
-							</h:column>
-							<h:column>
-								<f:facet name="header">Directeur</f:facet>
-								#{asso.associationIdentity.director}
-							</h:column>
+			<h:body>
+			<div class="fond-associations">
 
-							<h:column>
-								<f:facet name="header">Redirection</f:facet>
-								<h:commandButton id="submit"
-									actionListener="#{showAssociationController.attributListner}"
-									action="associationIndexToCatalog">
-									<f:attribute name="value" value="#{asso.id}" />
-									<f:attribute name="asso" value="#{asso}" />
-								</h:commandButton>
-							</h:column>
+				<h1 class="title-associations">Il y a bien longtemps, dans une galaxie lointaine, très lointaine....<br/> Les Associations </h1>
+				<br />
 
 
-						</h:dataTable>
-					</h:form>
+				<div class="container-fluid jsp">
+					<ui:repeat value="#{showAssociationController.allAssociations}" var="asso">
+						<div class="row form-associations">
+							
+								<div class="col-md-5 gauche-asso">
+								
+								<h:graphicImage class="img-associations" library="images"
+									name="#{asso.associationIdentity.associationDepiction.mainImage}">
+								</h:graphicImage>
+								</div>
+								<div class="col-md-7 droite-asso">
+								<h4> #{asso.associationIdentity.associationDepiction.name} </h4>
+								<p>#{asso.associationIdentity.associationDepiction.description} </p>
+								<p style="text-align: end"><em>#{asso.associationIdentity.director} </em></p>
+
+
+
+								</div>
+							
+							
+							
+
+
+
+						<div class="row">
+							<h:form>
+								<div class="text-center">
+									<h:commandButton class="btn-fix-association"
+										value="Découvrir #{asso.associationIdentity.associationDepiction.name}" />
+								</div>
+							</h:form>
+						</div>
+					</div>
+					</ui:repeat>
 				</div>
-			</section>
+
+
+
+				</div>
+		</h:body>
 		</body>
 	</ui:define>
 </ui:composition>
