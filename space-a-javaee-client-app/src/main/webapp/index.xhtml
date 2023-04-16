@@ -21,16 +21,16 @@
 									name="creerAsso.jpg">
 									<h:form>
 										<ui:fragment rendered="#{userLoginController.userLoggedIn}">
-										<h:commandButton class="btn-create-asso"
-											value="Inscrire mon Association"
-											action="#{navController.createAsso()}"></h:commandButton>
+											<h:commandButton class="btn-create-asso"
+												value="Inscrire mon Association"
+												action="#{navController.createAsso()}"></h:commandButton>
 										</ui:fragment>
-										
+
 										<ui:fragment
-										rendered="#{userLoginController.userLoggedIn == false}">	
-										<h:commandButton class="btn-create-asso"
-											value="Inscrire mon Association"
-											action="#{navController.login()}"></h:commandButton>
+											rendered="#{userLoginController.userLoggedIn == false}">
+											<h:commandButton class="btn-create-asso"
+												value="Inscrire mon Association"
+												action="#{navController.login()}"></h:commandButton>
 										</ui:fragment>
 									</h:form>
 								</h:graphicImage>
@@ -39,16 +39,16 @@
 								<h:graphicImage class="img-main-top" library="images"
 									name="trouverAsso.jpg">
 									<h:form>
-									<ui:fragment rendered="#{userLoginController.userLoggedIn}">
-										<h:commandButton class="btn-create-asso"
-											value="M'inscrire et me laisser guider"
-											action="#{navController.associations()}"></h:commandButton>
+										<ui:fragment rendered="#{userLoginController.userLoggedIn}">
+											<h:commandButton class="btn-create-asso"
+												value="M'inscrire et me laisser guider"
+												action="#{navController.associations()}"></h:commandButton>
 										</ui:fragment>
 										<ui:fragment
-										rendered="#{userLoginController.userLoggedIn == false}">	
-										<h:commandButton class="btn-create-asso"
-											value="M'inscrire et me laisser guider"
-											action="#{navController.login()}"></h:commandButton>
+											rendered="#{userLoginController.userLoggedIn == false}">
+											<h:commandButton class="btn-create-asso"
+												value="M'inscrire et me laisser guider"
+												action="#{navController.login()}"></h:commandButton>
 										</ui:fragment>
 									</h:form>
 								</h:graphicImage>
@@ -58,28 +58,30 @@
 				</div>
 				<div class="row">
 					<div class="infoSpace">
-						<h2>Qui sommes-nous</h2>
-						<p style="color: red">Lorem ipsum dolor sit amet, consectetur
-							adipiscing elit. Nulla non arcu semper, ullamcorper eros nec,
-							lobortis libero. Vestibulum ut diam ac risus eleifend
-							sollicitudin. Integer quis luctus massa, id maximus nulla. Nunc
-							eget aliquam justo. Curabitur vitae ipsum in elit rhoncus
-							euismod. Proin ut semper lorem. Sed porta, lacus vel luctus
-							lobortis, arcu est fringilla tortor, at tristique ex purus eu
-							nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Nulla non arcu semper, ullamcorper eros nec, lobortis libero.
-							Vestibulum ut diam ac risus eleifend sollicitudin. Integer quis
-							luctus massa, id maximus nulla. Nunc eget aliquam justo.
-							Curabitur vitae ipsum in elit rhoncus euismod. Proin ut semper
-							lorem. Sed porta, lacus vel luctus lobortis, arcu est fringilla
-							tortor, at tristique ex purus eu nulla. Lorem ipsum dolor sit
-							amet, consectetur adipiscing elit. Nulla non arcu semper,
-							ullamcorper eros nec, lobortis libero. Vestibulum ut diam ac
-							risus eleifend sollicitudin. Integer quis luctus massa, id
-							maximus nulla. Nunc eget aliquam justo. Curabitur vitae ipsum in
-							elit rhoncus euismod. Proin ut semper lorem. Sed porta, lacus vel
-							luctus lobortis, arcu est fringilla tortor, at tristique ex purus
-							eu nulla.</p>
+						<h2 style="color: #132d64">Qui sommes-nous</h2>
+						<p style="color: #132d64">Bienvenue sur Spac'A, la plateforme qui
+							permet aux associations de s'envoler vers de nouveaux horizons !
+							Spac'A est une association qui met à disposition un site dédié
+							aux associations. Notre mission est de donner aux associations
+							les moyens de créer leur propre espace en ligne où elles peuvent
+							publier des informations sur leurs activités, organiser des
+							événements et mettre à disposition du matériel. <br/>Nous offrons un
+							large éventail de fonctionnalités pour les associations, allant
+							de la création de publications à la planification d'activités, en
+							passant par la mise à disposition de matériel. Les adhérents qui
+							rejoignent l'association peuvent profiter de tous ces services
+							pour rester connectés avec l'actualité de leur association. <br/>Ce
+							qui distingue Spac'A, c'est notre approche visuelle unique. Nous
+							avons choisi une thématique spatiale, avec des fonds d'écran
+							étoilés, pour donner aux associations la sensation d'être
+							propulsées dans l'espace. En plus de cela, nous encourageons les
+							associations à personnaliser leur espace en choisissant des
+							couleurs et des polices qui leur ressemblent. Nous ne voulons pas
+							seulement offrir des fonctionnalités, mais aussi donner aux
+							associations un moyen de se démarquer et de se faire remarquer.
+							<br/><br/>
+							<b>Rejoignez-nous sur Spac'A et partez à la conquête de
+							l'espace des associations !</b></p>
 					</div>
 				</div>
 				<div class="row">
