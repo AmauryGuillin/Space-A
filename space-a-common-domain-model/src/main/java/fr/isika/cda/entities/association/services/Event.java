@@ -3,6 +3,7 @@ package fr.isika.cda.entities.association.services;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +30,7 @@ public class Event {
 	@Temporal (TemporalType.DATE)
 	private Date endDate;
 
+	@Column(length = 2000, nullable = true)
 	private String description;
 	
 	private String imgEvent;

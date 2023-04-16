@@ -10,13 +10,12 @@
 
 .title-events{
 	text-align: center;
+	margin: 1rem;
 }
 
 .form-events h1 {
 	text-align: center;
-	border-bottom: #000000 solid;
 	padding: 30px;
-	color: black;
 }
 
 .gauche-events {
@@ -31,6 +30,17 @@
 	margin-top:20px;
 }
 
+.droite-events h4{
+	font-size: 1rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+.droite-events p{
+	font-size:  1rem;
+	text-align: center;
+}
+
 .img-events {
 	width: 80%;
 	height: 90%;
@@ -43,20 +53,13 @@
 
 .btn-events {
 	height: 40px;
-	width: 100%;
+	width: 50%;
 	border-radius: 15px;
 	border: none;
-	background-color: white;
-	color: #132d64;
 	outline: none;
 	cursor: pointer;
 	font-size: 1em;
 	transition: 0.5s;
 	align-self: center;
 	margin: 20px;
-}
-
-.btn-events:hover {
-	background-color: #132d64;
-	color: white;
 }
