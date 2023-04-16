@@ -21,23 +21,25 @@
 				name="img-astronaute-contact.png"></h:graphicImage>
 
 		</div>
-		<div class="col-md-5 droit-contact">
+		<div class="col-md-6 droite-contact">
+			
 			
 			<div>
-			<div>
-			<p:outputLabel class="input-contact" value="Nom :" />
-			<p:inputText 
-				value="" />
+			<i class="fa fa-fw fa-user" aria-hidden="true"></i>
+			<p:outputLabel value="Nom :" />
+			<p:inputText class="input-contact"  
+				value="" a:placeholder="Entrez votre nom" />
 		</div>
 		<div>
+		<i class="fa fa-fw fa-envelope" aria-hidden="true"></i>
 			<p:outputLabel value="Email :" />
 			<p:inputText
-				value="" />
+				value="" a:placeholder="Entrez votre email"  />
 		</div>
 		<div>
+		
 			<p:outputLabel value="Message :" />
-			<p:inputText class="message-contact"
-				value="" />
+			<p:inputTextarea rows="10"/>
 			
 			
 			
@@ -46,7 +48,7 @@
 			<div class="text-center">
 			<h:commandButton class="btn-contact" value="Envoyez" />
 			</div>
-			</div>
+			
 		</div>
 		
 		

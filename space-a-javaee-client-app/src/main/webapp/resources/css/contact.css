@@ -13,22 +13,16 @@
 	color: black;
 }
 
-.gauche-contact{
+.gauche-contact {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.droit-contact{
-	display: flex;
-	
-	align-items: center;
-}
-
-.input-contect{
-	width: 100px !important
-	
-	
+.droite-contact {
+	padding-right: 50px;
+	padding-left: 50px;
+	margin-top:20px;
 }
 
 .img-contact {
@@ -39,13 +33,6 @@
 	opacity: 0.95;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 	margin: auto;
-}
-
-.message-contact {
-	height: 40%;
-	vertical-align: top !important;
-	line-height: 310px;
-	text-align: left;
 }
 
 .btn-contact {
