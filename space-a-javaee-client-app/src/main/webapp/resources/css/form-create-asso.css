@@ -76,7 +76,41 @@ body .ui-button.ui-button-text-icon-left .ui-icon {
 	background-color: rgba(4, 25, 68);
 }
 
+.btn-modif .ui-button{
+	height:55px;
+	width:100%;
+	border-radius: 15px;
+	border: none;
+	background-color: #132d64;
+	color:white ;
+	cursor: pointer;
+	font-size: 1em;
+	transition: 0.5s;
+	align-self: center;
+	margin: 20px;
+}
 
+.btn-modif .ui-button:hover {
+	background-color: #189EDC;
+}
+
+.btn-delete .ui-button{
+	height:55px;
+	width:100%;
+	border-radius: 15px;
+	border: none;
+	background-color: #132d64;
+	color:white ;
+	cursor: pointer;
+	font-size: 1em;
+	transition: 0.5s;
+	align-self: center;
+	margin: 20px;
+}
+
+.btn-delete .ui-button:hover {
+	background-color: #EF1A0E;
+}
 
 .admin-autofill {
 	position: absolute !important;
