@@ -35,7 +35,7 @@
 }
 
 .material{
-  background-color:#ffffff80;
+  background-color:#ffffff;
   padding: 10px;
   margin: 10px;
   height: 250px;
@@ -160,10 +160,10 @@ border: none;
 .title-activity {
 	background-color: #101b53;
 	color: white;
-	padding: 10px;
+	margin-bottom: 10px;
 	border-radius: 10px;
 	text-align: center;
-	text-decoration: underline;
+	font-size: 1.5rem;
 	height: 40px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
@@ -203,10 +203,10 @@ border: none;
 .title-event {
 	background-color: #386c99;
 	color: white;
-	padding: 10px;
+	margin-bottom: 10px;
 	border-radius: 10px;
 	text-align: center;
-	text-decoration: underline;
+	font-size: 1.5rem;
 	height: 40px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
@@ -238,10 +238,10 @@ border: none;
 .title-material {
 	background-color: #5c88c8;
 	color: white;
-	padding: 10px;
+	margin-bottom: 10px;
 	border-radius: 10px;
 	text-align: center;
-	text-decoration: underline;
+	font-size: 1.5rem;
 	height: 40px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
@@ -261,11 +261,52 @@ border: none;
 	padding: 10px;
 	border-radius: 10px;
 	text-align: center;
-	text-decoration: underline;
 	height: 40px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	margin-top: 10px;
 }
+
+.matos-form {
+	display: flex;
+}
+
+.card-matos {
+	background: white;
+	width: 200px;
+	height: fit-content;
+	border-top-right-radius: 20px;
+/* 	border-bottom-right-radius: 20px; */
+	border-bottom-left-radius: 20px;
+	margin-right: 1rem;
+	margin-top: 0.3rem;
+	text-align: center;
+	
+}
+
+.card-matos .matos-association-name {
+	font-weight: bold;
+	font-size: 1.3rem;
+	margin-bottom: 0.6rem;
+	border-bottom: 1px solid white;
+}
+
+.card-matos .matos-type {
+	margin-bottom: 0.6rem;
+}
+
+.card-matos .matos-title {
+	margin-bottom: 0.6rem;
+	font-weight: bold;
+}
+
+.card-matos .matos-dates {
+	margin-bottom: 0.6rem;
+}
+
+.btn-matos-btn {
+	margin-bottom: 0.1rem;
+}
+
 
 .btn-display-div {
 	width: 100%;
@@ -315,3 +356,5 @@ border: none;
 	background-color: rgba(19, 45, 100);
 	color: white;
 }
+
+

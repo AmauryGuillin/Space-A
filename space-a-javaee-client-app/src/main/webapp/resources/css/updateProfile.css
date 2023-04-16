@@ -9,6 +9,11 @@
 	box-shadow: 12px 5px 20px
 }
 
+.txt-bio {
+	font-size: 1.05rem;
+	
+}
+
 .container-cadreForm {
 	margin-top: 20px;
 }
