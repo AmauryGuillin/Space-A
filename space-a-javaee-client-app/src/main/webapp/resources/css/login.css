@@ -12,12 +12,14 @@
 
 }
 
-
+.login-form h2{
+	margin-bottom:50px
+}
 
 .wrapper{
 	position: relative;
   	width: 400px;
-    height: 450px;
+    height: 525px;
     background: transparent;
     backdrop-filter: blur(15px);
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
@@ -37,7 +39,7 @@
 }
 
 .wrapper.active{
-    height: 600px;
+    height: 650px;
 }
 
 .wrapper .form-box{
@@ -117,6 +119,14 @@ input:valid ~ label{
 .input::placeholder {
   color: #D2D0D0;
   font-size: 1rem
+}
+
+.icon{
+    position:absolute;
+    right: 8px;
+    color: aliceblue;
+    font-size: 1.3em;
+    top: 10px;
 }
 
 .forget{

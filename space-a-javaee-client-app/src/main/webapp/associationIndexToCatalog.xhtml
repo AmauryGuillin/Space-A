@@ -41,16 +41,27 @@
 									<p
 										style="font-family: #{showAssociationController.asso.associationSpace.graphicChart.font}">#{showAssociationController.asso.associationIdentity.associationDepiction.description}</p>
 
+							<ui:fragment rendered="#{userLoginController.userLoggedIn}">
+								<h:commandButton class="btn-joinAsso"
+									style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor};"
+									action="#{showAssociationController.subscribeToAsso}"
+									value="Rejoignez-nous">
+									<f:param name="assoIdjpp"
+										value="#{showAssociationController.asso.id}"></f:param>
+								</h:commandButton>
+							</ui:fragment>
 
+							<ui:fragment
+								rendered="#{userLoginController.userLoggedIn == false}">
+								<h:commandButton class="btn-joinAsso"
+									style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor};"
+									action="#{navController.login()}" value="Rejoignez-nous">
+									<f:param name="assoIdjpp"
+										value="#{showAssociationController.asso.id}"></f:param>
+								</h:commandButton>
+							</ui:fragment>
 
-									<h:commandButton class="btn-joinAsso"
-										style="background-color: ##{showAssociationController.asso.associationSpace.graphicChart.secondaryColor}; color: ##{showAssociationController.asso.associationSpace.graphicChart.mainColor};"
-										action="#{showAssociationController.subscribeToAsso}"
-										value="Rejoignez-nous">
-										<f:param name="assoIdjpp"
-											value="#{showAssociationController.asso.id}"></f:param>
-									</h:commandButton>
-								</div>
+						</div>
 					</h:form>
 				</div>
 				
