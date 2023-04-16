@@ -38,6 +38,9 @@ public class UserProfile implements Serializable {
 	
 	@Temporal (TemporalType.DATE)
 	private Date birthday;
+	
+	@Column(length = 2000, nullable = true)
+	private String profileDescription;
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private UserContact userContact = new UserContact();
@@ -112,6 +115,14 @@ public class UserProfile implements Serializable {
 	public UserProfile withContact(final UserContact contact) {
 		this.userContact = contact;
 		return this;
+	}
+
+	public String getProfileDescription() {
+		return profileDescription;
+	}
+
+	public void setProfileDescription(String profileDescription) {
+		this.profileDescription = profileDescription;
 	}
 
 	@Override

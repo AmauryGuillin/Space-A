@@ -8,149 +8,119 @@
 
 	<ui:define name="content">
 		<body>
-			<section>
-				<div class="pourtravail">
-
-
-
-					<h1>Profil utilisateur</h1>
-
-					<h:form>
-						
-						<div>
-						<div>
-							
-							<b><h:outputLabel value="Asso selectionne : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.selectedAssociation}" />
-						</div>
-						<div>
-							<b> <h:outputLabel value="Matériel emprunté : " />
-							</b>
+			<div class="container profil">
+			<div class="row profil-rowOne">
+					
+						<div class="bg-image col-md-12">
+							<div class="association-cosmos">
 							<h:form>
-								<h:dataTable value="#{editMatosController.userBookedMatos}"
-									var="matos">
-									<h:column>
-										<f:facet name="header">Nom</f:facet>
-										#{matos.title}
-							</h:column>
-								</h:dataTable>
-							</h:form>
-							
-							<b> <h:outputLabel value="Activité(s) auxquelles je suis inscrit(e) : " />
-							</b>
-							<h:form>
-								<h:dataTable value="#{editActivityController.userBookedActivity}"
-									var="matos">
-									<h:column>
-										<f:facet name="header">Nom</f:facet>
-										#{activity.title}
-							</h:column>
-								</h:dataTable>
-							</h:form>
-
-							<br /> <br /> <b> <h:outputLabel
-									value="les asso où je suis inscrit : " />
-							</b> <br />
-							<ui:repeat
+								<ui:repeat
 								value="#{showUserController.currentUserAssociationSubscriptions()}"
 								var="asso">
-
 								<h:commandButton id="submit"
 									actionListener="#{showUserController.editSelectAssociation}"
-									action="userProfile">
-									<f:attribute name="value" value="#{asso.legalName} #{asso.id}" />
+									action="userProfile"
+									class="btn-select-asso">
+									<f:attribute name="value" value="#{asso.associationIdentity.associationDepiction.name} #{asso.id}" />
 									<f:attribute name="asso" value="#{asso}" />
 								</h:commandButton>
-								<br />
 							</ui:repeat>
+							</h:form>
+							</div>
+							<div class="avatar">
+								<h:graphicImage library="images" name="#{showUserController.oneUser.userProfile.avatar}" styleClass="avatar"></h:graphicImage>
+							<div class="title"> #{showUserController.oneUser.username} </div>
+							
+							</div>
 						</div>
-						<div>
-							<b><h:outputLabel value="Rôle : " /></b>
-							<h:outputLabel value="#{showUserController.oneUser.primaryRole}" />
+						<div class="row">
+							<div class="col-md-6 point-list-none">
+								<ul>
+									<li>#{showUserController.oneUser.userProfile.lastName} #{showUserController.oneUser.userProfile.firstName}</li>
+									<li>#{showUserController.oneUser.userProfile.birthday}</li>
+								</ul>
+							</div>
+							<div class="col-md-6 text-end point-list-none">
+								<ul>
+									<li>#{showUserController.oneUser.userProfile.userContact.primaryEmail}</li>
+									<li>#{showUserController.oneUser.userProfile.userContact.address.city}</li>
+									<li>#{showUserController.oneUser.userProfile.userContact.phone.phoneNumber}</li>
+								</ul>
+							</div>
 						</div>
-						<div>
-							<b><h:outputLabel value="Nom d'utilisateur : " /></b>
-							<h:outputLabel value="#{showUserController.oneUser.username}" />
-						</div>
-						<div>
-							<b><h:outputLabel value="Nom : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.lastName}" />
-						</div>
-						<div>
-							<b><h:outputLabel value="Prenom : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.firstName}" />
-						</div>
-						<div>
-							<b><h:outputLabel value="Avatar : " /></b>
-							<h:graphicImage
-								name="#{showUserController.oneUser.userProfile.avatar}"
-								library="images"></h:graphicImage>
-						</div>
-						<div>
-							<b><h:outputLabel value="Date de naissance : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.birthday}" />
-						</div>
-						<div>
-							<b><h:outputLabel value="Email n°1 : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.userContact.primaryEmail}" />
-						</div>
-						<div>
-							<b><h:outputLabel value="Email n°2 : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.userContact.secondaryEmail}" />
-						</div>
-						<div>
-							<b><h:outputLabel value="Adresse : " /></b> <b><h:outputLabel
-									value="Adresse ligne 1 : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.userContact.address.lineOne}" />
-							<br></br> <b><h:outputLabel value="Adresse ligne 2 : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.userContact.address.lineTwo}" />
-						</div>
-						<div>
-							<b><h:outputLabel value="Code postal : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.userContact.address.zipCode}" />
-						</div>
-						<div>
-							<b><h:outputLabel value="Ville : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.userContact.address.city}" />
-						</div>
-						<div>
-							<b><h:outputLabel value="Region : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.userContact.address.state}" />
-						</div>
-						<div>
-							<b><h:outputLabel value="Pays : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.userContact.address.country}" />
-						</div>
-						<div>
-							<b><h:outputLabel value="Code pays : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.userContact.phone.counrtyCode}" />
-						</div>
-						<div>
-							<b><h:outputLabel value="Numero de telephone : " /></b>
-							<h:outputLabel
-								value="#{showUserController.oneUser.userProfile.userContact.phone.phoneNumber}" />
-						</div>
-						<p:commandButton class="btn-create-asso"
-								value="ModifProfil"
-								action="#{navController.updateProfile()}"></p:commandButton>
+					<div class="description col-md-12">
+								<h4>Biographie</h4>
+								<p>#{showUserController.oneUser.userProfile.profileDescription}</p>
+					</div>
+
+					<div class="btn-display-div">
+						<h:form>
+							<h:commandButton class="btn-modifProfile" value="ModifProfil"
+								action="#{navController.updateProfile}"></h:commandButton>
+						</h:form>
+					</div>
+				</div>
+	</div>
+	
+			<div class="row test">
+				<div class="container activity col-md-6">
+					<div class="row test">
+						<div class="title-activity col-md-12">Activités Associations</div>
+							<div class="activity-model">
+								<div class="title-asso-activity" >
+								<h:outputLabel for="associationName" value="Nom Association"/>
+								</div>
+								<div class="activity-event-model-container">
+									<div class="form-group">
+                       				 <h:outputLabel for="activityName" value="Nom Activité"/>
+                       				 <br></br>
+                       				 <h:outputLabel for="activityDate" value="Date"/>
+                       				 <br></br>
+                       				 <h:outputLabel for="activityHour" value="Heure"/>
+                       				 </div>
+								</div>
 							</div>
 
-					</h:form>
+					</div>
 				</div>
-			</section>
+				<div class="container event col-md-4">
+						<div class="row">
+							<div class="title-event col-md-12">Evènements Associations</div>
+								<div class="activity-model">
+									<div class="title-asso-event" >
+										<h:outputLabel for="associationName" value="Nom Association"/>
+									</div>
+									<div class="activity-event-model-container">
+									<div class="form-group">
+	                       				 <h:outputLabel for="eventName" value="Nom Evénement"/>
+	                       				 <br></br>
+	                       				 <h:outputLabel for="eventDateStart" value="Date de début"/>
+	                       				 <br></br>
+	                       				 <h:outputLabel for="eventDateEnd" value="Date de fin"/>
+                       				 </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container material col-md-2">
+						<div class="row">
+							<div class="title-material col-md-12">Matériel Associations</div>
+							<div class="material-model">
+								
+									<div class="title-asso-material" >
+										<h:outputLabel for="associationName" value="Nom Matériel"/>
+									</div>
+									<div class="material-model-container">
+									<div class="form-group">
+	                       				 <h:outputLabel for="eventName" value="Nom Evénement"/>
+	                       				 <br></br>
+	                       				 <h:outputLabel for="eventDateStart" value="Type de matériel"/>
+                       				 </div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
 		</body>
 	</ui:define>
 </ui:composition>
