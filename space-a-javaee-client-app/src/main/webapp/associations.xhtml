@@ -42,8 +42,15 @@
 						<div class="row">
 							<h:form>
 								<div class="text-center">
-									<h:commandButton class="btn-fix-association"
-										value="Découvrir #{asso.associationIdentity.associationDepiction.name}" />
+									<h:column>
+								<f:facet name="header">Redirection</f:facet>
+								<h:commandButton class="btn-fix-association" id="submit"
+									actionListener="#{showAssociationController.attributListner}"
+									action="associationIndexToCatalog">
+									<f:attribute name="value" value="Découvrir #{asso.associationIdentity.associationDepiction.name}" />
+									<f:attribute name="asso" value="#{asso}" />
+								</h:commandButton>
+							</h:column>
 								</div>
 							</h:form>
 						</div>
