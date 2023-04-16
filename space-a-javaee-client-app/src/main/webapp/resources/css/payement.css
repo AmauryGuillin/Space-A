@@ -1,3 +1,13 @@
+.payement-container {
+	background-color: rgba(253, 253, 253, 0.57);
+	margin: 30px;
+	margin-top: 5rem;
+	border-radius: 20px;
+	width: 50%;
+	height: 500px;
+	z-index: 3;
+}
+
 .cart-form {
 	position: relative;
 	padding: 20px 0;
@@ -224,15 +234,16 @@ label {
 	width: 150px;
 	border-radius: 15px;
 	border: none;
-	background-color: white;
-	color: #132d64;
+	background-color: #132d64;
+	color:white ;
 	outline: none;
 	cursor: pointer;
 	font-size: 1em;
 	transition: 0.5s;
+	z-index:0;
 }
 
+
 .btn-payement:hover {
-	background-color: #132d64;
-	color: white;
+	background-color: rgba(4, 25, 68);
 }

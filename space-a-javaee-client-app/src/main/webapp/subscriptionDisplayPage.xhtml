@@ -10,9 +10,6 @@
 		<h:body>
 			<div class="container-fluid c-main">
 				<div class="subscription-content">
-					<div class="subscription-title">
-						<h4>Abonnement</h4>
-					</div>
 					<div class="subscription-card">
 					<div class="sub-title">
 						#{assoAdminSubscriptionController.adminSubDetails.title}
@@ -24,7 +21,8 @@
 						#{assoAdminSubscriptionController.adminSubDetails.price}€
 					</div>
 					<div class="sub-btn">
-						<h:commandButton value="S'abonner" /> premier mois gratuit !
+						<em>*profitez du premier mois gratuit !</em> 
+						<h:commandButton class="btn-payementOne" value="S'abonner" />
 					</div>
 					</div>
 				</div>
