@@ -1,0 +1,238 @@
+.cart-form {
+	position: relative;
+	padding: 20px 0;
+	margin: 50px;
+}
+
+#amount {
+	font-size: 1rem;
+}
+
+#card-back {
+	top: 40px;
+	right: 0;
+	z-index: -2;
+}
+
+#card-cvc {
+	width: 47px;
+	margin-bottom: 0;
+	background-color: white;
+}
+
+#card-front, #card-back {
+	position: absolute;
+	background-color: #132d64;
+	width: 420px;
+	height: 290px;
+	border-radius: 6px;
+	padding: 20px 30px 0;
+	box-sizing: border-box;
+	font-size: 1rem;
+	font-weight: 300;
+	color: white;
+	border: #D0D0D0 solid 1px;
+}
+
+#card-image {
+	float: right;
+	height: 100%;
+}
+
+#card-image i {
+	font-size: 1rem;
+}
+
+#card-month {
+	width: 40% !important;
+	background-color: white;
+}
+
+#card-number, #card-holder {
+	width: 100%;
+	background-color: white;
+	color: #132d64;
+}
+
+#card-stripe {
+	width: 100%;
+	height: 55px;
+	background-color: aliceblue;
+	position: absolute;
+	right: 0;
+}
+
+#card-token {
+	display: none;
+}
+
+#card-year {
+	width: 40%;
+	float: right;
+	background-color: white;
+}
+
+#cardholder-container {
+	width: 60%;
+	display: inline-block;
+}
+
+#cvc-container {
+	position: absolute;
+	width: 110px;
+	right: -105px;
+	bottom: -10px;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+
+#cvc-container label {
+	width: 100%;
+}
+
+#cvc-container p {
+	font-size: 6px;
+	text-transform: uppercase;
+	opacity: 0.6;
+}
+
+#form-container {
+	margin: auto;
+	width: 500px;
+	height: 290px;
+	position: relative;
+}
+
+#form-errors {
+	color: #eb0000;
+}
+
+#form-errors, #card-success {
+	background-color: white;
+	width: 500px;
+	margin: 0 auto 10px;
+	height: 50px;
+	border-radius: 8px;
+	padding: 0 20px;
+	font-weight: 400;
+	box-sizing: border-box;
+	line-height: 46px;
+	text-transform: none;
+}
+
+#form-errors p, #card-success p {
+	margin: 0 5px;
+	display: inline-block;
+}
+
+#exp-container {
+	margin-left: 10px;
+	width: 32%;
+	display: inline-block;
+	float: right;
+}
+
+.hidden {
+	display: none;
+}
+
+#image-container {
+	width: 100%;
+	position: relative;
+	height: 55px;
+	margin-bottom: 5px;
+	line-height: 55px;
+}
+
+#image-container img {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+input {
+	border: none;
+	outline: none;
+	background-color: #5a9def;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	margin: 0 0 25px;
+	color: white;
+	font-size: 1rem;
+	box-sizing: border-box;
+	border-radius: 4px;
+}
+
+input::-webkit-input-placeholder {
+	color: #fff;
+	opacity: 0.7;
+	font-weight: 300;
+	font-size: 1rem;
+}
+
+input:-moz-placeholder {
+	color: #132d64;
+	opacity: 0.7;
+	font-weight: 300;
+	font-size: 1rem;
+}
+
+input::-moz-placeholder {
+	color: #132d64;
+	opacity: 0.7;
+	font-weight: 300;
+	font-size: 1rem;
+}
+
+input:-ms-input-placeholder {
+	color: #132d64;
+	opacity: 0.7;
+	font-weight: 300;
+	font-size: 1rem;
+}
+
+input.invalid {
+	border: solid 2px #eb0000;
+	height: 34px;
+}
+
+label {
+	display: block;
+	margin: 0 auto 7px;
+}
+
+#shadow {
+	position: absolute;
+	right: 0;
+	width: 284px;
+	height: 214px;
+	top: 36px;
+	background-color: #000;
+	z-index: -1;
+	border-radius: 8px;
+	box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn-payement {
+	position: absolute;
+	bottom: -110px;
+	right: 0;
+	height: 40px;
+	width: 150px;
+	border-radius: 15px;
+	border: none;
+	background-color: white;
+	color: #132d64;
+	outline: none;
+	cursor: pointer;
+	font-size: 1em;
+	transition: 0.5s;
+}
+
+.btn-payement:hover {
+	background-color: #132d64;
+	color: white;
+}
