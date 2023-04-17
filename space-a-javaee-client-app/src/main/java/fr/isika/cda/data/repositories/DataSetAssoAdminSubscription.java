@@ -31,9 +31,11 @@ public class DataSetAssoAdminSubscription {
 		AssoAdminSubscription assoAS = new AssoAdminSubscription();
 		assoAS.setTitle("Abonnement Spac'Ab");
 		assoAS.setPrice(49.99);
-		assoAS.setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-				+ " Vivamus dignissim vulputate mauris ac consectetur."
-				+ " Vivamus eget est ut enim lobortis convallis.");
+		assoAS.setDescription("Cet abonnement* vous permet de créer votre propre espace pour votre association"
+				+ "mais aussi de le personnaliser ! Vous pourrez sélectionnez vos propres couleurs,"
+				+ " logo et image d'accueil en plus de pouvoir créer vos propres 'types' pour vos publications, et matériel."
+				+ " Grâce à votre dashboard administrateur vous pourrez en un seul clic gérer vos adhérents ainsi que toutes "
+				+ " vos publications et matériel que vous souhaiterez mettre à disposition de vos adhérents.");
 		
 		manager.persist(assoAS);
 

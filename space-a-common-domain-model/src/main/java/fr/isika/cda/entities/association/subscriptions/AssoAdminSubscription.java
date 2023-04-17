@@ -1,5 +1,6 @@
 package fr.isika.cda.entities.association.subscriptions;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,8 @@ public class AssoAdminSubscription {
 	private Long id;
 	private String title;
 	private double price;
+	
+	@Column(length = 1000)
 	private String description;
 	
 	

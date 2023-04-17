@@ -10,17 +10,11 @@
 
 
 .top-home{
-    /*background-color: #132d64ad; --> couleur secondaire par defaut*/
-    /*color: #FFFFFF; --> couleur primaire*/
     width: 100vw;
-    text-align: center;
-    padding-top: 100px;
+    text-align: center;  
 }
 
-.container, .main-content, .row{
-	margin:0;
-	padding:0;
-} 
+
 
 .form-sans-marg{
 	padding:0;
@@ -30,17 +24,15 @@
 
 .top-home h1{
     font-weight: bolder;
-    font-size: 2.5em;
+    font-size: 2.7em;
     margin-bottom: 20px;
-    padding-top:20px;
-    font-family: monospace;/*font Asso*/
+	margin-top: 20px
 }
 
 .top-home img{
     max-height:400px;
     max-width: 75%;
-    /*border: #FFFFFF solid; --> couleur primaire*/
-    margin-bottom: 20px; 
+    margin-bottom: 40px; 
 }
 
 .infoAsso-home {
@@ -48,10 +40,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*background-color: #FFFFFF;couleur primaire*/
     min-height: 240px;
-    /*color: red; --> couleur tertiaire*/
-    font-family: monospace;/*font Asso*/
     text-align: center;
 }
 
@@ -67,9 +56,6 @@
 }
 
 .album-home{
-    /*background-color: green; --> couleur secondaire*/
-    /*color: #FFFFFF; --> couleur primaire*/
-    font-family: monospace;/*font Asso*/
     width: 100vw;
 }
 
@@ -83,7 +69,6 @@
 .album-home .img-main-asso{
     height: 80%;
     width: 80%; 
-    /*border: #FFFFFF solid; couleur primaire*/
     margin: 10%;
 }
 
@@ -91,13 +76,14 @@
     color: #FFFFFF;
     width: 100vw;
     text-align: center;
-    padding-top: 100px;
     background: url("#{resource['images/bg-ciel.png']}");
 }
 
 .top-spaca h1{
-	margin: 40px;
-	font-size: 6rem;
+	font-weight: bolder;
+    font-size: 3em;
+    margin-bottom: 30px;
+    padding-top:30px;
 }
 
 .top-spaca .img-main-top{
@@ -117,7 +103,25 @@
 .btn-create-asso {
     position: absolute;
     bottom: 50px;
+	left:50%;
+	transform: translateX(-50%);
+    height: 40px;
+    width:300px; 
+    border-radius: 15px;
+    border:none;
+    background-color: white;
+    color:#132d64;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: 0.5s;
 }
+
+.btn-create-asso:hover{
+    background-color: #132d64;
+    color: white;
+}
+
 
 .btn-find-asso {
     position: absolute;
@@ -130,7 +134,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 300px;
+    min-height: 100px;
     background-color: #FFFFFF;
     color:black;
     text-align: center;
@@ -150,6 +154,19 @@
 	padding-right: 10rem; 
 }
 
+.btn-joinAsso{
+    height: 40px;
+    width:300px; 
+    border-radius: 15px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: 0.5s;
+    margin-top: 20px;
+    margin-bottom:40px;
+}
+
 .catalogue-asso {
     display: flex;
     flex-direction: column;
@@ -164,7 +181,7 @@
 
 .catalogue-asso h2{
     margin: 30px;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     
 }

@@ -39,6 +39,16 @@
 							<div class="col-md-7 border-block">
 								<div class="form-group row col-md-12">
 									<div class="col-md-3">
+										<em><h:outputLabel for="biography" value="Racontez vos aventures galatiques"
+											class="col-form-label txt-bio" /></em>
+									</div>
+									<div class="col-md-9">
+										<h:inputTextarea id="biography" class="form-control"
+										value="#{showUserController.oneUser.userProfile.profileDescription}" />
+									</div>
+								</div>
+								<div class="form-group row col-md-12">
+									<div class="col-md-3">
 										<h:outputLabel for="nom" value="Nom :"
 											class="col-form-label font-weight-bold" />
 									</div>
@@ -76,10 +86,10 @@
 											style="border-radius: 15px" />
 									</div>
 								</div>
-
+								
 								<div class="form-group row col-md-12">
 									<div class="col-md-3">
-										<h:outputLabel for="primaryEmail" value="Email n°1 :"
+										<h:outputLabel for="primaryEmail" value="Email principale :"
 											class="col-form-label font-weight-bold" />
 									</div>
 
@@ -92,7 +102,7 @@
 
 								<div class="form-group row col-md-12">
 									<div class="col-md-3">
-										<h:outputLabel for="secondaryEmail" value="Email n°1 :"
+										<h:outputLabel for="secondaryEmail" value="Email secondaire :"
 											class="col-form-label font-weight-bold" />
 									</div>
 
@@ -197,7 +207,7 @@
 								<div class="form-group row col-md-12">
 									<div class="col-md-3">
 										<h:outputLabel for="phoneNumber"
-											value="Numero de telephone : "
+											value="Telephone : "
 											class="col-form-label font-weight-bold" />
 									</div>
 
@@ -209,11 +219,13 @@
 								</div>
 
 								<div class="form-group row col-md-12">
-									<div class="col-md-3">
+									<div class="col-md-8 btn-modif">
+									
 										<p:commandButton action="#{showUserController.updateEntity}"
-											value="Modifier" />
+											value="Sauvegarder les modifications" />
+										
 									</div>
-									<div class="col-md-8">
+									<div class="col-md-4 btn-delete">
 										<p:commandButton
 											action="#{userProfileController.deleteProfile()}"
 											value="Supprimer mon compte" />

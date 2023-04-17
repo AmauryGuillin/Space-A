@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.users.UserAccount;
@@ -22,7 +24,9 @@ public class StuffToRent {
 	private Long id;
 	private String title;
 	private String description;
+	@Temporal (TemporalType.DATE)
 	private Date startDate;
+	@Temporal (TemporalType.DATE)
 	private Date endDate;
 	private String stuffType;
 	private Long idUser;

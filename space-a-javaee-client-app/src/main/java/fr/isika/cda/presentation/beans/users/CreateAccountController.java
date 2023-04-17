@@ -41,8 +41,13 @@ public class CreateAccountController {
 		UserProfile userProfile = new UserProfile();
 		userProfile.setUserContact(userContact);
 		userProfile.setAvatar("user-avatar-basic.PNG");
-		userProfile.setLastName("LastName");
-		userProfile.setFirstName("FirstName");
+		userProfile.setLastName("Nom");
+		userProfile.setFirstName("Prenom");
+		userProfile.setProfileDescription("Je suis un Chevalier Jedi talentueux, qui a grandi sur la planète Tatooine. Depuis mon plus jeune âge, j'ai été fasciné par la Force et ses mystères. J'ai été entraîné par le Maître Jedi Hossein, qui a reconnu mon potentiel et m'a pris sous son aile.\r\n"
+				+ "\r\n"
+				+ "En tant que Chevalier Jedi, j'ai participé à de nombreuses missions pour maintenir la paix dans la galaxie des associations. J'ai également participé à la Guerre des Clones, où j'ai démontré mes compétences en tant que pilote de chasseur stellaire et commandant de l'armée clone.\r\n"
+				+ "\r\n"
+				+ "Je suis déterminé à protéger la République et à défendre les valeurs de la Force associative. Malgré les défis auxquels je fais face, je suis convaincu que je peux réaliser de grandes choses en tant que Chevalier Jedi.");
 		userProfile.setBirthday(new Date());
 		
 		
