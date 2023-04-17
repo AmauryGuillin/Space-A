@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<body>
+			<section>
+				<div class="pourtravail">
+					<h:form>
+						<h:dataTable value="#{editMatosController.allMatosOneAsso}"
+							var="matos">
+							<h:column>
+								<f:facet name="header">Nom</f:facet>
+								#{matos.title}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Description</f:facet>
+								#{matos.description}
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Type</f:facet>
+								#{matos.rentingType}
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Durée d'emprunt</f:facet>
+								#{matos.rentingDuration}
+							</h:column>
+
+
+
+
+							<h:column>
+								<f:facet name="header"></f:facet>
+								<ui:fragment rendered="#{matos.idUser == null}">
+									<h:commandButton id="button-reserve" value="Réserver"
+										action="#{editMatosController.bookMatos(matos.id)}"></h:commandButton>
+								</ui:fragment>
+							</h:column>
+
+
+							<h:column>
+								<f:facet name="header"></f:facet>
+								<h:commandButton id="button-validate" value="Supprimer"
+									action="#{editMatosController.deleteMatos(matos.id)}"></h:commandButton>
+							</h:column>
+
+
+						</h:dataTable>
+						<p:commandButton id="button-validate" value="Retour"
+							action="#{navController.dashboardAdmin()}"></p:commandButton>
+
+
+					</h:form>
+				</div>
+			</section>
+		</body>
+	</ui:define>
+</ui:composition>
+
+
