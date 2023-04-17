@@ -1,9 +1,13 @@
 package fr.isika.cda.data.repositories.association;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
@@ -145,10 +149,20 @@ public class AssociationRepository {
 		return query.getSingleResult();
 	}
 
+	public Event findEventByIdWithSubscribers(Long eventId) {
+		TypedQuery<Event> query = entityManager.createQuery("SELECT e FROM Event e LEFT JOIN FETCH e.subscribers WHERE e.id =: id", Event.class);
+		query.setParameter("id", eventId);
+		return query.getSingleResult();
+	}
+	
 	public List<Event> findAllEvent() {
 		return entityManager.createQuery("SELECT e FROM Event e", Event.class).getResultList();
 	}
 
+	public List<Event> findAllEventWithSubscribers() {
+		return entityManager.createQuery("SELECT e FROM Event e LEFT JOIN FETCH e.subscribers", Event.class).getResultList();
+	}
+	
 	public List<StuffToRent> findAllMatos() {
 		return entityManager.createQuery("SELECT m FROM StuffToRent m", StuffToRent.class).getResultList();
 	}
@@ -213,10 +227,23 @@ public class AssociationRepository {
 		
 	}
 
-	public List<Long> findAllUsersRegisteredToOneEvent() {
-		TypedQuery<Long> query = entityManager.createQuery("SELECT idUser FROM stuff_to_rent", Long.class);
-		return query.getResultList();
-	}
+	public List<Long> findAllUsersRegisteredToOneEvent(Long idEvent) {
+		try {
+			TypedQuery<Event> query = entityManager
+					.createQuery("SELECT e FROM Event e LEFT JOIN FETCH e.subscribers WHERE e.id = :idEventParam",
+							Event.class)
+					.setParameter("idEventParam", idEvent);
 
+			Event event = query.getSingleResult();
+
+			// get the list, stream liste d'infos, map : mappe chaque compte en id, collect transforme en liste
+			return event.getSubscribers().stream().map(UserAccount::getUserId).collect(Collectors.toList());
+
+		} catch (NoResultException e) {
+			// nothing to do
+		}
+		// Dans tous les cas par défaut -> liste vide
+		return Collections.emptyList();
+	}
 
 }

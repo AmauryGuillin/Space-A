@@ -3,6 +3,7 @@ package fr.isika.cda.presentation.beans.associations;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -43,12 +44,12 @@ public class EditEventController implements Serializable {
 
 		// recup le user co
 		Long userId = SessionUtils.getLoggedUserIdFromSession();
-
+		UserAccount user = userRepo.findByOneId(userId);
 		// recup le matériel pour le modif
-		Event event = assoRepo.findEventById(eventId);
+		Event event = assoRepo.findEventByIdWithSubscribers(eventId);
 
 		// modif le matos
-		event.setIdUser(userId);
+		event.addSubscriber(user);
 
 		// caler le matos en db
 		assoRepo.updateEvent(event);
@@ -57,14 +58,13 @@ public class EditEventController implements Serializable {
 	}
 
 	public List<Event> getUserBookedEvents() {
-		List<Event> listAllEvent = assoRepo.findAllEvent();
+		List<Event> listAllEvent = assoRepo.findAllEventWithSubscribers();
 		List<Event> listReturn = new ArrayList<>();
 
 		Long userId = SessionUtils.getLoggedUserIdFromSession();
-
+		UserAccount user = userRepo.findByOneId(userId);
 		for (Event event : listAllEvent) {
-
-			if (event.getIdUser() == userId) {
+			if (event.getSubscribers().contains(user)) {
 				listReturn.add(event);
 			}
 		}
@@ -72,19 +72,21 @@ public class EditEventController implements Serializable {
 	}
 
 	public List<String> getEventRegisteredUsers(Long eventId) {
+		List<Long> registeredUsersIds = assoRepo.findAllUsersRegisteredToOneEvent(eventId);
+		
+		// get the list, stream liste d'infos, map : mappe chaque compte en username, collect transforme en liste
+		List<String> registeredUsersNames = registeredUsersIds.stream()
+				.map(id -> userRepo.findByOneId(id).getUsername())
+				.collect(Collectors.toList());
 
-		//List<Long> registeredUsersId = assoRepo.findAllUsersRegisteredToOneEvent();
-		List<String> registeredUsersNames = new ArrayList<>();
+//		// to be removed
+//		registeredUsersNames.add("test 1");
+//		registeredUsersNames.add("test 1");
+//		registeredUsersNames.add("test 1");
+//		registeredUsersNames.add("test 1");
+//		registeredUsersNames.add("test 1");
 
-		if (assoRepo.findAllUsersRegisteredToOneEvent() == null) {
-			registeredUsersNames.add("aucun inscrit");
-		} else {
-			List<Long> registeredUsersId = assoRepo.findAllUsersRegisteredToOneEvent();
-			for (Long userId : registeredUsersId) {
-				UserAccount user = userRepo.findByOneId(userId);
-				registeredUsersNames.add(user.getUsername());
-			}
-		}
 		return registeredUsersNames;
 	}
 }
+
