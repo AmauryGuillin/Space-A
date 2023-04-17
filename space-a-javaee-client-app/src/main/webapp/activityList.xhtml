@@ -24,12 +24,18 @@
 
 							<h:column>
 								<f:facet name="header">Date début</f:facet>
-								#{activity.startDate}
+								<h:outputText value="#{activity.startDate}">
+									<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR"/>
+								</h:outputText>
 							</h:column>
+							
+										
 
 							<h:column>
 								<f:facet name="header">Date fin</f:facet>
-								#{activity.endDate}
+								<h:outputText value="#{activity.endDate}">
+									<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR"/>
+								</h:outputText>
 							</h:column>
 							
 							<h:column>
