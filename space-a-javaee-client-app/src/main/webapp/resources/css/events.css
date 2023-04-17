@@ -11,6 +11,8 @@
 .title-events{
 	text-align: center;
 	margin: 1rem;
+	font-size: 3rem;
+	font-weight: bold;
 }
 
 .form-events h1 {
