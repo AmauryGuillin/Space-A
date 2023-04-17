@@ -31,8 +31,6 @@ public class EditEventController implements Serializable {
 	@Inject
 	private UserAccountRepository userRepo;
 
-	@Inject
-	private UserAccountRepository userRepo;
 
 	public List<Event> getAllEvent() {
 		return assoRepo.findAllEvent();
