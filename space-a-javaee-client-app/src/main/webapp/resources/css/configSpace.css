@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+.bg-info-space {
+	background-color: white;
+	height: 1146px;
+	width: 707px;
+	padding: 20px;
+	margin-top: 1rem;
+	margin-left: 10px;
+	border-radius: 15px;
+}
+
+.title-info-space {
+	background-color: #1A3EB8;
+	color: white;
+	font-size: 20px;
+	border-radius: 15px;
+	text-align: center;
+	height: 3.5rem;
+}
+
+.info {
+	background-color: beige;
+	border-radius: 5px;
+	padding: 15px;
+}
+
+.config-kbis {
+	margin-top: 15rem;
+}
+
+.input-config-asso {
+	margin-bottom: 1.7rem !important;
+}
+
+.config-description {
+	overflow-y: scroll !important;
+	height: 300px !important;
+	border-top-right-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+}
+
+.btn-modif-config {
+	background-color: #1A3EB8;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 8px 16px;
+	font-size: 16px;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	transition: transform 0.3s ease-out;
+	margin-bottom: 17px;
+	width: 70%;
+	height: 3rem;
+}
+
+.btn-modif-config::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	width: 0;
+	height: 0;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.4);
+	opacity: 0;
+	transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.btn-modif-config:hover::before {
+	transform: translate(-50%, -50%) scale(4);
+	width: 200%;
+	height: 200%;
+	opacity: 1;
+}
+
+.btn-modif-config:hover {
+	color: #1A3EB8;
+	background-color: #fff;
+	transform: rotate(360deg);
+	border: 2px solid #1A3EB8;
+}
+
+.bg-config-design {
+	background-color: #ffffff75;
+	height: 730px;
+	width: 1165px;
+	padding: 20px;
+	margin-top: 16px;
+	border-radius: 15px;
+	margin-left: 1px;
+}
+
+.position-btn {
+	text-align: center;
+	margin-top: 18px;
+}
+
+.title-colorpicker {
+	background-color: beige;
+	padding: 10px;
+	border-radius: 15px;
+	text-align: center;
+	margin-bottom: 10px;
+	font-weight: bold;
+	margin-top: 20px;
+}
+
+.position-center-mainimageandlogoselector {
+	margin-left: 50px;
+}
+
+.position-center-fontselection {
+	margin-left: 35px;
+}
+
+.bg-config-functionnality {
+	background-color: #ffffff45;
+	width: 1165px;
+	padding: 20px;
+	margin-top: 1rem;
+	border-radius: 15px;
+	margin-left: 1px;
+	margin-bottom: 15px;
+}
+
+.title-config-enventetc {
+	background-color: beige;
+	padding: 10px;
+	border-radius: 15px;
+	text-align: center;
+	margin-bottom: 0px;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: -2px;
+	border-bottom-left-radius: 0;
+	/* Retirer le border-radius du haut gauche */
+	border-bottom-right-radius: 0;
+	border: 1px solid grey;
+}
+
+.bg-event {
+	background-color: #d9d9d9cc;
+	padding: 5px;
+	border-radius: 15px;
+	border-top-left-radius: 0;
+	/* Retirer le border-radius du haut gauche */
+	border-top-right-radius: 0;
+	min-height: 230px;
+	border: 1px solid grey;
+	border-top: none;
+}
+
+.input-config-type {
+	background-color: white;
+	width: 100%;
+	color: black;
+	margin: 0;
+}
+
+.btn-flex {
+	display: flex;
+	justify-content: end;
+}
+
+.btn-add-type {
+	margin: 0;
+	background-color: #1A3EB8;
+}
+
+.btn-add-type:hover {
+	background-color: white;
+	color: #1A3EB8;
+}
+
+.datatable-type{
+	color:  #1A3EB8;
+	margin-left: 1.5rem;
+}

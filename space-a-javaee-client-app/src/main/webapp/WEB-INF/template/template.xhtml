@@ -40,6 +40,7 @@
 	<h:outputStylesheet library="css" name="activities.css" />	
 	<h:outputStylesheet library="css" name="publications.css" />
 	<h:outputStylesheet library="css" name="eventsIndexAssociation.css" />	
+	<h:outputStylesheet library="css" name="configSpace.css" />	
 
 	<link rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
@@ -151,7 +152,7 @@
 
 
 									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{userLoginController.logout()}" value="Se déconnecter" /></li>
+											action="#{userLoginController.logout()}" value="Se déconnecter" style="color: #E70A0A"/></li>
 								</ui:fragment>
 
 
@@ -159,7 +160,7 @@
 								<ui:fragment
 										rendered="#{userLoginController.userLoggedIn == false}">	
 									<li class="nav-item"><h:commandLink class="nav-link"
-											action="#{navController.login()}" value="Se connecter" /></li>
+											action="#{navController.login()}" value="Se connecter" style="color: #0DB610"/></li>
 								</ui:fragment>
 
 							</ul>
