@@ -142,7 +142,7 @@ public class ShowUserController {
 
 	public String deleteUser(Long userId) {
 		userAccountRepo.remove(userId);
-		return "/index.xhtml?faces-redirect=true"; 
+		return "/dashboardAdmin.xhtml?faces-redirect=true"; 
 	}
 	
 	
