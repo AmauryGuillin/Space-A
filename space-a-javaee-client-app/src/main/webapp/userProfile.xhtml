@@ -8,6 +8,7 @@
 
 	<ui:define name="content">
 		<body>
+		
 			<div class="container profil">
 				<div class="row profil-rowOne">
 
@@ -40,7 +41,8 @@
 							<ul>
 								<li>#{showUserController.oneUser.userProfile.lastName}
 									#{showUserController.oneUser.userProfile.firstName}</li>
-								<li>#{showUserController.oneUser.userProfile.birthday}</li>
+								<li>#{showUserController.oneUser.userProfile.birthday}
+								</li>
 							</ul>
 						</div>
 						<div class="col-md-6 text-end point-list-none">
@@ -73,9 +75,9 @@
 							<ui:repeat value="#{editActivityController.userBookedActivity}"
 								var="activity">
 								<div class="card-matos"
-									style=" color:##{matos.association.associationSpace.graphicChart.mainColor}; 
-									background-color: ##{matos.association.associationSpace.graphicChart.secondaryColor}">
-									<div class="matos-association-name"></div>
+									style=" color:##{activity.association.associationSpace.graphicChart.mainColor}; 
+									background-color: ##{activity.association.associationSpace.graphicChart.secondaryColor}">
+									<div class="matos-association-name">#{activity.association.associationIdentity.associationDepiction.name}</div>
 									<div class="matos-title">#{activity.title}</div>
 									<div class="matos-type">-- #{activity.activityType} --</div>
 									<div class="matos-dates">
@@ -88,26 +90,23 @@
 				</div>
 				<div class="row">
 					<div class="container material col-md-4">
-						<div class="title-activity col-md-12">Événements</div>
+						<div class="title-event col-md-12">Événements</div>
 						<h:form class="matos-form">
 							<ui:repeat value="#{editEventController.userBookedEvents}"
 								var="event">
 								<div class="card-matos"
-									style=" color:##{event.association.associationSpace.graphicChart.mainColor}; 
-									background-color: ##{matos.association.associationSpace.graphicChart.secondaryColor}">
-									<div class="matos-association-name"></div>
+									style="color:##{event.association.associationSpace.graphicChart.mainColor}; 
+									background-color: ##{event.association.associationSpace.graphicChart.secondaryColor}">
+									<div class="matos-association-name">#{event.association.associationIdentity.associationDepiction.name}</div>
 									<div class="matos-title">#{event.title}</div>
 									<div class="matos-type">-- #{event.eventType} --</div>
 									<div class="matos-dates">
-										Du #{event.startDate} <br /> au #{event.endDate}
+										 Du #{event.startDate}
+										  <br /> au #{event.endDate}
 									</div>
 								</div>
 
-								<h:commandButton id="submit"
-									actionListener="#{showUserController.editSelectAssociation}"
-									action="userProfile">
-									<f:attribute name="value" value="#{events.title}" />
-								</h:commandButton>
+								
 								<br />
 							</ui:repeat>
 						</h:form>

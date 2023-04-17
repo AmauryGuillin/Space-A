@@ -12,6 +12,26 @@
 	align-items: center;
 }
 
+.titles-dashbord{
+	text-align: center;
+}
+
+.titles-dashbord h1{
+	font-size: 4rem;
+	color: #132d64;
+	font-weight: bold;
+}
+
+.titles-dashbord h2{
+	font-size: 2rem;
+	color: #132d64;
+}
+
+.titles-dashbord h3{
+	font-size: 1.5rem;
+	color: #132d64;
+}
+
 .btn-config {
 	height:50px;
 	display: flex;
