@@ -8,33 +8,43 @@
 
 	<ui:define name="content">
 		<h:body>
-			<div class="fond-matos" style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor}">
+			<div class="fond-activities" style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor}">
 
-				<h1 class="title-matos" style="color:##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}">Nos Activités</h1>
+				<h1 class="title-activities" style="color:##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}">Nos Activités</h1>
 				<br />
 
 
 				<div class="container-fluid jsp">
 					<ui:repeat value="#{editActivityController.allActivitiesOneAsso}" var="activity">
-						<div class="row form-matos">
-						<div class="col-md-12 box-matos">
+						<div class="row form-activities">
+						<div class="col-md-12 box-activities">
 						<h2 style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">#{activity.title}</h2>
 						<h3 style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}"> #{activity.activityType} </h3>
-						<h4>#{activity.startDate} #{activity.endDate}</h4>
+						<h4
+										style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">
+										Du
+										<h:outputText value="#{activity.startDate}">
+											<f:convertDateTime pattern="dd MMM yyyy" />
+										</h:outputText>
+										au
+										<h:outputText value="#{activity.endDate}">
+											<f:convertDateTime pattern="dd MMM yyyy" />
+										</h:outputText>
+									</h4>
 						<p style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}"> #{activity.description} </p>
 						<p style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}"> <em> Nombre de personnes max : #{activity.maxCapacity} </em></p>
 						
 							<h:form>
 								<div class="text-center">
 									
-								<f:facet name="header">Redirection</f:facet>
-								<ui:fragment rendered="#{matos.idUser == null}">
+								
+								
 									<h:commandButton 
 									style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor} ;
 										color:##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}"
-									class="btn-booking" value="S'inscire"
+									class="btn-activities" value="S'inscire"
 										action="#{editActivityController.bookActivity(activity.id)}"></h:commandButton>
-								</ui:fragment>
+								
 								</div>
 							</h:form>
 						</div>
