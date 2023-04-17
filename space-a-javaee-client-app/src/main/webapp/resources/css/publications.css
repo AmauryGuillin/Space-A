@@ -1,49 +1,53 @@
-.fond-events{
+.fond-publi{
 	width: 100vw
 }
 
-.form-events {
+.form-publi {
 	background-color: rgba(253, 253, 253, 0.74);
 	border-radius: 20px;
 	margin-bottom: 2rem;
 }
 
-.title-events{
+#type-publi{
+	text-align: center;
+}
+
+.title-publi{
 	text-align: center;
 	margin: 1rem;
 	font-size: 3rem;
 	font-weight: bold;
 }
 
-.form-events h1 {
+.form-publi h1 {
 	text-align: center;
-	padding: 30px;
+	padding-top: 30px;
 }
 
-.gauche-events {
+.gauche-publi {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.droite-events {
+.droite-publi {
 	padding-right: 50px;
 	padding-left: 50px;
 	margin-top:20px;
 }
 
-.droite-events h4{
+.droite-publi h4{
 	font-size: 1rem;
 	font-weight: bold;
 	text-align: center;
 }
 
-.droite-events p{
+.droite-publi p{
 	font-size:  1rem;
-	text-align: center;
+	text-align: justify;
 }
 
-.img-events {
+.img-publi {
 	width: 80%;
 	height: 90%;
 	margin: auto;
@@ -53,7 +57,7 @@
 	margin: auto;
 }
 
-.btn-events {
+.btn-publi {
 	height: 40px;
 	width: 50%;
 	border-radius: 15px;
