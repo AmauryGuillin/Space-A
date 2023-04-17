@@ -33,19 +33,19 @@ public class DataSetUser {
 		// Jeu de test
 		// 1 user : test
 		Address firstAdr = new Address();
-		firstAdr.setCity("city1");
+		firstAdr.setCity("Grenoble");
 		firstAdr.setCountry("France");
-		firstAdr.setLineOne("Ligne 1 de l'adresse");
-		firstAdr.setLineTwo("Ligne 2 de l'adresse");
-		firstAdr.setState("Region1");
-		firstAdr.setZipCode("00001");
+		firstAdr.setLineOne("Rue du centre");
+		firstAdr.setLineTwo(" - ");
+		firstAdr.setState("IDF");
+		firstAdr.setZipCode("38000");
 		
 		Phone firstPhone = new Phone();
 		firstPhone.setCounrtyCode("+33");
-		firstPhone.setPhoneNumber("00 00 00 00 01");
+		firstPhone.setPhoneNumber("06 53 32 43 12");
 
 		UserContact contact = new UserContact();
-		contact.setPrimaryEmail("email1-email@email.fr");
+		contact.setPrimaryEmail("jtrappeur@gmail.com");
 		contact.setAddress(firstAdr);
 		contact.setPhone(firstPhone);
 		contact.setAddress(firstAdr);
@@ -74,19 +74,19 @@ public class DataSetUser {
 		
 		// MEMBER
 		Address thirdAdr = new Address();
-		thirdAdr.setCity("city3");
+		thirdAdr.setCity("St-Michel-Chef-Chef");
 		thirdAdr.setCountry("France");
-		thirdAdr.setLineOne("Ligne 1 de l'adresse");
-		thirdAdr.setLineTwo("Ligne 2 de l'adresse");
-		thirdAdr.setState("Region3");
-		thirdAdr.setZipCode("00003");
+		thirdAdr.setLineOne("Ruelle de l'océan");
+		thirdAdr.setLineTwo("impasse n° 4");
+		thirdAdr.setState("Loire-Atlantique");
+		thirdAdr.setZipCode("44730");
 		
 		Phone thirdPhone = new Phone();
 		thirdPhone.setCounrtyCode("+33");
-		thirdPhone.setPhoneNumber("00 00 00 00 03");
+		thirdPhone.setPhoneNumber("04 50 78 79 43");
 
 		UserContact contact3 = new UserContact();
-		contact3.setPrimaryEmail("email3-email@email.fr");
+		contact3.setPrimaryEmail("asson.elsa@yahoo.fr");
 		contact3.setAddress(thirdAdr);
 		contact3.setPhone(thirdPhone);
 		
@@ -111,19 +111,19 @@ public class DataSetUser {
 		
 		// USER
 		Address fourthAdr = new Address();
-		fourthAdr.setCity("city4");
+		fourthAdr.setCity("Toulouse");
 		fourthAdr.setCountry("France");
-		fourthAdr.setLineOne("Ligne 1 de l'adresse");
-		fourthAdr.setLineTwo("Ligne 2 de l'adresse");
-		fourthAdr.setState("Region4");
-		fourthAdr.setZipCode("00004");
+		fourthAdr.setLineOne("Rue des cacahuètes");
+		fourthAdr.setLineTwo("montée de la fraise");
+		fourthAdr.setState("Haute-Garonne");
+		fourthAdr.setZipCode("31000");
 		
 		Phone fourthPhone = new Phone();
 		fourthPhone.setCounrtyCode("+33");
-		fourthPhone.setPhoneNumber("00 00 00 00 04");
+		fourthPhone.setPhoneNumber("07 43 21 12 00");
 
 		UserContact fourth = new UserContact();
-		fourth.setPrimaryEmail("email4-email@email.fr");
+		fourth.setPrimaryEmail("jcpaloin@hotmail.fr");
 		fourth.setAddress(fourthAdr);
 		fourth.setPhone(fourthPhone);
 		

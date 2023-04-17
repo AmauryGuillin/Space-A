@@ -139,7 +139,7 @@ public class AssociationRepository {
 		entityManager.remove(event);
 	}
 
-	private Event findEventById(Long eventId) {
+	public Event findEventById(Long eventId) {
 		TypedQuery<Event> query = entityManager.createQuery("SELECT e FROM Event e WHERE e.id =: id", Event.class);
 		query.setParameter("id", eventId);
 		return query.getSingleResult();
@@ -204,6 +204,13 @@ public class AssociationRepository {
 		Activity mergedActivity = entityManager.merge(activity);
 	    entityManager.flush();
 	    return mergedActivity.getId();
+	}
+
+	public Long updateEvent(Event event) {
+		Event mergedEvent = entityManager.merge(event);
+		entityManager.flush();
+	    return mergedEvent.getId();
+		
 	}
 
 
