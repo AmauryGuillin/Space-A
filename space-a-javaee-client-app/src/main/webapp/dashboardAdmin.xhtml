@@ -16,9 +16,9 @@
 				<h:form id="dashboardAdminForm">
 					<div class="row">
 						<div class="titles">
-							<h3>Tableau de bord de votre association
-								#{showUserController.associationSelected.legalName}</h3>
-							<h4>Bienvenue : #{userLoginController.displayUserUsername()}</h4>
+							<h4>#{userLoginController.displayUserUsername()}</h4>
+							<h4>Bienvenue sur votre tableau de bord</h4>
+							<h3>en tant qu'admin de #{showUserController.associationSelected.legalName}</h3>
 							<p:separator />
 						</div>
 

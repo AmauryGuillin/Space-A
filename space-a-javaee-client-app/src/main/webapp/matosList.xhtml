@@ -28,30 +28,26 @@
 							</h:column>
 
 							<h:column>
-								<f:facet name="header">Date début</f:facet>
-								#{matos.startDate}
+								<f:facet name="header">Durée d'emprunt</f:facet>
+								#{matos.rentingDuration}
 							</h:column>
 
-							<h:column>
-								<f:facet name="header">Date fin</f:facet>
-								#{matos.endDate}
-							</h:column>
 
 
 
 							<h:column>
 								<f:facet name="header"></f:facet>
 								<ui:fragment rendered="#{matos.idUser == null}">
-									<p:commandButton id="button-reserve" value="Réserver"
-										action="#{editMatosController.bookMatos(matos.id)}"></p:commandButton>
+									<h:commandButton id="button-reserve" value="Réserver"
+										action="#{editMatosController.bookMatos(matos.id)}"></h:commandButton>
 								</ui:fragment>
 							</h:column>
 
 
 							<h:column>
 								<f:facet name="header"></f:facet>
-								<p:commandButton id="button-validate" value="Supprimer"
-									action="#{editMatosController.deleteMatos(matos.id)}"></p:commandButton>
+								<h:commandButton id="button-validate" value="Supprimer"
+									action="#{editMatosController.deleteMatos(matos.id)}"></h:commandButton>
 							</h:column>
 
 
