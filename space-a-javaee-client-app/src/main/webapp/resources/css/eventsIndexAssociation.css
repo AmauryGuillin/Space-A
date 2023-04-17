@@ -3,36 +3,6 @@
 	flex-wrap: wrap;
 }
 
-.events-container-asso-index {
-	background-color: rgba(253, 253, 253, 0.74);
-	border-radius: 20px;
-	margin-bottom: 2rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	justify-content: center;
+.event-asso-listing img {
 	width: 500px;
-	height: 400px;
-}
-
-.events-container-asso-index-title {
-	text-align: center;
-}
-
-.event-left-image {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.event-left-image img {
-	width: 200px;
-}
-
-.event-right-content {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 }
