@@ -213,7 +213,10 @@ public class AssociationRepository {
 		
 	}
 
-
+	public List<Long> findAllUsersRegisteredToOneEvent() {
+		TypedQuery<Long> query = entityManager.createQuery("SELECT idUser FROM stuff_to_rent", Long.class);
+		return query.getResultList();
+	}
 
 
 }

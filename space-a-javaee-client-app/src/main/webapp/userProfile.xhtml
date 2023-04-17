@@ -128,7 +128,12 @@
 									</div>
 									<div class="matos-title">#{matos.title}</div>
 									<div class="matos-type">-- #{matos.rentingType} --</div>
-									<div class="matos-dates">Date de retour #{editMatosController.getReturnDate(matos.id)}</div>
+									
+									<div class="matos-dates">Date de retour <br/>
+										<h:outputText value="#{editMatosController.getReturnDate(matos.id)}">
+											<f:convertDateTime pattern="dd MMM yyyy" />
+										</h:outputText>
+										</div>
 								</div>
 
 							</ui:repeat>

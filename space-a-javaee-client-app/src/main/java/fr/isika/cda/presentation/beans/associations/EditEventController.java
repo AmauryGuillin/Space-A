@@ -9,66 +9,82 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
+import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.services.Event;
 import fr.isika.cda.entities.association.services.Publication;
 import fr.isika.cda.entities.association.services.StuffToRent;
+import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.utils.SessionUtils;
 
 @ManagedBean
 public class EditEventController implements Serializable {
 
-	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4587102192121866929L;
-	
+
 	@Inject
 	private AssociationRepository assoRepo;
 
-	public List<Event> getAllEvent(){
+	@Inject
+	private UserAccountRepository userRepo;
+
+	public List<Event> getAllEvent() {
 		return assoRepo.findAllEvent();
 	}
-	
+
 	public String deleteEvent(Long eventId) {
 		assoRepo.deleteEvent(eventId);
-		return "/dashboardAdminEvt.xhtml?faces-redirect=true"; 
+		return "/dashboardAdminEvt.xhtml?faces-redirect=true";
 	}
-	
-	
+
 	public String bookEvent(Long eventId) {
-		
-		//recup le user co
+
+		// recup le user co
 		Long userId = SessionUtils.getLoggedUserIdFromSession();
-		
-		//recup le matériel pour le modif
+
+		// recup le matériel pour le modif
 		Event event = assoRepo.findEventById(eventId);
-		
-		//modif le matos
+
+		// modif le matos
 		event.setIdUser(userId);
-		
-		//caler le matos en db
+
+		// caler le matos en db
 		assoRepo.updateEvent(event);
-		
-	return "/userProfile.xhtml?faces-redirect=true";
+
+		return "/userProfile.xhtml?faces-redirect=true";
 	}
-	
-	
-	public List<Event> getUserBookedEvents(){
-		List <Event> listAllEvent = assoRepo.findAllEvent();
-		List <Event> listReturn = new ArrayList<>();
-		
+
+	public List<Event> getUserBookedEvents() {
+		List<Event> listAllEvent = assoRepo.findAllEvent();
+		List<Event> listReturn = new ArrayList<>();
+
 		Long userId = SessionUtils.getLoggedUserIdFromSession();
-		
-		for(Event event : listAllEvent) {
-			
-			if(event.getIdUser() == userId) {
+
+		for (Event event : listAllEvent) {
+
+			if (event.getIdUser() == userId) {
 				listReturn.add(event);
-			}		
+			}
 		}
 		return listReturn;
 	}
-	
-	
 
+	public List<String> getEventRegisteredUsers(Long eventId) {
+
+		//List<Long> registeredUsersId = assoRepo.findAllUsersRegisteredToOneEvent();
+		List<String> registeredUsersNames = new ArrayList<>();
+
+		if (assoRepo.findAllUsersRegisteredToOneEvent() == null) {
+			registeredUsersNames.add("aucun inscrit");
+		} else {
+			List<Long> registeredUsersId = assoRepo.findAllUsersRegisteredToOneEvent();
+			for (Long userId : registeredUsersId) {
+				UserAccount user = userRepo.findByOneId(userId);
+				registeredUsersNames.add(user.getUsername());
+			}
+		}
+		return registeredUsersNames;
+	}
 }
