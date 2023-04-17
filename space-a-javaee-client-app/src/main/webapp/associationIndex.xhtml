@@ -49,13 +49,49 @@
 
 					<div class="album-home"
 						style="background-color: ##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor}; color : ##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}">
-						<h2 style="font-family: #{showUserController.associationSelected.associationSpace.graphicChart.font}">Notre planning d'Activités</h2>
+						<h2 style="font-family: #{showUserController.associationSelected.associationSpace.graphicChart.font}">Nos événements</h2>
+
+						<div class="event-asso-listing">
+							<ui:repeat value="#{editEventController.allEventsOneAsso}"
+								var="event">
+									
+									<div class="container events-container-asso-index">
+										<div class="events-container-asso-index-title"> 
+											<h1 style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">
+												#{event.title}
+											</h1>
+										</div>
+									<div class="row">
+										<div class="col-md-12 event-left-image">
+											<h:graphicImage class="img-events" library="images" name="#{event.imgEvent}"></h:graphicImage>
+										</div>
+										<div class="row event-rowOne">
+											<div class="col-md-12 event-right-content">
+												<h4
+													style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">
+													Du
+													<h:outputText value="#{event.startDate}">
+														<f:convertDateTime pattern="dd MMM yyyy" />
+													</h:outputText>
+													au
+													<h:outputText value="#{event.endDate}">
+														<f:convertDateTime pattern="dd MMM yyyy" />
+													</h:outputText>
+												</h4>
+												<p style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}; font-wight:bold">
+													<b> #{event.eventType}</b>
+												</p>
+												<p style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">
+													#{event.description}</p>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</ui:repeat>
+						</div>
 					</div>
 				</div>
-
-
 			</div>
-
 		</h:body>
 	</ui:define>
 </ui:composition>
