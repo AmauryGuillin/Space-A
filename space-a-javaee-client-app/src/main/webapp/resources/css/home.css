@@ -1,17 +1,13 @@
-
+@import url('https://fonts.cdnfonts.com/css/star-wars');
 
 /* .picture-bg {
 	
 } */
 
-
-
 /*Contain*/
-
-
-.top-home{
-    width: 100vw;
-    text-align: center;  
+.top-home {
+	width: 100vw;
+	text-align: center;
 }
 
 .top-home h2 {
@@ -19,211 +15,200 @@
 	font-weight: bold;
 }
 
-
-
-.form-sans-marg{
-	padding:0;
+.form-sans-marg {
+	padding: 0;
 	margin: 0;
 }
 
-
-.top-home h1{
-    font-weight: bolder;
-    font-size: 2.7em;
-    margin-bottom: 20px;
+.top-home h1 {
+	font-weight: bolder;
+	font-size: 2.7em;
+	margin-bottom: 20px;
 	margin-top: 20px
 }
 
-.top-home img{
-    max-height:400px;
-    max-width: 75%;
-    margin-bottom: 40px; 
+.top-home img {
+	max-height: 400px;
+	max-width: 75%;
+	margin-bottom: 40px;
 }
 
 .infoAsso-home {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 240px;
-    text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 240px;
+	text-align: center;
 }
 
-.infoAsso-home h2{
-	padding-top:10px;
-	padding-bottom:10px;
+.infoAsso-home h2 {
+	padding-top: 10px;
+	padding-bottom: 10px;
 	font-weight: bold;
 }
 
 .infoAsso-home p {
 	padding-left: 10rem;
-	padding-right: 10rem; 
+	padding-right: 10rem;
 }
 
-.album-home{
-    width: 100vw;
+.album-home {
+	width: 100vw;
 }
 
-.album-home h2{
-    text-align: center;
-    padding-top:30px;
-    font-weight: bold;
-    margin-bottom: 1rem;
-
+.album-home h2 {
+	text-align: center;
+	padding-top: 30px;
+	font-weight: bold;
+	margin-bottom: 1rem;
 }
 
-.album-home .img-main-asso{
-    height: 80%;
-    width: 80%; 
-    margin: 10%;
+.album-home .img-main-asso {
+	height: 80%;
+	width: 80%;
+	margin: 10%;
 }
 
-.top-spaca{
-    color: #FFFFFF;
-    width: 100vw;
-    text-align: center;
-    background: url("#{resource['images/bg-ciel.png']}");
+.top-spaca {
+	color: #FFFFFF;
+	width: 100vw;
+	text-align: center;
+	background: url("#{resource['images/bg-ciel.png']}");
 }
 
-.top-spaca h1{
-	font-weight: bolder;
-    font-size: 3em;
-    margin-bottom: 30px;
-    padding-top:30px;
+.main-title-spaca {
+	font-size: 7rem;
+	padding-top: 30px;
+	font-family: 'Star Wars', sans-serif;
 }
 
-.top-spaca .img-main-top{
-    height:500px;
-    width: 90%;
-    border : #FFFFFF solid; 
-    margin-bottom: 20px; 
+.top-spaca h2 {
+	font-size: 3rem;
+	margin-bottom: 30px;
+	font-family: 'Star Wars', sans-serif;
 }
 
-.img-index-top{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.top-spaca .img-main-top {
+	height: 500px;
+	width: 90%;
+	border: #FFFFFF solid;
+	margin-bottom: 20px;
+}
+
+.img-index-top {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 }
 
 .btn-create-asso {
-    position: absolute;
-    bottom: 50px;
-	left:50%;
+	position: absolute;
+	bottom: 50px;
+	left: 50%;
 	transform: translateX(-50%);
-    height: 40px;
-    width:300px; 
-    border-radius: 15px;
-    border:none;
-    background-color: white;
-    color:#132d64;
-    outline: none;
-    cursor: pointer;
-    font-size: 1em;
-    transition: 0.5s;
+	height: 40px;
+	width: 300px;
+	border-radius: 15px;
+	border: none;
+	background-color: white;
+	color: #132d64;
+	outline: none;
+	cursor: pointer;
+	font-size: 1em;
+	transition: 0.5s;
 }
 
-.btn-create-asso:hover{
-    background-color: #132d64;
-    color: white;
+.btn-create-asso:hover {
+	background-color: #132d64;
+	color: white;
 }
-
 
 .btn-find-asso {
-    position: absolute;
-    bottom: 50px;
+	position: absolute;
+	bottom: 50px;
 }
 
-
-.infoSpace{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100px;
-    background-color: #FFFFFF;
-    color:black;
-    text-align: center;
+.infoSpace {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100px;
+	background-color: #FFFFFF;
+	color: black;
+	text-align: center;
 }
 
-
-
-
-.infoSpace h2{
-	padding-top:30px;
-	padding-bottom:30px;
+.infoSpace h2 {
+	padding-top: 30px;
+	padding-bottom: 30px;
 	font-weight: bold;
 }
 
 .infoSpace p {
 	padding-left: 10rem;
-	padding-right: 10rem; 
+	padding-right: 10rem;
 }
 
-.btn-joinAsso{
-    height: 40px;
-    width:300px; 
-    border-radius: 15px;
-    border:none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1em;
-    transition: 0.5s;
-    margin-top: 20px;
-    margin-bottom:40px;
+.btn-joinAsso {
+	height: 40px;
+	width: 300px;
+	border-radius: 15px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 1em;
+	transition: 0.5s;
+	margin-top: 20px;
+	margin-bottom: 40px;
 }
 
 .catalogue-asso {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 240px;
-    color:white;
-    text-align: center;
-    padding-bottom: 2rem;
-    background: url("#{resource['images/bg-ciel.png']}");
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 240px;
+	color: white;
+	text-align: center;
+	padding-bottom: 2rem;
+	background: url("#{resource['images/bg-ciel.png']}");
 }
 
-.catalogue-asso h2{
-    margin: 30px;
-    font-size: 2.5rem;
-    font-weight: bold;
-    
+.catalogue-asso h2 {
+	margin: 30px;
+	font-size: 2.5rem;
+	font-weight: bold;
 }
 
 .asso-card1 {
-    height: 400px;
-    width: 300px;
-    position: relative;
-    text-align: center;
-    background: url("#{resource['images/card1.png']}");
-    background-size: contain;
-    background-repeat: no-repeat;
+	height: 400px;
+	width: 300px;
+	position: relative;
+	text-align: center;
+	background: url("#{resource['images/card1.png']}");
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 .asso-card2 {
-    height: 400px;
-    width: 300px;
-    position: relative;
-    text-align: center;
-    background: url("#{resource['images/card2.png']}");
-    background-size: contain;
-    background-repeat: no-repeat;
+	height: 400px;
+	width: 300px;
+	position: relative;
+	text-align: center;
+	background: url("#{resource['images/card2.png']}");
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 .asso-card3 {
-    height: 400px;
-    width: 300px;
-    position: relative;
-    text-align: center;
-    background: url("#{resource['images/card3.png']}");
-    background-size: contain;
-    background-repeat: no-repeat;
+	height: 400px;
+	width: 300px;
+	position: relative;
+	text-align: center;
+	background: url("#{resource['images/card3.png']}");
+	background-size: contain;
+	background-repeat: no-repeat;
 }
-
-
-
-
-
-

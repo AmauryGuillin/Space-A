@@ -18,12 +18,19 @@
 	flex-basis: 45%;
 }
 
+.title-listasso-asso{
+	font-family: 'Star Wars', sans-serif;
+	text-align: center;
+	margin: 1rem;
+	color: white;
+	font-size: 3rem;
+}
+
 .title-associations {
 	text-align: center;
 	margin: 1rem;
 	color: white;
 	font-size: 3rem;
-	font-weight: bold;
 }
 
 .gauche-asso {
@@ -36,20 +43,20 @@
 .droite-asso {
 	padding-right: 50px;
 	padding-left: 50px;
-	margin-top:20px;
+	margin-top: 20px;
 }
 
-.droite-asso h4{
-	text-align: center;	
-	color:#132d64;
+.droite-asso h4 {
+	text-align: center;
+	color: #132d64;
 	font-weight: bold;
 	font-size: 1.8rem;
 }
 
-.droite-asso p{
+.droite-asso p {
 	font-size: 0.95rem;
 	text-align: justify;
-	color:#132d64;
+	color: #132d64;
 }
 
 .img-associations {
