@@ -122,8 +122,8 @@ public class AssociationController {
 		assoVM.setLegalName("KakawetFrez");
 		assoVM.setRegistrationNumber("552 178 639 00132");
 		assoVM.setDescription("Nous sommes une petite association dédiée à la pratique du 'cacahuète fraise', un sport encore méconnu mais avec de grandes similitudes avec la pétanque. "
-				+ "Le but de notre jeu est très simple. Il vous faut tirer une cacahuète au milieu du terrain de jeu. Munissez-vous de fraises et essayer de toucher la cacahuète ! "
-				+ "Notre dirigeante, détient le record absolu avec 46 fraises réussies à la suite. Sauriez-vous relever le défi ?");
+				+ "Le but de notre jeu est très simple. Il vous faut tirer une cacahuète au milieu du terrain de jeu. Munissez-vous de fraises et essayez de toucher la cacahuète ! "
+				+ "Notre dirigeante détient le record absolu avec 46 fraises réussies à la suite. Saurez-vous relever le défi ?");
 		assoVM.setHeadOffice("7 chemin Colette Jacquot, 46813 Merledan");
 		assoVM.setRscNumber("PARIS B 517 403 572");
 		assoVM.setKbisExtract("Path de l'extrait kbis...");

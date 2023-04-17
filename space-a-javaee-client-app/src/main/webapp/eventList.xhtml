@@ -34,6 +34,15 @@
 							
 							<h:column>
 								<f:facet name="header"></f:facet>
+								<ui:fragment rendered="#{event.idUser == null}">
+								<p:commandButton id="button-reserve" value="M'inscrire"
+									action="#{editEventController.bookEvent(event.id)}"></p:commandButton>
+								</ui:fragment>
+								
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header"></f:facet>
 								<p:commandButton id="button-validate" value="Supprimer"
 									action="#{editEventController.deleteEvent(event.id)}"></p:commandButton>
 							</h:column>
