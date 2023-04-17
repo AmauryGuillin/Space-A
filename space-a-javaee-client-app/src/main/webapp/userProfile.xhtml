@@ -81,8 +81,14 @@
 									<div class="matos-title">#{activity.title}</div>
 									<div class="matos-type">-- #{activity.activityType} --</div>
 									<div class="matos-dates">
-										Du #{activity.startDate} <br /> au #{activity.endDate}
-									</div>
+										Du
+										<h:outputText value="#{activity.startDate}">
+											<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR"/>
+										</h:outputText><br />
+										au
+										<h:outputText value="#{activity.endDate}">
+											<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR"/>
+										</h:outputText>									</div>
 								</div>
 							</ui:repeat>
 						</h:form>
@@ -130,9 +136,9 @@
 									
 									<div class="matos-dates">Date de retour <br/>
 										<h:outputText value="#{editMatosController.getReturnDate(matos.id)}">
-											<f:convertDateTime pattern="dd MMM yyyy" />
+											<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR"/>
 										</h:outputText>
-										</div>
+									</div>
 								</div>
 
 							</ui:repeat>
