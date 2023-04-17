@@ -28,6 +28,15 @@
 	border-radius: 15px;
 }
 
+.form-create-admin label {
+	font-weight: bold;
+}
+
+.form-create-listType {
+	display: flex;
+	justify-content: flex-end;
+}
+
 .ui-fileupload-row {
 	display: block !important;
 }
@@ -37,7 +46,7 @@ body .ui-button.ui-button-text-icon-left .ui-icon {
 }
 
 .descriptionAsso {
-	height:200px !important;
+	height: 200px !important;
 }
 
 #button-validate {
@@ -64,7 +73,7 @@ body .ui-button.ui-button-text-icon-left .ui-icon {
 	border-radius: 15px;
 	border: none;
 	background-color: #132d64;
-	color:white ;
+	color: white;
 	cursor: pointer;
 	font-size: 1em;
 	transition: 0.5s;
@@ -76,13 +85,13 @@ body .ui-button.ui-button-text-icon-left .ui-icon {
 	background-color: rgba(4, 25, 68);
 }
 
-.btn-modif .ui-button{
-	height:55px;
-	width:100%;
+.btn-modif .ui-button {
+	height: 55px;
+	width: 100%;
 	border-radius: 15px;
 	border: none;
 	background-color: #132d64;
-	color:white ;
+	color: white;
 	cursor: pointer;
 	font-size: 1em;
 	transition: 0.5s;
@@ -94,13 +103,13 @@ body .ui-button.ui-button-text-icon-left .ui-icon {
 	background-color: #189EDC;
 }
 
-.btn-delete .ui-button{
-	height:55px;
-	width:100%;
+.btn-delete .ui-button {
+	height: 55px;
+	width: 100%;
 	border-radius: 15px;
 	border: none;
 	background-color: #132d64;
-	color:white ;
+	color: white;
 	cursor: pointer;
 	font-size: 1em;
 	transition: 0.5s;
@@ -117,6 +126,5 @@ body .ui-button.ui-button-text-icon-left .ui-icon {
 	top: 5rem !important;
 	opacity: 0;
 }
-
 
 /* fin section formulaire de creation association */

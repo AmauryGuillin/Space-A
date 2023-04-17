@@ -16,93 +16,64 @@
 					<hr></hr>
 					<h:form>
 						<div class="row">
-							<div class="col-md-6 space">
-							
-								<div class="form-group">
+							<div class="col-md-6 offset-md-3 space">
 
-									<h:outputLabel for="title" value="Titre" />
-									<h:inputText class="form-control" id="publiTitre"
-										value="#{eventController.event.title}" />
-								</div>
-								
-								<div class="form-group">
-
-									<h:outputLabel for="description" value="Description" />
-									<h:inputText class="form-control" id="eventDescription"
-										value="#{eventController.event.description}" />
-								</div>
-
-
-								<div class="form-group row col-md-12">
-									<div class="col-md-3">
-										<h:outputLabel for="startDate" value="Date de début :"
+								<div class="form-create-admin">
+									<div class="form-create-listType">
+									
+									<h:selectOneMenu value="#{eventController.event.eventType}">
+											<f:selectItem itemLabel="Sélectionnez votre type"
+												itemValue="" />
+											<f:selectItems value="#{eventController.listEvents}"
+												var="type" itemValue="#{type.nameEventType}"
+												itemLabel="#{type.nameEventType}" />
+												</h:selectOneMenu>
+											</div>	
+												<h:outputLabel for="startDate" value="Date de début :"
 											class="col-form-label font-weight-bold" />
-									</div>
-								<div class="col-md-9">
-									<p:datePicker id="startDate"
-										value="#{eventController.event.startDate}"
-										showButtonBar="true" class="form-control1"
-										style="border-radius: 15px" />
-								</div>
-								</div>	
-						
-								<div class="form-group row col-md-12">
-									<div class="col-md-3">
+										<p:datePicker id="startDate"
+											value="#{eventController.event.startDate}"
+											showButtonBar="true" class="form-control1"
+											style="border-radius: 15px" />
+											
 										<h:outputLabel for="endDate" value="Date de fin :"
 											class="col-form-label font-weight-bold" />
-									</div>
-								<div class="col-md-9">
-									<p:datePicker id="endDate"
-										value="#{eventController.event.endDate}"
-										showButtonBar="true" class="form-control1"
-										style="border-radius: 15px" />
+										<p:datePicker id="endDate"
+											value="#{eventController.event.endDate}" showButtonBar="true"
+											class="form-control1" style="border-radius: 15px" />
+										
+										<h:outputLabel for="title" value="Titre" />
+										<h:inputText class="form-control" id="publiTitre"
+											value="#{eventController.event.title}" />
+
+										<h:outputLabel for="description" value="Description" />
+										<h:inputTextarea class="form-control" id="eventDescription"
+											value="#{eventController.event.description}" />
+
+
+										<h:outputLabel for="mainImage" value="Image"
+											class="align-self-end" />
+										<p:fileUpload skinSimple="true" id="mainImageInput"
+											uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
+											chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
+											cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
+											label="Choisissez une image" mode="advanced"
+											sizeLimit="5000000" fileLimit="1"
+											accept=".gif,.jpg,.jpeg,.png"
+											invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
+											listener="#{eventController.uploadImagePath}"
+											class="imgInput" />
+
+
 								</div>
-								</div>
-
-								
-
-
-								<div class="form-group">
-
-								
-								
-
-								<h:selectOneMenu
-									value="#{eventController.event.eventType}">
-									<f:selectItem itemLabel="Sélectionnez votre type" itemValue="" />
-									<f:selectItems
-										value="#{eventController.listEvents}"
-										var="type" itemValue="#{type.nameEventType}" itemLabel="#{type.nameEventType}" />
-									
-								</h:selectOneMenu>
-
-					
-								</div>
-
-								<div class="form-group">
-									<h:outputLabel for="mainImage" value="Image"
-										class="align-self-end" />
-									<p:fileUpload skinSimple="true" id="mainImageInput"
-										uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
-										chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
-										cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
-										label="Choisissez une image" mode="advanced"
-										sizeLimit="5000000" fileLimit="1"
-										accept=".gif,.jpg,.jpeg,.png"
-										invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
-										listener="#{eventController.uploadImagePath}" class="imgInput" />
-								</div>
-
-
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12 text-center my-5 submit-button">
-								<p:commandButton id="button-validate" value="Valider"
-									action="#{eventController.createEvent()}"></p:commandButton>
+							<div class="row">
+								<div class="col-md-12 text-center my-5 submit-button">
+									<p:commandButton id="button-validate" value="Valider"
+										action="#{eventController.createEvent()}"></p:commandButton>
+								</div>
 							</div>
-						</div>
-
+							</div>
 					</h:form>
 				</div>
 

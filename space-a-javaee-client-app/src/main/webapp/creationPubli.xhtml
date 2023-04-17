@@ -9,76 +9,64 @@
 	<ui:define name="content">
 		<h:body>
 				<div class="fond-formulaire" >
-   
-        <div class="container-form" >
-            <h1 class="text-center">Création d'une publication</h1>
-            <br></br>
-            <hr></hr>
-            <h:form>
-            <div class="row">
-                <div class="col-md-6 space">
-                
-                    <div class="form-group">
-                        
-                        <h:outputLabel for="author" value="Votre nom"/>
-                        <h:inputText class="form-control" id="publiAuthor" value="#{publiController.publi.author}"/> 
-                    </div> 
-                    
-                    <div class="form-group">
-                        
-                        <h:outputLabel for="title" value="Titre"/>
-                        <h:inputText class="form-control" id="publiTitre" value="#{publiController.publi.title}"/> 
-                    </div> 
-                    
-                    <div class="form-group">
 
-								
-								
+				<div class="container-form">
+					<h1 class="text-center">Création d'une publication</h1>
+					<br></br>
+					<hr></hr>
+					<h:form>
+						<div class="row">
+							<div class="col-md-6 offset-md-3 space">
 
-								<h:selectOneMenu
-									value="#{publiController.publi.publicationType}">
-									<f:selectItem itemLabel="Sélectionnez votre type" itemValue="" />
-									<f:selectItems
-										value="#{publiController.listPublications}"
-										var="type" itemValue="#{type.namePublicationType}" itemLabel="#{type.namePublicationType}" />
-									
-								</h:selectOneMenu>
+								<div class="form-create-admin">
+									<div class="form-create-listType">
+										<h:selectOneMenu
+											value="#{publiController.publi.publicationType}">
+											<f:selectItem itemLabel="Sélectionnez votre type"
+												itemValue="" />
+											<f:selectItems value="#{publiController.listPublications}"
+												var="type" itemValue="#{type.namePublicationType}"
+												itemLabel="#{type.namePublicationType}" />
+										</h:selectOneMenu>
+									</div>
 
-					
+									<h:outputLabel for="title" value="Titre" />
+									<h:inputText class="form-control" id="publiTitre"
+										value="#{publiController.publi.title}" />
+										
+									<h:outputLabel for="author" value="Auteur" />
+									<h:inputText class="form-control" id="publiAuthor"
+										value="#{publiController.publi.author}" />
+
+									<h:outputLabel for="description" value="Votre texte" />
+									<h:inputTextarea class="form-control" id="publiText"
+										value="#{publiController.publi.description}" />
+
+									<h:outputLabel for="mainImage" value="Image"
+										class="align-self-end" />
+									<p:fileUpload skinSimple="true" id="mainImageInput"
+										uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
+										chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
+										cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
+										label="Choisissez une image" mode="advanced"
+										sizeLimit="5000000" fileLimit="1"
+										accept=".gif,.jpg,.jpeg,.png"
+										invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
+										listener="#{publiController.uploadImagePath}" class="imgInput" />
 								</div>
-                    
-                    
-                    
-                    <div class="form-group">
-                        
-                        <h:outputLabel for="description" value="Votre texte"/>
-                        <h:inputTextarea class="form-control" id="publiText" value="#{publiController.publi.description}"/> 
-                    </div> 
-          
-                    <div class="form-group">
-                        <h:outputLabel for="mainImage" value="Image" class="align-self-end"/>
-                        <p:fileUpload skinSimple="true" id="mainImageInput"
-								  uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
-								  chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
-								  cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
-								  label="Choisissez une image" mode="advanced" sizeLimit="5000000"
-								  fileLimit="1" accept=".gif,.jpg,.jpeg,.png"
-								  invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
-								  listener="#{publiController.uploadImagePath}" 
-								  class="imgInput"/>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center my-5 submit-button">
-                    <p:commandButton id="button-validate" value="Valider" action="#{publiController.createPubli()}"></p:commandButton>
-                </div>
-            </div>
-    
-            </h:form>
-        </div>
-  
-</div>
+								<div class="row">
+									<div class="col-md-12 text-center my-5 submit-button">
+										<p:commandButton id="button-validate" value="Valider"
+											action="#{publiController.createPubli()}"></p:commandButton>
+									</div>
+								</div>
+							</div>
+						</div>
+					</h:form>
+				</div>
+
+
+			</div>
 
 		</h:body>
 	</ui:define>
