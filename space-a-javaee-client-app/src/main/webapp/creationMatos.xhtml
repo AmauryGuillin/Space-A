@@ -16,19 +16,11 @@
 					<hr></hr>
 					<h:form>
 						<div class="row">
-							<div class="col-md-6 space">
-
-
-								<div class="form-group">
-									<h:outputLabel for="nom" value="Nom" />
-									<h:inputText class="form-control" id="nomMatos"
-										value="#{matosController.matos.title}" />
-								</div>
-
-								<div class="form-group">
-									<h:outputLabel for="desc" value="Type" />
-
-									<h:selectOneMenu value="#{matosController.matos.rentingType}">
+							<div class="col-md-6 offset-md-3 space">
+							
+							<div class="form-create-admin">
+							<div class="form-create-listType">
+								<h:selectOneMenu value="#{matosController.matos.rentingType}">
 										<f:selectItem itemLabel="Sélectionnez votre type" itemValue="" />
 										<f:selectItems value="#{matosController.listStuffs}"
 											var="type" itemValue="#{type.nameRentingType}"
@@ -36,36 +28,33 @@
 									</h:selectOneMenu>
 								</div>
 
-								<div class="form-group">
+									<h:outputLabel for="nom" value="Nom" />
+									<h:inputText class="form-control" id="nomMatos"
+										value="#{matosController.matos.title}" />
+
 									<h:outputLabel for="desc" value="Description" />
 									<h:inputText class="form-control" id="descriptionMatos"
 										value="#{matosController.matos.description}" />
-								</div>
 
-								<div class="form-group">
 									<h:outputLabel for="desc" value="Durée d'emprunt en jours" />
 									<h:inputText class="form-control" id="duration"
 										value="#{matosController.matos.rentingDuration}" />
-										
-								</div>
-
 
 							</div>
-
-	
-
+							</div>
+							</div>
 							<div class="row">
 								<div class="col-md-12 text-center my-5 submit-button">
 									<p:commandButton id="button-validate" value="Valider"
 										action="#{matosController.createMatos()}"></p:commandButton>
 								</div>
-							</div>
+</div>
+					</h:form>							
 						</div>
-					</h:form>
+
 
 				</div>
 
-			</div>
 
 		</h:body>
 	</ui:define>
