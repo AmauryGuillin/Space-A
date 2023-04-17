@@ -9,9 +9,11 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
+import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.services.Event;
 import fr.isika.cda.entities.association.services.Publication;
 import fr.isika.cda.entities.association.services.StuffToRent;
+import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.utils.SessionUtils;
 
 @ManagedBean
@@ -25,9 +27,28 @@ public class EditEventController implements Serializable {
 	
 	@Inject
 	private AssociationRepository assoRepo;
+	
+	@Inject
+	private UserAccountRepository userRepo;
 
 	public List<Event> getAllEvent(){
 		return assoRepo.findAllEvent();
+	}
+	
+	public List<Event> getAllEventsOneAsso(){
+		List <Event> listAllEvents = assoRepo.findAllEvent();
+		List <Event> listReturn = new ArrayList<>();
+		
+		Long userId = SessionUtils.getLoggedUserIdFromSession();
+		UserAccount user = userRepo.findByOneId(userId);
+		
+		for(Event event : listAllEvents) {
+			
+			if(event.getAssociation().getId() == user.getSelectedAssociation()) {
+				listReturn.add(event);
+			}		
+		}
+		return listReturn;
 	}
 	
 	public String deleteEvent(Long eventId) {
