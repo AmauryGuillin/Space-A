@@ -62,7 +62,7 @@ public class MatosController {
 		assoRepo.createMatos(matos);
 		
 
-		return "/dashboardAdmin.xhtml?faces-redirect=true"; 
+		return "/dashboardAdminStuff.xhtml?faces-redirect=true"; 
 	}
 
 	public Association getOneAsso() {

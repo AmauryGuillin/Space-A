@@ -64,7 +64,7 @@ public class EventController {
 		//event en bdd
 		assoRepo.createEvent(event);
 
-		return "/dashboardAdmin.xhtml?faces-redirect=true"; 
+		return "/dashboardAdminEvt.xhtml?faces-redirect=true"; 
 	}
 	
 	public Association getOneAsso() {

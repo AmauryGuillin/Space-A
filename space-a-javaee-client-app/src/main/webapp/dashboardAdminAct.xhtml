@@ -21,7 +21,6 @@
 							<h4>Bienvenue : #{userLoginController.displayUserUsername()}</h4>
 							<p:separator />
 						</div>
-
 					</div>
 					<div class="row">
 						<div class="btn-dashbord-admin">
@@ -53,48 +52,47 @@
 								action="#{navController.creationPubli()}" />
 						</div>
 					</div>
-
-
 					<div class="row d-flex justify-content-center">
 						<div class="create-edite-delete">
 							<div class="members-list">
-								<h3 class="text-center">LISTE DES MEMBRES</h3>
+								<h3 class="text-center">LISTE DES ACTIVITES</h3>
 								<hr />
 								<div class="section-table">
 									<h:form>
-										<h:dataTable class="data-table" cellpadding="15"
+										<h:dataTable class="data-table" value="#{editActivityController.allActivities}" cellpadding="15"
 											cellspacing="10"
-											value="#{showAssociationController.recupAllMembersOfAssoc()}"
-											var="user">
+											var="activity">
 											<h:column>
-												<f:facet name="header">Nom</f:facet>
-					                          	#{user.userProfile.lastName}
-					                        </h:column>
-											<h:column>
-												<f:facet name="header">Prenom</f:facet>
-					                          	#{user.userProfile.firstName}
-					                        </h:column>
-											<h:column>
-												<f:facet name="header">Date de naissance</f:facet>
-					                          	#{user.userProfile.birthday}
-					                        </h:column>
-											<h:column>
-												<f:facet name="header">Email n°1</f:facet>
-					                          	#{user.userProfile.userContact.primaryEmail}
-					                        </h:column>
-											<h:column>
-												<f:facet name="header">Email n°2</f:facet>
-												#{user.userProfile.userContact.secondaryEmail}
+												<f:facet name="header">Titre </f:facet>
+												#{activity.title}
+											</h:column>
+											<h:column >
+												<f:facet name="header">Description</f:facet>
+												#{activity.description}
 											</h:column>
 											<h:column>
-												<f:facet name="header">Telephone</f:facet>
-												#{user.userProfile.userContact.phone.phoneNumber}
+												<f:facet name="header">Date début</f:facet>
+												#{activity.startDate}
 											</h:column>
-
 											<h:column>
-												<f:facet name="header"></f:facet>								
-												<h:commandButton id="button-delete" value="Supprimer"
-													action="#{showUserController.deleteUser(user.userId)}"></h:commandButton>
+												<f:facet name="header">Date fin</f:facet>
+												#{activity.endDate}
+											</h:column>
+											<h:column>
+												<f:facet name="header">Nombre de personnes max</f:facet>
+												#{activity.maxCapacity}
+											</h:column>
+											<h:column>
+												<f:facet name="header"></f:facet>
+												<ui:fragment rendered="#{activity.idUser == null}">
+													<p:commandButton id="button-reserve" value="Réserver"
+														action="#{editActivityController.bookActivity(activity.id)}"></p:commandButton>
+												</ui:fragment>
+											</h:column>
+											<h:column>
+												<f:facet name="header"></f:facet>
+												<h:commandButton id="button-validate" value="Supprimer"
+													action="#{editActivityController.deleteActivity(activity.id)}"></h:commandButton>
 											</h:column>
 										</h:dataTable>
 									</h:form>

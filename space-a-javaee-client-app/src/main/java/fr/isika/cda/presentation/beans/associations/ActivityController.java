@@ -68,7 +68,7 @@ public class ActivityController {
 		//event en bdd
 		assoRepo.createActivity(activity);
 
-		return "/dashboardAdmin.xhtml?faces-redirect=true"; 
+		return "/dashboardAdminAct.xhtml?faces-redirect=true"; 
 	}
 	
 //	public Association getOneAsso() {

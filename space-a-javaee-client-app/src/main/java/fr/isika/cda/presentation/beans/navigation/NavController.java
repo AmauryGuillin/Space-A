@@ -96,6 +96,22 @@ public class NavController {
 		WebUiTools.redirectToView("/associationIndex.xhtml");		
 	}
 	
+	public void dashboardAdminPub() {
+		WebUiTools.redirectToView("/dashboardAdminPub.xhtml");	
+	}
+	
+	public void dashboardAdminAct() {
+		WebUiTools.redirectToView("/dashboardAdminAct.xhtml");	
+	}
+	
+	public void dashboardAdminStuff() {
+		WebUiTools.redirectToView("/dashboardAdminStuff.xhtml");	
+	}
+	
+	public void dashboardAdminEvt() {
+		WebUiTools.redirectToView("/dashboardAdminEvt.xhtml");	
+	}
+	
 	
 
 }

@@ -58,43 +58,45 @@
 					<div class="row d-flex justify-content-center">
 						<div class="create-edite-delete">
 							<div class="members-list">
-								<h3 class="text-center">LISTE DES MEMBRES</h3>
+								<h3 class="text-center">LISTE DU MATERIEL</h3>
 								<hr />
 								<div class="section-table">
 									<h:form>
-										<h:dataTable class="data-table" cellpadding="15"
+										<h:dataTable class="data-table" value="#{editMatosController.allMatosOneAsso}" cellpadding="15"
 											cellspacing="10"
-											value="#{showAssociationController.recupAllMembersOfAssoc()}"
-											var="user">
+											var="matos">
 											<h:column>
 												<f:facet name="header">Nom</f:facet>
-					                          	#{user.userProfile.lastName}
-					                        </h:column>
-											<h:column>
-												<f:facet name="header">Prenom</f:facet>
-					                          	#{user.userProfile.firstName}
-					                        </h:column>
-											<h:column>
-												<f:facet name="header">Date de naissance</f:facet>
-					                          	#{user.userProfile.birthday}
-					                        </h:column>
-											<h:column>
-												<f:facet name="header">Email n°1</f:facet>
-					                          	#{user.userProfile.userContact.primaryEmail}
-					                        </h:column>
-											<h:column>
-												<f:facet name="header">Email n°2</f:facet>
-												#{user.userProfile.userContact.secondaryEmail}
+												#{matos.title}
 											</h:column>
 											<h:column>
-												<f:facet name="header">Telephone</f:facet>
-												#{user.userProfile.userContact.phone.phoneNumber}
+												<f:facet name="header">Description</f:facet>
+												#{matos.description}
+											</h:column>
+											<h:column>
+												<f:facet name="header">Type</f:facet>
+												#{matos.rentingType}
+											</h:column>
+											<h:column>
+												<f:facet name="header">Date début</f:facet>
+												#{matos.startDate}
 											</h:column>
 
 											<h:column>
-												<f:facet name="header"></f:facet>								
-												<h:commandButton id="button-delete" value="Supprimer"
-													action="#{showUserController.deleteUser(user.userId)}"></h:commandButton>
+												<f:facet name="header">Date fin</f:facet>
+												#{matos.endDate}
+											</h:column>
+											<h:column>
+												<f:facet name="header"></f:facet>
+												<ui:fragment rendered="#{matos.idUser == null}">
+													<h:commandButton id="button-reserve" value="Réserver"
+														action="#{editMatosController.bookMatos(matos.id)}"></h:commandButton>
+												</ui:fragment>
+											</h:column>
+											<h:column>
+												<f:facet name="header"></f:facet>
+												<h:commandButton id="button-validate" value="Supprimer"
+													action="#{editMatosController.deleteMatos(matos.id)}"></h:commandButton>
 											</h:column>
 										</h:dataTable>
 									</h:form>

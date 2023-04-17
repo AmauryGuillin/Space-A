@@ -72,7 +72,7 @@ public class EditMatosController implements Serializable {
 	
 	public String deleteMatos(Long matosId) {
 		assoRepo.deleteMatos(matosId);
-		return "/matosList.xhtml?faces-redirect=true"; 
+		return "/dashboardAdminStuff.xhtml?faces-redirect=true"; 
 	}
 	
 	public String bookMatos(Long matosid) {

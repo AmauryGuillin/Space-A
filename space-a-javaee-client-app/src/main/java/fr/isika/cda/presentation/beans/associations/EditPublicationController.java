@@ -26,7 +26,7 @@ public class EditPublicationController implements Serializable {
 	
 	public String deletePubli(Long publiId) {
 		assoRepo.deletePubli(publiId);
-		return "/matosList.xhtml?faces-redirect=true"; 
+		return "/dashboardAdminPub.xhtml?faces-redirect=true"; 
 	}
 
 }

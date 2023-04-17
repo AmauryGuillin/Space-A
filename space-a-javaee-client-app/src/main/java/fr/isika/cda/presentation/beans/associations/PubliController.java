@@ -76,7 +76,7 @@ public class PubliController {
 		assoRepo.createPubli(publi);
 		
 
-		return "/dashboardAdmin.xhtml?faces-redirect=true"; 
+		return "/dashboardAdminPub.xhtml?faces-redirect=true"; 
 	}
 	
 	

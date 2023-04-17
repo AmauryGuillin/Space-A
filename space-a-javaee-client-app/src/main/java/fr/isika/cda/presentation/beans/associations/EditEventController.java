@@ -29,7 +29,7 @@ public class EditEventController implements Serializable {
 	
 	public String deleteEvent(Long eventId) {
 		assoRepo.deleteEvent(eventId);
-		return "/eventList.xhtml?faces-redirect=true"; 
+		return "/dashboardAdminEvt.xhtml?faces-redirect=true"; 
 	}
 
 }

@@ -33,7 +33,7 @@ public class EditActivityController implements Serializable {
 	
 	public String deleteActivity(Long activityId) {
 		assoRepo.deleteActivity(activityId);
-		return "/activityList.xhtml?faces-redirect=true"; 
+		return "/dashboardAdminAct.xhtml?faces-redirect=true"; 
 	}
 	
 	
