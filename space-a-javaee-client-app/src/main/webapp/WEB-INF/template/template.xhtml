@@ -34,6 +34,7 @@
 	<h:outputStylesheet library="css" name="payement.css" />
 	<h:outputStylesheet library="css" name="contact.css" />
 	<h:outputStylesheet library="css" name="viewMember.css" />
+	<h:outputStylesheet library="css" name="events.css" />
 		
 	<link rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
@@ -106,9 +107,8 @@
 										 #{showUserController.userSelectedAssociation.associationIdentity.associationDepiction.name}" /></li>
 								
 								<li class="nav-item"><h:commandLink class="nav-link"
-										action="#{navController.eventList()}" 
-										value="Événements" /></li>
-										
+										action="#{navController.events()}" 
+										value="Evènements" /></li>									
 										<li class="nav-item"><h:commandLink class="nav-link"
 										action="#{navController.publiList()}" 
 										value="Publications" /></li>
@@ -119,10 +119,7 @@
 										
 										<li class="nav-item"><h:commandLink class="nav-link"
 										action="#{navController.activityList()}" 
-										value="Activités" /></li>
-								
-								
-								
+										value="Activités" /></li>					
 							</ul>
 							</ui:fragment>
 						</h:form>

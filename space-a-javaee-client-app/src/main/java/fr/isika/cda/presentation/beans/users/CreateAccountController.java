@@ -26,7 +26,7 @@ public class CreateAccountController {
 		UserAccount account = createAccountFromViewModel();
 		accountRepository.createAccount(account);
 		createAccountViewModel = new CreateAccountViewModel(); // Reset VM
-		return "/index.xhtml?faces-redirect=true";
+		return "/login.xhtml?faces-redirect=true";
 	}
 
 	private UserAccount createAccountFromViewModel() {

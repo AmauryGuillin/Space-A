@@ -17,6 +17,20 @@
 					<h:form>
 						<div class="row">
 							<div class="col-md-6 space">
+							
+								<div class="form-group">
+
+									<h:outputLabel for="title" value="Titre" />
+									<h:inputText class="form-control" id="publiTitre"
+										value="#{eventController.event.title}" />
+								</div>
+								
+								<div class="form-group">
+
+									<h:outputLabel for="description" value="Description" />
+									<h:inputText class="form-control" id="eventDescription"
+										value="#{eventController.event.description}" />
+								</div>
 
 
 								<div class="form-group row col-md-12">
@@ -45,12 +59,7 @@
 								</div>
 								</div>
 
-								<div class="form-group">
-
-									<h:outputLabel for="title" value="Titre" />
-									<h:inputText class="form-control" id="publiTitre"
-										value="#{eventController.event.title}" />
-								</div>
+								
 
 
 								<div class="form-group">
