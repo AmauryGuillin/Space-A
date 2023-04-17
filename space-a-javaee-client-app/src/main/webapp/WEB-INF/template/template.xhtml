@@ -36,6 +36,7 @@
 	<h:outputStylesheet library="css" name="viewMember.css" />
 	<h:outputStylesheet library="css" name="events.css" />
 	<h:outputStylesheet library="css" name="associations.css" />
+	<h:outputStylesheet library="css" name="materials.css" />	
 		
 	<link rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
@@ -115,7 +116,7 @@
 										value="Publications" /></li>
 										
 										<li class="nav-item"><h:commandLink class="nav-link"
-										action="#{navController.matosList()}" 
+										action="#{navController.materials()}" 
 										value="Matériels" /></li>
 										
 										<li class="nav-item"><h:commandLink class="nav-link"
@@ -199,6 +200,7 @@
 		<h:outputScript library="js" name="copyright_year.js" />
 		<h:outputScript library="js" name="bootstrap.bundle.min.js" />
 		<h:outputScript library="js" name="login.js" />
+		<h:outputScript library="js" name="registerControll.js" />
 
 	</div>
 </h:body>

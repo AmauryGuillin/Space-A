@@ -27,6 +27,9 @@ public class EditEventController implements Serializable {
 
 	@Inject
 	private AssociationRepository assoRepo;
+	
+	@Inject
+	private UserAccountRepository userRepo;
 
 	@Inject
 	private UserAccountRepository userRepo;
@@ -35,6 +38,22 @@ public class EditEventController implements Serializable {
 		return assoRepo.findAllEvent();
 	}
 
+	public List<Event> getAllEventsOneAsso(){
+		List <Event> listAllEvents = assoRepo.findAllEvent();
+		List <Event> listReturn = new ArrayList<>();
+		
+		Long userId = SessionUtils.getLoggedUserIdFromSession();
+		UserAccount user = userRepo.findByOneId(userId);
+		
+		for(Event event : listAllEvents) {
+			
+			if(event.getAssociation().getId() == user.getSelectedAssociation()) {
+				listReturn.add(event);
+			}		
+		}
+		return listReturn;
+	}
+	
 	public String deleteEvent(Long eventId) {
 		assoRepo.deleteEvent(eventId);
 		return "/dashboardAdminEvt.xhtml?faces-redirect=true";

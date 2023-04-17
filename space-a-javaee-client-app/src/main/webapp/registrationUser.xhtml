@@ -9,32 +9,45 @@
 	<ui:define name="content">
 		<body>
 			<section>
-							<div class="pourtravail">
-			<h:form>
-				<div>
-					<h:outputLabel value="Nom d'utilisateur* : " />
-					<h:inputText value="#{createAccountController.createAccountViewModel.username}" a:placeholder="entrer votre nom d'utilisateur" />
+				<div class="pourtravail">
+					<h:form id="testID">
+						<div>
+							<h:outputLabel value="Nom d'utilisateur* : " />
+							<h:inputText
+								value="#{createAccountController.createAccountViewModel.username}"
+								a:placeholder="entrer votre nom d'utilisateur"/>
+						</div>
+						<div>
+							<h:outputLabel value="Mot de passe* : " />
+							<h:inputSecret id="test"
+								value="#{createAccountController.createAccountViewModel.password}"
+								a:placeholder="entrer votre mot de passe"/>
+						</div>
+						<span id="pwdOneSpan"></span>
+						<div>
+							<h:outputLabel value="Confirmation du mot de passe* : " />
+							<h:inputSecret
+								value="#{createAccountController.createAccountViewModel.passwordControl}"
+								a:placeholder="confirmer votre mot de passe"
+								id="pwdTwo"/>
+						</div>
+						<span id="pwdTwoSpan"></span>
+						<div>
+							<h:outputLabel value="Adresse email* : " />
+							<h:inputText
+								value="#{createAccountController.createAccountViewModel.primaryEmail}"
+								a:placeholder="entrer votre adresse mail" />
+						</div>
+						<div>
+							<h:commandButton
+								action="#{createAccountController.createAccount()}"
+								value="Créer" />
+						</div>
+					</h:form>
 				</div>
-				<div>
-					<h:outputLabel value="Mot de passe* : " />
-					<h:inputSecret value="#{createAccountController.createAccountViewModel.password}" a:placeholder="entrer votre mot de passe" />
-				</div>
-				<div>
-					<h:outputLabel value="Confirmation du mot de passe* : " />
-					<h:inputSecret value="#{createAccountController.createAccountViewModel.passwordControl}" a:placeholder="confirmer votre mot de passe" />
-				</div>
-				<div>
-					<h:outputLabel value="Adresse email* : " />
-					<h:inputText value="#{createAccountController.createAccountViewModel.primaryEmail}" a:placeholder="entrer votre adresse mail" />
-				</div>
-				<div>
-					<h:commandButton action="#{createAccountController.createAccount()}" value="Créer" />
-				</div>
-			</h:form>
-			</div>
 			</section>
 		</body>
-		</ui:define>
+	</ui:define>
 </ui:composition>
 
 

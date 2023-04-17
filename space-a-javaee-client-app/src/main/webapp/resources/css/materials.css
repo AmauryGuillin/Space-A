@@ -1,0 +1,64 @@
+
+.fond-matos {
+	width: 100vw;
+}
+
+.jsp {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+
+.form-matos {
+	background-color: rgba(253, 253, 253, 0.74);
+	border-radius: 20px;
+	margin-bottom: 2rem;
+	margin: 20px;
+	padding-bottom: 20px;
+	width: 400px;
+	flex-basis: 20%;
+}
+
+.title-matos {
+	text-align: center;
+	margin: 1rem;
+	font-size: 3rem;
+	font-weight: bold;
+}
+.form-matos h3{
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bold;
+	margin: 1rem;
+}
+
+.form-matos h4{
+	text-align: center;
+	font-size: 1.5rem;
+	margin: 0.7rem;
+}
+
+.form-matos p{
+	text-align: justify;
+	font-size: 1rem;
+	margin: 0.5rem;
+}
+
+.box-matos {
+	padding-right: 50px;
+	padding-left: 50px;
+	margin-top:20px;
+}
+
+.btn-booking {
+	height: 40px;
+	min-width: 50%;
+	border-radius: 15px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 1em;
+	transition: 0.5s;
+	text-align: center;
+}
