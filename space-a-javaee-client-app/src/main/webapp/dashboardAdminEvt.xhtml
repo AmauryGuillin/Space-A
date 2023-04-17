@@ -23,35 +23,44 @@
 						</div>
 					</div>
 					<div class="row">
-					<div class="btn-config">
-					<h:commandButton class="btn-configSpace" id="configEspace" value="Configuration Espace"
+						<div class="btn-config">
+							<h:commandButton class="btn-configSpace" id="configEspace"
+								value="Configuration Espace"
 								action="#{navController.configSpace()}" />
-								</div>
+						</div>
 						<div class="btn-dashbord-admin">
-						
-							
-							<h:commandButton class="btn-dashbord-action-list" id="adherents" value="Mes Adhérents" 
-								action="#{navController.dashboardAdmin()}"/>
-							<h:commandButton class="btn-dashbord-action-list" id="activites" value="Mes Activités"
-								action="#{navController.dashboardAdminAct()}" />				
-							<h:commandButton class="btn-dashbord-action-list" id="materiels" value="Mon Matériel"
+
+
+							<h:commandButton class="btn-dashbord-action-list" id="adherents"
+								value="Mes Adhérents" action="#{navController.dashboardAdmin()}" />
+							<h:commandButton class="btn-dashbord-action-list" id="activites"
+								value="Mes Activités"
+								action="#{navController.dashboardAdminAct()}" />
+							<h:commandButton class="btn-dashbord-action-list" id="materiels"
+								value="Mon Matériel"
 								action="#{navController.dashboardAdminStuff()}" />
-							<h:commandButton class="btn-dashbord-action-list" id="events" value="Mes Événements"
+							<h:commandButton class="btn-dashbord-action-list" id="events"
+								value="Mes Événements"
 								action="#{navController.dashboardAdminEvt()}" />
-							<h:commandButton class="btn-dashbord-action-list" id="publi" value="Mes Publications"
+							<h:commandButton class="btn-dashbord-action-list" id="publi"
+								value="Mes Publications"
 								action="#{navController.dashboardAdminPub()}" />
-							
+
 						</div>
 					</div>
 					<div class="row d-flex justify-content-center align-items-center">
 						<div class="btn-dashbord-admin-create">
-							<h:commandButton class="btn-dashbord-action-create" id="activityCreation" value="Créer une activité"
+							<h:commandButton class="btn-dashbord-action-create"
+								id="activityCreation" value="Créer une activité"
 								action="#{navController.creationActivity()}" />
-							<h:commandButton class="btn-dashbord-action-create" id="matosCreation" value="Créer un matériel"
+							<h:commandButton class="btn-dashbord-action-create"
+								id="matosCreation" value="Créer un matériel"
 								action="#{navController.creationMatos()}" />
-							<h:commandButton class="btn-dashbord-action-create" id="evenementsCreation" value="Créer un événement"
+							<h:commandButton class="btn-dashbord-action-create"
+								id="evenementsCreation" value="Créer un événement"
 								action="#{navController.creationEvent()}" />
-							<h:commandButton class="btn-dashbord-action-create" id="publicationCreation" value="Créer une publication"
+							<h:commandButton class="btn-dashbord-action-create"
+								id="publicationCreation" value="Créer une publication"
 								action="#{navController.creationPubli()}" />
 						</div>
 					</div>
@@ -62,9 +71,9 @@
 								<hr />
 								<div class="section-table">
 									<h:form>
-										<h:dataTable class="data-table" value="#{editEventController.allEvent}" cellpadding="15"
-											cellspacing="10"
-											var="event">
+										<h:dataTable class="data-table"
+											value="#{editEventController.allEvent}" cellpadding="15"
+											cellspacing="10" var="event">
 											<h:column>
 												<f:facet name="header">Titre </f:facet>
 												#{event.title}
@@ -81,11 +90,14 @@
 												<f:facet name="header">Date fin</f:facet>
 												#{event.endDate}
 											</h:column>
-											
-											<h:column>
-												<f:facet name="header">Liste des inscrits</f:facet>
-												#{editEventController.getEventRegisteredUsers()}
-											</h:column>
+
+											<ui:fragment
+												rendered="#{editEventController.getEventRegisteredUsers() != null}">
+												<h:column>
+													<f:facet name="header">Liste des inscrits</f:facet>
+													#{editEventController.getEventRegisteredUsers()}
+												</h:column>
+											</ui:fragment>
 
 											<h:column>
 												<f:facet name="header"></f:facet>

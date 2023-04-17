@@ -82,17 +82,11 @@
 											</h:column>
 											<h:column>
 												<f:facet name="header">Durée d'emprunt</f:facet>
-												#{matos.startDate}
+												#{matos.rentingDuration}
 											</h:column>
 
 											
-											<h:column>
-												<f:facet name="header"></f:facet>
-												<ui:fragment rendered="#{matos.idUser == null}">
-													<h:commandButton id="button-reserve" value="Réserver"
-														action="#{editMatosController.bookMatos(matos.id)}"></h:commandButton>
-												</ui:fragment>
-											</h:column>
+											
 											<h:column>
 												<f:facet name="header"></f:facet>
 												<h:commandButton id="button-validate" value="Supprimer"
