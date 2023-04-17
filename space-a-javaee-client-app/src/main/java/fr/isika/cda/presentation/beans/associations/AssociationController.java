@@ -62,7 +62,7 @@ public class AssociationController {
 		//Reset VM
 		assoVM = new AssociationViewModel();
 		//TODO 00 Demander à Mo car fullcon
-		return "/configSpace.xhtml?faces-redirect=true"; 
+		return "/subscriptionDisplayPage.xhtml?faces-redirect=true"; 
 	}
 
 	private Association createAssoFromVM() {

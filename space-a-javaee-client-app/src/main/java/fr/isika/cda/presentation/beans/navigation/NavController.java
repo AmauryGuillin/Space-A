@@ -119,7 +119,10 @@ public class NavController {
 	public void dashboardAdminEvt() {
 		WebUiTools.redirectToView("/dashboardAdminEvt.xhtml");	
 	}
-	
+
+	public void payement() {
+		WebUiTools.redirectToView("/payementPage.xhtml");	
+	}
 	
 
 }

@@ -22,7 +22,9 @@
 					</div>
 					<div class="sub-btn">
 						<em>*profitez du premier mois gratuit !</em> 
-						<h:commandButton class="btn-payementOne" value="S'abonner" />
+						<h:form>
+						<h:commandButton class="btn-payementOne" value="S'abonner" action="#{navController.payement()}"/>
+						</h:form>
 					</div>
 					</div>
 				</div>
