@@ -41,6 +41,10 @@ public class NavController {
 		WebUiTools.redirectToView("/activities.xhtml");
 	}
 	
+	public void publications() {
+		WebUiTools.redirectToView("/publications.xhtml");
+	}
+	
 	public void registrationUser() {
 		WebUiTools.redirectToView("/registrationUser.xhtml");
 	}
