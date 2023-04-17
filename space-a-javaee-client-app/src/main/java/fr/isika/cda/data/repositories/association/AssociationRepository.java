@@ -26,10 +26,11 @@ import fr.isika.cda.entities.users.UserAccount;
 @Stateless
 public class AssociationRepository {
 
+	private static final String CONFIG_TYPE_WITH_ACTIVITIES_BY_ID = "SELECT c FROM ConfigType c LEFT JOIN FETCH c.activities WHERE c.id =:configTypeIdParam";
+
 	private static final String CONFIG_TYPE_WITH_EVTS_BY_ID = "SELECT c FROM ConfigType c LEFT JOIN FETCH c.events WHERE c.id =:configTypeIdParam";
 
 	private static final String CONFIG_TYPE_WITH_PUBLI_BY_ID = "SELECT c FROM ConfigType c LEFT JOIN FETCH c.publications WHERE c.id =:configTypeIdParam";
-
 	
 	private static final String CONFIG_TYPE_WITH_STUFF_BY_ID = "SELECT c FROM ConfigType c LEFT JOIN FETCH c.rentals WHERE c.id =:configTypeIdParam";
 	
@@ -107,8 +108,20 @@ public class AssociationRepository {
 		ConfigType configWithStuff = getConfigTypeWithStuffById(configTypeId);
 		configWithStuff.addRentingType(stuff);
 		entityManager.persist(stuff);
-		entityManager.merge(configWithStuff);
-		
+		entityManager.merge(configWithStuff);		
+	}
+	
+
+	public void addActivityToAsso(Long configTypeId, ActivityType activity) {
+		ConfigType configWithActivities = getConfigTypeWithActivitiesById(configTypeId);
+		configWithActivities.addActivityType(activity);
+		entityManager.persist(activity);
+		entityManager.merge(configWithActivities);		
+	}
+	
+	private ConfigType getConfigTypeWithActivitiesById(Long configTypeId) {
+		return entityManager.createQuery(CONFIG_TYPE_WITH_ACTIVITIES_BY_ID, ConfigType.class)
+				.setParameter("configTypeIdParam", configTypeId).getSingleResult();
 	}
 
 	private ConfigType getConfigTypeWithEvtsById(Long configTypeId) {
@@ -196,7 +209,7 @@ public class AssociationRepository {
 	}
 
 	public List<ActivityType> getAllActivitiesByConfigTypeId(Long configTypeId) {
-		return getConfigTypeWithEvtsById(configTypeId).getActivities();
+		return getConfigTypeWithActivitiesById(configTypeId).getActivities();
 	}
 
 	public List<Activity> findAllActivities() {
@@ -245,5 +258,6 @@ public class AssociationRepository {
 		// Dans tous les cas par défaut -> liste vide
 		return Collections.emptyList();
 	}
+
 
 }

@@ -71,20 +71,20 @@ public class ActivityController {
 		return "/dashboardAdminAct.xhtml?faces-redirect=true"; 
 	}
 	
-//	public Association getOneAsso() {
-//		if (userAccount == null) {
-//			userId = userLoginController.displayUserId();
-//			userAccount = userRepo.findByOneId(userId);
-//			asso = assoRepo.findOneById(userAccount.getAssociation().getId());
-//		}
-//		return asso;
-//	}
-//	
-//	
-//	public List<ActivityType> getListActivities(){
-//		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
-//		return assoRepo.getAllActivitiesByConfigTypeId(configType.getId());
-//	}
+	public Association getOneAsso() {
+		if (userAccount == null) {
+			userId = userLoginController.displayUserId();
+			userAccount = userRepo.findByOneId(userId);
+			asso = assoRepo.findOneById(userAccount.getAssociation().getId());
+		}
+		return asso;
+	}
+	
+	
+	public List<ActivityType> getListActivities(){
+		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+		return assoRepo.getAllActivitiesByConfigTypeId(configType.getId());
+	}
 
 	public Long getEventId() {
 		return eventId;
