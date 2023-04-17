@@ -33,6 +33,10 @@ public class NavController {
 		WebUiTools.redirectToView("/events.xhtml");
 	}
 	
+	public void materials() {
+		WebUiTools.redirectToView("/materials.xhtml");
+	}
+	
 	public void registrationUser() {
 		WebUiTools.redirectToView("/registrationUser.xhtml");
 	}
