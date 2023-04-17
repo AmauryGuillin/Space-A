@@ -126,7 +126,7 @@
 									</div>
 									<div class="matos-title">#{matos.title}</div>
 									<div class="matos-type">-- #{matos.rentingType} --</div>
-									<div class="matos-dates">Date de retour #{matos.endDate}</div>
+									<div class="matos-dates">Date de retour #{editMatosController.getReturnDate(matos.id)}</div>
 								</div>
 
 							</ui:repeat>

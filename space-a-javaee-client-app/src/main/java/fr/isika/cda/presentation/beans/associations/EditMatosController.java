@@ -1,7 +1,11 @@
 package fr.isika.cda.presentation.beans.associations;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -94,6 +98,28 @@ public class EditMatosController implements Serializable {
 	
 	public StuffToRent getOneMatos(Long matosId) {
 		return assoRepo.findMatosById(matosId);
+	}
+	
+	
+	
+	
+	
+	public Date getReturnDate(Long matosId) {
+		StuffToRent matos = assoRepo.findMatosById(matosId);
+		
+        Date currentDate = new Date();
+
+        // convert date to calendar
+        Calendar c = Calendar.getInstance();
+        c.setTime(currentDate);
+
+        // add days
+        c.add(Calendar.DATE, matos.getRentingDuration()); 
+
+        // convert calendar to date
+        Date currentDatePlusRentingDuration = c.getTime();
+
+        return currentDatePlusRentingDuration;
 	}
 
 	
