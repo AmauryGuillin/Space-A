@@ -82,11 +82,8 @@
 										Du #{activity.startDate} <br /> au #{activity.endDate}
 									</div>
 								</div>
-
 							</ui:repeat>
-
 						</h:form>
-
 					</div>
 				</div>
 				<div class="row">
@@ -106,8 +103,13 @@
 									</div>
 								</div>
 
+								<h:commandButton id="submit"
+									actionListener="#{showUserController.editSelectAssociation}"
+									action="userProfile">
+									<f:attribute name="value" value="#{events.title}" />
+								</h:commandButton>
+								<br />
 							</ui:repeat>
-
 						</h:form>
 					</div>
 				</div>

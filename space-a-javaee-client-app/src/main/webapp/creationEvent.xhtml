@@ -79,6 +79,20 @@
 					
 								</div>
 
+								<div class="form-group">
+									<h:outputLabel for="mainImage" value="Image"
+										class="align-self-end" />
+									<p:fileUpload skinSimple="true" id="mainImageInput"
+										uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
+										chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
+										cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
+										label="Choisissez une image" mode="advanced"
+										sizeLimit="5000000" fileLimit="1"
+										accept=".gif,.jpg,.jpeg,.png"
+										invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
+										listener="#{eventController.uploadImagePath}" class="imgInput" />
+								</div>
+
 
 							</div>
 						</div>
