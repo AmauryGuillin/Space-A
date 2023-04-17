@@ -19,6 +19,7 @@ import org.primefaces.model.file.UploadedFile;
 import fr.isika.cda.data.repositories.association.AssociationRepository;
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.Association;
+import fr.isika.cda.entities.association.functionnality.ActivityType;
 import fr.isika.cda.entities.association.functionnality.ConfigType;
 import fr.isika.cda.entities.association.functionnality.EventType;
 import fr.isika.cda.entities.association.functionnality.PublicationType;
@@ -176,5 +177,24 @@ public class EditAssoComplete {
 		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
 		return assoRepo.getAllStuffByConfigTypeId(configType.getId());
 	}
-	
+
+	//ACTIVITIES
+
+		public void addActivity() {
+			ActivityType activity = createActivityToVM();
+			ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+			assoRepo.addActivityToAsso(configType.getId(), activity);
+		}
+		
+		private ActivityType createActivityToVM() {
+			ActivityType activity = new ActivityType();
+			activity.setNameActivityType(configTypeViewModel.getNameActivityType());
+			return activity;
+		}
+		
+
+		public List<ActivityType> getListActivities(){
+			ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
+			return assoRepo.getAllActivitiesByConfigTypeId(configType.getId());
+		}
 }

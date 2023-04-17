@@ -9,6 +9,8 @@ public class ConfigTypeViewModel implements Serializable {
 	 */
 	private static final long serialVersionUID = -4992058143606306382L;
 
+		private String nameActivityType;
+
 		private String nameEventType;
 
 		private String namePublicationType;
@@ -37,6 +39,14 @@ public class ConfigTypeViewModel implements Serializable {
 
 		public void setNameStuffType(String nameStuffType) {
 			this.nameStuffType = nameStuffType;
+		}
+
+		public String getNameActivityType() {
+			return nameActivityType;
+		}
+
+		public void setNameActivityType(String nameActivityType) {
+			this.nameActivityType = nameActivityType;
 		}
 		
 		

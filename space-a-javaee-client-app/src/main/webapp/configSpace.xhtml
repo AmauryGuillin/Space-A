@@ -58,50 +58,49 @@
 							mode="inline" />
 					</div>
 					<div>
-						<p:selectOneMenu value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.font}">
+						<p:selectOneMenu
+							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.font}">
 							<f:selectItems value="#{editAssoComplete.fontList}" />
 						</p:selectOneMenu>
 					</div>
 					<div class="form-group">
-									<h:outputLabel for="logo" value="Logo" class="align-self-end" />
-									<p:fileUpload skinSimple="true" id="logoInput"
-										uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
-										chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
-										cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
-										label="Choisissez une image" mode="advanced"
-										sizeLimit="5000000" fileLimit="1"
-										accept=".gif,.jpg,.jpeg,.png"
-										invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
-										listener="#{editAssoComplete.uploadLogoImage}" class="imgInput" />
-								</div>
-								<br></br>
-								<div class="form-group">
-									<h:outputLabel for="mainImage" value="Image Principale"
-										class="align-self-end" />
-									<p:fileUpload skinSimple="true" id="mainImageInput"
-										uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
-										chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
-										cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
-										label="Choisissez une image" mode="advanced"
-										sizeLimit="5000000" fileLimit="1"
-										accept=".gif,.jpg,.jpeg,.png"
-										invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
-										listener="#{editAssoComplete.uploadMainImage}" class="imgInput" />
-								</div>
-								<br></br>
-								<div class="form-group">
-									<h:outputLabel for="Kbis" value="Kbis" />
-									<p:fileUpload skinSimple="true" id="kBisExtractInput"
-										uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
-										chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
-										cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
-										label="Document pdf" mode="advanced"
-										sizeLimit="5000000" fileLimit="1" accept=".pdf"
-										invalidSizeMessage="Le fichier ne doit pas dépasser 5 Mo"
-										listener="#{editAssoComplete.uploadKbisExtract}" class="imgInput" />
-								</div>
-					
-					
+						<h:outputLabel for="logo" value="Logo" class="align-self-end" />
+						<p:fileUpload skinSimple="true" id="logoInput"
+							uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
+							chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
+							cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
+							label="Choisissez une image" mode="advanced" sizeLimit="5000000"
+							fileLimit="1" accept=".gif,.jpg,.jpeg,.png"
+							invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
+							listener="#{editAssoComplete.uploadLogoImage}" class="imgInput" />
+					</div>
+					<br></br>
+					<div class="form-group">
+						<h:outputLabel for="mainImage" value="Image Principale"
+							class="align-self-end" />
+						<p:fileUpload skinSimple="true" id="mainImageInput"
+							uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
+							chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
+							cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
+							label="Choisissez une image" mode="advanced" sizeLimit="5000000"
+							fileLimit="1" accept=".gif,.jpg,.jpeg,.png"
+							invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
+							listener="#{editAssoComplete.uploadMainImage}" class="imgInput" />
+					</div>
+					<br></br>
+					<div class="form-group">
+						<h:outputLabel for="Kbis" value="Kbis" />
+						<p:fileUpload skinSimple="true" id="kBisExtractInput"
+							uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
+							chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
+							cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
+							label="Document pdf" mode="advanced" sizeLimit="5000000"
+							fileLimit="1" accept=".pdf"
+							invalidSizeMessage="Le fichier ne doit pas dépasser 5 Mo"
+							listener="#{editAssoComplete.uploadKbisExtract}" class="imgInput" />
+					</div>
+
+
 					<div>
 						<h:commandButton action="#{editAssoComplete.updateAsso()}"
 							value="Sauvegarder" />
@@ -111,86 +110,117 @@
 			</div>
 			<div class="pourtravail">
 				<h1>CONFIG FONCTION</h1>
-<div>
-				<h:form>
+				<div>
+					<h:form>
 
-					<h3>Partie Config Type</h3>
-					<h4>TYPES DES EVENTS</h4>
-					<div>
-						<b><h:outputLabel for="eventType" value="Event : " /></b>
-						<h:inputText id="eventType"
-							value="#{editAssoComplete.configTypeViewModel.nameEventType}" />
-						<h:commandButton action="#{editAssoComplete.addEvent}" value="Ajouter" />
-					</div>
+						<h3>Partie Config Type</h3>
+						<h4>TYPES DES EVENTS</h4>
+						<div>
+							<b><h:outputLabel for="eventType" value="Event : " /></b>
+							<h:inputText id="eventType"
+								value="#{editAssoComplete.configTypeViewModel.nameEventType}" />
+							<h:commandButton action="#{editAssoComplete.addEvent}"
+								value="Ajouter" />
+						</div>
 
-				</h:form>
-				
-				<h:dataTable var="evt" value="#{editAssoComplete.listEvents}">
-					<h:column>
-						<f:facet name="header">Id</f:facet>
+					</h:form>
+
+					<h:dataTable var="evt" value="#{editAssoComplete.listEvents}">
+						<h:column>
+							<f:facet name="header">Id</f:facet>
 						#{evt.id}
 					</h:column>
-					<h:column>
-						<f:facet name="header">Nom</f:facet>
+						<h:column>
+							<f:facet name="header">Nom</f:facet>
 						#{evt.nameEventType}
 					</h:column>
-				</h:dataTable>
-</div>				
-<div>
-				<h:form>
+					</h:dataTable>
+				</div>
+				<div>
+					<h:form>
 
-					
-					<h4>TYPES DES PUBLICATION</h4>
-					<div>
-						<b><h:outputLabel for="publicationType" value="Publication : " /></b>
-						<h:inputText id="publicationType"
-							value="#{editAssoComplete.configTypeViewModel.namePublicationType}" />
-						<h:commandButton action="#{editAssoComplete.addPublications()}" value="Ajouter" />
-					</div>
 
-				</h:form>
-				
-				<h:dataTable var="publi" value="#{editAssoComplete.listPublications}">
-					<h:column>
-						<f:facet name="header">Id</f:facet>
+						<h4>TYPES DES ACTIVITÉS</h4>
+						<div>
+							<b><h:outputLabel for="activityType" value="Activity : " /></b>
+							<h:inputText id="activityType"
+								value="#{editAssoComplete.configTypeViewModel.nameActivityType}" />
+							<h:commandButton action="#{editAssoComplete.addActivity}"
+								value="Ajouter" />
+						</div>
+
+					</h:form>
+
+					<h:dataTable var="act" value="#{editAssoComplete.listActivities}">
+						<h:column>
+							<f:facet name="header">Id</f:facet>
+						#{act.id}
+					</h:column>
+						<h:column>
+							<f:facet name="header">Nom</f:facet>
+						#{act.nameActivityType}
+					</h:column>
+					</h:dataTable>
+				</div>
+				<div>
+					<h:form>
+
+
+						<h4>TYPES DES PUBLICATION</h4>
+						<div>
+							<b><h:outputLabel for="publicationType"
+									value="Publication : " /></b>
+							<h:inputText id="publicationType"
+								value="#{editAssoComplete.configTypeViewModel.namePublicationType}" />
+							<h:commandButton action="#{editAssoComplete.addPublications()}"
+								value="Ajouter" />
+						</div>
+
+					</h:form>
+
+					<h:dataTable var="publi"
+						value="#{editAssoComplete.listPublications}">
+						<h:column>
+							<f:facet name="header">Id</f:facet>
 						#{publi.id}
 					</h:column>
-					<h:column>
-						<f:facet name="header">Nom</f:facet>
+						<h:column>
+							<f:facet name="header">Nom</f:facet>
 						#{publi.namePublicationType}
 					</h:column>
-				</h:dataTable>
-</div>				
-<div>
-				<h:form>
+					</h:dataTable>
+				</div>
+				<div>
+					<h:form>
 
-					
-					<h4>TYPES DU MATERIEL </h4>
-					<div>
-						<b><h:outputLabel for="stuffType" value="Stuff : " /></b>
-						<h:inputText id="stuffType"
-							value="#{editAssoComplete.configTypeViewModel.nameStuffType}" /> 
-						<h:commandButton action="#{editAssoComplete.addStuff()}" value="Ajouter" />
-					</div>
 
-				</h:form>
-				
-				<h:dataTable var="stuff" value="#{editAssoComplete.listStuffs}">
-					<h:column>
-						<f:facet name="header">Id</f:facet>
+						<h4>TYPES DU MATERIEL</h4>
+						<div>
+							<b><h:outputLabel for="stuffType" value="Stuff : " /></b>
+							<h:inputText id="stuffType"
+								value="#{editAssoComplete.configTypeViewModel.nameStuffType}" />
+							<h:commandButton action="#{editAssoComplete.addStuff()}"
+								value="Ajouter" />
+						</div>
+
+					</h:form>
+
+					<h:dataTable var="stuff" value="#{editAssoComplete.listStuffs}">
+						<h:column>
+							<f:facet name="header">Id</f:facet>
 						#{stuff.id}
 					</h:column>
-					<h:column>
-						<f:facet name="header">Nom</f:facet>
+						<h:column>
+							<f:facet name="header">Nom</f:facet>
 						#{stuff.nameRentingType}
 					</h:column>
-				</h:dataTable>
-</div>				
-				
-				
+					</h:dataTable>
+				</div>
+
+
 			</div>
-			
-			
+
+
 
 		</h:body>
 	</ui:define>

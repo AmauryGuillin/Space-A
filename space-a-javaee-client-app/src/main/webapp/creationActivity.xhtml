@@ -30,25 +30,25 @@
 										<h:outputLabel for="startDate" value="Date de début :"
 											class="col-form-label font-weight-bold" />
 									</div>
-								<div class="col-md-9">
-									<p:datePicker id="startDate"
-										value="#{activityController.activity.startDate}"
-										showButtonBar="true" class="form-control1"
-										style="border-radius: 15px" />
+									<div class="col-md-9">
+										<p:datePicker id="startDate"
+											value="#{activityController.activity.startDate}"
+											showButtonBar="true" class="form-control1"
+											style="border-radius: 15px" />
+									</div>
 								</div>
-								</div>	
-						
+
 								<div class="form-group row col-md-12">
 									<div class="col-md-3">
 										<h:outputLabel for="endDate" value="Date de fin :"
 											class="col-form-label font-weight-bold" />
 									</div>
-								<div class="col-md-9">
-									<p:datePicker id="endDate"
-										value="#{activityController.activity.endDate}"
-										showButtonBar="true" class="form-control1"
-										style="border-radius: 15px" />
-								</div>
+									<div class="col-md-9">
+										<p:datePicker id="endDate"
+											value="#{activityController.activity.endDate}"
+											showButtonBar="true" class="form-control1"
+											style="border-radius: 15px" />
+									</div>
 								</div>
 
 
@@ -57,19 +57,24 @@
 									<h:inputText class="form-control" id="activityDescription"
 										value="#{activityController.activity.description}" />
 								</div>
-								
+
 								<div class="form-group">
-									<h:outputLabel for="maxCapacity" value="Nombre de personnes max" />
+									<h:outputLabel for="maxCapacity"
+										value="Nombre de personnes max" />
 									<h:inputText class="form-control" id="activityMaxCapacity"
 										value="#{activityController.activity.maxCapacity}" />
 								</div>
 
-								<div class="form-group">
-
+								<div class="form-group"></div>
 								
 								
-					
-								</div>
+								<h:selectOneMenu
+									value="#{activityController.activity.activityType}">
+									<f:selectItem itemLabel="Sélectionnez votre type" itemValue="" />
+									<f:selectItems
+										value="#{activityController.listActivities}"
+										var="type" itemValue="#{type.nameActivityType}" itemLabel="#{type.nameActivityType}" />
+								</h:selectOneMenu>
 
 
 							</div>
