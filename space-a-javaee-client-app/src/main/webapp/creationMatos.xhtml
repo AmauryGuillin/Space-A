@@ -25,16 +25,16 @@
 										value="#{matosController.matos.title}" />
 								</div>
 
-											<div class="form-group">
-											<h:outputLabel for="desc" value="Type" />
-											
-					<h:selectOneMenu value="#{matosController.matos.rentingType}">
-					<f:selectItem itemLabel="Sélectionnez votre type" itemValue="" />
-						<f:selectItems value="#{matosController.listStuffs}" var="type"
-							itemValue="#{type.nameRentingType}"
-							itemLabel="#{type.nameRentingType}" />
-					</h:selectOneMenu>
-				</div>
+								<div class="form-group">
+									<h:outputLabel for="desc" value="Type" />
+
+									<h:selectOneMenu value="#{matosController.matos.rentingType}">
+										<f:selectItem itemLabel="Sélectionnez votre type" itemValue="" />
+										<f:selectItems value="#{matosController.listStuffs}"
+											var="type" itemValue="#{type.nameRentingType}"
+											itemLabel="#{type.nameRentingType}" />
+									</h:selectOneMenu>
+								</div>
 
 								<div class="form-group">
 									<h:outputLabel for="desc" value="Description" />
@@ -42,33 +42,30 @@
 										value="#{matosController.matos.description}" />
 								</div>
 
-								<div class="form-group row col-md-12">
-									<div class="col-md-3">
-										<h:outputLabel for="duration" value="Durée d'emprunt :"
-											class="col-form-label font-weight-bold" />
-									</div>
-									<div class="col-md-9">
-										<p:datePicker id="duration"
-											value="#{matosController.matos.rentingDuration}"
-											showButtonBar="true" class="form-control1"
-											style="border-radius: 15px" />
-									</div>
+								<div class="form-group">
+									<h:outputLabel for="desc" value="Durée d'emprunt en jours" />
+									<h:inputText class="form-control" id="duration"
+										value="#{matosController.matos.rentingDuration}" />
+										
 								</div>
 
-							
+
+							</div>
+
+	
+
 							<div class="row">
 								<div class="col-md-12 text-center my-5 submit-button">
 									<p:commandButton id="button-validate" value="Valider"
 										action="#{matosController.createMatos()}"></p:commandButton>
 								</div>
 							</div>
-								</div>
-							</div>
-											</h:form>
-						
 						</div>
+					</h:form>
 
-						</div>
+				</div>
+
+			</div>
 
 		</h:body>
 	</ui:define>

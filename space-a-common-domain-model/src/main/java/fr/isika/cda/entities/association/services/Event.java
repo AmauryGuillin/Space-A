@@ -1,19 +1,22 @@
 package fr.isika.cda.entities.association.services;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import fr.isika.cda.entities.association.Association;
-import fr.isika.cda.entities.association.AssociationPlanning;
+import fr.isika.cda.entities.users.UserAccount;
 
 @Entity
 public class Event {
@@ -39,8 +42,9 @@ public class Event {
 	
 	private String eventType;
 	
-	private Long idUser;
-
+	//private Long idUser;
+	@OneToMany
+	private List<UserAccount> subscribers = new ArrayList<>();
 	
 	@ManyToOne
 	private Association association;
@@ -109,12 +113,12 @@ public class Event {
 		this.imgEvent = imgEvent;
   }
 
-	public Long getIdUser() {
-		return idUser;
+	public List<UserAccount> getSubscribers() {
+		return Collections.unmodifiableList(subscribers);
 	}
-
-	public void setIdUser(Long idUser) {
-		this.idUser = idUser;
+	
+	public boolean addSubscriber(UserAccount account) {
+		return this.subscribers.add(account);
 	}
 
 }
