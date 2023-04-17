@@ -23,32 +23,35 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="btn-dashbord-admin">
-							<h3>Visualiser</h3>
-							<h:commandButton id="adherents" value="Adhérents" 
-								action="#{navController.dashboardAdmin()}"/>
-							<h:commandButton id="activites" value="Activités"
-								action="#{navController.dashboardAdminAct()}" />				
-							<h:commandButton id="materiels" value="Matériels"
-								action="#{navController.dashboardAdminStuff()}" />
-							<h:commandButton id="events" value="Événements"
-								action="#{navController.dashboardAdminEvt()}" />
-							<h:commandButton id="publi" value="Publications"
-								action="#{navController.dashboardAdminPub()}" />
-							<h:commandButton id="configEspace" value="Modif visuel"
+					<div class="btn-config">
+					<h:commandButton class="btn-configSpace" id="configEspace" value="Configuration Espace"
 								action="#{navController.configSpace()}" />
+								</div>
+						<div class="btn-dashbord-admin">
+						
+							
+							<h:commandButton class="btn-dashbord-action-list" id="adherents" value="Mes Adhérents" 
+								action="#{navController.dashboardAdmin()}"/>
+							<h:commandButton class="btn-dashbord-action-list" id="activites" value="Mes Activités"
+								action="#{navController.dashboardAdminAct()}" />				
+							<h:commandButton class="btn-dashbord-action-list" id="materiels" value="Mon Matériel"
+								action="#{navController.dashboardAdminStuff()}" />
+							<h:commandButton class="btn-dashbord-action-list" id="events" value="Mes Événements"
+								action="#{navController.dashboardAdminEvt()}" />
+							<h:commandButton class="btn-dashbord-action-list" id="publi" value="Mes Publications"
+								action="#{navController.dashboardAdminPub()}" />
+							
 						</div>
 					</div>
 					<div class="row d-flex justify-content-center align-items-center">
 						<div class="btn-dashbord-admin-create">
-							<h3>Créer</h3>
-							<h:commandButton id="activityCreation" value="Ajout Activité"
+							<h:commandButton class="btn-dashbord-action-create" id="activityCreation" value="Créer une activité"
 								action="#{navController.creationActivity()}" />
-							<h:commandButton id="matosCreation" value="Ajout Matériel"
+							<h:commandButton class="btn-dashbord-action-create" id="matosCreation" value="Créer un matériel"
 								action="#{navController.creationMatos()}" />
-							<h:commandButton id="evenementsCreation" value="Ajout événement"
+							<h:commandButton class="btn-dashbord-action-create" id="evenementsCreation" value="Créer un événement"
 								action="#{navController.creationEvent()}" />
-							<h:commandButton id="publicationCreation" value="Ajout publication"
+							<h:commandButton class="btn-dashbord-action-create" id="publicationCreation" value="Créer une publication"
 								action="#{navController.creationPubli()}" />
 						</div>
 					</div>

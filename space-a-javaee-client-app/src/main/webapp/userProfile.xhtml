@@ -9,48 +9,51 @@
 	<ui:define name="content">
 		<body>
 			<div class="container profil">
-			<div class="row profil-rowOne">
-					
-						<div class="bg-image col-md-12">
-							<div class="association-cosmos">
+				<div class="row profil-rowOne">
+
+					<div class="bg-image col-md-12">
+						<div class="association-cosmos">
 							<h:form>
 								<ui:repeat
-								value="#{showUserController.currentUserAssociationSubscriptions()}"
-								var="asso">
-								<h:commandButton id="submit"
-									actionListener="#{showUserController.editSelectAssociation}"
-									action="userProfile"
-									class="btn-select-asso">
-									<f:attribute name="value" value="#{asso.associationIdentity.associationDepiction.name}" />
-									<f:attribute name="asso" value="#{asso}" />
-								</h:commandButton>
-							</ui:repeat>
+									value="#{showUserController.currentUserAssociationSubscriptions()}"
+									var="asso">
+									<h:commandButton id="submit"
+										actionListener="#{showUserController.editSelectAssociation}"
+										action="userProfile" class="btn-select-asso">
+										<f:attribute name="value"
+											value="#{asso.associationIdentity.associationDepiction.name}" />
+										<f:attribute name="asso" value="#{asso}" />
+									</h:commandButton>
+								</ui:repeat>
 							</h:form>
-							</div>
-							<div class="avatar">
-								<h:graphicImage library="images" name="#{showUserController.oneUser.userProfile.avatar}" styleClass="avatar"></h:graphicImage>
-							<div class="title"> #{showUserController.oneUser.username} </div>
-							
-							</div>
 						</div>
-						<div class="row">
-							<div class="col-md-6 point-list-none">
-								<ul>
-									<li>#{showUserController.oneUser.userProfile.lastName} #{showUserController.oneUser.userProfile.firstName}</li>
-									<li>#{showUserController.oneUser.userProfile.birthday}</li>
-								</ul>
-							</div>
-							<div class="col-md-6 text-end point-list-none">
-								<ul>
-									<li>#{showUserController.oneUser.userProfile.userContact.primaryEmail}</li>
-									<li>#{showUserController.oneUser.userProfile.userContact.address.city}</li>
-									<li>#{showUserController.oneUser.userProfile.userContact.phone.phoneNumber}</li>
-								</ul>
-							</div>
+						<div class="avatar">
+							<h:graphicImage library="images"
+								name="#{showUserController.oneUser.userProfile.avatar}"
+								styleClass="avatar"></h:graphicImage>
+							<div class="title">#{showUserController.oneUser.username}</div>
+
 						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 point-list-none">
+							<ul>
+								<li>#{showUserController.oneUser.userProfile.lastName}
+									#{showUserController.oneUser.userProfile.firstName}</li>
+								<li>#{showUserController.oneUser.userProfile.birthday}</li>
+							</ul>
+						</div>
+						<div class="col-md-6 text-end point-list-none">
+							<ul>
+								<li>#{showUserController.oneUser.userProfile.userContact.primaryEmail}</li>
+								<li>#{showUserController.oneUser.userProfile.userContact.address.city}</li>
+								<li>#{showUserController.oneUser.userProfile.userContact.phone.phoneNumber}</li>
+							</ul>
+						</div>
+					</div>
 					<div class="description col-md-12">
-								<h4>Biographie</h4>
-								<p>#{showUserController.oneUser.userProfile.profileDescription}</p>
+						<h4>Biographie</h4>
+						<p>#{showUserController.oneUser.userProfile.profileDescription}</p>
 					</div>
 
 					<div class="btn-display-div">
@@ -60,32 +63,45 @@
 						</h:form>
 					</div>
 				</div>
-	</div>
+			</div>
+
 			<div class="row test">
-					<div class="row">
-				<div class="container material col-md-4">
-						<div class="title-activity col-md-12">Activités Associations</div>
-							<h:form class="matos-form">
-							<ui:repeat
-								value="#{editActivityController.userBookedActivity}"
+				<div class="row">
+					<div class="container material col-md-4">
+						<div class="title-activity col-md-12">Activités</div>
+						<h:form class="matos-form">
+							<ui:repeat value="#{editActivityController.userBookedActivity}"
 								var="activity">
-								<h:commandButton id="submit"
-									actionListener="#{showUserController.editSelectAssociation}"
-									action="userProfile">
-									<f:attribute name="value" value="#{activity.title}" />
-								</h:commandButton>
-								<br />
+								<div class="card-matos"
+									style=" color:##{matos.association.associationSpace.graphicChart.mainColor}; 
+									background-color: ##{matos.association.associationSpace.graphicChart.secondaryColor}">
+									<div class="matos-association-name"></div>
+									<div class="matos-title">#{activity.title}</div>
+									<div class="matos-type">-- #{activity.activityType} --</div>
+									<div class="matos-dates">
+										Du #{activity.startDate} <br /> au #{activity.endDate}
+									</div>
+								</div>
 							</ui:repeat>
 						</h:form>
 					</div>
 				</div>
-						<div class="row">
-				<div class="container material col-md-4">
-							<div class="title-event col-md-12">Evènements Associations</div>
-								<h:form class="matos-form">
-							<ui:repeat
-								value="#{editEventController.userBookedEvents}"
-								var="events">
+				<div class="row">
+					<div class="container material col-md-4">
+						<div class="title-activity col-md-12">Événements</div>
+						<h:form class="matos-form">
+							<ui:repeat value="#{editEventController.userBookedEvents}"
+								var="event">
+								<div class="card-matos"
+									style=" color:##{event.association.associationSpace.graphicChart.mainColor}; 
+									background-color: ##{matos.association.associationSpace.graphicChart.secondaryColor}">
+									<div class="matos-association-name"></div>
+									<div class="matos-title">#{event.title}</div>
+									<div class="matos-type">-- #{event.eventType} --</div>
+									<div class="matos-dates">
+										Du #{event.startDate} <br /> au #{event.endDate}
+									</div>
+								</div>
 
 								<h:commandButton id="submit"
 									actionListener="#{showUserController.editSelectAssociation}"
@@ -95,23 +111,24 @@
 								<br />
 							</ui:repeat>
 						</h:form>
-						</div>
 					</div>
-					<div class="row">
+				</div>
+
+				<div class="row">
 					<div class="container material col-md-4">
 						<div class="title-material col-md-12">Matériel emprunté</div>
 						<h:form class="matos-form">
 							<ui:repeat value="#{editMatosController.userBookedMatos}"
 								var="matos">
-								<div class="card-matos" style=" color:##{matos.association.associationSpace.graphicChart.mainColor}; 
+								<div class="card-matos"
+									style=" color:##{matos.association.associationSpace.graphicChart.mainColor}; 
 									background-color: ##{matos.association.associationSpace.graphicChart.secondaryColor}">
 									<div class="matos-association-name">
 										#{matos.association.associationIdentity.associationDepiction.name}
 									</div>
 									<div class="matos-title">#{matos.title}</div>
-									<div class="matos-type"> -- #{matos.rentingType} --</div>
-									<div class="matos-dates">Du #{matos.startDate} <br/>
-										au #{matos.endDate}</div>
+									<div class="matos-type">-- #{matos.rentingType} --</div>
+									<div class="matos-dates">Date de retour #{editMatosController.getReturnDate(matos.id)}</div>
 								</div>
 
 							</ui:repeat>
@@ -119,8 +136,8 @@
 						</h:form>
 					</div>
 				</div>
-						</div>
-					
+			</div>
+
 		</body>
 	</ui:define>
 </ui:composition>

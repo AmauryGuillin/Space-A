@@ -13,7 +13,7 @@
 
 				<h1 class="title-events"
 					style="color : ##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}">
-					Nos Evènements</h1>
+					Nos Événements</h1>
 				<br />
 				<ui:repeat value="#{editEventController.allEvent}" var="event">
 
@@ -54,7 +54,7 @@
 									<h:commandButton
 										style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor} ;
 										color:##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}"
-										class="btn-events" value="Participer à l'évènement" />
+										class="btn-events" value="Participer à l'événement" action="#{editEventController.bookEvent(event.id)}"/>
 								</div>
 
 							</h:form>
