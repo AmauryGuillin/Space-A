@@ -31,6 +31,9 @@ public class Event {
 	
 	private String eventType;
 	
+	private Long idUser;
+
+	
 	@ManyToOne
 	private Association association;
 
@@ -90,6 +93,16 @@ public class Event {
 
 	public void setEventType(String eventType) {
 		this.eventType = eventType;
+	}
+
+
+	public Long getIdUser() {
+		return idUser;
+	}
+
+
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
 	}
 
 }

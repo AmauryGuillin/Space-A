@@ -28,6 +28,22 @@
 							
 							
 					
+							<br /> <br /> <b> <h:outputLabel
+									value="Événement(s) auxquels je suis inscrit(e) : " />
+							</b> <br />
+							<ui:repeat
+								value="#{editEventController.userBookedEvents}"
+								var="events">
+
+								<h:commandButton id="submit"
+									actionListener="#{showUserController.editSelectAssociation}"
+									action="userProfile">
+									<f:attribute name="value" value="#{events.title}" />
+								</h:commandButton>
+								
+								<br />
+							</ui:repeat>
+							
 							
 							<br /> <br /> <b> <h:outputLabel
 									value="Activité(s) auxquelles je suis inscrit(e) : " />
@@ -58,6 +74,7 @@
 									action="userProfile">
 									<f:attribute name="value" value="#{matos.title}" />
 								</h:commandButton>
+								<h:outputText value="Date de retour : #{matos.endDate}"/>
 								<br />
 							</ui:repeat>
 							
