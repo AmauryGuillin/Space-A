@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+			<div class="fond-matos" style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor}">
+
+				<h1 class="title-matos" style="color:##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}">Nos Activités</h1>
+				<br />
+
+
+				<div class="container-fluid jsp">
+					<ui:repeat value="#{editActivityController.allActivitiesOneAsso}" var="activity">
+						<div class="row form-matos">
+						<div class="col-md-12 box-matos">
+						<h2 style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">#{activity.title}</h2>
+						<h3 style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}"> #{activity.activityType} </h3>
+						<h4>#{activity.startDate} #{activity.endDate}</h4>
+						<p style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}"> #{activity.description} </p>
+						<p style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}"> <em> Nombre de personnes max : #{activity.maxCapacity} </em></p>
+						
+							<h:form>
+								<div class="text-center">
+									
+								<f:facet name="header">Redirection</f:facet>
+								<ui:fragment rendered="#{matos.idUser == null}">
+									<h:commandButton 
+									style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor} ;
+										color:##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}"
+									class="btn-booking" value="S'inscire"
+										action="#{editActivityController.bookActivity(activity.id)}"></h:commandButton>
+								</ui:fragment>
+								</div>
+							</h:form>
+						</div>
+					</div>
+					</ui:repeat>
+				</div>
+				</div>	
+		</h:body>
+	</ui:define>
+</ui:composition>
+
+

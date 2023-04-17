@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import fr.isika.cda.entities.association.Association;
 import fr.isika.cda.entities.association.AssociationPlanning;
@@ -24,8 +26,10 @@ public class Activity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Temporal (TemporalType.DATE)
 	private Date startDate;
 
+	@Temporal (TemporalType.DATE)
 	private Date endDate;
 
 	private String description;

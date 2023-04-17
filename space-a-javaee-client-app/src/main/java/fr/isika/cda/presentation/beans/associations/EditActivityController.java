@@ -9,10 +9,12 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
+import fr.isika.cda.data.repositories.users.UserAccountRepository;
 import fr.isika.cda.entities.association.services.Activity;
 import fr.isika.cda.entities.association.services.Event;
 import fr.isika.cda.entities.association.services.Publication;
 import fr.isika.cda.entities.association.services.StuffToRent;
+import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.utils.SessionUtils;
 
 @ManagedBean
@@ -26,9 +28,28 @@ public class EditActivityController implements Serializable {
 	
 	@Inject
 	private AssociationRepository assoRepo;
+	
+	@Inject
+	private UserAccountRepository userRepo;
 
 	public List<Activity> getAllActivities(){
 		return assoRepo.findAllActivities();
+	}
+	
+	public List<Activity> getAllActivitiesOneAsso(){
+		List <Activity> listAllActivities = assoRepo.findAllActivities();
+		List <Activity> listReturn = new ArrayList<>();
+		
+		Long userId = SessionUtils.getLoggedUserIdFromSession();
+		UserAccount user = userRepo.findByOneId(userId);
+		
+		for(Activity activity : listAllActivities) {
+			
+			if(activity.getAssociation().getId() == user.getSelectedAssociation()) {
+				listReturn.add(activity);
+			}		
+		}
+		return listReturn;
 	}
 	
 	public String deleteActivity(Long activityId) {
