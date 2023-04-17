@@ -61,58 +61,45 @@
 					</div>
 				</div>
 	</div>
-	
 			<div class="row test">
 					<div class="row">
 				<div class="container material col-md-4">
 						<div class="title-activity col-md-12">Activités Associations</div>
 							<h:form class="matos-form">
-							<ui:repeat value="#{editMatosController.userBookedMatos}"
-								var="matos">
-								<div class="card-matos" style=" color:##{matos.association.associationSpace.graphicChart.mainColor}; 
-									background-color: ##{matos.association.associationSpace.graphicChart.secondaryColor}">
-									<div class="matos-association-name">
-										
-									</div>
-									<div class="matos-type"> --  --</div>
-									<div class="matos-title">#</div>
-									<div class="matos-dates">Du <br/>
-										au </div>
-									
-								</div>
-
+							<ui:repeat
+								value="#{editActivityController.userBookedActivity}"
+								var="activity">
+								<h:commandButton id="submit"
+									actionListener="#{showUserController.editSelectAssociation}"
+									action="userProfile">
+									<f:attribute name="value" value="#{activity.title}" />
+								</h:commandButton>
+								<br />
 							</ui:repeat>
-
 						</h:form>
-
 					</div>
 				</div>
 						<div class="row">
 				<div class="container material col-md-4">
 							<div class="title-event col-md-12">Evènements Associations</div>
 								<h:form class="matos-form">
-							<ui:repeat value="#{editMatosController.userBookedMatos}"
-								var="matos">
-								<div class="card-matos" style=" color:##{matos.association.associationSpace.graphicChart.mainColor}; 
-									background-color: ##{matos.association.associationSpace.graphicChart.secondaryColor}">
-									<div class="matos-association-name">
-										
-									</div>
-									<div class="matos-type"> --  --</div>
-									<div class="matos-title">#</div>
-									<div class="matos-dates">Du <br/>
-										au </div>
-									
-								</div>
+							<ui:repeat
+								value="#{editEventController.userBookedEvents}"
+								var="events">
 
+								<h:commandButton id="submit"
+									actionListener="#{showUserController.editSelectAssociation}"
+									action="userProfile">
+									<f:attribute name="value" value="#{events.title}" />
+								</h:commandButton>
+								<br />
 							</ui:repeat>
-
 						</h:form>
 						</div>
 					</div>
 					<div class="row">
 					<div class="container material col-md-4">
-						<div class="title-material col-md-12">Matériel Associations</div>
+						<div class="title-material col-md-12">Matériel emprunté</div>
 						<h:form class="matos-form">
 							<ui:repeat value="#{editMatosController.userBookedMatos}"
 								var="matos">

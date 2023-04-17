@@ -6,8 +6,11 @@ import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.file.UploadedFile;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
@@ -19,9 +22,11 @@ import fr.isika.cda.entities.association.services.Event;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.presentation.beans.users.ShowUserController;
 import fr.isika.cda.presentation.beans.users.UserLoginController;
+import fr.isika.cda.presentation.utils.FileUpload;
 
 
 @ManagedBean
+@ViewScoped
 public class EventController {
 
 
@@ -30,6 +35,7 @@ public class EventController {
 	private Date endDate;
 	private String description;
 	private String title;
+	private String imageUrl;
 	
 	private Event event = new Event();
 
@@ -60,7 +66,12 @@ public class EventController {
 		event.setDescription(event.getDescription());
 		event.setEventType(event.getEventType());
 		event.setAssociation(asso);
-		event.setImgEvent("img-event-basic.png");
+		
+		if(imageUrl == null) {
+			event.setImgEvent("img-event-basic.png");
+		} else {
+			event.setImgEvent(imageUrl);
+		}
 		
 		//event en bdd
 		assoRepo.createEvent(event);
@@ -80,6 +91,21 @@ public class EventController {
 	public List<EventType> getListEvents(){
 		ConfigType configType = getOneAsso().getAssociationFunctionnality().getConfigType();
 		return assoRepo.getAllEventsByConfigTypeId(configType.getId());
+	}
+	
+	public void uploadImagePath(FileUploadEvent eventFile) {
+		System.out.println("********************************* METHODE FILEUPLOAD");
+		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMYYYY_hhmmss"));
+		UploadedFile file = eventFile.getFile();
+		imageUrl = timestamp + "_" + file.getFileName();
+		FileUpload.doUpload(file, imageUrl);
+		
+		System.out.println("*********************************************" + imageUrl);
+		
+		this.event.setImgEvent(imageUrl);
+		
+		System.out.println(this.event.getImgEvent());
+		
 	}
 
 	// GETTERS AND SETTERS
