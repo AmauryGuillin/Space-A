@@ -67,7 +67,7 @@ public class EditActivityController implements Serializable {
 		UserAccount user = userRepo.findByOneId(userId);
 
 		//recup le matériel pour le modif
-		Activity activity = assoRepo.findActivityById(activityId);
+		Activity activity = assoRepo.findActivityByIdWithSubscribers(activityId);
 		
 		//modif le matos
 		activity.addSubscriber(user);

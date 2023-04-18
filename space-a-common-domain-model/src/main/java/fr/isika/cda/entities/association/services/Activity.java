@@ -50,8 +50,6 @@ public class Activity {
 	@ManyToOne
 	private Association association;
 
-	@ManyToOne
-	private UserAccount userAccount;
 
 	public Long getId() {
 		return id;
@@ -131,14 +129,6 @@ public class Activity {
 
 	public void setEventType(String eventType) {
 		this.eventType = eventType;
-	}
-
-	public UserAccount getUserAccount() {
-		return userAccount;
-	}
-
-	public void setUserAccount(UserAccount userAccount) {
-		this.userAccount = userAccount;
 	}
 
 	public List<UserAccount> getSubscribers() {

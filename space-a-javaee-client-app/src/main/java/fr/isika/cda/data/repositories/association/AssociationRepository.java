@@ -230,6 +230,12 @@ public class AssociationRepository {
 		query.setParameter("id", activityId);
 		return query.getSingleResult();
 	}
+	
+	public Activity findActivityByIdWithSubscribers(Long activityId) {
+		TypedQuery<Activity> query = entityManager.createQuery("SELECT a FROM Activity a LEFT JOIN FETCH a.subscribers WHERE a.id =: id", Activity.class);
+		query.setParameter("id", activityId);
+		return query.getSingleResult();
+	}
 
 	public Long updateActivity(Activity activity) {
 		Activity mergedActivity = entityManager.merge(activity);
