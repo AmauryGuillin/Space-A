@@ -56,12 +56,15 @@
 
 										<ui:fragment
 											rendered="#{editActivityController.remainPlaces(activity.id)}">
+											<ui:fragment
+												rendered="#{!editActivityController.alreadyRegistered(activity.id)}">
 
-											<h:commandButton
-												style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor} ;
+												<h:commandButton
+													style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor} ;
 										color:##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}"
-												class="btn-activities" value="S'inscrire"
-												action="#{editActivityController.bookActivity(activity.id)}"></h:commandButton>
+													class="btn-activities" value="S'inscrire"
+													action="#{editActivityController.bookActivity(activity.id)}"></h:commandButton>
+											</ui:fragment>
 										</ui:fragment>
 
 									</div>
