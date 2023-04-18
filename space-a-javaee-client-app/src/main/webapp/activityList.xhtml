@@ -37,8 +37,8 @@
 							</h:column>
 							
 							<h:column>
-								<f:facet name="header">Nombre de personnes max</f:facet>
-								#{activity.maxCapacity}
+								<f:facet name="header">Nombre de places restantes</f:facet>
+								#{editActivityController.NbRemainingPlaces()} / #{activity.maxCapacity}
 							</h:column>
 							
 							<h:column>

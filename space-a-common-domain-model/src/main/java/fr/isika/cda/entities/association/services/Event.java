@@ -42,7 +42,6 @@ public class Event {
 	
 	private String eventType;
 	
-	//private Long idUser;
 	@ManyToMany
 	private List<UserAccount> subscribers = new ArrayList<>();
 	
@@ -120,5 +119,6 @@ public class Event {
 	public boolean addSubscriber(UserAccount account) {
 		return this.subscribers.add(account);
 	}
+
 
 }
