@@ -99,13 +99,13 @@
 											<h:column>
 												<f:facet name="header">Liste des inscrits</f:facet>
 												<ui:fragment
-													rendered="#{editActivityControllerController.getActivityRegisteredUsers(activity.id).isEmpty()}">
+													rendered="#{editActivityController.getActivityRegisteredUsers(activity.id).isEmpty()}">
 													Aucun inscrit
 												</ui:fragment>
 												<ui:fragment
-													rendered="#{not editActivityControllerController.getActivityRegisteredUsers(activity.id).isEmpty()}">
+													rendered="#{not editActivityController.getActivityRegisteredUsers(activity.id).isEmpty()}">
 													<ui:repeat
-														value="#{editActivityControllerController.getActivityRegisteredUsers(activity.id)}"
+														value="#{editActivityController.getActivityRegisteredUsers(activity.id)}"
 														var="list">
 														<div>#{list}</div>
 													</ui:repeat>
