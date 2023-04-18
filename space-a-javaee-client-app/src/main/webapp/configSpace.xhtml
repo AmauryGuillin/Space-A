@@ -18,7 +18,7 @@
 					<div class="container info">
 						<div class="row">
 							<div class="col-md-4">
-									<b><h:outputLabel value="Name : " /></b>
+									<b><h:outputLabel value="Nom : " /></b>
 								<hr></hr>
 									<b><h:outputLabel value="Nom Juridique : " /></b>
 								<hr></hr>
@@ -178,7 +178,12 @@
 					</div>
 					</div>
 					</div>
-					</h:form>
+						<h:commandButton 
+						action="#{editAssoComplete.updateAssoColor()}"
+						value="Sauvegarder vos couleurs" 
+						class="btn-modif-color"/>
+						
+						</h:form>
 					</div>
 						<!-- Partie Type contenu -->
 					<div class="container bg-config-functionnality">

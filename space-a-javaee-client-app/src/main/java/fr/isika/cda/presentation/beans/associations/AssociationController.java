@@ -119,13 +119,28 @@ public class AssociationController {
 	}
 	
 	public void autoFillPageOne() {
-		assoVM.setLegalName("KakawetFrez");
+		assoVM.setLegalName("L'Empire Noir");
 		assoVM.setRegistrationNumber("552 178 639 00132");
-		assoVM.setDescription("Nous sommes une petite association dédiée à la pratique du 'cacahuète fraise', un sport encore méconnu mais avec de grandes similitudes avec la pétanque. "
-				+ "Le but de notre jeu est très simple. Il vous faut tirer une cacahuète au milieu du terrain de jeu. Munissez-vous de fraises et essayez de toucher la cacahuète ! "
-				+ "Notre dirigeante détient le record absolu avec 46 fraises réussies à la suite. Saurez-vous relever le défi ?");
-		assoVM.setHeadOffice("7 chemin Colette Jacquot, 46813 Merledan");
-		assoVM.setRscNumber("PARIS B 517 403 572");
+		assoVM.setDescription("\"La paix est un mensonge, il n'y a que la passion.\r\n"
+				+ "Par la passion, j'ai la puissance.\r\n"
+				+ "Par la puissance, j'ai le pouvoir.\r\n"
+				+ "Par le pouvoir, j'ai la victoire.\r\n"
+				+ "Par la victoire, je brise mes chaines.\r\n"
+				+ "La Force me libérera. \"\r\n"
+				+ "Si ces mots vous parle au plus profond de vous, vous savez que le coté obscure de la force est le seul chemin possible pour accéder à l'équilibre ultime dans cette galaxie. \r\n"
+				+ "Les Jedi suivent un code d'éthique qui leur impose de respecter la vie, de défendre les innocents et de se battre pour la justice. Mais \"Il n'y a pas de paix, il y a la colère.\r\n"
+				+ "Il n'y a pas de peur, il y a le pouvoir.\r\n"
+				+ "Il n'y a pas de mort, il y a l' immortalité.\r\n"
+				+ "Il n'y a pas de faiblesse, il y a le Côté Obscur. Je suis le cœur de l'Obscurité.\r\n"
+				+ "Je ne connais pas la peur mais je l'instille à mes ennemis.\r\n"
+				+ "Je suis le destructeur de ce monde.\r\n"
+				+ "Je connais le pouvoir du Côté Obscur.\r\n"
+				+ "Je suis le feu de la haine.\r\n"
+				+ "Tout l'univers se prosterne devant moi.\r\n"
+				+ "Je m'engage dans l'Obscurité où j'ai découvert la vraie vie,\r\n"
+				+ "Dans la Mort de la Lumière. \"");
+		assoVM.setHeadOffice("7 Avenue des Sénateurs CORUSCANT 72 802");
+		assoVM.setRscNumber("TATOUINE B 517 403 572");
 		assoVM.setKbisExtract("Path de l'extrait kbis...");
 		assoVM.setDirector("Mme. Brigitte");
 	}

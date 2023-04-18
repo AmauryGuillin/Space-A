@@ -28,6 +28,7 @@
 	width: 47px;
 	margin-bottom: 0;
 	background-color: white;
+	color: black;
 }
 
 #card-front, #card-back {
@@ -56,6 +57,7 @@
 #card-month {
 	width: 40% !important;
 	background-color: white;
+	color: black;
 }
 
 #card-number, #card-holder {
@@ -80,6 +82,7 @@
 	width: 40%;
 	float: right;
 	background-color: white;
+	color: black;
 }
 
 #cardholder-container {

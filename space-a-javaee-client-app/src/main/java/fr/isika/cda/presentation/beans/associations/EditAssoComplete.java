@@ -92,6 +92,20 @@ public class EditAssoComplete {
 		assoRepo.majAsso(asso);
 		return "/dashboardAdmin.xhtml?faces-redirect=true";
 	}
+	
+	public String updateAssoColor() {
+		if (mainImage != null) {
+			asso.getAssociationIdentity().getAssociationDepiction().setMainImage(mainImage);
+		}
+		if (logoImage != null) {
+			asso.getAssociationIdentity().getAssociationDepiction().setLogo(logoImage);
+		}
+		if (kbisExtract != null) {
+			asso.getAssociationIdentity().setKbisExtract(kbisExtract);
+		}
+		assoRepo.majAsso(asso);
+		return "/configSpace.xhtml?faces-redirect=true";
+	}
 
 	public ConfigTypeViewModel getConfigTypeViewModel() {
 		return configTypeViewModel;
