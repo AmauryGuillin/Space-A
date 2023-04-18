@@ -142,7 +142,7 @@ public class AssociationController {
 		assoVM.setHeadOffice("7 Avenue des Sénateurs CORUSCANT 72 802");
 		assoVM.setRscNumber("TATOUINE B 517 403 572");
 		assoVM.setKbisExtract("Path de l'extrait kbis...");
-		assoVM.setDirector("Mme. Brigitte");
+		assoVM.setDirector("Darth Sidious");
 	}
 	
 	public AssociationViewModel getAssoVM() {
