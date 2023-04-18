@@ -42,8 +42,6 @@ public class Event {
 	
 	private String eventType;
 	
-	private Long idUser;
-	
 	@ManyToMany
 	private List<UserAccount> subscribers = new ArrayList<>();
 	
@@ -122,16 +120,5 @@ public class Event {
 		return this.subscribers.add(account);
 	}
 
-
-	public Long getIdUser() {
-		return idUser;
-	}
-
-
-	public void setIdUser(Long idUser) {
-		this.idUser = idUser;
-	}
-	
-	
 
 }

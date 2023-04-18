@@ -81,36 +81,26 @@ public class EditEventController implements Serializable {
 		Long userId = SessionUtils.getLoggedUserIdFromSession();
 		UserAccount user = userRepo.findByOneId(userId);
 		for (Event event : listAllEvent) {
-			if (event.getSubscribers().contains(user)) {
+			if (eventSubscribersContainsUserAccount(event.getSubscribers(), user)) {
 				listReturn.add(event);
 			}
 		}
 		return listReturn;
 	}
 	
-	public List<Event> getUserBookedEventsBckup() {
-		List<Event> listAllEvent = assoRepo.findAllEvent();
-		List<Event> listReturn = new ArrayList<>();
-
-		Long userId = SessionUtils.getLoggedUserIdFromSession();
-		for (Event event : listAllEvent) {
-			if (event.getIdUser() == userId) {
-				listReturn.add(event);
-			}
-		}
-		return listReturn;
+	private boolean eventSubscribersContainsUserAccount(List<UserAccount> subscribers, UserAccount toFind) {
+		return subscribers
+				.parallelStream()
+				.anyMatch(acc -> acc.getUserId().equals(toFind.getUserId()));
 	}
-
 
 	public List<String> getEventRegisteredUsers(Long eventId) {
 		List<Long> registeredUsersIds = assoRepo.findAllUsersRegisteredToOneEvent(eventId);
-		
 		// get the list, stream liste d'infos, map : mappe chaque compte en username, collect transforme en liste
-		List<String> registeredUsersNames = registeredUsersIds.stream()
+		return registeredUsersIds
+				.stream()
 				.map(id -> userRepo.findByOneId(id).getUsername())
 				.collect(Collectors.toList());
-
-		return registeredUsersNames;
 	}
 }
 
