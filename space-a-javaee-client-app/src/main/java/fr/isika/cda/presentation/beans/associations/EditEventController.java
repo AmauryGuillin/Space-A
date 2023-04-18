@@ -87,6 +87,20 @@ public class EditEventController implements Serializable {
 		}
 		return listReturn;
 	}
+	
+	public List<Event> getUserBookedEventsBckup() {
+		List<Event> listAllEvent = assoRepo.findAllEvent();
+		List<Event> listReturn = new ArrayList<>();
+
+		Long userId = SessionUtils.getLoggedUserIdFromSession();
+		for (Event event : listAllEvent) {
+			if (event.getIdUser() == userId) {
+				listReturn.add(event);
+			}
+		}
+		return listReturn;
+	}
+
 
 	public List<String> getEventRegisteredUsers(Long eventId) {
 		List<Long> registeredUsersIds = assoRepo.findAllUsersRegisteredToOneEvent(eventId);

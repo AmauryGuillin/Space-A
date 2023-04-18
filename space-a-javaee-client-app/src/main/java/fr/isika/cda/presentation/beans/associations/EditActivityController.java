@@ -119,14 +119,14 @@ public class EditActivityController implements Serializable {
 				.map(id -> userRepo.findByOneId(id).getUsername())
 				.collect(Collectors.toList());
 
-//		// to be removed
-//		registeredUsersNames.add("test 1");
-//		registeredUsersNames.add("test 1");
-//		registeredUsersNames.add("test 1");
-//		registeredUsersNames.add("test 1");
-//		registeredUsersNames.add("test 1");
-
 		return registeredUsersNames;
+	}
+	
+	public int NbRemainingPlaces(Long activityId){
+		Activity activity = assoRepo.findActivityById(activityId);
+		int resa = getActivityRegisteredUsers(activityId).size();
+		int places = activity.getMaxCapacity() - resa;
+		return places;
 	}
 
 

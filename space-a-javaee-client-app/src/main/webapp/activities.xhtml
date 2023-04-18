@@ -32,8 +32,9 @@
 										</h:outputText>
 									</h4>
 						<p style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}"> #{activity.description} </p>
-						<p style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}"> <em> Nombre de personnes max : #{activity.maxCapacity} </em></p>
+						<p style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}"> 
 						
+						<em> Nombre de places restantes : #{editActivityController.NbRemainingPlaces(activity.id)} / #{activity.maxCapacity}</em></p>
 							<h:form>
 								<div class="text-center">
 									
