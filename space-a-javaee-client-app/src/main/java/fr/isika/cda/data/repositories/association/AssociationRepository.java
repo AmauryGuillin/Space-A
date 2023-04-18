@@ -215,7 +215,11 @@ public class AssociationRepository {
 	public List<Activity> findAllActivities() {
 		return entityManager.createQuery("SELECT a FROM Activity a", Activity.class).getResultList();
 	}
-
+	
+	public List<Activity> findAllActivitiesWithSubscribers() {
+		return entityManager.createQuery("SELECT a FROM Activity a LEFT JOIN FETCH a.subscribers", Activity.class).getResultList();
+	}
+	
 	public void deleteActivity(Long activityId) {
 		Activity activity = findActivityById(activityId);
 		entityManager.remove(activity);
@@ -223,6 +227,12 @@ public class AssociationRepository {
 
 	public Activity findActivityById(Long activityId) {
 		TypedQuery<Activity> query = entityManager.createQuery("SELECT a FROM Activity a WHERE a.id =: id", Activity.class);
+		query.setParameter("id", activityId);
+		return query.getSingleResult();
+	}
+	
+	public Activity findActivityByIdWithSubscribers(Long activityId) {
+		TypedQuery<Activity> query = entityManager.createQuery("SELECT a FROM Activity a LEFT JOIN FETCH a.subscribers WHERE a.id =: id", Activity.class);
 		query.setParameter("id", activityId);
 		return query.getSingleResult();
 	}
@@ -251,6 +261,26 @@ public class AssociationRepository {
 
 			// get the list, stream liste d'infos, map : mappe chaque compte en id, collect transforme en liste
 			return event.getSubscribers().stream().map(UserAccount::getUserId).collect(Collectors.toList());
+
+		} catch (NoResultException e) {
+			// nothing to do
+		}
+		// Dans tous les cas par défaut -> liste vide
+		return Collections.emptyList();
+	}
+
+	
+	public List<Long> findAllUsersRegisteredToOneActivity(Long activityId) {
+		try {
+			TypedQuery<Activity> query = entityManager
+					.createQuery("SELECT a FROM Activity a LEFT JOIN FETCH a.subscribers WHERE a.id = :idAcitivityParam",
+							Activity.class)
+					.setParameter("idAcitivityParam", activityId);
+
+			Activity activity = query.getSingleResult();
+
+			// get the list, stream liste d'infos, map : mappe chaque compte en id, collect transforme en liste
+			return activity.getSubscribers().stream().map(UserAccount::getUserId).collect(Collectors.toList());
 
 		} catch (NoResultException e) {
 			// nothing to do
