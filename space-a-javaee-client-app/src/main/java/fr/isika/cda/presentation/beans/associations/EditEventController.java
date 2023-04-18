@@ -11,6 +11,7 @@ import javax.inject.Inject;
 
 import fr.isika.cda.data.repositories.association.AssociationRepository;
 import fr.isika.cda.data.repositories.users.UserAccountRepository;
+import fr.isika.cda.entities.association.services.Activity;
 import fr.isika.cda.entities.association.services.Event;
 import fr.isika.cda.entities.association.services.Publication;
 import fr.isika.cda.entities.association.services.StuffToRent;
@@ -101,6 +102,15 @@ public class EditEventController implements Serializable {
 				.stream()
 				.map(id -> userRepo.findByOneId(id).getUsername())
 				.collect(Collectors.toList());
+	}
+	
+
+	public boolean alreadyRegistered(Long eventId) {
+		Long userId = SessionUtils.getLoggedUserIdFromSession();
+		UserAccount user = userRepo.findByOneId(userId);
+		Event event = assoRepo.findEventByIdWithSubscribers(eventId);
+
+		return eventSubscribersContainsUserAccount(event.getSubscribers(), user);
 	}
 }
 

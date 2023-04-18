@@ -15,7 +15,8 @@
 					style="color : ##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}">
 					Nos Événements</h1>
 				<br />
-				<ui:repeat value="#{editEventController.allEventsOneAsso}" var="event">
+				<ui:repeat value="#{editEventController.allEventsOneAsso}"
+					var="event">
 
 					<div class="container form-events">
 						<h1
@@ -33,15 +34,17 @@
 										style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">
 										Du
 										<h:outputText value="#{event.startDate}">
-											<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR"/>
+											<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR" />
 										</h:outputText>
 										au
 										<h:outputText value="#{event.endDate}">
-											<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR"/>
+											<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR" />
 										</h:outputText>
 									</h4>
-									<p style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}; font-wight:bold">
-									<b> #{event.eventType}</b>  </p>
+									<p
+										style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}; font-wight:bold">
+										<b> #{event.eventType}</b>
+									</p>
 									<p
 										style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">
 										#{event.description}</p>
@@ -51,10 +54,16 @@
 						<div class="row">
 							<h:form>
 								<div class="text-center">
-									<h:commandButton
-										style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor} ;
+									<ui:fragment
+										rendered="#{!editEventController.alreadyRegistered(event.id)}">
+
+										<h:commandButton
+											style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor} ;
 										color:##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}"
-										class="btn-events" value="Participer à l'événement" action="#{editEventController.bookEvent(event.id)}"/>
+											class="btn-events" value="Participer à l'événement"
+											action="#{editEventController.bookEvent(event.id)}" />
+									</ui:fragment>
+
 								</div>
 
 							</h:form>

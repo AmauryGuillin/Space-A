@@ -140,5 +140,13 @@ public class EditActivityController implements Serializable {
 		return NbRemainingPlaces(activityId)>0;
 	}
 
+	public boolean alreadyRegistered(Long activityId) {
+		Long userId = SessionUtils.getLoggedUserIdFromSession();
+		UserAccount user = userRepo.findByOneId(userId);
+		Activity activity = assoRepo.findActivityByIdWithSubscribers(activityId);
+
+		return activitySubscribersContainsUserAccount(activity.getSubscribers(), user);
+	}
+	
 
 }
