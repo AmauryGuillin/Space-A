@@ -102,13 +102,18 @@ public class EditActivityController implements Serializable {
 
 		for(Activity activity : listAllActivity) {
 			
-			if(activity.getSubscribers().contains(user)) {
+			if(activitySubscribersContainsUserAccount(activity.getSubscribers(), user)) {
 				listReturn.add(activity);
 			}		
 		}
 		return listReturn;
 	}
 
+	private boolean activitySubscribersContainsUserAccount(List<UserAccount> subscribers, UserAccount toFind) {
+		return subscribers
+				.parallelStream()
+				.anyMatch(acc -> acc.getUserId().equals(toFind.getUserId()));
+	}
 	
 	
 	public List<String> getActivityRegisteredUsers(Long activityId) {
@@ -121,6 +126,8 @@ public class EditActivityController implements Serializable {
 
 		return registeredUsersNames;
 	}
+	
+	
 	
 	public int NbRemainingPlaces(Long activityId){
 		Activity activity = assoRepo.findActivityById(activityId);
