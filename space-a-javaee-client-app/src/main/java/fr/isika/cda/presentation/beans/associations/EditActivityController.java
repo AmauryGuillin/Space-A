@@ -135,6 +135,10 @@ public class EditActivityController implements Serializable {
 		int places = activity.getMaxCapacity() - resa;
 		return places;
 	}
+	
+	public boolean remainPlaces(Long activityId) {
+		return NbRemainingPlaces(activityId)>0;
+	}
 
 
 }
