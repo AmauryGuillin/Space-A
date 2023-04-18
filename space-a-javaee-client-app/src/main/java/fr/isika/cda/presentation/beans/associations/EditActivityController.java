@@ -3,6 +3,7 @@ package fr.isika.cda.presentation.beans.associations;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -52,6 +53,7 @@ public class EditActivityController implements Serializable {
 		return listReturn;
 	}
 	
+	
 	public String deleteActivity(Long activityId) {
 		assoRepo.deleteActivity(activityId);
 		return "/dashboardAdminAct.xhtml?faces-redirect=true"; 
@@ -62,12 +64,13 @@ public class EditActivityController implements Serializable {
 		
 		//recup le user co
 		Long userId = SessionUtils.getLoggedUserIdFromSession();
-		
+		UserAccount user = userRepo.findByOneId(userId);
+
 		//recup le matériel pour le modif
 		Activity activity = assoRepo.findActivityById(activityId);
 		
 		//modif le matos
-		activity.setIdUser(userId);
+		activity.addSubscriber(user);
 		
 		//caler le matos en db
 		assoRepo.updateActivity(activity);
@@ -75,19 +78,56 @@ public class EditActivityController implements Serializable {
 	return "/userProfile.xhtml?faces-redirect=true";
 	}
 	
+//	public List<Activity> getUserBookedActivity(){
+//		List <Activity> listAllActivity = assoRepo.findAllActivities();
+//		List <Activity> listReturn = new ArrayList<>();
+//		
+//		Long userId = SessionUtils.getLoggedUserIdFromSession();
+//		
+//		for(Activity activity : listAllActivity) {
+//			
+//			if(activity.getIdUser() == userId) {
+//				listReturn.add(activity);
+//			}		
+//		}
+//		return listReturn;
+//	}
+	
 	public List<Activity> getUserBookedActivity(){
-		List <Activity> listAllActivity = assoRepo.findAllActivities();
+		List <Activity> listAllActivity = assoRepo.findAllActivitiesWithSubscribers();
 		List <Activity> listReturn = new ArrayList<>();
 		
 		Long userId = SessionUtils.getLoggedUserIdFromSession();
-		
+		UserAccount user = userRepo.findByOneId(userId);
+
 		for(Activity activity : listAllActivity) {
 			
-			if(activity.getIdUser() == userId) {
+			if(activity.getSubscribers().contains(user)) {
 				listReturn.add(activity);
 			}		
 		}
 		return listReturn;
 	}
+
+	
+	
+	public List<String> getActivityRegisteredUsers(Long activityId) {
+		List<Long> registeredUsersIds = assoRepo.findAllUsersRegisteredToOneActivity(activityId);
+		
+		// get the list, stream liste d'infos, map : mappe chaque compte en username, collect transforme en liste
+		List<String> registeredUsersNames = registeredUsersIds.stream()
+				.map(id -> userRepo.findByOneId(id).getUsername())
+				.collect(Collectors.toList());
+
+//		// to be removed
+//		registeredUsersNames.add("test 1");
+//		registeredUsersNames.add("test 1");
+//		registeredUsersNames.add("test 1");
+//		registeredUsersNames.add("test 1");
+//		registeredUsersNames.add("test 1");
+
+		return registeredUsersNames;
+	}
+
 
 }

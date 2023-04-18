@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -42,10 +43,10 @@ public class Activity {
 	
 	private String eventType;
 	
-	private Long idUser;
-
-	//private List<UserAccount> registeredList = new ArrayList<>();
-	
+	//private Long idUser;
+	@ManyToMany
+	private List<UserAccount> subscribers = new ArrayList<>();
+		
 	@ManyToOne
 	private Association association;
 
@@ -132,20 +133,24 @@ public class Activity {
 		this.eventType = eventType;
 	}
 
-	public Long getIdUser() {
-		return idUser;
-	}
-
-	public void setIdUser(Long idUser) {
-		this.idUser = idUser;
-	}
-
 	public UserAccount getUserAccount() {
 		return userAccount;
 	}
 
 	public void setUserAccount(UserAccount userAccount) {
 		this.userAccount = userAccount;
+	}
+
+	public List<UserAccount> getSubscribers() {
+		return subscribers;
+	}
+
+	public void setSubscribers(List<UserAccount> subscribers) {
+		this.subscribers = subscribers;
+	}
+	
+	public boolean addSubscriber(UserAccount account) {
+		return this.subscribers.add(account);
 	}
 
 

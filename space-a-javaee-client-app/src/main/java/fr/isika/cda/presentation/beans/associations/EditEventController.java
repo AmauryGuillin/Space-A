@@ -96,13 +96,6 @@ public class EditEventController implements Serializable {
 				.map(id -> userRepo.findByOneId(id).getUsername())
 				.collect(Collectors.toList());
 
-//		// to be removed
-//		registeredUsersNames.add("test 1");
-//		registeredUsersNames.add("test 1");
-//		registeredUsersNames.add("test 1");
-//		registeredUsersNames.add("test 1");
-//		registeredUsersNames.add("test 1");
-
 		return registeredUsersNames;
 	}
 }
