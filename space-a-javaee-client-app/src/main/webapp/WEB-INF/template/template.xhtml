@@ -1,0 +1,211 @@
+<!DOCTYPE html [
+<!ENTITY nbsp "&#160;">  
+<!ENTITY copy "&#169;"> 
+<!ENTITY bull "&#8226;"> ]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en">
+
+<h:head>
+	<title>Spac'A</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	
+
+	<!-- bootstrap core css -->
+
+	<!-- bootstrap prod -->
+	<!-- <h:outputStylesheet library="css" name="bootstrap.min.css" /> -->
+
+	<!-- bootstrap dev -->
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<!-- html template style css -->
+	<h:outputStylesheet library="css" name="template.css" />
+	<h:outputStylesheet library="css" name="home.css" />
+	<h:outputStylesheet library="css" name="updateProfile.css" />
+	<h:outputStylesheet library="css" name="dashboardAdmin.css" />
+	<h:outputStylesheet library="css" name="login.css" />
+	<h:outputStylesheet library="css" name="SubscriptionDisplayPage.css" />
+	<h:outputStylesheet library="css" name="payement.css" />
+	<h:outputStylesheet library="css" name="contact.css" />
+	<h:outputStylesheet library="css" name="viewMember.css" />
+	<h:outputStylesheet library="css" name="events.css" />
+	<h:outputStylesheet library="css" name="associations.css" />
+	<h:outputStylesheet library="css" name="materials.css" />	
+	<h:outputStylesheet library="css" name="activities.css" />	
+	<h:outputStylesheet library="css" name="publications.css" />
+	<h:outputStylesheet library="css" name="eventsIndexAssociation.css" />	
+	<h:outputStylesheet library="css" name="configSpace.css" />	
+
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
+	<!-- font awesome style -->
+	<h:outputStylesheet library="webjars"
+		name="font-awesome/5.12.0/css/all.min-jsf.css" />
+
+	<h:outputStylesheet library="webjars"
+		name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+		
+	<h:outputStylesheet library="css" name="form-create-asso.css"/>
+
+</h:head>
+
+<h:body>
+
+	<div id="navbar-container">
+
+		<div id="header">
+
+			<nav class="navbar navbar-expand-lg fixed-top">
+				
+					<div class="logo logo-spaca">
+						<h:graphicImage library="images" name="logoSpacA.png"></h:graphicImage>
+					</div>
+					
+					<div class="navbar-spaca">
+						<div class="collapse navbar-collapse justify-content-start"
+							id="navbarNav">
+							<h:form>
+								<ul class="navbar-nav">
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.index()}" value="Accueil" /></li>
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.associations()}" value="Les Associations" /></li>
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.contact()}" value="Contact" /></li>
+								</ul>
+							</h:form>
+						</div>
+					</div>
+
+					<div class="logo">	
+						<ui:fragment rendered="#{userLoginController.userLoggedIn}">		
+						<ui:fragment rendered="#{showUserController.oneUser.hasSubscriptions()}">
+								<h:graphicImage library="images" name="#{showUserController.userSelectedAssociation.associationIdentity.associationDepiction.logo}"></h:graphicImage>
+						</ui:fragment>
+						<ui:fragment rendered="#{not showUserController.oneUser.hasSubscriptions()}">
+								<h:graphicImage library="images" name="logo-basic-spaca.png"></h:graphicImage>
+						</ui:fragment>
+					</ui:fragment>
+					</div>
+
+					<div class="navbar-asso">
+					
+						<div class="collapse navbar-collapse justify-content-start"
+							id="navbarNav">
+							
+						<h:form>
+						<ui:fragment rendered="#{userLoginController.userLoggedIn}">	
+							<ul class="navbar-nav">
+							
+							<li class="nav-item">
+							
+							
+							<h:commandLink class="nav-link"
+										action="#{navController.associationIndex()}"
+										value="Accueil 
+										 #{showUserController.userSelectedAssociation.associationIdentity.associationDepiction.name}" /></li>
+								
+								<li class="nav-item"><h:commandLink class="nav-link"
+										action="#{navController.events()}" 
+										value="Événements" /></li>									
+										<li class="nav-item"><h:commandLink class="nav-link"
+										action="#{navController.publications()}" 
+										value="Publications" /></li>
+										
+										<li class="nav-item"><h:commandLink class="nav-link"
+										action="#{navController.materials()}" 
+										value="Matériels" /></li>
+										
+										<li class="nav-item"><h:commandLink class="nav-link"
+										action="#{navController.activities()}" 
+										value="Activités" /></li>					
+							</ul>
+							</ui:fragment>
+						</h:form>
+					</div>
+					</div>
+					
+						<div class="navbar-login">
+						<div class="collapse navbar-collapse justify-content-end"
+							id="navbarNav">
+							<h:form>
+								<ul class="navbar-nav">
+
+
+								<ui:fragment rendered="#{userLoginController.userLoggedIn}">
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{navController.userProfile()}" value="Profil" /></li>
+
+
+									<ui:fragment
+										rendered="#{showUserController.connectedUser().association != null}">
+										<li class="nav-item"><h:commandLink class="nav-link"
+												action="#{navController.dashboardAdmin()}" value="DashBoard" /></li>
+									</ui:fragment>
+
+
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{userLoginController.logout()}" value="Se déconnecter" style="color: #E70A0A"/></li>
+								</ui:fragment>
+
+
+							
+								<ui:fragment
+										rendered="#{userLoginController.userLoggedIn == false}">	
+									<li class="nav-item"><h:commandLink class="nav-link"
+											action="#{navController.login()}" value="Se connecter" style="color: #0DB610"/></li>
+								</ui:fragment>
+
+							</ul>
+							</h:form>
+						
+						</div>
+						
+						
+						
+						</div>
+							<button class="navbar-toggler" type="button"
+							data-bs-toggle="collapse" data-bs-target="#navbarNav"
+							aria-controls="navbarNav" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="bi bi-list"></span>
+					</button>
+					
+				
+			
+			</nav>
+
+		</div>
+
+		<div class="main-content" id="content">
+			<ui:insert name="content">
+                [ici le futur contenu de nos pages]
+         	</ui:insert>
+		</div>
+
+		<div id="footer">
+			<ui:include src="./footer.xhtml">
+			</ui:include>
+		</div>
+
+		<!-- common scripts for templates -->
+		<h:outputScript library="primefaces" name="jquery/jquery.js"
+			target="head" />
+		<h:outputScript library="primefaces" name="jquery/jquery-plugins.js"
+			target="head" />
+
+		<h:outputScript library="js" name="copyright_year.js" />
+		<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+		<h:outputScript library="js" name="login.js" />
+		<h:outputScript library="js" name="registerControll.js" />
+
+	</div>
+</h:body>
+</html>

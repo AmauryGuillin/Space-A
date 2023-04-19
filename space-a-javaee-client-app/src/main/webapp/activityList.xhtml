@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<body>
+			<section>
+				<div class="pourtravail">
+					<h:form>
+						<h:dataTable value="#{editActivityController.allActivities}"
+							var="activity">
+							<h:column>
+								<f:facet name="header">Titre </f:facet>
+								#{activity.title}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Description</f:facet>
+								#{activity.description}
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Date début</f:facet>
+								<h:outputText value="#{activity.startDate}">
+									<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR"/>
+								</h:outputText>
+							</h:column>																
+
+							<h:column>
+								<f:facet name="header">Date fin</f:facet>
+								<h:outputText value="#{activity.endDate}">
+									<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR"/>
+								</h:outputText>
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header">Nombre de places restantes</f:facet>
+								#{editActivityController.NbRemainingPlaces()} / #{activity.maxCapacity}
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header"></f:facet>
+								<ui:fragment rendered="#{activity.idUser == null}">
+								<p:commandButton id="button-reserve" value="Réserver"
+									action="#{editActivityController.bookActivity(activity.id)}"></p:commandButton>
+								</ui:fragment>
+							</h:column>
+	
+
+
+						</h:dataTable>
+							<p:commandButton id="button-validate" value="Retour"
+								action="#{navController.dashboardAdmin()}"></p:commandButton>
+
+
+					</h:form>
+				</div>
+			</section>
+		</body>
+	</ui:define>
+</ui:composition>
+

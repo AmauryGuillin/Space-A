@@ -1,20 +1,109 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html" lang="en">
+	xmlns:h="http://java.sun.com/jsf/html" lang="en"
+	template="/WEB-INF/template/template.xhtml">
 
-<h:head>
-	<title>::Index::</title>
-</h:head>
-<body>
-	<nav>
-		<h:form>
-			<ul>
-				<li><h:link outcome="usersManagement/users.xhtml" value="Users Management" /></li>
-			</ul>
-		</h:form>		
-	</nav>
-	
-</body>
-</html>
+	<ui:define name="content">
+		<h:body class="picture-bg">
+
+
+			<div class="container-fluid">
+
+				<div class="row">
+					<!-- TOP SPACA ! 1/3 -->
+					<div class="top-spaca">
+
+						<h1 class="main-title-spaca">SPAC-A</h1>
+						<h2>L'espace des Associations</h2>
+						<div class="row">
+							<div class="col-md-6 img-index-top">
+								<h:graphicImage class="img-main-top" library="images"
+									name="creerAsso.jpg">
+									<h:form>
+										<ui:fragment rendered="#{userLoginController.userLoggedIn}">
+											<h:commandButton class="btn-create-asso"
+												value="Inscrire mon Association"
+												action="#{navController.createAsso()}"></h:commandButton>
+										</ui:fragment>
+
+										<ui:fragment
+											rendered="#{userLoginController.userLoggedIn == false}">
+											<h:commandButton class="btn-create-asso"
+												value="Inscrire mon Association"
+												action="#{navController.login()}"></h:commandButton>
+										</ui:fragment>
+									</h:form>
+								</h:graphicImage>
+							</div>
+							<div class="col-md-6 img-index-top">
+								<h:graphicImage class="img-main-top" library="images"
+									name="trouverAsso.jpg">
+									<h:form>
+										<ui:fragment rendered="#{userLoginController.userLoggedIn}">
+											<h:commandButton class="btn-create-asso"
+												value="M'inscrire et trouver mon association"
+												action="#{navController.associations()}"></h:commandButton>
+										</ui:fragment>
+										<ui:fragment
+											rendered="#{userLoginController.userLoggedIn == false}">
+											<h:commandButton class="btn-create-asso"
+												value="M'inscrire et trouver mon association"
+												action="#{navController.login()}"></h:commandButton>
+										</ui:fragment>
+									</h:form>
+								</h:graphicImage>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="infoSpace">
+						<h2 style="color: #132d64">Qui sommes-nous ?</h2>
+						<p style="color: #132d64">Bienvenue sur Spac'A, la plateforme qui
+							permet aux associations de s'envoler vers de nouveaux horizons !
+							Spac'A est une association qui met à disposition un site dédié
+							aux associations. Notre mission est de donner aux associations
+							les moyens de créer leur propre espace en ligne où elles peuvent
+							publier des informations sur leurs activités, organiser des
+							événements et mettre à disposition du matériel. <br/>Nous offrons un
+							large éventail de fonctionnalités pour les associations, allant
+							de la création de publications à la planification d'activités, en
+							passant par la mise à disposition de matériel. Les adhérents qui
+							rejoignent l'association peuvent profiter de tous ces services
+							pour rester connectés avec l'actualité de leur association. <br/>Ce
+							qui distingue Spac'A, c'est notre approche visuelle unique. Nous
+							avons choisi une thématique spatiale, avec des fonds d'écran
+							étoilés, pour donner aux associations la sensation d'être
+							propulsées dans l'espace. En plus de cela, nous encourageons les
+							associations à personnaliser leur espace en choisissant des
+							couleurs et des polices qui leur ressemblent. Nous ne voulons pas
+							seulement offrir des fonctionnalités, mais aussi donner aux
+							associations un moyen de se démarquer et de se faire remarquer.
+							<br/><br/>
+							<b>Rejoignez-nous sur Spac'A et partez à la conquête de
+							l'espace des associations !</b></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="catalogue-asso">
+						<h2>Les Associations de la semaine</h2>
+						<div class="row">
+
+							<div class="col-md-4">
+								<div class="asso-card1"></div>
+							</div>
+							<div class="col-md-4">
+								<div class="asso-card2"></div>
+							</div>
+							<div class="col-md-4">
+								<div class="asso-card3"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</h:body>
+	</ui:define>
+</ui:composition>

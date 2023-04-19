@@ -1,0 +1,8 @@
+.event-asso-listing {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.event-asso-listing img {
+	width: 500px;
+}

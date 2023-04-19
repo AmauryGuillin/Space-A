@@ -11,9 +11,24 @@ public final class WebUiTools {
 	
 	private static final Logger LOGGER = Logger.getLogger(WebUiTools.class.getSimpleName());
 	
+	/**
+	 * Redirects to the given view name using the application context path:
+	 * <br>
+	 * Example : 
+	 * <br>
+	 * If viewName = "usersManagement/users.xhtml" <br> 
+	 * => full path will be : 
+	 * <br>
+	 * <b>http://127.0.0.1:8080/space-a-javaee-client-app/</b>usersManagement/users.xhtml
+	 * @param viewName
+	 */
 	public static void redirectToView(final String viewName) {
 		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect(viewName);
+			String fullViewUrl = FacesContext.getCurrentInstance()
+					.getExternalContext()
+					.getRequestContextPath() + viewName;
+			
+			FacesContext.getCurrentInstance().getExternalContext().redirect(fullViewUrl);
 		} catch (IOException e) {
 			LOGGER.severe(String.format("Error redirecting to view : {%s} - {%s}", viewName, e.getMessage()));
 		}	

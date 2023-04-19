@@ -1,0 +1,75 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+			<div class="fond-formulaire">
+				<h:form>
+					<div class="container-form">
+						<h1 class="text-center">Création d'une association</h1>
+						<br></br>
+						<hr></hr>
+						<div class="row">
+							<div class="col-md-6 space">
+								<!-- Partie gauche du formulaire -->
+								<div class="form-group">
+									<h:outputLabel for="legalName" value="Nom Juridique*" />
+									<h:inputText class="form-control" id="legalName"
+										value="#{associationController.assoVM.legalName}" />
+								</div>
+								<div class="form-group">
+									<h:outputLabel for="registrationNumber" value="Numéro Siret*" />
+									<h:inputText class="form-control" id="registrationNumber"
+										value="#{associationController.assoVM.registrationNumber}" />
+								</div>
+								<div class="form-group">
+									<h:outputLabel for="rcsNumber" value="Numéro RCS*" />
+									<h:inputText class="form-control" id="rcsNumber"
+										value="#{associationController.assoVM.rscNumber}" />
+								</div>
+								<div class="form-group">
+									<h:outputLabel for="director" value="Président*" />
+									<h:inputText class="form-control" id="director"
+										value="#{associationController.assoVM.director}" />
+								</div>
+								<div class="form-group">
+									<h:outputLabel for="headOffice" value="Siège Social" />
+									<h:inputText class="form-control" id="headOffice"
+										value="#{associationController.assoVM.headOffice}" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<!-- Partie droite du formulaire -->
+								<div class="form-group">
+									<h:outputLabel for="name" value="Nom" />
+									<h:inputText class="form-control" id="name"
+										value="#{associationController.assoVM.name}" />
+								</div>
+								<div class="form-group">
+									<h:outputLabel for="description" value="Description" />
+									<h:inputTextarea class="form-control descriptionAsso" id="description"
+										value="#{associationController.assoVM.description}" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center my-5 submit-button">
+								<p:commandButton id="button-validate" value="Valider"
+									action="#{associationController.CreateAsso()}"></p:commandButton>
+							</div>
+							<div>
+							<h:commandButton class="admin-autofill" value="Admin-autofill" action="#{associationController.autoFillPageOne()}"></h:commandButton>
+							</div>
+						</div>
+					</div>
+				</h:form>
+			</div>
+
+		</h:body>
+	</ui:define>
+</ui:composition>

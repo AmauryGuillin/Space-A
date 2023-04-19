@@ -1,0 +1,61 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+			<div class="fond-formulaire">
+
+				<div class="container-form">
+					<h1 class="text-center">Création d'un Matériel à emprunter</h1>
+					<br></br>
+					<hr></hr>
+					<h:form>
+						<div class="row">
+							<div class="col-md-6 offset-md-3 space">
+							
+							<div class="form-create-admin">
+							<div class="form-create-listType">
+								<h:selectOneMenu value="#{matosController.matos.rentingType}">
+										<f:selectItem itemLabel="Sélectionnez votre type" itemValue="" />
+										<f:selectItems value="#{matosController.listStuffs}"
+											var="type" itemValue="#{type.nameRentingType}"
+											itemLabel="#{type.nameRentingType}" />
+									</h:selectOneMenu>
+								</div>
+
+									<h:outputLabel for="nom" value="Nom" />
+									<h:inputText class="form-control" id="nomMatos"
+										value="#{matosController.matos.title}" />
+
+									<h:outputLabel for="desc" value="Description" />
+									<h:inputText class="form-control" id="descriptionMatos"
+										value="#{matosController.matos.description}" />
+
+									<h:outputLabel for="desc" value="Durée d'emprunt en jours" />
+									<h:inputText class="form-control" id="duration"
+										value="#{matosController.matos.rentingDuration}" />
+
+							</div>
+							</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 text-center my-5 submit-button">
+									<p:commandButton id="button-validate" value="Valider"
+										action="#{matosController.createMatos()}"></p:commandButton>
+								</div>
+</div>
+					</h:form>							
+						</div>
+
+
+				</div>
+
+
+		</h:body>
+	</ui:define>
+</ui:composition>

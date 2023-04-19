@@ -1,0 +1,286 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+			
+			<!-- Partie Info Asso -->
+			<div class="container bg-info-space">
+				<div class="title-info-space">
+					<h1>Informations Association</h1>
+				</div>
+				<h:form id="associationConfig">
+					<div class="container info">
+						<div class="row">
+							<div class="col-md-4">
+									<b><h:outputLabel value="Nom : " /></b>
+								<hr></hr>
+									<b><h:outputLabel value="Nom Juridique : " /></b>
+								<hr></hr>
+									<b><h:outputLabel value="Numéro Siret : " /></b>
+								<hr></hr>
+									<b><h:outputLabel value="Numéro RCS : " /></b>
+								<hr></hr>
+									<b><h:outputLabel value="Président : " /></b>
+								<hr></hr>
+									<b><h:outputLabel value="Siège Social : " /></b>
+								<hr></hr>
+									<b><h:outputLabel value="Description : " /></b>
+								<hr></hr>
+								<div class="form-group">
+									<h:outputLabel for="Kbis" value="Kbis" class="config-kbis"/>
+									<p:fileUpload skinSimple="true" id="kBisExtractInput"
+										uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
+										chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
+										cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
+										label="Document pdf" mode="advanced"
+										sizeLimit="5000000" fileLimit="1" accept=".pdf"
+										invalidSizeMessage="Le fichier ne doit pas dépasser 5 Mo"
+										listener="#{editAssoComplete.uploadKbisExtract}" class="imgInput" />
+								</div>
+							</div>	
+							<div class="col-md-8">
+							<div>
+								<p:inputText
+									class="input-config-asso"
+									value="#{editAssoComplete.oneAsso.associationIdentity.associationDepiction.name}">
+								</p:inputText>
+							</div>
+							<div>
+								<p:inputText
+									class="input-config-asso"
+									value="#{editAssoComplete.oneAsso.legalName}">
+								</p:inputText>
+							</div>
+							<div>
+								<p:inputText
+									class="input-config-asso"
+									value="#{editAssoComplete.oneAsso.registrationNumber}">
+								</p:inputText>
+							</div>
+							<div>
+								<p:inputText
+									class="input-config-asso"
+									value="#{editAssoComplete.oneAsso.associationIdentity.rscNumber}">
+								</p:inputText>
+							</div>
+							<div>
+								<p:inputText
+									class="input-config-asso"
+									value="#{editAssoComplete.oneAsso.associationIdentity.director}">
+								</p:inputText>	
+							</div>
+							<div>
+								<p:inputText
+									class="input-config-asso"
+									value="#{editAssoComplete.oneAsso.associationIdentity.headOffice}">
+								</p:inputText>	
+							</div>
+							<div>
+								<p:inputTextarea
+									class="config-description"
+									value="#{editAssoComplete.oneAsso.associationIdentity.associationDepiction.description}">
+								</p:inputTextarea>
+							</div>						
+						</div>
+					</div>
+				</div>
+				
+				<div class="position-btn">
+					<h:commandButton 
+					action="#{editAssoComplete.updateAsso()}"
+					value="Sauvegarder votre Personnalisation" 
+					styleClass="btn-modif-config"/>
+				</div>
+			</h:form>
+		</div>
+		<!-- Partie Visuel Asso -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="container bg-config-design">
+						<div class="title-info-space">
+							<h1>Personnalisez le visuel de votre Association</h1>
+						</div>
+					<h:form id="associationDesign">
+					<div class="color-picker">
+					<div class="row">
+						<div class="col-md-4">
+								<div class="title-colorpicker">
+									Couleur Principale <br/> <em> - Titres et Bandeau - </em>
+									</div>
+									<p:colorPicker
+										value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.mainColor}"
+										mode="inline" />
+									<div class="form-group">
+									<div class="title-colorpicker">
+									<h:outputLabel for="logo" value="Logo" class="align-self-end" />
+									</div>
+									<div class="position-center-mainimageandlogoselector">
+									<p:fileUpload skinSimple="true" id="logoInput"
+										uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
+										chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
+										cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
+										label="Choisissez une image" mode="advanced"
+										sizeLimit="5000000" fileLimit="1"
+										accept=".gif,.jpg,.jpeg,.png"
+										invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
+										listener="#{editAssoComplete.uploadLogoImage}" class="imgInput" />
+									</div>
+									</div>
+						</div>
+						<div class="col-md-4">
+							<div class="title-colorpicker">
+								Couleur Secondaire <br/> <em> - Background - </em>
+							</div>
+							<p:colorPicker
+							value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.secondaryColor}"
+							mode="inline" />
+							<div class="form-group">
+							<div class="title-colorpicker">
+									<h:outputLabel for="mainImage" value="Image Principale" class="align-self-end" />
+									</div>
+									<div class="position-center-mainimageandlogoselector">
+									<p:fileUpload skinSimple="true" id="mainImageInput"
+										uploadButtonStyleClass="ui-button-outlined ui-button-secondary"
+										chooseButtonStyleClass="ui-button-outlined ui-button-secondary"
+										cancelButtonStyleClass="ui-button-outlined ui-button-secondary"
+										label="Choisissez une image" mode="advanced"
+										sizeLimit="5000000" fileLimit="1"
+										accept=".gif,.jpg,.jpeg,.png"
+										invalidSizeMessage="L'image ne doit pas dépasser 5 Mo"
+										listener="#{editAssoComplete.uploadMainImage}" class="imgInput" />
+									</div>
+								</div>
+						</div>
+						
+						<div class="col-md-4">
+							<div class="title-colorpicker">
+								Couleur Tertiaire <br/> <em> - Texte - </em>
+							</div>	
+								<p:colorPicker
+									value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.tertiaryColor}"
+									mode="inline" />
+						<div>
+						<div class="title-colorpicker">
+						<h:outputLabel value="Police de Texte"  />
+						</div>
+						<div class="position-center-fontselection">
+						<p:selectOneMenu value="#{editAssoComplete.oneAsso.associationSpace.graphicChart.font}">
+							<f:selectItems value="#{editAssoComplete.fontList}" />
+						</p:selectOneMenu>
+						</div>
+					</div>
+					</div>
+					</div>
+					</div>
+						<h:commandButton 
+						action="#{editAssoComplete.updateAssoColor()}"
+						value="Sauvegarder vos couleurs" 
+						class="btn-modif-color"/>
+						
+						</h:form>
+					</div>
+						<!-- Partie Type contenu -->
+					<div class="container bg-config-functionnality">
+						<h:form>
+							<div class="title-info-space">
+							<h1>Configurez vos types de contenus</h1>
+							</div>
+							
+								<div class="row">
+									<div class="col-md-3">
+										<div class="title-config-enventetc">
+										<b><h:outputLabel for="eventType" value="Événement  " /></b>
+										</div>
+										<div class="bg-event">
+					
+											<h:inputText id="eventType" class="input-config-type"
+												value="#{editAssoComplete.configTypeViewModel.nameEventType}" />
+											<div class="btn-flex">
+											<h:commandButton class="btn-add-type" action="#{editAssoComplete.addEvent}" value="Ajouter" />
+											</div>
+											
+											<h:dataTable class="datatable-type" var="evt" value="#{editAssoComplete.listEvents}">
+												<h:column>
+													<f:facet name="header">Vos types d'événements</f:facet>
+													<hr></hr>
+													#{evt.nameEventType}
+												</h:column>
+										</h:dataTable>
+										
+								  </div>
+								</div>
+								<div class="col-md-3">
+									<div class="title-config-enventetc">
+										<b><h:outputLabel for="publicationType" value="Publication " /></b>
+									</div>
+								<div class="bg-event">
+										<h:inputText id="publicationType" class="input-config-type"
+											value="#{editAssoComplete.configTypeViewModel.namePublicationType}" />
+										<div class="btn-flex">
+										<h:commandButton class="btn-add-type" action="#{editAssoComplete.addPublications()}" value="Ajouter" />
+										</div>
+										<h:dataTable class="datatable-type" var="publi" value="#{editAssoComplete.listPublications}">
+											<h:column>
+											<f:facet name="header">Vos types de publications</f:facet>
+											<hr></hr>
+											#{publi.namePublicationType}
+											</h:column>
+											
+										</h:dataTable>
+								</div>
+								</div>
+								<div class="col-md-3">
+									<div class="title-config-enventetc">
+										<b><h:outputLabel for="stuffType" value="Matériel " /></b>
+									</div>
+									<div class="bg-event">
+										<h:inputText id="stuffType" class="input-config-type"
+											value="#{editAssoComplete.configTypeViewModel.nameStuffType}" /> 
+										<div class="btn-flex">
+										<h:commandButton class="btn-add-type" action="#{editAssoComplete.addStuff()}" value="Ajouter" />
+										</div>
+										<h:dataTable class="datatable-type" var="stuff" value="#{editAssoComplete.listStuffs}">
+										<h:column>
+											<f:facet name="header">Vos types de matériels</f:facet>
+											<hr></hr>
+											#{stuff.nameRentingType}
+										</h:column>
+									</h:dataTable>
+									</div>
+								</div>
+								
+								<!-- Partie Activité à ajouter cf: manuela -->
+								
+							<div class="col-md-3">
+									<div class="title-config-enventetc">
+										<b><h:outputLabel value="Activité " /></b>
+									</div>
+									<div class="bg-event">
+										<h:inputText id="activities" class="input-config-type"
+											value="#{editAssoComplete.configTypeViewModel.nameActivityType}" /> 
+										<div class="btn-flex">
+										<h:commandButton class="btn-add-type" action="#{editAssoComplete.addActivity()}" value="Ajouter" />
+										</div>
+										<h:dataTable  class="datatable-type"  var="ativity" value="#{editAssoComplete.listActivities}">
+										<h:column>
+											<f:facet name="header">Vos types d'activités</f:facet>
+											<hr></hr>
+											#{ativity.nameActivityType}
+										</h:column>
+									</h:dataTable>
+									</div>
+								</div>
+							</div>
+						</h:form>
+					</div>		
+				</div>
+			</div>
+		</h:body>
+	</ui:define>
+</ui:composition>

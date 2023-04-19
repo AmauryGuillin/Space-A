@@ -1,0 +1,69 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<body>
+			<h:body>
+			<div class="fond-associations">
+
+				<h1 class="title-associations">Il y a bien longtemps, dans une galaxie lointaine, très lointaine.... </h1>
+				<h2 class="title-listasso-asso" >Les Associations</h2>
+
+
+				<div class="container-fluid jsp">
+					<ui:repeat value="#{showAssociationController.allAssociations}" var="asso">
+						<div class="row form-associations">
+							
+								<div class="col-md-5 gauche-asso">
+								
+								<h:graphicImage class="img-associations" library="images"
+									name="#{asso.associationIdentity.associationDepiction.mainImage}">
+								</h:graphicImage>
+								</div>
+								<div class="col-md-7 droite-asso">
+								<h4> #{asso.associationIdentity.associationDepiction.name} </h4>
+								<p>#{asso.associationIdentity.associationDepiction.description} </p>
+								<p style="text-align: end"><em>#{asso.associationIdentity.director} </em></p>
+
+
+
+								</div>
+							
+							
+							
+
+
+
+						<div class="row">
+							<h:form>
+								<div class="text-center">
+									<h:column>
+								<f:facet name="header">Redirection</f:facet>
+								<h:commandButton class="btn-fix-association" id="submit"
+									actionListener="#{showAssociationController.attributListner}"
+									action="associationIndexToCatalog">
+									<f:attribute name="value" value="Découvrir #{asso.associationIdentity.associationDepiction.name}" />
+									<f:attribute name="asso" value="#{asso}" />
+								</h:commandButton>
+							</h:column>
+								</div>
+							</h:form>
+						</div>
+					</div>
+					</ui:repeat>
+				</div>
+
+
+
+				</div>
+		</h:body>
+		</body>
+	</ui:define>
+</ui:composition>
+
+

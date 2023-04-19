@@ -2,6 +2,7 @@ package fr.isika.cda.entities.common;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
@@ -12,15 +13,23 @@ public class Address implements Serializable {
 	 */
 	private static final long serialVersionUID = -6200773657260155980L;
 
-	private String lineOne;
-	private String lineTwo;
-
-	private String zipCode;
-
-	private String city;
-
-	private String state;
-	private String country;
+	@Column(length = 255, nullable = true, unique = false)
+	private String lineOne = "";
+	
+	@Column(length = 255,nullable = true, unique = false)
+	private String lineTwo = "";
+	
+	@Column(length = 10,nullable = true, unique = false)
+	private String zipCode = "";
+	
+	@Column(length = 50, nullable = true, unique = false)
+	private String city = "";
+	
+	@Column(length = 50, nullable = true, unique = false)
+	private String state = "";
+	
+	@Column(length = 50, nullable = true, unique = false)
+	private String country = "";
 
 	/**
 	 * Creates a default instance of {@link Address} with null properties.
@@ -91,4 +100,31 @@ public class Address implements Serializable {
 		return country;
 	}
 
+
+
+	public void setLineOne(String lineOne) {
+		this.lineOne = lineOne;
+	}
+
+	public void setLineTwo(String lineTwo) {
+		this.lineTwo = lineTwo;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	
 }

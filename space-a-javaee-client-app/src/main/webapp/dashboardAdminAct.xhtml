@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" lang="en">
+
+<h:outputStylesheet library="css" name="style.css" />
+
+<ui:composition template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+			<div class="dashboard-admin">
+				<h:form id="dashboardAdminForm">
+					<div class="row">
+						<div class="titles-dashbord">
+							<h1>#{userLoginController.displayUserUsername()}</h1>
+							<h2>Bienvenue sur votre tableau de bord</h2>
+							<h3>Espace de
+								#{showUserController.associationSelected.legalName}</h3>
+							<p:separator />
+						</div>
+					</div>
+					<div class="row">
+						<div class="btn-config">
+							<h:commandButton class="btn-configSpace" id="configEspace"
+								value="Configuration Espace"
+								action="#{navController.configSpace()}" />
+						</div>
+						<div class="btn-dashbord-admin">
+
+
+							<h:commandButton class="btn-dashbord-action-list" id="adherents"
+								value="Nos adhérents" action="#{navController.dashboardAdmin()}" />
+							<h:commandButton class="btn-dashbord-action-list" id="activites"
+								value="Nos activités"
+								action="#{navController.dashboardAdminAct()}" />
+							<h:commandButton class="btn-dashbord-action-list" id="materiels"
+								value="Nos matériels"
+								action="#{navController.dashboardAdminStuff()}" />
+							<h:commandButton class="btn-dashbord-action-list" id="events"
+								value="Nos événements"
+								action="#{navController.dashboardAdminEvt()}" />
+							<h:commandButton class="btn-dashbord-action-list" id="publi"
+								value="Nos publications"
+								action="#{navController.dashboardAdminPub()}" />
+
+						</div>
+					</div>
+					<div class="row d-flex justify-content-center align-items-center">
+						<div class="btn-dashbord-admin-create">
+							<h:commandButton class="btn-dashbord-action-create"
+								id="activityCreation" value="Créer une activité"
+								action="#{navController.creationActivity()}" />
+							<h:commandButton class="btn-dashbord-action-create"
+								id="matosCreation" value="Créer un matériel"
+								action="#{navController.creationMatos()}" />
+							<h:commandButton class="btn-dashbord-action-create"
+								id="evenementsCreation" value="Créer un événement"
+								action="#{navController.creationEvent()}" />
+							<h:commandButton class="btn-dashbord-action-create"
+								id="publicationCreation" value="Créer une publication"
+								action="#{navController.creationPubli()}" />
+						</div>
+					</div>
+					<div class="row d-flex justify-content-center">
+						<div class="create-edite-delete">
+							<div class="members-list">
+								<h3 class="text-center">LISTE DES ACTIVITÉS</h3>
+								<hr />
+								<div class="section-table">
+									<h:form>
+										<h:dataTable class="data-table"
+											value="#{editActivityController.allActivitiesOneAsso}"
+											cellpadding="15" cellspacing="10" var="activity">
+											<h:column>
+												<f:facet name="header">Titre </f:facet>
+												#{activity.title}
+											</h:column>
+											<h:column>
+												<f:facet name="header">Description</f:facet>
+												#{activity.description}
+											</h:column>
+											<h:column>
+												<f:facet name="header">Date début</f:facet>
+												#{activity.startDate}
+											</h:column>
+											<h:column>
+												<f:facet name="header">Date fin</f:facet>
+												#{activity.endDate}
+											</h:column>
+											<h:column>
+												<f:facet name="header">Nombre de personnes max</f:facet>
+												#{activity.maxCapacity}
+											</h:column>
+
+											<h:column>
+												<f:facet name="header">Liste des inscrits</f:facet>
+												<ui:fragment
+													rendered="#{editActivityController.getActivityRegisteredUsers(activity.id).isEmpty()}">
+													Aucun inscrit
+												</ui:fragment>
+												<ui:fragment
+													rendered="#{not editActivityController.getActivityRegisteredUsers(activity.id).isEmpty()}">
+													<ui:repeat
+														value="#{editActivityController.getActivityRegisteredUsers(activity.id)}"
+														var="list">
+														<div>#{list}</div>
+													</ui:repeat>
+												</ui:fragment>
+											</h:column>
+
+											<h:column>
+												<f:facet name="header"></f:facet>
+												<h:commandButton id="button-validate" value="Supprimer"
+													class="btn-delete-admin"
+													action="#{editActivityController.deleteActivity(activity.id)}"></h:commandButton>
+											</h:column>
+										</h:dataTable>
+									</h:form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</h:form>
+			</div>
+		</h:body>
+	</ui:define>
+</ui:composition>
+</html>

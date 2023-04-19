@@ -1,0 +1,178 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<body>
+			<section>
+				<div class="pourtravail">
+		<h:form id="usersManagementTableForm">
+			<p:growl id="msgs" showDetail="true"/>
+			
+			<p:toolbar>
+	            <p:toolbarGroup>
+	                <p:commandButton value="New" icon="pi pi-plus" actionListener="#{createUserBean.openNew}"
+	                    update=":dialogs:manage-user-accounts-content" oncomplete="PF('manageUserAccountDialog').show()"
+	                    styleClass="ui-button-success" style="margin-right: .5rem">
+	                    <p:resetInput target=":dialogs:manage-user-accounts-content" />
+	                </p:commandButton>
+	            </p:toolbarGroup>
+        	</p:toolbar>
+			
+		    <div class="card">
+		        <h5>Row Editing</h5>
+				<p:dataTable id="users-dt" widgetVar="dtUsers" var="user" value="#{usersManagementBean.users}"
+            			reflow="true" styleClass="users-table" selection="#{usersManagementBean.selectedUsers}"
+            			rowKey="#{user.userId}" paginator="true" rows="10" rowSelectMode="add" paginatorPosition="bottom" style="margin-bottom:20px"
+            			editable="true" >
+		            <f:facet name="header">
+		                <div class="users-table-header">
+		                    <span style="font-weight: bold">User accounts</span>
+		                    <span class="filter-container ui-input-icon-left"> <i class="pi pi-search"></i>
+		                        <p:inputText id="globalFilter" onkeyup="PF('dtUsers').filter()" placeholder="Search" />
+		                    </span>
+		                </div>
+		            </f:facet>
+					
+		            <p:ajax event="rowEdit" listener="#{usersManagementBean.onRowEdit}" update=":usersManagementTableForm:msgs"/>
+		            <p:ajax event="rowEditCancel" listener="#{usersManagementBean.onRowCancel}" update=":usersManagementTableForm:msgs"/>
+		            
+		            <p:column headerText="User Id" sortBy="#{user.userId}" filterBy="#{user.userId}">
+                		<h:outputText value="#{user.userId}" />
+            		</p:column>
+		            
+		            <p:column headerText="Username">
+		                <p:cellEditor>
+		                    <f:facet name="output">
+		                        <h:outputText value="#{user.username}"/>
+		                    </f:facet>
+		                    <f:facet name="input">
+		                        <p:inputText id="modelInput" value="#{user.username}" style="width:100%"/>
+		                    </f:facet>
+		                </p:cellEditor>
+		            </p:column>
+		
+		            <p:column headerText="Role">
+		                <p:cellEditor>
+		                    <f:facet name="output"><h:outputText value="#{user.primaryRole}"/></f:facet>
+		                    <f:facet name="input">
+		                        <h:selectOneMenu value="#{user.primaryRole}" style="width:100%">
+		                            <f:selectItems value="#{usersManagementBean.userRoles()}" var="role"
+		                                           itemLabel="#{role.label}" itemValue="#{role}"/>
+		                        </h:selectOneMenu>
+		                    </f:facet>
+		                </p:cellEditor>
+		            </p:column>
+		
+		            <p:column style="width:6rem">
+		                <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+		            </p:column>
+		        </p:dataTable>
+		    </div>
+		</h:form>
+		
+		  <h:form id="dialogs">
+        		<p:dialog header="User Account Details" showEffect="fade" modal="true" widgetVar="manageUserAccountDialog" >
+        		
+	            <p:outputPanel id="manage-user-accounts-content" rendered="#{not empty createUserBean.userCreationForm}">
+        			<div class="card">
+	                	<p:panelGrid columns="4"
+		                	columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4" layout="grid"
+		                 	styleClass="ui-panelgrid-blank ui-fluid" style="border:0px none; background-color:transparent;">
+							<style>
+								body .ui-panelgrid .ui-panelgrid-cell {
+									background-color: transparent;
+								}
+							
+								.my-heading-row {
+									background-color: var(- -surface-c);
+									font-weight: bold;
+								}
+							</style>
+							<p:row styleClass="my-heading-row">User account details</p:row>
+	                       	
+	                       	<p:outputLabel for="@next">Username</p:outputLabel>
+	                        <p:inputText id="username" value="#{createUserBean.userCreationForm.username}" required="true" />
+	                        
+	                        <p:outputLabel for="@next">Password</p:outputLabel>
+	                        <p:password id="password" value="#{createUserBean.userCreationForm.password}" required="true" />
+	                        
+	                        <p:outputLabel for="@next">Role</p:outputLabel>
+	                        <p:selectOneMenu id="userRole" required="true">
+	                            <f:selectItem itemLabel="-- Role --" itemValue="" noSelectionOption="true"/>
+	                            <f:selectItems value="#{usersManagementBean.userRoles()}" var="role" itemLabel="#{role.label}" itemValue="#{role}" />
+	                        </p:selectOneMenu>
+	                        
+	                        <p:column></p:column>
+	                        <p:column></p:column>
+	                        
+	                        <p:outputLabel for="@next">Contact email</p:outputLabel>
+	                        <p:inputText id="contactEmail" value="#{createUserBean.userCreationForm.contactEmail}" required="true" />
+		                    
+		                    <!-- optional fields -->
+		                    <p:row id="profile-row-id" styleClass="my-heading-row" style="font-weight: bold">User profile details</p:row>
+	                        
+	                        <p:outputLabel for="@next">First Name</p:outputLabel>
+	                        <p:inputText id="firstName" value="#{createUserBean.userCreationForm.username}" required="true" />
+	                        
+	                        <p:outputLabel for="@next">Last Name</p:outputLabel>
+	                        <p:inputText id="lastName" value="#{createUserBean.userCreationForm.username}" required="true" />
+                    
+		                    <p:row id="contact-row-id" styleClass="my-heading-row" style="font-weight: bold">User contact details</p:row>
+	                       
+	                        <p:outputLabel for="@next">Phone (country code)</p:outputLabel>
+	                        <p:inputText id="countryCodeInput" value="#{createUserBean.userCreationForm.countryCode}" size="5" />
+	                       
+	                        <p:outputLabel for="@next">Phone (number)</p:outputLabel>
+	                        <p:inputText id="phoneInput" value="#{createUserBean.userCreationForm.phoneNumber}" />
+	                       
+	                        <p:outputLabel for="@next">Address Line One</p:outputLabel>
+	                        <p:inputText id="addressLineOne" value="#{createUserBean.userCreationForm.addressLineOne}" />
+	                       
+	                        <p:outputLabel for="@next">Address Line Two</p:outputLabel>
+	                        <p:inputText id="addressLineTwo" value="#{createUserBean.userCreationForm.addressLineTwo}" />
+	                       
+	                        <p:outputLabel for="@next">Zip Code</p:outputLabel>
+	                        <p:inputText id="addressZipCode" value="#{createUserBean.userCreationForm.addressZipCode}" />
+	                       
+	                        <p:outputLabel for="@next">City</p:outputLabel>
+	                        <p:inputText id="addressCity" value="#{createUserBean.userCreationForm.addressCity}" />
+	                       
+	                        <p:outputLabel for="@next">State</p:outputLabel>
+	                        <p:inputText id="addressState" value="#{createUserBean.userCreationForm.addressState}" />
+	                       
+	                        <p:outputLabel for="@next">Country</p:outputLabel>
+	                        <p:inputText id="addressCountry" value="#{createUserBean.userCreationForm.addressCountry}" />
+
+							<p:row>
+								<p:column styleClass="ui-grid-col-12">
+									<p:commandButton value="Save" icon="pi pi-check"
+										actionListener="#{createUserBean.create()}"
+										update="manage-user-accounts-content"
+										process="manage-user-accounts-content @this" styleClass="mr-2"
+										style="width: auto" />
+									<p:commandButton value="Cancel" icon="pi pi-times"
+										onclick="PF('manageUserAccountDialog').hide()"
+										class="ui-button-secondary" type="button" styleClass="mr-2"
+										style="width: auto" />
+								</p:column>
+							</p:row>
+						</p:panelGrid>
+                     </div>
+	            </p:outputPanel>
+        	</p:dialog>
+
+	        <p:confirmDialog global="true" showEffect="fade" width="300">
+	            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+	            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary" icon="pi pi-times" />
+	        </p:confirmDialog>
+    </h:form>
+				</div>
+			</section>
+		</body>
+	</ui:define>
+</ui:composition>

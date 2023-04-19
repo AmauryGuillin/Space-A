@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<body>
+			<section>
+				<div class="pourtravail">
+					<h:form>
+						<h:dataTable value="#{editEventController.allEvent}"
+							var="event">
+							<h:column>
+								<f:facet name="header">Titre </f:facet>
+								#{event.title}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Description</f:facet>
+								#{event.description}
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Date début</f:facet>
+								#{event.startDate}
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Date fin</f:facet>
+								#{event.endDate}
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header"></f:facet>
+								<p:commandButton id="button-reserve" value="M'inscrire"
+									action="#{editEventController.bookEvent(event.id)}"></p:commandButton>
+								
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header"></f:facet>
+								<p:commandButton id="button-validate" value="Supprimer"
+									action="#{editEventController.deleteEvent(event.id)}"></p:commandButton>
+							</h:column>
+
+
+						</h:dataTable>
+							<p:commandButton id="button-validate" value="Retour"
+								action="#{navController.dashboardAdmin()}"></p:commandButton>
+
+
+					</h:form>
+				</div>
+			</section>
+		</body>
+	</ui:define>
+</ui:composition>
+

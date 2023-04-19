@@ -1,0 +1,80 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+			<div class=" fond-events"
+				style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor}">
+
+				<h1 class="title-events"
+					style="color : ##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}">
+					Nos Événements</h1>
+				<br />
+				<ui:repeat value="#{editEventController.allEventsOneAsso}"
+					var="event">
+
+					<div class="container form-events">
+						<h1
+							style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">#{event.title}</h1>
+						<div class="row">
+							<div class="col-md-5 gauche-events">
+
+								<h:graphicImage class="img-events" library="images"
+									name="#{event.imgEvent}"></h:graphicImage>
+
+							</div>
+							<div class="col-md-7 droite-events">
+								<div class="col-md-12">
+									<h4
+										style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">
+										Du
+										<h:outputText value="#{event.startDate}">
+											<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR" />
+										</h:outputText>
+										au
+										<h:outputText value="#{event.endDate}">
+											<f:convertDateTime pattern="dd MMM yyyy" locale="fr_FR" />
+										</h:outputText>
+									</h4>
+									<p
+										style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}; font-wight:bold">
+										<b> #{event.eventType}</b>
+									</p>
+									<p
+										style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">
+										#{event.description}</p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<h:form>
+								<div class="text-center">
+									<ui:fragment
+										rendered="#{!editEventController.alreadyRegistered(event.id)}">
+
+										<h:commandButton
+											style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor} ;
+										color:##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}"
+											class="btn-events" value="Participer à l'événement"
+											action="#{editEventController.bookEvent(event.id)}" />
+									</ui:fragment>
+
+								</div>
+
+							</h:form>
+
+						</div>
+					</div>
+				</ui:repeat>
+
+
+			</div>
+		</h:body>
+	</ui:define>
+</ui:composition>
+

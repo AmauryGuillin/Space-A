@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+			<div class="container-fluid c-main">
+				<div class="subscription-content">
+					<div class="subscription-card">
+					<div class="sub-title">
+						#{assoAdminSubscriptionController.adminSubDetails.title}
+					</div>
+					<div class="sub-description">
+						<p>#{assoAdminSubscriptionController.adminSubDetails.description}</p>
+					</div>
+					<div class="sub-price">
+						#{assoAdminSubscriptionController.adminSubDetails.price}€
+					</div>
+					<div class="sub-btn">
+						<em>*profitez du premier mois gratuit !</em> 
+						<h:form>
+						<h:commandButton class="btn-payementOne" value="S'abonner" action="#{navController.payement()}"/>
+						</h:form>
+					</div>
+					</div>
+				</div>
+			</div>
+		</h:body>
+	</ui:define>
+</ui:composition>

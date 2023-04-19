@@ -1,0 +1,117 @@
+
+
+body{
+	background: url("#{resource['images/bg-ciel.png']}");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* .picture-bg {
+	
+} */
+
+/*NavBar*/
+
+.navbar{
+    background-color: #FFFFFF;
+    font-size: 1rem;
+    min-height: 100px;
+}
+
+.navbar-spaca{
+	min-width:300px 
+}
+
+.logo-spaca{
+	margin-left : 40px;
+	margin-right: 40px;
+}
+
+.navbar-asso{
+float: left;
+width: 75%;
+}
+
+.navbar-login{
+	margin-right: 50px;
+	min-width: 300px
+}
+
+.nav-link{
+    font-family: 'Open Sans', sans-serif;
+    color: #1A3EB8;
+}
+
+.logo img{
+    height: 80px;
+}
+
+.nav-link{
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-link::after{
+	content: '';
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 100%;
+    height: 3px;
+    background: #1A3EB8;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.nav-link:hover:after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+
+/*Contain*/
+.main-content{
+	min-height: 100vh;
+	margin-top: 100px;
+	padding : 0;
+	display:flex;
+	justify-content: center;
+}
+
+
+.pourtravail{
+	background-color: white;
+	height: fit-content; 
+	width: 1000px;
+
+}
+
+.window {
+	background: #ffffff8c;
+}
+
+/*element*/
+
+
+
+/*.index_section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 45px 0;
+  text-align: center;
+  background-color: #3b4a6b;
+  color: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+}*/

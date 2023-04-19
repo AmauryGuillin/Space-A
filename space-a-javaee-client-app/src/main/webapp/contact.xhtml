@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" lang="en">
+
+<ui:composition template="/WEB-INF/template/template.xhtml">
+	
+	<ui:define name="content">
+		<h:body>
+		
+	
+		<div class="container form-contact">
+		<h1>Contactez-nous </h1>
+		<div class="row">
+		<div class="col-md-6 gauche-contact">
+
+			<h:graphicImage class="img-contact" library="images"
+				name="img-astronaute-contact.png"></h:graphicImage>
+
+		</div>
+		<div class="col-md-6 droite-contact">
+			
+			
+			<div>
+			<i class="fa fa-fw fa-user" aria-hidden="true"></i>
+			<p:outputLabel value="Nom :" />
+			<p:inputText class="input-contact"  
+				value="" a:placeholder="Entrez votre nom" />
+		</div>
+		<div>
+		<i class="fa fa-fw fa-envelope" aria-hidden="true"></i>
+			<p:outputLabel value="Email :" />
+			<p:inputText
+				value="" a:placeholder="Entrez votre email"  />
+		</div>
+		<div>
+		
+			<p:outputLabel value="Message :" />
+			<p:inputTextarea rows="10" a:placeholder="Tapez votre message" />
+		</div>	
+			
+			
+			<h:form>
+			
+			<div class="text-center">
+			<h:commandButton class="btn-contact" action="#{navController.contact()}" value="Envoyez"/>
+			</div>
+			</h:form>
+		</div>
+		
+		
+		
+		</div>
+		
+		</div>
+		
+		
+		
+		
+		
+		
+
+			
+		</h:body>
+	</ui:define>
+</ui:composition>
+</html>

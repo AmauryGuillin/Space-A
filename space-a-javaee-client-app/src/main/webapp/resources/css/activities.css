@@ -1,0 +1,70 @@
+
+.fond-activities {
+	width: 100vw;
+}
+
+.jsp {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+
+.form-activities {
+	background-color: rgba(253, 253, 253, 0.74);
+	border-radius: 20px;
+	margin-bottom: 2rem;
+	margin: 20px;
+	width: 400px;
+	flex-basis: 25%;
+}
+
+.title-activities {
+	text-align: center;
+	margin: 1rem;
+	font-size: 3rem;
+	font-weight: bold;
+}
+.form-activities h2{
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bold;
+	margin: 1rem;
+}
+
+.form-activities h3{
+	text-align: center;
+	font-size: 1.5rem;
+	margin: 0.7rem;
+}
+
+.form-activities h4{
+	text-align: center;
+	font-size: 1.2rem;
+	margin: 0.7rem;
+}
+
+.form-activities p{
+	text-align: justify;
+	font-size: 1rem;
+	margin: 0.5rem;
+}
+
+.box-activities {
+	padding-right: 50px;
+	padding-left: 50px;
+	margin-top:20px;
+}
+
+.btn-activities {
+	height: 40px;
+	min-width: 50%;
+	border-radius: 15px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 1em;
+	transition: 0.5s;
+	text-align: center;
+	margin-top: 1rem;
+}

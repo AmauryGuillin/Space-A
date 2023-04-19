@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" lang="en"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+			<div class=" fond-publi"
+				style="background-color:##{showUserController.associationSelected.associationSpace.graphicChart.secondaryColor}">
+
+				<h1 class="title-publi"
+					style="color : ##{showUserController.associationSelected.associationSpace.graphicChart.mainColor}">
+					Nos Publications</h1>
+				<br />
+				<ui:repeat value="#{editPublicationController.allPubliOneAsso}" var="publi">
+
+					<div class="container form-publi">
+						<h1
+							style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">
+							#{publi.title}</h1>
+							<p id="type-publi" style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}; font-wight:bold">
+									<b> #{publi.publicationType}</b>  </p>
+						<div class="row">
+							<div class="col-md-5 gauche-publi">
+
+								<h:graphicImage class="img-publi" library="images"
+									name="#{publi.imagePath}"></h:graphicImage>
+
+							</div>
+							<div class="col-md-7 droite-publi">
+								<div class="col-md-12">
+									
+									
+									<p style="color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}">
+										#{publi.description}</p>
+									<p style="text-align: end; color:##{showUserController.associationSelected.associationSpace.graphicChart.tertiaryColor}"><em>#{publi.author} </em></p>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</ui:repeat>
+
+
+			</div>
+		</h:body>
+	</ui:define>
+</ui:composition>
+
